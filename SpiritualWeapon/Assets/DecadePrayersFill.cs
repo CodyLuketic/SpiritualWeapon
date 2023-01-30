@@ -32,21 +32,20 @@ public class DecadePrayersFill : MonoBehaviour
     private Image rLargeBead = null;
 
     [SerializeField]
-    private Color crossColor;
-    [SerializeField]
     private Color outlineColor;
     [SerializeField]
     private Color beadColor;
 
     [SerializeField]
-    private float crossTime = 0.1f;
-    [SerializeField]
     private float largeBeadTime = 0.1f;
-
     [SerializeField]
     private float smallBeadTime = 0.1f;
     [SerializeField]
+    private float resetTime = 0.1f;
+    [SerializeField]
     private float increment = 0.1f;
+    [SerializeField]
+    private float deincrement = 0.1f;
 
     //private float r;
     //private float g;
@@ -56,6 +55,30 @@ public class DecadePrayersFill : MonoBehaviour
     private void Start()
     {
         outline.color = outlineColor;
+        StartCoroutine(Fill());
+    }
+
+    public void ResetDecade() {
+        StopAllCoroutines();
+        StartCoroutine(ResetDecadeHelper());
+    }
+
+    private IEnumerator ResetDecadeHelper() {
+        while(lLargeBead.color.a > 0) {
+            ColorReset(lLargeBead, beadColor);
+            ColorReset(smallBead1, beadColor);
+            ColorReset(smallBead2, beadColor);
+            ColorReset(smallBead3, beadColor);
+            ColorReset(smallBead4, beadColor);
+            ColorReset(smallBead5, beadColor);
+            ColorReset(smallBead6, beadColor);
+            ColorReset(smallBead7, beadColor);
+            ColorReset(smallBead8, beadColor);
+            ColorReset(smallBead9, beadColor);
+            ColorReset(smallBead10, beadColor);
+            ColorReset(rLargeBead, beadColor);
+            yield return new WaitForSeconds(resetTime);
+        }
         StartCoroutine(Fill());
     }
 
@@ -203,6 +226,8 @@ public class DecadePrayersFill : MonoBehaviour
         }
 
         Debug.Log("Completed rLargeBead");
+
+        ResetDecade();
     }
 
     private void ColorChange(Image img, Color col) {
@@ -226,10 +251,32 @@ public class DecadePrayersFill : MonoBehaviour
         }
         */
 
-        if(a < 1) {
-            a += increment;
+        a += increment;
+        img.color = new Color(col.r, col.g, col.b, a);
+    }
+
+    private void ColorReset(Image img, Color col) {
+        /*
+        if(r < col.r) {
+            r += increment;
+        } else if(r > col.r) {
+            r -= increment;
         }
 
+        if(g < col.g) {
+            g += increment;
+        } else if(g > col.g) {
+            g -= increment;
+        }
+
+        if(b < col.b) {
+            b += increment;
+        } else if(b > col.b) {
+            b -= increment;
+        }
+        */
+
+        a -= deincrement;
         img.color = new Color(col.r, col.g, col.b, a);
     }
 }

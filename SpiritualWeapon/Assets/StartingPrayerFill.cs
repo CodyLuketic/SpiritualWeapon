@@ -30,7 +30,6 @@ public class StartingPrayerFill : MonoBehaviour
     private float crossTime = 0.1f;
     [SerializeField]
     private float largeBeadTime = 0.1f;
-
     [SerializeField]
     private float smallBeadTime = 0.1f;
     [SerializeField]
@@ -142,10 +141,7 @@ public class StartingPrayerFill : MonoBehaviour
         }
         */
 
-        if(a < 1) {
-            a += increment;
-        }
-
+        a += increment;
         img.color = new Color(col.r, col.g, col.b, a);
     }
 }
