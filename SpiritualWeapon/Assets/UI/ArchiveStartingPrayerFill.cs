@@ -2,22 +2,52 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StartingPrayerFill : MonoBehaviour
+public class ArchiveStartingPrayerFill : MonoBehaviour
 {
     [SerializeField]
     private Image cross = null, outline = null, lLargeBead = null,
         lSmallBead = null, mSmallBead = null, rSmallBead = null, rLargeBead = null;
 
     [SerializeField]
-    private Color crossColor, beadColor, completedColor;
+    private Color crossColor, /*outlineColor,*/ beadColor, completedColor;
 
     [SerializeField]
-    private float crossTime = 0.1f, largeBeadTime = 0.1f, smallBeadTime = 0.1f,
+    private float crossTime = 0.1f, /*outlineTime = 0.1f,*/ largeBeadTime = 0.1f, smallBeadTime = 0.1f,
         resetTime = 0.1f, completedTime = 0.05f, increment = 0.1f;
 
     private float r, g, b, a;
 
     private bool changed = false;
+
+    //private bool ended = false;
+
+    /*
+    public void OutlineFill() {
+        StartCoroutine(OutlineFillHelper());
+    }
+    private IEnumerator OutlineFillHelper() {
+        outline.color = outlineColor;
+
+        //r = cross.color.r;
+        //g = cross.color.g;
+        //b = cross.color.b;
+        a = outline.color.a;
+
+        while(outline.color.a < 0.8) {
+            ColorChange(outline, outlineColor);
+            yield return new WaitForSeconds(outlineTime);
+        }
+    }
+    */
+
+    /*
+    private void Update() {
+        if(ended) {
+            StartCoroutine(FillHelper());
+            ended = false;
+        }
+    }
+    */
 
     public void Reset() {
         StopAllCoroutines();
@@ -139,6 +169,7 @@ public class StartingPrayerFill : MonoBehaviour
 
         Debug.Log("Completed rLargeBead");
 
+        //ResetStart();
         Reset();
     }
 
@@ -199,4 +230,13 @@ public class StartingPrayerFill : MonoBehaviour
         }
         img.color = new Color(r, g, b, a);
     }
+
+    /*
+    public Image GetOutline() {
+        return GetOutlineHelper();
+    }
+    private Image GetOutlineHelper() {
+        return outline;
+    }
+    */
 }
