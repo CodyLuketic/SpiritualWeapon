@@ -42,16 +42,7 @@ public class StartingPrayerFill : MonoBehaviour
         StartCoroutine(FillHelper());
     }
     private IEnumerator FillHelper() {
-        r = cross.color.r;
-        g = cross.color.g;
-        b = cross.color.b;
-        a = cross.color.a;
-
-        while(!changed) {
-            ColorChange(cross, crossColor);
-            yield return new WaitForSeconds(crossTime);
-        }
-        changed = false;
+        yield return new WaitForSeconds(crossTime);
 
         cross.CrossFadeColor(completedColor, completedTime, false, false);
         yield return new WaitForSeconds(completedTime);

@@ -12,6 +12,6 @@ public class RosaryCanvas : MonoBehaviour
     private bool started = false;
 
     private void Start() {
-        startFill.Fill();
+        decadeFill.Fill();
     }
 }

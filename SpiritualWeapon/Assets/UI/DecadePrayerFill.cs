@@ -11,268 +11,285 @@ public class DecadePrayerFill : MonoBehaviour
         smallBead10 = null, rLargeBead = null;
 
     [SerializeField]
-    private Color outlineColor, beadColor, completedColor;
+    private Color beadColor, completedColor;
 
     [SerializeField]
-    private float outlineTime = 0.1f, largeBeadTime = 0.1f, smallBeadTime = 0.1f, resetTime = 0.1f,
-        increment = 0.1f, deincrement = 0.1f;
+    private float largeBeadTime = 0.1f, smallBeadTime = 0.1f,
+        resetTime = 0.1f, completedTime, increment = 0.1f;
+    
+    private float r, g, b, a;
 
-    //private float r, g, b;
-    private float a;
+    private bool changed = false;
 
-    //private bool ended = false;
-
-    public void OutlineFill() {
-        StartCoroutine(OutlineFillHelper());
-    }
-    private IEnumerator OutlineFillHelper() {
-        outline.color = outlineColor;
-        
-        //r = cross.color.r;
-        //g = cross.color.g;
-        //b = cross.color.b;
-        a = outline.color.a;
-
-        while(outline.color.a < 0.8) {
-            ColorChange(outline, outlineColor);
-            yield return new WaitForSeconds(outlineTime);
-        }
-    }
-
-    public void ResetDecade() {
+    public void Reset() {
         StopAllCoroutines();
-        StartCoroutine(ResetDecadeHelper());
+        StartCoroutine(ResetHelper());
     }
 
-    private IEnumerator ResetDecadeHelper() {
+    private IEnumerator ResetHelper() {
         while(lLargeBead.color.a > 0) {
-            ColorReset(lLargeBead, beadColor);
-            ColorReset(smallBead1, beadColor);
-            ColorReset(smallBead2, beadColor);
-            ColorReset(smallBead3, beadColor);
-            ColorReset(smallBead4, beadColor);
-            ColorReset(smallBead5, beadColor);
-            ColorReset(smallBead6, beadColor);
-            ColorReset(smallBead7, beadColor);
-            ColorReset(smallBead8, beadColor);
-            ColorReset(smallBead9, beadColor);
-            ColorReset(smallBead10, beadColor);
-            ColorReset(rLargeBead, beadColor);
+            FadeOut(outline);
+            FadeOut(lLargeBead);
+            FadeOut(smallBead1);
+            FadeOut(smallBead2);
+            FadeOut(smallBead3);
+            FadeOut(smallBead4);
+            FadeOut(smallBead5);
+            FadeOut(smallBead6);
+            FadeOut(smallBead7);
+            FadeOut(smallBead8);
+            FadeOut(smallBead9);
+            FadeOut(smallBead10);
+            FadeOut(rLargeBead);
             yield return new WaitForSeconds(resetTime);
         }
     }
 
     public void Fill() {
-        StartCoroutine(ResetDecadeHelper());
+        StopAllCoroutines();
+        StartCoroutine(FillHelper());
     }
 
     private IEnumerator FillHelper() {
-        //r = lLargeBead.color.r;
-        //g = lLargeBead.color.g;
-        //b = lLargeBead.color.b;
+        r = lLargeBead.color.r;
+        g = lLargeBead.color.g;
+        b = lLargeBead.color.b;
         a = lLargeBead.color.a;
 
-        while(lLargeBead.color.a < 1) {
+        while(!changed) {
             ColorChange(lLargeBead, beadColor);
             yield return new WaitForSeconds(largeBeadTime);
         }
+        changed = false;
+        
+        lLargeBead.CrossFadeColor(completedColor, completedTime, false, false);
+        yield return new WaitForSeconds(completedTime);
 
-        lLargeBead.color = completedColor;
         Debug.Log("Completed lLargeBead");
 
-        //r = smallBead1.color.r;
-        //g = smallBead1.color.g;
-        //b = smallBead1.color.b;
+        r = smallBead1.color.r;
+        g = smallBead1.color.g;
+        b = smallBead1.color.b;
         a = smallBead1.color.a;
 
-        while(smallBead1.color.a < 1) {
+        while(!changed) {
             ColorChange(smallBead1, beadColor);
             yield return new WaitForSeconds(smallBeadTime);
         }
-
-        smallBead1.color = completedColor;
+        changed = false;
+        
+        smallBead1.CrossFadeColor(completedColor, completedTime, false, false);
+        yield return new WaitForSeconds(completedTime);
         Debug.Log("Completed smallBead1");
 
-        //r = smallBead2.color.r;
-        //g = smallBead2.color.g;
-        //b = smallBead2.color.b;
+        r = smallBead2.color.r;
+        g = smallBead2.color.g;
+        b = smallBead2.color.b;
         a = smallBead2.color.a;
 
-        while(smallBead2.color.a < 1) {
+        while(!changed) {
             ColorChange(smallBead2, beadColor);
             yield return new WaitForSeconds(smallBeadTime);
         }
-
-        smallBead2.color = completedColor;
+        changed = false;
+        
+        smallBead2.CrossFadeColor(completedColor, completedTime, false, false);
+        yield return new WaitForSeconds(completedTime);
         Debug.Log("Completed smallBead2");
 
-        //r = smallbead3.color.r;
-        //g = smallbead3.color.g;
-        //b = smallbead3.color.b;
+        r = smallBead3.color.r;
+        g = smallBead3.color.g;
+        b = smallBead3.color.b;
         a = smallBead3.color.a;
 
-        while(smallBead3.color.a < 1) {
+        while(!changed) {
             ColorChange(smallBead3, beadColor);
             yield return new WaitForSeconds(smallBeadTime);
         }
-
-        smallBead3.color = completedColor;
+        changed = false;
+        
+        smallBead3.CrossFadeColor(completedColor, completedTime, false, false);
+        yield return new WaitForSeconds(completedTime);
         Debug.Log("Completed smallBead3");
 
-        //r = smallbead4.color.r;
-        //g = smallbead4.color.g;
-        //b = smallbead4.color.b;
+        r = smallBead4.color.r;
+        g = smallBead4.color.g;
+        b = smallBead4.color.b;
         a = smallBead4.color.a;
 
-        while(smallBead4.color.a < 1) {
+        while(!changed) {
             ColorChange(smallBead4, beadColor);
             yield return new WaitForSeconds(smallBeadTime);
         }
-
-        smallBead4.color = completedColor;
+        changed = false;
+        
+        smallBead4.CrossFadeColor(completedColor, completedTime, false, false);
+        yield return new WaitForSeconds(completedTime);
         Debug.Log("Completed smallBead4");
 
-        //r = smallbead5.color.r;
-        //g = smallbead5.color.g;
-        //b = smallbead5.color.b;
+        r = smallBead5.color.r;
+        g = smallBead5.color.g;
+        b = smallBead5.color.b;
         a = smallBead5.color.a;
 
-        while(smallBead5.color.a < 1) {
+        while(!changed) {
             ColorChange(smallBead5, beadColor);
             yield return new WaitForSeconds(smallBeadTime);
         }
-
-        smallBead5.color = completedColor;
+        changed = false;
+        
+        smallBead5.CrossFadeColor(completedColor, completedTime, false, false);
+        yield return new WaitForSeconds(completedTime);
         Debug.Log("Completed smallBead5");
 
-        //r = smallbead6.color.r;
-        //g = smallbead6.color.g;
-        //b = smallbead6.color.b;
+        r = smallBead6.color.r;
+        g = smallBead6.color.g;
+        b = smallBead6.color.b;
         a = smallBead6.color.a;
 
-        while(smallBead6.color.a < 1) {
+        while(!changed) {
             ColorChange(smallBead6, beadColor);
             yield return new WaitForSeconds(smallBeadTime);
         }
-
-        smallBead6.color = completedColor;
+        changed = false;
+        
+        smallBead6.CrossFadeColor(completedColor, completedTime, false, false);
+        yield return new WaitForSeconds(completedTime);
         Debug.Log("Completed smallBead6");
 
-        //r = smallbead7.color.r;
-        //g = smallbead7.color.g;
-        //b = smallbead7.color.b;
+        r = smallBead7.color.r;
+        g = smallBead7.color.g;
+        b = smallBead7.color.b;
         a = smallBead7.color.a;
 
-        while(smallBead7.color.a < 1) {
+        while(!changed) {
             ColorChange(smallBead7, beadColor);
             yield return new WaitForSeconds(smallBeadTime);
         }
-
-        smallBead7.color = completedColor;
+        changed = false;
+        
+        smallBead7.CrossFadeColor(completedColor, completedTime, false, false);
+        yield return new WaitForSeconds(completedTime);
         Debug.Log("Completed smallBead7");
 
-        //r = smallbead8.color.r;
-        //g = smallbead8.color.g;
-        //b = smallbead8.color.b;
+        r = smallBead8.color.r;
+        g = smallBead8.color.g;
+        b = smallBead8.color.b;
         a = smallBead8.color.a;
 
-        while(smallBead8.color.a < 1) {
+        while(!changed) {
             ColorChange(smallBead8, beadColor);
             yield return new WaitForSeconds(smallBeadTime);
         }
-
-        smallBead8.color = completedColor;
+        changed = false;
+        
+        smallBead8.CrossFadeColor(completedColor, completedTime, false, false);
+        yield return new WaitForSeconds(completedTime);
         Debug.Log("Completed smallBead8");
 
-        //r = smallbead9.color.r;
-        //g = smallbead9.color.g;
-        //b = smallbead9.color.b;
+        r = smallBead9.color.r;
+        g = smallBead9.color.g;
+        b = smallBead9.color.b;
         a = smallBead9.color.a;
 
-        while(smallBead9.color.a < 1) {
+        while(!changed) {
             ColorChange(smallBead9, beadColor);
             yield return new WaitForSeconds(smallBeadTime);
         }
-
-        smallBead9.color = completedColor;
+        changed = false;
+        
+        smallBead9.CrossFadeColor(completedColor, completedTime, false, false);
+        yield return new WaitForSeconds(completedTime);
         Debug.Log("Completed smallBead9");
 
-        //r = smallbead10.color.r;
-        //g = smallbead10.color.g;
-        //b = smallbead10.color.b;
+        r = smallBead10.color.r;
+        g = smallBead10.color.g;
+        b = smallBead10.color.b;
         a = smallBead10.color.a;
 
-        while(smallBead10.color.a < 1) {
+        while(!changed) {
             ColorChange(smallBead10, beadColor);
             yield return new WaitForSeconds(smallBeadTime);
         }
-
-        smallBead10.color = completedColor;
+        changed = false;
+        
+        smallBead10.CrossFadeColor(completedColor, completedTime, false, false);
+        yield return new WaitForSeconds(completedTime);
         Debug.Log("Completed smallBead10");
 
-        //r = rLargeBead.color.r;
-        //g = rLargeBead.color.g;
-        //b = rLargeBead.color.b;
+        r = rLargeBead.color.r;
+        g = rLargeBead.color.g;
+        b = rLargeBead.color.b;
         a = rLargeBead.color.a;
 
-        while(rLargeBead.color.a < 1) {
+        while(!changed) {
             ColorChange(rLargeBead, beadColor);
             yield return new WaitForSeconds(largeBeadTime);
         }
-
-        rLargeBead.color = completedColor;
+        changed = false;
+        
+        rLargeBead.CrossFadeColor(completedColor, completedTime, false, false);
+        yield return new WaitForSeconds(completedTime);
         Debug.Log("Completed rLargeBead");
-
-        ResetDecade();
     }
 
     private void ColorChange(Image img, Color col) {
-        /*
+        bool pass1 = false, pass2 = false, pass3 = false, pass4 = false;
+
         if(r < col.r) {
             r += increment;
-        } else if(r > col.r) {
-            r -= increment;
+        } else {
+            pass1 = true;
         }
 
         if(g < col.g) {
             g += increment;
-        } else if(g > col.g) {
-            g -= increment;
+        } else {
+            pass2 = true;
         }
+
 
         if(b < col.b) {
             b += increment;
-        } else if(b > col.b) {
-            b -= increment;
+        } else {
+            pass3 = true;
         }
-        */
 
-        a += increment;
-        img.color = new Color(col.r, col.g, col.b, a);
+
+        if(a < 0.99) {
+            a += increment;
+        } else {
+            pass4 = true;
+        }
+
+        if(pass1 && pass2 && pass3 && pass4) {
+            changed = true;
+            r = col.r;
+            g = col.g;
+            b = col.b;
+        } else {
+            img.color = new Color(r, g, b, a);
+        }
     }
 
-    private void ColorReset(Image img, Color col) {
-        /*
-        if(r < col.r) {
+    //private ColorChange2()
+
+    private void FadeOut(Image img) {
+        if(r < 1) {
             r += increment;
-        } else if(r > col.r) {
-            r -= increment;
         }
 
-        if(g < col.g) {
+        if(g < 1) {
             g += increment;
-        } else if(g > col.g) {
-            g -= increment;
         }
 
-        if(b < col.b) {
+        if(b < 1) {
             b += increment;
-        } else if(b > col.b) {
-            b -= increment;
         }
-        */
 
-        a -= deincrement;
-        img.color = new Color(col.r, col.g, col.b, a);
+        if(a > 0) {
+            a -= increment;
+        }
+        img.color = new Color(r, g, b, a);
     }
 }
