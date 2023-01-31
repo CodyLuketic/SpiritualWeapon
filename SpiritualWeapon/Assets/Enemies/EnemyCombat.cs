@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemyCombat : MonoBehaviour
 {
     [SerializeField]
-    private float shrinkSpeed = 0.1f;
+    private float shrinkSpeed = 0.1f, deincrement = 0.01f;
 
     /*
     private EnemyValues valuesScript = null;
@@ -81,14 +81,23 @@ public class EnemyCombat : MonoBehaviour
 
     private void OnCollisionEnter(Collision other) {
         if(other.gameObject.CompareTag("Player")) {
+            Debug.Log("Collided with Player");
+            StartCoroutine("Shrinker");
+        }
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if(other.gameObject.CompareTag("Player")) {
+            Debug.Log("Collided with Player");
             StartCoroutine("Shrinker");
         }
     }
 
     private IEnumerator Shrinker() {
-        while(gameObject.transform.localScale.x > 0.1) {
-            gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x - 0.1f, gameObject.transform.localScale.y - 0.1f, gameObject.transform.localScale.z - 0.1f);
+        while(gameObject.transform.localScale.x > deincrement) {
+            gameObject.transform.localScale += new Vector3(-deincrement, -deincrement, -deincrement);
             yield return new WaitForSeconds(shrinkSpeed);
         }
+        gameObject.SetActive(false);
     }
 }
