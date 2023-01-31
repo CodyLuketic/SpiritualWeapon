@@ -2,60 +2,41 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DecadePrayersFill : MonoBehaviour
+public class DecadePrayerFill : MonoBehaviour
 {
     [SerializeField]
-    private Image outline = null;
-    [SerializeField]
-    private Image lLargeBead = null;
-    [SerializeField]
-    private Image smallBead1 = null;
-    [SerializeField]
-    private Image smallBead2 = null;
-    [SerializeField]
-    private Image smallBead3 = null;
-    [SerializeField]
-    private Image smallBead4 = null;
-    [SerializeField]
-    private Image smallBead5 = null;
-    [SerializeField]
-    private Image smallBead6 = null;
-    [SerializeField]
-    private Image smallBead7 = null;
-    [SerializeField]
-    private Image smallBead8 = null;
-    [SerializeField]
-    private Image smallBead9 = null;
-    [SerializeField]
-    private Image smallBead10 = null;
-    [SerializeField]
-    private Image rLargeBead = null;
+    private Image outline = null, lLargeBead = null, smallBead1 = null,
+        smallBead2 = null, smallBead3 = null, smallBead4 = null, smallBead5 = null,
+        smallBead6 = null, smallBead7 = null, smallBead8 = null, smallBead9 = null,
+        smallBead10 = null, rLargeBead = null;
 
     [SerializeField]
-    private Color outlineColor;
-    [SerializeField]
-    private Color beadColor;
+    private Color outlineColor, beadColor, completedColor;
 
     [SerializeField]
-    private float largeBeadTime = 0.1f;
-    [SerializeField]
-    private float smallBeadTime = 0.1f;
-    [SerializeField]
-    private float resetTime = 0.1f;
-    [SerializeField]
-    private float increment = 0.1f;
-    [SerializeField]
-    private float deincrement = 0.1f;
+    private float outlineTime = 0.1f, largeBeadTime = 0.1f, smallBeadTime = 0.1f, resetTime = 0.1f,
+        increment = 0.1f, deincrement = 0.1f;
 
-    //private float r;
-    //private float g;
-    //private float b;
+    //private float r, g, b;
     private float a;
 
-    private void Start()
-    {
+    //private bool ended = false;
+
+    public void OutlineFill() {
+        StartCoroutine(OutlineFillHelper());
+    }
+    private IEnumerator OutlineFillHelper() {
         outline.color = outlineColor;
-        StartCoroutine(Fill());
+        
+        //r = cross.color.r;
+        //g = cross.color.g;
+        //b = cross.color.b;
+        a = outline.color.a;
+
+        while(outline.color.a < 0.8) {
+            ColorChange(outline, outlineColor);
+            yield return new WaitForSeconds(outlineTime);
+        }
     }
 
     public void ResetDecade() {
@@ -79,10 +60,13 @@ public class DecadePrayersFill : MonoBehaviour
             ColorReset(rLargeBead, beadColor);
             yield return new WaitForSeconds(resetTime);
         }
-        StartCoroutine(Fill());
     }
 
-    private IEnumerator Fill() {
+    public void Fill() {
+        StartCoroutine(ResetDecadeHelper());
+    }
+
+    private IEnumerator FillHelper() {
         //r = lLargeBead.color.r;
         //g = lLargeBead.color.g;
         //b = lLargeBead.color.b;
@@ -93,6 +77,7 @@ public class DecadePrayersFill : MonoBehaviour
             yield return new WaitForSeconds(largeBeadTime);
         }
 
+        lLargeBead.color = completedColor;
         Debug.Log("Completed lLargeBead");
 
         //r = smallBead1.color.r;
@@ -105,6 +90,7 @@ public class DecadePrayersFill : MonoBehaviour
             yield return new WaitForSeconds(smallBeadTime);
         }
 
+        smallBead1.color = completedColor;
         Debug.Log("Completed smallBead1");
 
         //r = smallBead2.color.r;
@@ -117,6 +103,7 @@ public class DecadePrayersFill : MonoBehaviour
             yield return new WaitForSeconds(smallBeadTime);
         }
 
+        smallBead2.color = completedColor;
         Debug.Log("Completed smallBead2");
 
         //r = smallbead3.color.r;
@@ -129,6 +116,7 @@ public class DecadePrayersFill : MonoBehaviour
             yield return new WaitForSeconds(smallBeadTime);
         }
 
+        smallBead3.color = completedColor;
         Debug.Log("Completed smallBead3");
 
         //r = smallbead4.color.r;
@@ -141,6 +129,7 @@ public class DecadePrayersFill : MonoBehaviour
             yield return new WaitForSeconds(smallBeadTime);
         }
 
+        smallBead4.color = completedColor;
         Debug.Log("Completed smallBead4");
 
         //r = smallbead5.color.r;
@@ -153,6 +142,7 @@ public class DecadePrayersFill : MonoBehaviour
             yield return new WaitForSeconds(smallBeadTime);
         }
 
+        smallBead5.color = completedColor;
         Debug.Log("Completed smallBead5");
 
         //r = smallbead6.color.r;
@@ -165,6 +155,7 @@ public class DecadePrayersFill : MonoBehaviour
             yield return new WaitForSeconds(smallBeadTime);
         }
 
+        smallBead6.color = completedColor;
         Debug.Log("Completed smallBead6");
 
         //r = smallbead7.color.r;
@@ -177,6 +168,7 @@ public class DecadePrayersFill : MonoBehaviour
             yield return new WaitForSeconds(smallBeadTime);
         }
 
+        smallBead7.color = completedColor;
         Debug.Log("Completed smallBead7");
 
         //r = smallbead8.color.r;
@@ -189,6 +181,7 @@ public class DecadePrayersFill : MonoBehaviour
             yield return new WaitForSeconds(smallBeadTime);
         }
 
+        smallBead8.color = completedColor;
         Debug.Log("Completed smallBead8");
 
         //r = smallbead9.color.r;
@@ -201,6 +194,7 @@ public class DecadePrayersFill : MonoBehaviour
             yield return new WaitForSeconds(smallBeadTime);
         }
 
+        smallBead9.color = completedColor;
         Debug.Log("Completed smallBead9");
 
         //r = smallbead10.color.r;
@@ -213,6 +207,7 @@ public class DecadePrayersFill : MonoBehaviour
             yield return new WaitForSeconds(smallBeadTime);
         }
 
+        smallBead10.color = completedColor;
         Debug.Log("Completed smallBead10");
 
         //r = rLargeBead.color.r;
@@ -225,6 +220,7 @@ public class DecadePrayersFill : MonoBehaviour
             yield return new WaitForSeconds(largeBeadTime);
         }
 
+        rLargeBead.color = completedColor;
         Debug.Log("Completed rLargeBead");
 
         ResetDecade();
