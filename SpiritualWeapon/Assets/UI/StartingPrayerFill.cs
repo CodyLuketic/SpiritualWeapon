@@ -55,14 +55,15 @@ public class StartingPrayerFill : MonoBehaviour
         a = lLargeBead.color.a;
 
         while(!changed) {
-            ColorChange(lLargeBead, beadColor);
+            IncrementColor(lLargeBead, beadColor);
             yield return new WaitForSeconds(largeBeadTime);
         }
         changed = false;
-        
-        lLargeBead.CrossFadeColor(completedColor, completedTime, false, false);
-        yield return new WaitForSeconds(completedTime);
-        
+        while(!changed) {
+            IncrementColor(lLargeBead, completedColor);
+            yield return new WaitForSeconds(completedTime);
+        }
+        changed = false;
 
         Debug.Log("Completed lLargeBead");
 
@@ -72,13 +73,15 @@ public class StartingPrayerFill : MonoBehaviour
         a = lSmallBead.color.a;
 
         while(!changed) {
-            ColorChange(lSmallBead, beadColor);
+            IncrementColor(lSmallBead, beadColor);
             yield return new WaitForSeconds(smallBeadTime);
         }
         changed = false;
-        
-        lSmallBead.CrossFadeColor(completedColor, completedTime, false, false);
-        yield return new WaitForSeconds(completedTime);
+        while(!changed) {
+            IncrementColor(lSmallBead, completedColor);
+            yield return new WaitForSeconds(completedTime);
+        }
+        changed = false;
 
         Debug.Log("Completed lSmallBead");
 
@@ -88,13 +91,15 @@ public class StartingPrayerFill : MonoBehaviour
         a = mSmallBead.color.a;
 
         while(!changed) {
-            ColorChange(mSmallBead, beadColor);
+            IncrementColor(mSmallBead, beadColor);
             yield return new WaitForSeconds(smallBeadTime);
         }
         changed = false;
-        
-        mSmallBead.CrossFadeColor(completedColor, completedTime, false, false);
-        yield return new WaitForSeconds(completedTime);
+        while(!changed) {
+            IncrementColor(mSmallBead, completedColor);
+            yield return new WaitForSeconds(completedTime);
+        }
+        changed = false;
 
         Debug.Log("Completed mSmallBead");
 
@@ -104,13 +109,15 @@ public class StartingPrayerFill : MonoBehaviour
         a = rSmallBead.color.a;
 
         while(!changed) {
-            ColorChange(rSmallBead, beadColor);
+            IncrementColor(rSmallBead, beadColor);
             yield return new WaitForSeconds(smallBeadTime);
         }
         changed = false;
-        
-        rSmallBead.CrossFadeColor(completedColor, completedTime, false, false);
-        yield return new WaitForSeconds(completedTime);
+        while(!changed) {
+            IncrementColor(rSmallBead, completedColor);
+            yield return new WaitForSeconds(completedTime);
+        }
+        changed = false;
 
         Debug.Log("Completed rSmallBead");
 
@@ -120,44 +127,52 @@ public class StartingPrayerFill : MonoBehaviour
         a = rLargeBead.color.a;
 
         while(!changed) {
-            ColorChange(rLargeBead, beadColor);
+            IncrementColor(rLargeBead, beadColor);
             yield return new WaitForSeconds(largeBeadTime);
         }
         changed = false;
-        
-        rLargeBead.CrossFadeColor(completedColor, completedTime, false, false);
-        yield return new WaitForSeconds(completedTime);
+        while(!changed) {
+            IncrementColor(rLargeBead, completedColor);
+            yield return new WaitForSeconds(completedTime);
+        }
+        changed = false;
 
         Debug.Log("Completed rLargeBead");
 
         Reset();
     }
 
-    private void ColorChange(Image img, Color col) {
+    private void IncrementColor(Image img, Color col) {
         bool pass1 = false, pass2 = false, pass3 = false, pass4 = false;
 
-        if(r < col.r) {
+        if(r < col.r -0.05) {
             r += increment;
+        } else if(r > col.r + 0.05) {
+            r -= increment;
         } else {
             pass1 = true;
         }
 
-        if(g < col.g) {
+        if(g < col.g -0.05) {
             g += increment;
+        } else if(g > col.g + 0.05) {
+            g -= increment;
         } else {
             pass2 = true;
         }
 
-
-        if(b < col.b) {
+        if(b < col.b -0.05) {
             b += increment;
+        } else if(b > col.b + 0.05) {
+            b -= increment;
         } else {
             pass3 = true;
         }
 
-
-        if(a < 0.99) {
+        if(a < col.a -0.05) {
             a += increment;
+        } else if(a > col.a + 0.05) {
+            a -= increment;
         } else {
             pass4 = true;
         }
