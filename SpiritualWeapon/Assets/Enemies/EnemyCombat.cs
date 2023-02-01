@@ -98,6 +98,9 @@ public class EnemyCombat : MonoBehaviour
             gameObject.transform.localScale += new Vector3(-deincrement, -deincrement, -deincrement);
             yield return new WaitForSeconds(shrinkSpeed);
         }
+        gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
+        gameObject.transform.localScale = new Vector3(1, 1, 1);
+        gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
         gameObject.SetActive(false);
     }
 }

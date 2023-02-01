@@ -5,21 +5,34 @@ using UnityEngine.UI;
 public class DecadePrayerFill : MonoBehaviour
 {
     [SerializeField]
+    private RosaryCanvas rosaryCanvas = null;
+
+    [SerializeField]
     private Image outline = null, lLargeBead = null, smallBead1 = null,
         smallBead2 = null, smallBead3 = null, smallBead4 = null, smallBead5 = null,
         smallBead6 = null, smallBead7 = null, smallBead8 = null, smallBead9 = null,
         smallBead10 = null, rLargeBead = null;
 
+    private Color outlineColor, largeBeadColor, smallBeadColor;
+    
     [SerializeField]
-    private Color beadColor, completedColor;
+    private Color completedColor;
 
     [SerializeField]
-    private float largeBeadTime = 0.1f, smallBeadTime = 0.1f,
+    private float outlineTime = 0.1f, largeBeadTime = 0.1f, smallBeadTime = 0.1f,
         resetTime = 0.1f, completedTime, increment = 0.1f;
     
     private float r, g, b, a;
 
-    private bool changed = false, decadeActive = false;
+    private bool changed = false;
+
+    private void Start() {
+        outlineColor = outline.color;
+        largeBeadColor = lLargeBead.color;
+        smallBeadColor = smallBead1.color;
+        StartCoroutine(OutlineFill());
+    }
+
 
     public void Reset() {
         StopAllCoroutines();
@@ -27,21 +40,21 @@ public class DecadePrayerFill : MonoBehaviour
     }
     private IEnumerator ResetHelper() {
         while(lLargeBead.color.a > 0) {
-            FadeOut(lLargeBead);
-            FadeOut(smallBead1);
-            FadeOut(smallBead2);
-            FadeOut(smallBead3);
-            FadeOut(smallBead4);
-            FadeOut(smallBead5);
-            FadeOut(smallBead6);
-            FadeOut(smallBead7);
-            FadeOut(smallBead8);
-            FadeOut(smallBead9);
-            FadeOut(smallBead10);
-            FadeOut(rLargeBead);
+            FadeOutAlpha(lLargeBead);
+            FadeOutAlpha(smallBead1);
+            FadeOutAlpha(smallBead2);
+            FadeOutAlpha(smallBead3);
+            FadeOutAlpha(smallBead4);
+            FadeOutAlpha(smallBead5);
+            FadeOutAlpha(smallBead6);
+            FadeOutAlpha(smallBead7);
+            FadeOutAlpha(smallBead8);
+            FadeOutAlpha(smallBead9);
+            FadeOutAlpha(smallBead10);
+            FadeOutAlpha(rLargeBead);
             yield return new WaitForSeconds(resetTime);
         }
-        decadeActive = false;
+        rosaryCanvas.SetDecadeActive(false);
     }
 
     public void FullReset() {
@@ -50,26 +63,36 @@ public class DecadePrayerFill : MonoBehaviour
     }
     private IEnumerator FullResetHelper() {
         while(lLargeBead.color.a > 0) {
-            FadeOut(outline);
-            FadeOut(lLargeBead);
-            FadeOut(smallBead1);
-            FadeOut(smallBead2);
-            FadeOut(smallBead3);
-            FadeOut(smallBead4);
-            FadeOut(smallBead5);
-            FadeOut(smallBead6);
-            FadeOut(smallBead7);
-            FadeOut(smallBead8);
-            FadeOut(smallBead9);
-            FadeOut(smallBead10);
-            FadeOut(rLargeBead);
+            FadeOutAlpha(outline);
+            FadeOutAlpha(lLargeBead);
+            FadeOutAlpha(smallBead1);
+            FadeOutAlpha(smallBead2);
+            FadeOutAlpha(smallBead3);
+            FadeOutAlpha(smallBead4);
+            FadeOutAlpha(smallBead5);
+            FadeOutAlpha(smallBead6);
+            FadeOutAlpha(smallBead7);
+            FadeOutAlpha(smallBead8);
+            FadeOutAlpha(smallBead9);
+            FadeOutAlpha(smallBead10);
+            FadeOutAlpha(rLargeBead);
             yield return new WaitForSeconds(resetTime);
         }
+        ColorOut();
+        gameObject.SetActive(false);
+    }
+
+    private IEnumerator OutlineFill() {
+        while(!changed) {
+            IncrementColor(outline, outlineColor);
+            yield return new WaitForSeconds(outlineTime);
+        }
+        changed = false;
+        Fill();
     }
 
     public void Fill() {
         StopAllCoroutines();
-        decadeActive = true;
         StartCoroutine(FillHelper());
     }
 
@@ -80,7 +103,7 @@ public class DecadePrayerFill : MonoBehaviour
         a = lLargeBead.color.a;
 
         while(!changed) {
-            IncrementColor(lLargeBead, beadColor);
+            IncrementColor(lLargeBead, largeBeadColor);
             yield return new WaitForSeconds(largeBeadTime);
         }
         changed = false;
@@ -98,7 +121,7 @@ public class DecadePrayerFill : MonoBehaviour
         a = smallBead1.color.a;
 
         while(!changed) {
-            IncrementColor(smallBead1, beadColor);
+            IncrementColor(smallBead1, smallBeadColor);
             yield return new WaitForSeconds(smallBeadTime);
         }
         changed = false;
@@ -116,7 +139,7 @@ public class DecadePrayerFill : MonoBehaviour
         a = smallBead2.color.a;
 
         while(!changed) {
-            IncrementColor(smallBead2, beadColor);
+            IncrementColor(smallBead2, smallBeadColor);
             yield return new WaitForSeconds(smallBeadTime);
         }
         changed = false;
@@ -134,7 +157,7 @@ public class DecadePrayerFill : MonoBehaviour
         a = smallBead3.color.a;
 
         while(!changed) {
-            IncrementColor(smallBead3, beadColor);
+            IncrementColor(smallBead3, smallBeadColor);
             yield return new WaitForSeconds(smallBeadTime);
         }
         changed = false;
@@ -152,7 +175,7 @@ public class DecadePrayerFill : MonoBehaviour
         a = smallBead4.color.a;
 
         while(!changed) {
-            IncrementColor(smallBead4, beadColor);
+            IncrementColor(smallBead4, smallBeadColor);
             yield return new WaitForSeconds(smallBeadTime);
         }
         changed = false;
@@ -170,7 +193,7 @@ public class DecadePrayerFill : MonoBehaviour
         a = smallBead5.color.a;
 
         while(!changed) {
-            IncrementColor(smallBead5, beadColor);
+            IncrementColor(smallBead5, smallBeadColor);
             yield return new WaitForSeconds(smallBeadTime);
         }
         changed = false;
@@ -188,7 +211,7 @@ public class DecadePrayerFill : MonoBehaviour
         a = smallBead6.color.a;
 
         while(!changed) {
-            IncrementColor(smallBead6, beadColor);
+            IncrementColor(smallBead6, smallBeadColor);
             yield return new WaitForSeconds(smallBeadTime);
         }
         changed = false;
@@ -206,7 +229,7 @@ public class DecadePrayerFill : MonoBehaviour
         a = smallBead7.color.a;
 
         while(!changed) {
-            IncrementColor(smallBead7, beadColor);
+            IncrementColor(smallBead7, smallBeadColor);
             yield return new WaitForSeconds(smallBeadTime);
         }
         changed = false;
@@ -224,7 +247,7 @@ public class DecadePrayerFill : MonoBehaviour
         a = smallBead8.color.a;
 
         while(!changed) {
-            IncrementColor(smallBead8, beadColor);
+            IncrementColor(smallBead8, smallBeadColor);
             yield return new WaitForSeconds(smallBeadTime);
         }
         changed = false;
@@ -242,7 +265,7 @@ public class DecadePrayerFill : MonoBehaviour
         a = smallBead9.color.a;
 
         while(!changed) {
-            IncrementColor(smallBead9, beadColor);
+            IncrementColor(smallBead9, smallBeadColor);
             yield return new WaitForSeconds(smallBeadTime);
         }
         changed = false;
@@ -260,7 +283,7 @@ public class DecadePrayerFill : MonoBehaviour
         a = smallBead10.color.a;
 
         while(!changed) {
-            IncrementColor(smallBead10, beadColor);
+            IncrementColor(smallBead10, smallBeadColor);
             yield return new WaitForSeconds(smallBeadTime);
         }
         changed = false;
@@ -278,7 +301,7 @@ public class DecadePrayerFill : MonoBehaviour
         a = rLargeBead.color.a;
 
         while(!changed) {
-            IncrementColor(rLargeBead, beadColor);
+            IncrementColor(rLargeBead, largeBeadColor);
             yield return new WaitForSeconds(largeBeadTime);
         }
         changed = false;
@@ -338,6 +361,7 @@ public class DecadePrayerFill : MonoBehaviour
         }
     }
 
+    /*
     private void FadeOut(Image img) {
         if(r < 1) {
             r += increment;
@@ -356,11 +380,28 @@ public class DecadePrayerFill : MonoBehaviour
         }
         img.color = new Color(r, g, b, a);
     }
+    */
 
-    public bool GetDecadeActive() {
-        return GetDecadeActiveHelper();
+    private void FadeOutAlpha(Image img) {
+        if(a > 0) {
+            a -= increment;
+        }
+        img.color = new Color(r, g, b, a);
     }
-    private bool GetDecadeActiveHelper() {
-        return decadeActive;
+
+    private void ColorOut() {
+        outline.color = new Color(outlineColor.r, outlineColor.g, outlineColor.b, 0);
+        lLargeBead.color = new Color(largeBeadColor.r, largeBeadColor.g, largeBeadColor.b, 0);
+        smallBead1.color = new Color(smallBeadColor.r, smallBeadColor.g, smallBeadColor.b, 0);
+        smallBead2.color = new Color(smallBeadColor.r, smallBeadColor.g, smallBeadColor.b, 0);
+        smallBead3.color = new Color(smallBeadColor.r, smallBeadColor.g, smallBeadColor.b, 0);
+        smallBead4.color = new Color(smallBeadColor.r, smallBeadColor.g, smallBeadColor.b, 0);
+        smallBead5.color = new Color(smallBeadColor.r, smallBeadColor.g, smallBeadColor.b, 0);
+        smallBead6.color = new Color(smallBeadColor.r, smallBeadColor.g, smallBeadColor.b, 0);
+        smallBead7.color = new Color(smallBeadColor.r, smallBeadColor.g, smallBeadColor.b, 0);
+        smallBead8.color = new Color(smallBeadColor.r, smallBeadColor.g, smallBeadColor.b, 0);
+        smallBead9.color = new Color(smallBeadColor.r, smallBeadColor.g, smallBeadColor.b, 0);
+        smallBead10.color = new Color(smallBeadColor.r, smallBeadColor.g, smallBeadColor.b, 0);
+        rLargeBead.color = new Color(largeBeadColor.r, largeBeadColor.g, largeBeadColor.b, 0);
     }
 }

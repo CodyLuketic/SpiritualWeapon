@@ -5,11 +5,16 @@ using UnityEngine.UI;
 public class StartingPrayerFill : MonoBehaviour
 {
     [SerializeField]
+    private RosaryCanvas rosaryCanvas = null;
+
+    [SerializeField]
     private Image cross = null, outline = null, lLargeBead = null,
         lSmallBead = null, mSmallBead = null, rSmallBead = null, rLargeBead = null;
 
+    private Color crossColor, outlineColor, largeBeadColor, smallBeadColor;
+    
     [SerializeField]
-    private Color crossColor, beadColor, completedColor;
+    private Color completedColor;
 
     [SerializeField]
     private float crossTime = 0.1f, largeBeadTime = 0.1f, smallBeadTime = 0.1f,
@@ -19,22 +24,30 @@ public class StartingPrayerFill : MonoBehaviour
 
     private bool changed = false;
 
+    private void Start() {
+        crossColor = cross.color;
+        outlineColor = outline.color;
+        largeBeadColor = lLargeBead.color;
+        smallBeadColor = lSmallBead.color;
+    }
+
     public void Reset() {
         StopAllCoroutines();
         StartCoroutine(ResetHelper());
     }
     private IEnumerator ResetHelper() {
         while(cross.color.a > 0) {
-            FadeOut(cross);
-            FadeOut(outline);
-            FadeOut(lLargeBead);
-            FadeOut(lSmallBead);
-            FadeOut(mSmallBead);
-            FadeOut(rSmallBead);
-            FadeOut(rLargeBead);
+            FadeOutAlpha(cross);
+            FadeOutAlpha(outline);
+            FadeOutAlpha(lLargeBead);
+            FadeOutAlpha(lSmallBead);
+            FadeOutAlpha(mSmallBead);
+            FadeOutAlpha(rSmallBead);
+            FadeOutAlpha(rLargeBead);
             yield return new WaitForSeconds(resetTime);
         }
-        gameObject.SetActive(false);
+        ColorOut();
+        rosaryCanvas.SetStartActive(false);
     }
 
     public void Fill() {
@@ -55,7 +68,7 @@ public class StartingPrayerFill : MonoBehaviour
         a = lLargeBead.color.a;
 
         while(!changed) {
-            IncrementColor(lLargeBead, beadColor);
+            IncrementColor(lLargeBead, largeBeadColor);
             yield return new WaitForSeconds(largeBeadTime);
         }
         changed = false;
@@ -73,7 +86,7 @@ public class StartingPrayerFill : MonoBehaviour
         a = lSmallBead.color.a;
 
         while(!changed) {
-            IncrementColor(lSmallBead, beadColor);
+            IncrementColor(lSmallBead, smallBeadColor);
             yield return new WaitForSeconds(smallBeadTime);
         }
         changed = false;
@@ -91,7 +104,7 @@ public class StartingPrayerFill : MonoBehaviour
         a = mSmallBead.color.a;
 
         while(!changed) {
-            IncrementColor(mSmallBead, beadColor);
+            IncrementColor(mSmallBead, smallBeadColor);
             yield return new WaitForSeconds(smallBeadTime);
         }
         changed = false;
@@ -109,7 +122,7 @@ public class StartingPrayerFill : MonoBehaviour
         a = rSmallBead.color.a;
 
         while(!changed) {
-            IncrementColor(rSmallBead, beadColor);
+            IncrementColor(rSmallBead, smallBeadColor);
             yield return new WaitForSeconds(smallBeadTime);
         }
         changed = false;
@@ -127,7 +140,7 @@ public class StartingPrayerFill : MonoBehaviour
         a = rLargeBead.color.a;
 
         while(!changed) {
-            IncrementColor(rLargeBead, beadColor);
+            IncrementColor(rLargeBead, largeBeadColor);
             yield return new WaitForSeconds(largeBeadTime);
         }
         changed = false;
@@ -187,6 +200,7 @@ public class StartingPrayerFill : MonoBehaviour
         }
     }
 
+    /*
     private void FadeOut(Image img) {
         if(r < 1) {
             r += increment;
@@ -199,10 +213,24 @@ public class StartingPrayerFill : MonoBehaviour
         if(b < 1) {
             b += increment;
         }
+        img.color = new Color(r, g, b, a);
+    }
+    */
 
+    private void FadeOutAlpha(Image img) {
         if(a > 0) {
             a -= increment;
         }
-        img.color = new Color(r, g, b, a);
+        img.color = new Color(img.color.r, img.color.g, img.color.b, a);
+    }
+
+    private void ColorOut() {
+        cross.color = new Color(crossColor.r, crossColor.g, crossColor.b, 0);
+        outline.color = new Color(outlineColor.r, outlineColor.g, outlineColor.b, 0);
+        lLargeBead.color = new Color(largeBeadColor.r, largeBeadColor.g, largeBeadColor.b, 0);
+        lSmallBead.color = new Color(smallBeadColor.r, smallBeadColor.g, smallBeadColor.b, 0);
+        mSmallBead.color = new Color(smallBeadColor.r, smallBeadColor.g, smallBeadColor.b, 0);
+        rSmallBead.color = new Color(smallBeadColor.r, smallBeadColor.g, smallBeadColor.b, 0);
+        rLargeBead.color = new Color(largeBeadColor.r, largeBeadColor.g, largeBeadColor.b, 0);
     }
 }

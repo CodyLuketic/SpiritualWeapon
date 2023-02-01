@@ -337,7 +337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 0.9896316, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -577,7 +577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 0.9896316, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -793,6 +793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f656cb9eea047d47ae5ebe1b10120ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rosaryCanvas: {fileID: 1843326916}
   outline: {fileID: 378752030}
   lLargeBead: {fileID: 1860362221}
   smallBead1: {fileID: 805602394}
@@ -806,7 +807,6 @@ MonoBehaviour:
   smallBead9: {fileID: 466420523}
   smallBead10: {fileID: 791772424}
   rLargeBead: {fileID: 1202686159}
-  beadColor: {r: 1, g: 1, b: 0, a: 1}
   completedColor: {r: 0.77364457, g: 0.2584905, b: 1, a: 1}
   largeBeadTime: 0.01
   smallBeadTime: 0.01
@@ -1271,7 +1271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 0.9896316, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1347,7 +1347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 0.9896316, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1748,7 +1748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 0.9896316, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2141,6 +2141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa3e68bb28b84d34dafdfe985b21f650, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rosaryCanvas: {fileID: 1843326916}
   cross: {fileID: 761042576}
   outline: {fileID: 233473633}
   lLargeBead: {fileID: 1159762573}
@@ -2148,14 +2149,12 @@ MonoBehaviour:
   mSmallBead: {fileID: 765205370}
   rSmallBead: {fileID: 521847221}
   rLargeBead: {fileID: 270472347}
-  crossColor: {r: 1, g: 1, b: 1, a: 1}
-  beadColor: {r: 1, g: 1, b: 1, a: 0}
-  completedColor: {r: 0.8862745, g: 0.627451, b: 1, a: 1}
+  completedColor: {r: 0.77254903, g: 0.25882354, b: 1, a: 1}
   crossTime: 3
-  largeBeadTime: 0.1
-  smallBeadTime: 0.1
+  largeBeadTime: 0.01
+  smallBeadTime: 0.01
   resetTime: 0.1
-  completedTime: 1
+  completedTime: 0.1
   increment: 0.01
 --- !u!1 &1813398982
 GameObject:

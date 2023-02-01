@@ -9,24 +9,49 @@ public class RosaryCanvas : MonoBehaviour
     [SerializeField]
     private DecadePrayerFill decadeFill = null;
 
-    private bool startEnd = false, decadeActive = false;
+    private bool startActive = true, startDone = false,
+        decadeActive = true, decadeDone = false;
 
+    
     private void Start() {
         startFill.Fill();
+        //decadeFill.Fill();
     }
 
+    
     private void Update() {
-        if(decadeFill.gameObject.activeSelf) {
-            decadeActive = decadeFill.GetDecadeActive();
+        if(!startActive && !startDone) {
+            ActivateDecade();
         }
 
-        if(!startFill.gameObject.activeSelf) {
-            decadeFill.gameObject.SetActive(true);
-            decadeFill.Fill();
-            decadeActive = true;
-        } else if(startFill.gameObject.activeSelf && !decadeActive) {
-            decadeFill.gameObject.SetActive(true);
-            decadeFill.Fill();
+        if(!decadeActive && decadeDone) {
+            ReactivateDecade();
         }
     }
+
+    private void ActivateDecade() {
+        startFill.gameObject.SetActive(true);
+        startDone = true;
+        decadeFill.gameObject.SetActive(true);
+        decadeActive = false;
+    }
+
+    private void ReactivateDecade() {
+        decadeFill.Fill();
+        decadeActive = true;
+    }
+
+    public void SetStartActive(bool isActive) {
+        SetStartActiveHelper(isActive);
+    }
+    private void SetStartActiveHelper(bool isActive) {
+        startActive = isActive;
+    }
+
+    public void SetDecadeActive(bool isActive) {
+        SetDecadeActiveHelper(isActive);
+    }
+    private void SetDecadeActiveHelper(bool isActive) {
+        decadeActive = isActive;
+    }  
 }
