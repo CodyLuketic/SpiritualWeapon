@@ -24,7 +24,7 @@ public class RosaryCanvas : MonoBehaviour
             ActivateDecade();
         }
 
-        if(!decadeActive && decadeDone) {
+        if(!decadeActive && !decadeDone) {
             ReactivateDecade();
         }
     }
@@ -33,7 +33,6 @@ public class RosaryCanvas : MonoBehaviour
         startFill.gameObject.SetActive(true);
         startDone = true;
         decadeFill.gameObject.SetActive(true);
-        decadeActive = false;
     }
 
     private void ReactivateDecade() {

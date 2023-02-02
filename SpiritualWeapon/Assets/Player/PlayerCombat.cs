@@ -8,8 +8,7 @@ public class PlayerCombat : MonoBehaviour
     private float cooldown = 1f;
     private bool canAttack = true;
 
-    private void Update()
-    {
+    private void Update() {
         if(Input.GetAxis("Fire1") > 0 && canAttack) {
             StartCoroutine(Attack());
             canAttack = false;

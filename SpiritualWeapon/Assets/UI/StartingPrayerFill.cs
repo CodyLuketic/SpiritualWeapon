@@ -36,6 +36,17 @@ public class StartingPrayerFill : MonoBehaviour
         StartCoroutine(ResetHelper());
     }
     private IEnumerator ResetHelper() {
+        r = outline.color.r;
+        g = outline.color.g;
+        b = outline.color.b;
+        a = outline.color.a;
+
+        while(!changed) {
+            IncrementColor(outline, new Color(0, 0, 0, 1));
+            yield return new WaitForSeconds(largeBeadTime);
+        }
+        changed = false;
+
         while(cross.color.a > 0) {
             FadeOutAlpha(cross);
             FadeOutAlpha(outline);
@@ -57,7 +68,16 @@ public class StartingPrayerFill : MonoBehaviour
     private IEnumerator FillHelper() {
         yield return new WaitForSeconds(crossTime);
 
-        cross.CrossFadeColor(completedColor, completedTime, false, false);
+        r = cross.color.r;
+        g = cross.color.g;
+        b = cross.color.b;
+        a = cross.color.a;
+
+        while(!changed) {
+            IncrementColor(cross, completedColor);
+            yield return new WaitForSeconds(completedTime);
+        }
+        changed = false;
         yield return new WaitForSeconds(completedTime);
 
         Debug.Log("Completed cross");
@@ -200,28 +220,16 @@ public class StartingPrayerFill : MonoBehaviour
         }
     }
 
-    /*
-    private void FadeOut(Image img) {
-        if(r < 1) {
-            r += increment;
-        }
-
-        if(g < 1) {
-            g += increment;
-        }
-
-        if(b < 1) {
-            b += increment;
-        }
-        img.color = new Color(r, g, b, a);
-    }
-    */
-
     private void FadeOutAlpha(Image img) {
+        r = img.color.r;
+        g = img.color.g;
+        b = img.color.b;
+        a = img.color.a;
+
         if(a > 0) {
             a -= increment;
         }
-        img.color = new Color(img.color.r, img.color.g, img.color.b, a);
+        img.color = new Color(r, g, b, a);
     }
 
     private void ColorOut() {

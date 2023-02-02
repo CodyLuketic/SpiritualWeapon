@@ -19,20 +19,23 @@ public class DecadePrayerFill : MonoBehaviour
     private Color completedColor;
 
     [SerializeField]
+    private float outlineAlpha = 1f;
+
+    [SerializeField]
     private float outlineTime = 0.1f, largeBeadTime = 0.1f, smallBeadTime = 0.1f,
         resetTime = 0.1f, completedTime, increment = 0.1f;
-    
-    private float r, g, b, a;
+
+    private float r = 0, g = 0, b = 0, a = 1;
 
     private bool changed = false;
 
     private void Start() {
         outlineColor = outline.color;
+        outlineColor.a = outlineAlpha;
         largeBeadColor = lLargeBead.color;
         smallBeadColor = smallBead1.color;
         StartCoroutine(OutlineFill());
     }
-
 
     public void Reset() {
         StopAllCoroutines();
@@ -83,6 +86,11 @@ public class DecadePrayerFill : MonoBehaviour
     }
 
     private IEnumerator OutlineFill() {
+        r = outlineColor.r;
+        g = outlineColor.g;
+        b = outlineColor.b;
+        a = 0;
+
         while(!changed) {
             IncrementColor(outline, outlineColor);
             yield return new WaitForSeconds(outlineTime);
@@ -97,10 +105,10 @@ public class DecadePrayerFill : MonoBehaviour
     }
 
     private IEnumerator FillHelper() {
-        r = lLargeBead.color.r;
-        g = lLargeBead.color.g;
-        b = lLargeBead.color.b;
-        a = lLargeBead.color.a;
+        r = largeBeadColor.r;
+        g = largeBeadColor.g;
+        b = largeBeadColor.b;
+        a = largeBeadColor.a;
 
         while(!changed) {
             IncrementColor(lLargeBead, largeBeadColor);
@@ -115,10 +123,10 @@ public class DecadePrayerFill : MonoBehaviour
 
         Debug.Log("Completed lLargeBead");
 
-        r = smallBead1.color.r;
-        g = smallBead1.color.g;
-        b = smallBead1.color.b;
-        a = smallBead1.color.a;
+        r = smallBeadColor.r;
+        g = smallBeadColor.g;
+        b = smallBeadColor.b;
+        a = smallBeadColor.a;
 
         while(!changed) {
             IncrementColor(smallBead1, smallBeadColor);
@@ -133,10 +141,10 @@ public class DecadePrayerFill : MonoBehaviour
 
         Debug.Log("Completed smallBead1");
 
-        r = smallBead2.color.r;
-        g = smallBead2.color.g;
-        b = smallBead2.color.b;
-        a = smallBead2.color.a;
+        r = smallBeadColor.r;
+        g = smallBeadColor.g;
+        b = smallBeadColor.b;
+        a = smallBeadColor.a;
 
         while(!changed) {
             IncrementColor(smallBead2, smallBeadColor);
@@ -151,10 +159,10 @@ public class DecadePrayerFill : MonoBehaviour
 
         Debug.Log("Completed smallBead2");
 
-        r = smallBead3.color.r;
-        g = smallBead3.color.g;
-        b = smallBead3.color.b;
-        a = smallBead3.color.a;
+        r = smallBeadColor.r;
+        g = smallBeadColor.g;
+        b = smallBeadColor.b;
+        a = smallBeadColor.a;
 
         while(!changed) {
             IncrementColor(smallBead3, smallBeadColor);
@@ -169,10 +177,10 @@ public class DecadePrayerFill : MonoBehaviour
 
         Debug.Log("Completed smallBead3");
 
-        r = smallBead4.color.r;
-        g = smallBead4.color.g;
-        b = smallBead4.color.b;
-        a = smallBead4.color.a;
+        r = smallBeadColor.r;
+        g = smallBeadColor.g;
+        b = smallBeadColor.b;
+        a = smallBeadColor.a;
 
         while(!changed) {
             IncrementColor(smallBead4, smallBeadColor);
@@ -187,10 +195,10 @@ public class DecadePrayerFill : MonoBehaviour
 
         Debug.Log("Completed smallBead4");
 
-        r = smallBead5.color.r;
-        g = smallBead5.color.g;
-        b = smallBead5.color.b;
-        a = smallBead5.color.a;
+        r = smallBeadColor.r;
+        g = smallBeadColor.g;
+        b = smallBeadColor.b;
+        a = smallBeadColor.a;
 
         while(!changed) {
             IncrementColor(smallBead5, smallBeadColor);
@@ -205,10 +213,10 @@ public class DecadePrayerFill : MonoBehaviour
 
         Debug.Log("Completed smallBead5");
 
-        r = smallBead6.color.r;
-        g = smallBead6.color.g;
-        b = smallBead6.color.b;
-        a = smallBead6.color.a;
+        r = smallBeadColor.r;
+        g = smallBeadColor.g;
+        b = smallBeadColor.b;
+        a = smallBeadColor.a;
 
         while(!changed) {
             IncrementColor(smallBead6, smallBeadColor);
@@ -223,10 +231,10 @@ public class DecadePrayerFill : MonoBehaviour
 
         Debug.Log("Completed smallBead6");
 
-        r = smallBead7.color.r;
-        g = smallBead7.color.g;
-        b = smallBead7.color.b;
-        a = smallBead7.color.a;
+        r = smallBeadColor.r;
+        g = smallBeadColor.g;
+        b = smallBeadColor.b;
+        a = smallBeadColor.a;
 
         while(!changed) {
             IncrementColor(smallBead7, smallBeadColor);
@@ -241,10 +249,10 @@ public class DecadePrayerFill : MonoBehaviour
 
         Debug.Log("Completed smallBead7");
 
-        r = smallBead8.color.r;
-        g = smallBead8.color.g;
-        b = smallBead8.color.b;
-        a = smallBead8.color.a;
+        r = smallBeadColor.r;
+        g = smallBeadColor.g;
+        b = smallBeadColor.b;
+        a = smallBeadColor.a;
 
         while(!changed) {
             IncrementColor(smallBead8, smallBeadColor);
@@ -259,10 +267,10 @@ public class DecadePrayerFill : MonoBehaviour
 
         Debug.Log("Completed smallBead8");
 
-        r = smallBead9.color.r;
-        g = smallBead9.color.g;
-        b = smallBead9.color.b;
-        a = smallBead9.color.a;
+        r = smallBeadColor.r;
+        g = smallBeadColor.g;
+        b = smallBeadColor.b;
+        a = smallBeadColor.a;
 
         while(!changed) {
             IncrementColor(smallBead9, smallBeadColor);
@@ -277,10 +285,10 @@ public class DecadePrayerFill : MonoBehaviour
 
         Debug.Log("Completed smallBead9");
 
-        r = smallBead10.color.r;
-        g = smallBead10.color.g;
-        b = smallBead10.color.b;
-        a = smallBead10.color.a;
+        r = smallBeadColor.r;
+        g = smallBeadColor.g;
+        b = smallBeadColor.b;
+        a = smallBeadColor.a;
 
         while(!changed) {
             IncrementColor(smallBead10, smallBeadColor);
@@ -295,10 +303,10 @@ public class DecadePrayerFill : MonoBehaviour
 
         Debug.Log("Completed smallBead10");
 
-        r = rLargeBead.color.r;
-        g = rLargeBead.color.g;
-        b = rLargeBead.color.b;
-        a = rLargeBead.color.a;
+        r = largeBeadColor.r;
+        g = largeBeadColor.g;
+        b = largeBeadColor.b;
+        a = largeBeadColor.a;
 
         while(!changed) {
             IncrementColor(rLargeBead, largeBeadColor);
@@ -319,7 +327,7 @@ public class DecadePrayerFill : MonoBehaviour
     private void IncrementColor(Image img, Color col) {
         bool pass1 = false, pass2 = false, pass3 = false, pass4 = false;
 
-        if(r < col.r -0.05) {
+        if(r < col.r - 0.05) {
             r += increment;
         } else if(r > col.r + 0.05) {
             r -= increment;
@@ -327,7 +335,7 @@ public class DecadePrayerFill : MonoBehaviour
             pass1 = true;
         }
 
-        if(g < col.g -0.05) {
+        if(g < col.g - 0.05) {
             g += increment;
         } else if(g > col.g + 0.05) {
             g -= increment;
@@ -335,7 +343,7 @@ public class DecadePrayerFill : MonoBehaviour
             pass2 = true;
         }
 
-        if(b < col.b -0.05) {
+        if(b < col.b - 0.05) {
             b += increment;
         } else if(b > col.b + 0.05) {
             b -= increment;
@@ -343,7 +351,7 @@ public class DecadePrayerFill : MonoBehaviour
             pass3 = true;
         }
 
-        if(a < col.a -0.05) {
+        if(a < col.a - 0.05) {
             a += increment;
         } else if(a > col.a + 0.05) {
             a -= increment;
@@ -360,27 +368,6 @@ public class DecadePrayerFill : MonoBehaviour
             img.color = new Color(r, g, b, a);
         }
     }
-
-    /*
-    private void FadeOut(Image img) {
-        if(r < 1) {
-            r += increment;
-        }
-
-        if(g < 1) {
-            g += increment;
-        }
-
-        if(b < 1) {
-            b += increment;
-        }
-
-        if(a > 0) {
-            a -= increment;
-        }
-        img.color = new Color(r, g, b, a);
-    }
-    */
 
     private void FadeOutAlpha(Image img) {
         if(a > 0) {
