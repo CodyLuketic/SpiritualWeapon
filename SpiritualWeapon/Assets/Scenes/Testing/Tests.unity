@@ -1104,7 +1104,7 @@ Transform:
   m_Children:
   - {fileID: 803252166}
   m_Father: {fileID: 1614028270}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &721638240
 MonoBehaviour:
@@ -1153,7 +1153,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fda272611392b4d42ad1b212e6711f9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 1
+  particleObject: {fileID: 913130852}
+  cooldown: 2
+  spawnDistance: 1.5
 --- !u!1 &761042574
 GameObject:
   m_ObjectHideFlags: 0
@@ -1644,11 +1646,11 @@ GameObject:
   - component: {fileID: 913130853}
   m_Layer: 0
   m_Name: ForcePushParticleSystem
-  m_TagString: Untagged
+  m_TagString: PlayerParticleObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!199 &913130853
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -1738,7 +1740,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -5309,9 +5311,9 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 4
-    type: 0
+    type: 1
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
@@ -5486,7 +5488,7 @@ ParticleSystem:
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
@@ -6444,13 +6446,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 913130852}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.43, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 1614028270}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &942675161
 GameObject:
@@ -6865,6 +6867,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 913130855}
   - {fileID: 721638239}
   m_Father: {fileID: 0}
   m_RootOrder: 2

@@ -890,7 +890,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1852439379823452214}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1381,7 +1381,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2539291015317168101}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: -3}
+  m_LocalPosition: {x: 0, y: 0, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1461,9 +1461,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be701ef1dd61e8f4da20dcee7f1813e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shrinkSpeed: 0.05
-  deincrement: 0.01
   animator: {fileID: 1368812131945953923}
+  agent: {fileID: 2539291015317168120}
+  faces:
+  - {fileID: 2100000, guid: 140759a0f3a9b9947958b2b6e757557c, type: 2}
+  - {fileID: 2100000, guid: 02a5ba6db4918b34a948e5c770de7702, type: 2}
+  - {fileID: 2100000, guid: cfd332c3e3573014c85d4d405f2fdc42, type: 2}
+  shrinkSpeed: 0.015
+  deincrement: 0.01
+  hitDelay: 1
 --- !u!1 &2568002178294761540
 GameObject:
   m_ObjectHideFlags: 0

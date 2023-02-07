@@ -3,12 +3,12 @@ using UnityEngine.AI;
 
 public class EnemyFollow : MonoBehaviour
 {
-    private NavMeshAgent nav = null;
+    private NavMeshAgent agent= null;
     
     private Transform player;
     
     private void Start() {
-        nav = gameObject.GetComponent<NavMeshAgent>();
+        agent= gameObject.GetComponent<NavMeshAgent>();
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
@@ -18,6 +18,8 @@ public class EnemyFollow : MonoBehaviour
     }
 
     private void FollowMelee() {
-        nav.SetDestination(player.position);
+        if(agent.enabled == true) {
+            agent.SetDestination(player.position);
+        }
     }
 }
