@@ -1,21 +1,20 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    //private Scene mainMenu;
-    //private Scene settings;
-    //private Scene joyfulMystery;
-    //private Scene luminousMystery;
-    //private Scene sorrowfulMystery;
-    //private Scene gloriusMystery;
-    //private Scene endingPrayer;
+    [SerializeField] private Image transition;
+
+    [SerializeField]
+    private float increment = 0.1f, sceneTick = 0.1f;
 
     public void NextScene() {
         NextSceneHelper();
     }
     private void NextSceneHelper() {
-        SceneTransition();
+        //SceneTransition();
         int index = SceneManager.GetActiveScene().buildIndex;
         if(index < SceneManager.sceneCount) {
             SceneManager.LoadScene(index + 1);
@@ -30,7 +29,7 @@ public class GameManager : MonoBehaviour
     private void PreviousSceneHelper() {
         int index = SceneManager.GetActiveScene().buildIndex;
         if(index > 0) {
-            SceneTransition();
+            //SceneTransition();
             SceneManager.LoadScene(index - 1);
         }
     }
@@ -84,7 +83,27 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(6);
     }
 
-    private void SceneTransition() {
-
+    public void Quit() {
+        QuitHelper();
     }
+    private void QuitHelper() {
+        Application.Quit();
+    }
+
+    /*
+    public void SceneTransition() {
+        StartCoroutine(SceneTransitionHelper());
+    }
+    private IEnumerator SceneTransitionHelper() {
+        float r = transition.color.r;
+        float g = transition.color.g;
+        float b = transition.color.b;
+        float alpha = transition.color.a;
+        while(alpha < 0.99) {
+            alpha += increment;
+            yield return new WaitForSeconds(sceneTick);
+        }
+        transition.color = new Color(r, g, b, alpha);
+    }
+    */
 }
