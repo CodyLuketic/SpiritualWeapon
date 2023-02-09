@@ -1,20 +1,34 @@
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private Image transition;
+    [SerializeField]
+    private GameObject transitionObj, startTransitionObj;
+
+    private Image transition, startTransition;
 
     [SerializeField]
     private float increment = 0.1f, sceneTick = 0.1f;
 
+    private int function = 0;
+
+    private void Start() {
+        transition = transitionObj.GetComponent<Image>();
+        startTransition = startTransitionObj.GetComponent<Image>();
+
+        if(startTransitionObj.activeSelf) {
+            StartTransition();
+        }
+    }
+
     public void NextScene() {
-        NextSceneHelper();
+        function = 0;
+        SceneTransition();
     }
     private void NextSceneHelper() {
-        //SceneTransition();
         int index = SceneManager.GetActiveScene().buildIndex;
         if(index < SceneManager.sceneCount) {
             SceneManager.LoadScene(index + 1);
@@ -24,74 +38,82 @@ public class GameManager : MonoBehaviour
     }
 
     public void PreviousScene() {
-        PreviousSceneHelper();
+        function = 1;
+        SceneTransition();
     }
     private void PreviousSceneHelper() {
         int index = SceneManager.GetActiveScene().buildIndex;
         if(index > 0) {
-            //SceneTransition();
             SceneManager.LoadScene(index - 1);
         }
     }
 
     public void ToMainMenu() {
-        ToMainMenuHelper();
+        function = 2;
+        SceneTransition();
     }
     private void ToMainMenuHelper() {
         SceneManager.LoadScene(0);
     }
 
     public void ToSettings() {
-        ToSettingsHelper();
+        function = 3;
+        SceneTransition();
     }
     private void ToSettingsHelper() {
         SceneManager.LoadScene(1);
     }
 
     public void ToJoyfulMystery() {
-        ToJoyfulMysteryHelper();
+        function = 4;
+        SceneTransition();
     }
     private void ToJoyfulMysteryHelper() {
         SceneManager.LoadScene(2);
     }
 
     public void ToLuminousMystery() {
-        ToLuminousMysteryHelper();
+        function = 5;
+        SceneTransition();
     }
     private void ToLuminousMysteryHelper() {
         SceneManager.LoadScene(3);
     }
 
     public void ToSorrowfulMystery() {
-        ToSorrowfulMysteryHelper();
+        function = 6;
+        SceneTransition();
     }
     private void ToSorrowfulMysteryHelper() {
         SceneManager.LoadScene(4);
     }
 
     public void ToGloriusMystery() {
-        ToGloriusMysteryHelper();
+        function = 7;
+        SceneTransition();
     }
     private void ToGloriusMysteryHelper() {
         SceneManager.LoadScene(5);
     }
 
     public void ToEndingPrayer() {
-        ToEndingPrayerHelper();
+        function = 8;
+        SceneTransition();
     }
     private void ToEndingPrayerHelper() {
         SceneManager.LoadScene(6);
     }
 
     public void Quit() {
-        QuitHelper();
+        function = 9;
+        SceneTransition();
     }
     private void QuitHelper() {
         Application.Quit();
     }
-
-    /*
+    
     public void SceneTransition() {
+        transitionObj.SetActive(true);
         StartCoroutine(SceneTransitionHelper());
     }
     private IEnumerator SceneTransitionHelper() {
@@ -99,11 +121,69 @@ public class GameManager : MonoBehaviour
         float g = transition.color.g;
         float b = transition.color.b;
         float alpha = transition.color.a;
-        while(alpha < 0.99) {
+
+        while(alpha < 0.999) {
             alpha += increment;
+            transition.color = new Color(r, g, b, alpha);
             yield return new WaitForSeconds(sceneTick);
         }
-        transition.color = new Color(r, g, b, alpha);
+
+        FunctionRunner();
     }
-    */
+
+    private void FunctionRunner() {
+        switch (function) {
+            case 0:
+                NextSceneHelper();
+                break;
+            case 1:
+                PreviousSceneHelper();
+                break;
+            case 2:
+                ToMainMenuHelper();
+                break;
+            case 3:
+                ToSettingsHelper();
+                break;
+            case 4:
+                ToJoyfulMysteryHelper();
+                break;
+            case 5:
+                ToLuminousMysteryHelper();
+                break;
+            case 6:
+                ToSorrowfulMysteryHelper();
+                break;
+            case 7:
+                ToGloriusMysteryHelper();
+                break;
+            case 8:
+                ToEndingPrayerHelper();
+                break;
+            case 9:
+                QuitHelper();
+                break;
+            default:
+                Debug.Log("This should never run");
+                break;
+        }
+    }
+    
+    public void StartTransition() {
+        StartCoroutine(StartTransitionHelper());
+    }
+    private IEnumerator StartTransitionHelper() {
+        float r = startTransition.color.r;
+        float g = startTransition.color.g;
+        float b = startTransition.color.b;
+        float alpha = startTransition.color.a;
+
+        while(alpha > 0.001) {
+            alpha -= increment;
+            startTransition.color = new Color(r, g, b, alpha);
+            yield return new WaitForSeconds(sceneTick);
+        }
+
+        startTransitionObj.SetActive(false);
+    }
 }
