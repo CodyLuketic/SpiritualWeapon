@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 772.8
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 106
+  controlID: 103
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -271,8 +271,8 @@ MonoBehaviour:
     y: 0
     width: 426.40002
     height: 722.8
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -461,9 +461,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: d8ce0000
-      m_LastClickedID: 52952
-      m_ExpandedIDs: 4a78feffc282feffa89efeffda9ffeff5ea1feff38a6feff26a9feffaaaafeff28adfeff8cc8feffa4ddfeffbce2feff6ce8fefffe0dffffea10ffffcc15ffffaa19ffffe436ffff0677ffff467bffffde7cffffbe81ffff00a5ffff84a6ffff42a9ffff2cacfffff4b1ffffc4c4ffff90cbffff34fbffff4068000092730000de7600007e7900008a7e0000d07f0000fe800000fa9200003e9400006e950000a8a5000032a9000010ab000020c30000cec8000052cd000010cf0000
+      m_SelectedIDs: 00cbfdff
+      m_LastClickedID: -144640
+      m_ExpandedIDs: 20c9fdff02cbfdff90cdfdffd2d7fdfffed9fdff6ae0fdff54e2fdff8628feff2238feffce47feff9457feff905efeff8466fefffe69feffbe8dfeffee97feff309afeff3e9bfeff44a8feffcac6feffcad8feff10dafeff88dcfeff96ddfeffa4defeff86e0feffaae5feffb8e6feffc6e7feff1eeffeff20fafeffaefcfeff30fefeff5400ffff6a01ffff8a04ffffa005ffff5a0effff34fbffff06690000b0690000f66900001e6a0000366a0000666a000056020100f4040100f80401000c050100ea080100c8090100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -746,9 +746,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 358.06903, y: 215.4176, z: 2.386721}
+    m_Target: {x: 0, y: 1.5, z: 0}
     speed: 2
-    m_Value: {x: 358.06903, y: 215.4176, z: 2.386721}
+    m_Value: {x: 0, y: 1.5, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -799,9 +799,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 206.72928
+    m_Target: 1.5
     speed: 2
-    m_Value: 206.72928
+    m_Value: 1.5
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1112,22 +1112,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Scenes/Testing
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Scenes/Testing
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Personal\GameCodeWork\GitHub\SpiritualWeapon\SpiritualWeapon
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 3.8000183}
-    m_SelectedIDs: 166b0000
-    m_LastClickedID: 27414
-    m_ExpandedIDs: 00000000f46a0000166b000000ca9a3b
+    scrollPos: {x: 0, y: 67.80002}
+    m_SelectedIDs: 486d0000
+    m_LastClickedID: 27976
+    m_ExpandedIDs: 00000000166d0000386d00003e6d000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1155,7 +1155,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000f46a0000
+    m_ExpandedIDs: 00000000166d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1182,7 +1182,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000b6690000b8690000b0690000b2690000b46900007acce2ff
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1276,7 +1276,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 299.2
+  m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
