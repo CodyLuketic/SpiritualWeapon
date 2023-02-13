@@ -4,17 +4,16 @@ using UnityEngine.AI;
 
 public class EnemyCombat : MonoBehaviour
 {
+    [Header("Scripts/Components")]
     [SerializeField] private Animator animator = null;
     [SerializeField] private NavMeshAgent agent = null;
 
-    private GameObject playerParticleObject = null;
-    
-    [SerializeField]
-    private GameObject face = null, deathParticles = null, attackParticles;
+    [Header("Objects")]
+    private GameObject playerParticleObject = null, face = null, deathParticles = null, attackParticles;
 
-    [SerializeField]
-    private Material[] faces;
+    [SerializeField] private Material[] faces;
 
+    [Header("Basic Values")]
     [SerializeField]
     private float shrinkSpeed = 0.1f, deincrement = 0.01f, deathDelay = 1f, shrinkDelay = 1f, particleHeight;
 
