@@ -3,7 +3,7 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField]
-    private GameObject pause = null, settings = null, transitionObj = null;
+    private GameObject menuContainer = null, settingsCanvas = null, rosaryCanvas = null, endTransitionObj = null;
 
     private bool paused = false;
 
@@ -12,13 +12,13 @@ public class PauseMenu : MonoBehaviour
     }
 
     private void PauseGameCheck() {
-        if(!transitionObj.activeSelf && Input.GetKeyDown(KeyCode.Tab)) {
+        if(!endTransitionObj.activeSelf && Input.GetKeyDown(KeyCode.Tab)) {
             if(!paused) {
                 Freeze();
             } else {
                 Move();
             }
-        } else if(transitionObj.activeSelf) {
+        } else if(endTransitionObj.activeSelf) {
             Move();
         }
     }
@@ -36,8 +36,8 @@ public class PauseMenu : MonoBehaviour
     }
 
     private void BackHelper() {
-        settings.SetActive(false);
-        pause.SetActive(true);
+        settingsCanvas.SetActive(false);
+        menuContainer.SetActive(true);
     }
 
     public void ToSettings() {
@@ -45,20 +45,22 @@ public class PauseMenu : MonoBehaviour
     }
 
     private void ToSettingsHelper() {
-        pause.SetActive(false);
-        settings.SetActive(true);
+        menuContainer.SetActive(false);
+        settingsCanvas.SetActive(true);
     }
 
     private void Freeze() {
         paused = true;
-        pause.SetActive(true);
+        //rosaryCanvas.SetActive(false);
+        menuContainer.SetActive(true);
         Time.timeScale = 0;
     }
 
     private void Move() {
         Time.timeScale = 1;
-        pause.SetActive(false);
-        settings.SetActive(false);
+        menuContainer.SetActive(false);
+        settingsCanvas.SetActive(false);
+        //rosaryCanvas.SetActive(true);
         paused = false;
     }
 }

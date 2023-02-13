@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    private GameObject transitionObj, startTransitionObj;
+    private GameObject rosaryCanvas = null, startTransitionObj = null, endTransitionObj = null;
 
     private Image transition, startTransition;
 
@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     private int function = 0;
 
     private void Start() {
-        transition = transitionObj.GetComponent<Image>();
+        transition = endTransitionObj.GetComponent<Image>();
         startTransition = startTransitionObj.GetComponent<Image>();
 
         if(startTransitionObj.activeSelf) {
@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     public void NextScene() {
         function = 0;
-        SceneTransition();
+        EndTransition();
     }
     private void NextSceneHelper() {
         int index = SceneManager.GetActiveScene().buildIndex;
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
 
     public void PreviousScene() {
         function = 1;
-        SceneTransition();
+        EndTransition();
     }
     private void PreviousSceneHelper() {
         int index = SceneManager.GetActiveScene().buildIndex;
@@ -48,75 +48,79 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ToMainMenu() {
+    public void ToSettings() {
         function = 2;
-        SceneTransition();
+        EndTransition();
     }
-    private void ToMainMenuHelper() {
+    private void ToSettingsHelper() {
         SceneManager.LoadScene(0);
     }
 
-    public void ToSettings() {
+    public void ToMainMenu() {
         function = 3;
-        SceneTransition();
+        EndTransition();
     }
-    private void ToSettingsHelper() {
+    private void ToMainMenuHelper() {
         SceneManager.LoadScene(1);
     }
 
-    public void ToJoyfulMystery() {
+    public void ToStartAndEndingPrayer() {
         function = 4;
-        SceneTransition();
+        EndTransition();
     }
-    private void ToJoyfulMysteryHelper() {
+    private void ToStartAndEndingPrayerHelper() {
         SceneManager.LoadScene(2);
     }
 
-    public void ToLuminousMystery() {
+    public void ToJoyfulMysteries() {
         function = 5;
-        SceneTransition();
+        EndTransition();
     }
-    private void ToLuminousMysteryHelper() {
+    private void ToJoyfulMysteriesHelper() {
         SceneManager.LoadScene(3);
     }
 
-    public void ToSorrowfulMystery() {
+    public void ToLuminousMysteries() {
         function = 6;
-        SceneTransition();
+        EndTransition();
     }
-    private void ToSorrowfulMysteryHelper() {
+    private void ToLuminousMysteriesHelper() {
         SceneManager.LoadScene(4);
     }
 
-    public void ToGloriusMystery() {
+    public void ToSorrowfulMysteries() {
         function = 7;
-        SceneTransition();
+        EndTransition();
     }
-    private void ToGloriusMysteryHelper() {
+    private void ToSorrowfulMysteriesHelper() {
         SceneManager.LoadScene(5);
     }
 
-    public void ToEndingPrayer() {
+    public void ToGloriusMysteries() {
         function = 8;
-        SceneTransition();
+        EndTransition();
     }
-    private void ToEndingPrayerHelper() {
+    private void ToGloriusMysteriesHelper() {
         SceneManager.LoadScene(6);
     }
 
     public void Quit() {
         function = 9;
-        SceneTransition();
+        EndTransition();
     }
     private void QuitHelper() {
         Application.Quit();
     }
     
-    public void SceneTransition() {
-        transitionObj.SetActive(true);
-        StartCoroutine(SceneTransitionHelper());
+    public void EndTransition() {
+        StartCoroutine(EndTransitionHelper());
     }
-    private IEnumerator SceneTransitionHelper() {
+    private IEnumerator EndTransitionHelper() {
+        if(rosaryCanvas.activeSelf) {
+            rosaryCanvas.SetActive(false);
+        }
+        endTransitionObj.SetActive(true);
+
         float r = transition.color.r;
         float g = transition.color.g;
         float b = transition.color.b;
@@ -140,25 +144,25 @@ public class GameManager : MonoBehaviour
                 PreviousSceneHelper();
                 break;
             case 2:
-                ToMainMenuHelper();
-                break;
-            case 3:
                 ToSettingsHelper();
                 break;
+            case 3:
+                ToMainMenuHelper();
+                break;
             case 4:
-                ToJoyfulMysteryHelper();
+                ToStartAndEndingPrayerHelper();
                 break;
             case 5:
-                ToLuminousMysteryHelper();
+                ToJoyfulMysteriesHelper();
                 break;
             case 6:
-                ToSorrowfulMysteryHelper();
+                ToLuminousMysteriesHelper();
                 break;
             case 7:
-                ToGloriusMysteryHelper();
+                ToSorrowfulMysteriesHelper();
                 break;
             case 8:
-                ToEndingPrayerHelper();
+                ToGloriusMysteriesHelper();
                 break;
             case 9:
                 QuitHelper();
