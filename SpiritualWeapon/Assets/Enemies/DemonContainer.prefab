@@ -1463,13 +1463,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1368812131945953923}
   agent: {fileID: 2539291015317168120}
+  face: {fileID: 1705211606673199447}
+  deathParticles: {fileID: 6959127934165647018, guid: 2f5487e5f9e1fa546af89e06d97861c4,
+    type: 3}
+  attackParticles: {fileID: 6959127934165647018, guid: 2f5487e5f9e1fa546af89e06d97861c4,
+    type: 3}
   faces:
   - {fileID: 2100000, guid: 140759a0f3a9b9947958b2b6e757557c, type: 2}
   - {fileID: 2100000, guid: 02a5ba6db4918b34a948e5c770de7702, type: 2}
   - {fileID: 2100000, guid: cfd332c3e3573014c85d4d405f2fdc42, type: 2}
-  shrinkSpeed: 0.015
-  deincrement: 0.01
-  hitDelay: 1
+  shrinkSpeed: 0.001
+  deincrement: 0.005
+  deathDelay: 1
+  shrinkDelay: 0.3
+  particleHeight: -0.1
 --- !u!1 &2568002178294761540
 GameObject:
   m_ObjectHideFlags: 0

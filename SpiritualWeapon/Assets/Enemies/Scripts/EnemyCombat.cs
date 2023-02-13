@@ -8,13 +8,17 @@ public class EnemyCombat : MonoBehaviour
     [SerializeField] private NavMeshAgent agent = null;
 
     private GameObject playerParticleObject = null;
+    
+    [SerializeField]
+    private GameObject face = null, deathParticles = null, attackParticles;
 
-    private GameObject face = null;
     [SerializeField]
     private Material[] faces;
 
     [SerializeField]
-    private float shrinkSpeed = 0.1f, deincrement = 0.01f, hitDelay = 1f, shrinkDelay = 1f;
+    private float shrinkSpeed = 0.1f, deincrement = 0.01f, deathDelay = 1f, shrinkDelay = 1f, particleHeight;
+
+    private bool dying = false;
 
     private void Start() {
         playerParticleObject = GameObject.FindGameObjectWithTag("PlayerParticleObject");
@@ -23,38 +27,43 @@ public class EnemyCombat : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if(other.gameObject.CompareTag("Player")) {
-            Debug.Log("Collided with Player");
-
-            animator.SetTrigger("Attack");
-
-            face.GetComponent<SkinnedMeshRenderer>().material = faces[1];
-
-            StartCoroutine("Shrinker");
+            StartCoroutine("Attack");
         }
     }
 
     private void OnParticleCollision(GameObject other) {
-        if(other == playerParticleObject) {
-            StartCoroutine("HitPlayer");
+        if(other == playerParticleObject && !dying) {
+            dying = true;
+            StartCoroutine("Die");
         }
     }
 
-    private IEnumerator HitPlayer() {
+    private IEnumerator Die() {
         agent.enabled = false;
-
-        animator.SetTrigger("Hit");
-
+        animator.SetTrigger("Die");
         face.GetComponent<SkinnedMeshRenderer>().material = faces[2];
 
-        yield return new WaitForSeconds(hitDelay);
+        Vector3 position = gameObject.transform.position + (Vector3.up * particleHeight);
+        Instantiate(deathParticles, gameObject.transform.position + Vector3.up, Quaternion.identity);
+
+        yield return new WaitForSeconds(deathDelay);
 
         agent.enabled = true;
+        dying = false;
+
         gameObject.SetActive(false);
     }
 
-    private IEnumerator Shrinker() {
+    private IEnumerator Attack() {
+        animator.SetTrigger("Attack");
+
         yield return new WaitForSeconds(shrinkDelay);
+
         agent.enabled = false;
+        face.GetComponent<SkinnedMeshRenderer>().material = faces[1];
+
+        Vector3 position = gameObject.transform.position + (Vector3.up * particleHeight);
+        Instantiate(attackParticles, gameObject.transform.position + Vector3.up, Quaternion.identity);
 
         while(gameObject.transform.localScale.x > deincrement) {
             gameObject.transform.localScale += new Vector3(-deincrement, -deincrement, -deincrement);
