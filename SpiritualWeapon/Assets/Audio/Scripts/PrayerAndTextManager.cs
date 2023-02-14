@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PrayerAndTextPlayer : MonoBehaviour
+public class PrayerAndTextManager : MonoBehaviour
 {
     [SerializeField]
     private AudioClip[] prayerClips;
