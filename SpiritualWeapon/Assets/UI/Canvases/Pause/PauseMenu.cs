@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject menuContainer = null, settingsCanvas = null, endTransitionObj = null;
+    [Header("Objects")]
+    [SerializeField] private GameObject menuContainer = null;
+    [SerializeField] private GameObject settingsCanvas = null;
+    [SerializeField] private GameObject endTransitionObj = null;
 
     private bool paused = false;
 

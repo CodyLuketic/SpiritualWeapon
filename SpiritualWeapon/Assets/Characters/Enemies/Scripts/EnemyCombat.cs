@@ -4,29 +4,22 @@ using UnityEngine.AI;
 
 public class EnemyCombat : MonoBehaviour
 {
-    [Header("Scripts/Components")]
-    [Space(1)]
+    [Header("Components")]
     [SerializeField] private Animator animator = null;
     [SerializeField] private NavMeshAgent agent = null;
 
-    [Space(10)]
     [Header("Objects")]
-    [Space(1)]
-
-    private GameObject playerParticleObject = null, face = null;
-    [SerializeField]
-    private GameObject deathParticles = null, attackParticles = null;
+    [SerializeField] private GameObject attackParticles = null;
 
     [SerializeField] private Material[] faces;
 
-    [Space(10)]
+    private GameObject playerParticleObject = null, face = null;
+
     [Header("Basic Values")]
-    [Space(1)]
-
-    [SerializeField]
-    private float shrinkSpeed = 0.1f, deincrement = 0.01f, deathDelay = 1f, shrinkDelay = 1f, particleHeight;
-
-    private bool dying = false;
+    [SerializeField] private float shrinkSpeed = 0.1f;
+    [SerializeField] private float deincrement = 0.01f;
+    [SerializeField] private float shrinkDelay = 1f;
+    [SerializeField] private float particleHeight = 1f;
 
     private void Start() {
         playerParticleObject = GameObject.FindGameObjectWithTag("PlayerParticleObject");
@@ -35,31 +28,9 @@ public class EnemyCombat : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if(other.gameObject.CompareTag("Player")) {
+            other.gameObject.GetComponent<PlayerHitCount>().IncrementHitCount();
             StartCoroutine("Attack");
         }
-    }
-
-    private void OnParticleCollision(GameObject other) {
-        if(other == playerParticleObject && !dying) {
-            dying = true;
-            StartCoroutine("Die");
-        }
-    }
-
-    private IEnumerator Die() {
-        agent.enabled = false;
-        animator.SetTrigger("Die");
-        face.GetComponent<SkinnedMeshRenderer>().material = faces[2];
-
-        Vector3 position = gameObject.transform.position + (Vector3.up * particleHeight);
-        Instantiate(deathParticles, gameObject.transform.position + Vector3.up, Quaternion.identity);
-
-        yield return new WaitForSeconds(deathDelay);
-
-        agent.enabled = true;
-        dying = false;
-
-        gameObject.SetActive(false);
     }
 
     private IEnumerator Attack() {

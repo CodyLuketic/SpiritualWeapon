@@ -1364,6 +1364,7 @@ GameObject:
   - component: {fileID: 2539291015317168122}
   - component: {fileID: 2539291015317168121}
   - component: {fileID: 2539291015317168120}
+  - component: {fileID: -5880536992970760414}
   - component: {fileID: 2539291015317168103}
   - component: {fileID: 2539291015317168102}
   m_Layer: 0
@@ -1437,6 +1438,33 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-5880536992970760414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2539291015317168101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb24bae70b001b5439e7ccc1c2e7f32c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1368812131945953923}
+  agent: {fileID: 2539291015317168120}
+  deathParticles: {fileID: 6959127934165647018, guid: 2f5487e5f9e1fa546af89e06d97861c4,
+    type: 3}
+  faces:
+  - {fileID: 2100000, guid: 140759a0f3a9b9947958b2b6e757557c, type: 2}
+  - {fileID: 2100000, guid: 02a5ba6db4918b34a948e5c770de7702, type: 2}
+  - {fileID: 2100000, guid: cfd332c3e3573014c85d4d405f2fdc42, type: 2}
+  _health: 1
+  _speed: 4
+  playerDamage: 1
+  holyDamage: 1
+  damageDelay: 1
+  deathDelay: 1
+  particleHeight: 1
 --- !u!114 &2539291015317168103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1463,9 +1491,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1368812131945953923}
   agent: {fileID: 2539291015317168120}
-  face: {fileID: 1705211606673199447}
-  deathParticles: {fileID: 6959127934165647018, guid: 2f5487e5f9e1fa546af89e06d97861c4,
-    type: 3}
   attackParticles: {fileID: 6959127934165647018, guid: 2f5487e5f9e1fa546af89e06d97861c4,
     type: 3}
   faces:
@@ -1474,7 +1499,6 @@ MonoBehaviour:
   - {fileID: 2100000, guid: cfd332c3e3573014c85d4d405f2fdc42, type: 2}
   shrinkSpeed: 0.001
   deincrement: 0.005
-  deathDelay: 1
   shrinkDelay: 0.3
   particleHeight: -0.1
 --- !u!1 &2568002178294761540

@@ -5,14 +5,16 @@ using TMPro;
 
 public class Settings : MonoBehaviour
 {
-    [SerializeField]
-    private AudioMixer musicMixer = null, vocalsMixer = null, soundEffectsMixer = null; 
+    [Header("Objects")]
+    [SerializeField] private AudioMixer musicMixer = null;
+    [SerializeField] private AudioMixer vocalsMixer = null;
+    [SerializeField] private AudioMixer soundEffectsMixer = null; 
     
-    [SerializeField]
-    private TMP_Text musicAmount = null, vocalsAmount = null, soundEffectsAmount = null;
+    [SerializeField] private TMP_Text musicAmount = null;
+    [SerializeField] private TMP_Text vocalsAmount = null;
+    [SerializeField] private TMP_Text soundEffectsAmount = null;
 
-    [SerializeField]
-    private TMP_Dropdown resolutionDropdown = null;
+    [SerializeField] private TMP_Dropdown resolutionDropdown = null;
 
     private Resolution[] resolutions;
 

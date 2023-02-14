@@ -1,23 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RosaryCanvas : MonoBehaviour
 {
-    [SerializeField]
-    private StartingPrayerFill startFill = null;
-    [SerializeField]
-    private DecadePrayerFill decadeFill = null;
+    [Header("Scripts")]
+    [SerializeField] private StartingPrayerFill startFill = null;
+    [SerializeField] private DecadePrayerFill decadeFill = null;
 
-    private bool startActive = true, startDone = false,
-        decadeActive = true, decadeDone = false;
-
+    private bool startActive = true, startDone = false, decadeActive = true, decadeDone = false;
     
     private void Start() {
         startFill.Fill();
-        //decadeFill.Fill();
     }
-
     
     private void Update() {
         if(!startActive && !startDone) {

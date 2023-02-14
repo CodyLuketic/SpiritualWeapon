@@ -5,13 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject rosaryCanvas = null, startTransitionObj = null, endTransitionObj = null;
+    [Header("Objects")]
+    [SerializeField] private GameObject rosaryCanvas = null;
+    [SerializeField] private GameObject startTransitionObj = null;
+    [SerializeField] private GameObject endTransitionObj = null;
 
     private Image transition, startTransition;
 
-    [SerializeField]
-    private float increment = 0.1f, sceneTick = 0.1f;
+    [Header("Basic Values")]
+    [SerializeField] private float increment = 0.1f;
+    [SerializeField] private float sceneTick = 0.1f;
 
     private int function = 0;
 

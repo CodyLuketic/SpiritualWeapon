@@ -4,26 +4,36 @@ using UnityEngine.UI;
 
 public class DecadePrayerFill : MonoBehaviour
 {
-    [SerializeField]
-    private RosaryCanvas rosaryCanvas = null;
+    [Header("Scripts")]
+    [SerializeField] private RosaryCanvas rosaryCanvas = null;
 
-    [SerializeField]
-    private Image outline = null, lLargeBead = null, smallBead1 = null,
-        smallBead2 = null, smallBead3 = null, smallBead4 = null, smallBead5 = null,
-        smallBead6 = null, smallBead7 = null, smallBead8 = null, smallBead9 = null,
-        smallBead10 = null, rLargeBead = null;
+    [Header("Objects")]
+    [SerializeField] private Image outline = null;
+    [SerializeField] private Image lLargeBead = null;
+    [SerializeField] private Image smallBead1 = null;
+    [SerializeField] private Image smallBead2 = null;
+    [SerializeField] private Image smallBead3 = null;
+    [SerializeField] private Image smallBead4 = null;
+    [SerializeField] private Image smallBead5 = null;
+    [SerializeField] private Image smallBead6 = null;
+    [SerializeField] private Image smallBead7 = null;
+    [SerializeField] private Image smallBead8 = null;
+    [SerializeField] private Image smallBead9 = null;
+    [SerializeField] private Image smallBead10 = null;
+    [SerializeField] private Image rLargeBead = null;
+
+    [SerializeField] private Color completedColor;
 
     private Color outlineColor, largeBeadColor, smallBeadColor;
-    
-    [SerializeField]
-    private Color completedColor;
 
-    [SerializeField]
-    private float outlineAlpha = 1f;
-
-    [SerializeField]
-    private float outlineTime = 0.1f, largeBeadTime = 0.1f, smallBeadTime = 0.1f,
-        resetTime = 0.1f, completedTime, increment = 0.1f;
+    [Header("Basic Values")]
+    [SerializeField] private float outlineAlpha = 1f;
+    [SerializeField] private float outlineTime = 0.1f;
+    [SerializeField] private float largeBeadTime = 0.1f;
+    [SerializeField] private float smallBeadTime = 0.1f;
+    [SerializeField] private float resetTime = 0.1f;
+    [SerializeField] private float completedTime;
+    [SerializeField] private float increment = 0.1f;
 
     private float r = 0, g = 0, b = 0, a = 1;
 

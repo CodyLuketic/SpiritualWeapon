@@ -4,21 +4,29 @@ using UnityEngine.UI;
 
 public class StartingPrayerFill : MonoBehaviour
 {
-    [SerializeField]
-    private RosaryCanvas rosaryCanvas = null;
+    [Header("Scripts")]
+    [SerializeField] private RosaryCanvas rosaryCanvas = null;
 
-    [SerializeField]
-    private Image cross = null, outline = null, lLargeBead = null,
-        lSmallBead = null, mSmallBead = null, rSmallBead = null, rLargeBead = null;
+    [Header("Objects")]
+    [SerializeField] private Image cross = null;
+    [SerializeField] private Image outline = null;
+    [SerializeField] private Image lLargeBead = null;
+    [SerializeField] private Image lSmallBead = null;
+    [SerializeField] private Image mSmallBead = null;
+    [SerializeField] private Image rSmallBead = null;
+    [SerializeField] private Image rLargeBead = null;
+
+    [SerializeField] private Color completedColor;
 
     private Color crossColor, outlineColor, largeBeadColor, smallBeadColor;
-    
-    [SerializeField]
-    private Color completedColor;
 
-    [SerializeField]
-    private float crossTime = 0.1f, largeBeadTime = 0.1f, smallBeadTime = 0.1f,
-        resetTime = 0.1f, completedTime = 0.05f, increment = 0.1f;
+    [Header("Basic Values")]
+    [SerializeField] private float crossTime = 0.1f;
+    [SerializeField] private float largeBeadTime = 0.1f;
+    [SerializeField] private float smallBeadTime = 0.1f;
+    [SerializeField] private float resetTime = 0.1f;
+    [SerializeField] private float completedTime = 0.05f;
+    [SerializeField] private float increment = 0.1f;
 
     private float r, g, b, a;
 

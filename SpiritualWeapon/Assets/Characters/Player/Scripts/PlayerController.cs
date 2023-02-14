@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
-    CharacterController characterController;
-    
-    private Vector3 moveDirection = Vector3.zero;
+    [Header("Components")]
+    [SerializeField] private CharacterController characterController;
 
-    [SerializeField]
-    private float walkingSpeed = 1f, runningSpeed = 1f, jumpSpeed = 1f, gravity = 1f;
+    [Header("Basic Values")]
+    [SerializeField] private float walkingSpeed = 1f;
+    [SerializeField] private float runningSpeed = 1f;
+    [SerializeField] private float jumpSpeed = 1f;
+    [SerializeField] private float gravity = 1f;
+
     private float currentSpeedX = 0, currentSpeedY = 0, movementDirectionY = 0;
 
-    private Vector3 forward, right;
+    private Vector3 forward, right, moveDirection = Vector3.zero;
 
     private bool canMove = true, isRunning = false;
 

@@ -3,9 +3,11 @@ using UnityEngine;
 
 public class PrayerAndTextManager : MonoBehaviour
 {
+    [Header("Components")]
     [SerializeField]private AudioSource audioSource = null;
     [SerializeField] private AudioClip[] prayerClips;
 
+    [Header("Basic Values")]
     [TextArea(minLines: 1, maxLines: 6)]
     [SerializeField]
     private string[] prayerText;

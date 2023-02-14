@@ -12,15 +12,17 @@ public class EnemyPooler : MonoBehaviour
         public int size;
     }
 
-    [SerializeField]
-    private List<Pool> pools;
+    [Header("Systems")]
+    [SerializeField] private List<Pool> pools;
 
     private Dictionary<string, Queue<GameObject>> poolDictionary;
 
     private Coroutine spawnCoroutine = null;
 
-    [SerializeField]
-    private float minRadius = 5f, maxRadius = 10f, spawnTime = 1f;
+    [Header("BasicValues")]
+    [SerializeField] private float minRadius = 5f;
+    [SerializeField] private float maxRadius = 10f;
+    [SerializeField] private float spawnTime = 1f;
 
     private void Start() {
         SetDictionary();
