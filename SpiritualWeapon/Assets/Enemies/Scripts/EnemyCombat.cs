@@ -5,15 +5,24 @@ using UnityEngine.AI;
 public class EnemyCombat : MonoBehaviour
 {
     [Header("Scripts/Components")]
+    [Space(1)]
     [SerializeField] private Animator animator = null;
     [SerializeField] private NavMeshAgent agent = null;
 
+    [Space(10)]
     [Header("Objects")]
-    private GameObject playerParticleObject = null, face = null, deathParticles = null, attackParticles;
+    [Space(1)]
+
+    private GameObject playerParticleObject = null, face = null;
+    [SerializeField]
+    private GameObject deathParticles = null, attackParticles = null;
 
     [SerializeField] private Material[] faces;
 
+    [Space(10)]
     [Header("Basic Values")]
+    [Space(1)]
+
     [SerializeField]
     private float shrinkSpeed = 0.1f, deincrement = 0.01f, deathDelay = 1f, shrinkDelay = 1f, particleHeight;
 
