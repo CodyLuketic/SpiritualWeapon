@@ -57,7 +57,7 @@ public class EnemyValues : MonoBehaviour
         face.GetComponent<SkinnedMeshRenderer>().material = faces[2];
 
         Vector3 position = gameObject.transform.position + (Vector3.up * particleHeight);
-        Instantiate(deathParticles, gameObject.transform.position + Vector3.up, Quaternion.identity);
+        //Instantiate(deathParticles, gameObject.transform.position + Vector3.up, Quaternion.identity);
 
         yield return new WaitForSeconds(deathDelay);
 
