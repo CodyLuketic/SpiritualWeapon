@@ -9,89 +9,69 @@ public class PrayerAndTextManager : MonoBehaviour
     [Header("General Audio Clips/Text")]
     [SerializeField] private AudioClip[] ourFatherClips = null;
     private AudioClip[] fatherTempClips = null;
-    [TextArea(minLines: 1, maxLines: 6)] [SerializeField] private string[] ourFatherText;
+    [TextArea(minLines: 1, maxLines: 12)] [SerializeField] private string ourFatherText;
     [SerializeField] private AudioClip[] hailMaryClips = null;
     private AudioClip[] maryTempClips = null;
-    [TextArea(minLines: 1, maxLines: 6)] [SerializeField] private string[] hailMaryText;
+    [TextArea(minLines: 1, maxLines: 12)] [SerializeField] private string hailMaryText;
     [SerializeField] private AudioClip[] gloryBeClips = null;
     private AudioClip[] gloryTempClips = null;
-    [TextArea(minLines: 1, maxLines: 6)] [SerializeField] private string[] gloryBeText;
+    [TextArea(minLines: 1, maxLines: 12)] [SerializeField] private string gloryBeText;
 
     [Header("Start Audio Clips/Text")]
     [SerializeField] private AudioClip crossStartClip = null;
-    [TextArea(minLines: 1, maxLines: 6)] [SerializeField] private string[] crossStartText;
+    [TextArea(minLines: 1, maxLines: 12)] [SerializeField] private string crossStartText;
     [SerializeField] private AudioClip creedClip = null;
-    [TextArea(minLines: 1, maxLines: 6)] [SerializeField] private string[] creedText;
+    [TextArea(minLines: 1, maxLines: 12)] [SerializeField] private string creedText;
     [SerializeField] private AudioClip intentionsClip = null;
-    [TextArea(minLines: 1, maxLines: 6)] [SerializeField] private string[] intentionsText;
+    [TextArea(minLines: 1, maxLines: 12)] [SerializeField] private string intentionsText;
     [SerializeField] private AudioClip faithClip = null;
-    [TextArea(minLines: 1, maxLines: 6)] [SerializeField] private string[] faithText;
+    [TextArea(minLines: 1, maxLines: 12)] [SerializeField] private string faithText;
     [SerializeField] private AudioClip hopeClip = null;
-    [TextArea(minLines: 1, maxLines: 6)] [SerializeField] private string[] hopeText;
+    [TextArea(minLines: 1, maxLines: 12)] [SerializeField] private string hopeText;
     [SerializeField] private AudioClip loveClip = null;
-    [TextArea(minLines: 1, maxLines: 6)] [SerializeField] private string[] loveText;
+    [TextArea(minLines: 1, maxLines: 12)] [SerializeField] private string loveText;
 
     [Header("Joyful Mystery Audio Clips/Text")]
     [SerializeField] private AudioClip annunciationClip = null;
-    [TextArea(minLines: 1, maxLines: 6)] [SerializeField] private string[] annunciationText;
     [SerializeField] private AudioClip visitationClip = null;
-    [TextArea(minLines: 1, maxLines: 6)] [SerializeField] private string[] visitationText;
-    [SerializeField] private AudioClip birthClip = null;
-    [TextArea(minLines: 1, maxLines: 6)] [SerializeField] private string[] birthText;
+    [SerializeField] private AudioClip nativityClip = null;
     [SerializeField] private AudioClip presentationClip = null;
-    [TextArea(minLines: 1, maxLines: 6)] [SerializeField] private string[] presentationText;
     [SerializeField] private AudioClip templeClip = null;
-    [TextArea(minLines: 1, maxLines: 6)] [SerializeField] private string[] templeText;
 
     [Header("Luminous Mystery Audio Clips/Text")]
     [SerializeField] private AudioClip baptismClip = null;
-    [TextArea(minLines: 1, maxLines: 6)] [SerializeField] private string[] baptismText;
-    [SerializeField] private AudioClip canaClip = null;
-    [TextArea(minLines: 1, maxLines: 6)] [SerializeField] private string[] canaText;
+    [SerializeField] private AudioClip weddingClip = null;
     [SerializeField] private AudioClip kingdomClip = null;
-    [TextArea(minLines: 1, maxLines: 6)] [SerializeField] private string[] kingdomText;
     [SerializeField] private AudioClip transfigurationClip = null;
-    [TextArea(minLines: 1, maxLines: 6)] [SerializeField] private string[] transfigurationText;
     [SerializeField] private AudioClip eucharistClip = null;
-    [TextArea(minLines: 1, maxLines: 6)] [SerializeField] private string[] eucharistText;
 
     [Header("Sorrowful Mystery Audio Clips/Text")]
     [SerializeField] private AudioClip gardenClip = null;
-    [TextArea(minLines: 1, maxLines: 6)] [SerializeField] private string[] gardenText;
     [SerializeField] private AudioClip pillarClip = null;
-    [TextArea(minLines: 1, maxLines: 6)] [SerializeField] private string[] pillarText;
-    [SerializeField] private AudioClip thornClip = null;
-    [TextArea(minLines: 1, maxLines: 6)] [SerializeField] private string[] thornText;
+    [SerializeField] private AudioClip thornsClip = null;
     [SerializeField] private AudioClip carryingClip = null;
-    [TextArea(minLines: 1, maxLines: 6)] [SerializeField] private string[] carryingText;
     [SerializeField] private AudioClip crucifixionClip = null;
-    [TextArea(minLines: 1, maxLines: 6)] [SerializeField] private string[] crucifixionText;
 
     [Header("Glorious Mystery Audio Clips/Text")]
     [SerializeField] private AudioClip resurrectionClip = null;
-    [TextArea(minLines: 1, maxLines: 6)] [SerializeField] private string[] resurrectionText;
-    [SerializeField] private AudioClip anscensionClip = null;
-    [TextArea(minLines: 1, maxLines: 6)] [SerializeField] private string[] anscensionText;
-    [SerializeField] private AudioClip spiritClip = null;
-    [TextArea(minLines: 1, maxLines: 6)] [SerializeField] private string[] spiritText;
+    [SerializeField] private AudioClip ascensionClip = null;
+    [SerializeField] private AudioClip pentacostClip = null;
     [SerializeField] private AudioClip assumptionClip = null;
-    [TextArea(minLines: 1, maxLines: 6)] [SerializeField] private string[] assumptionText;
     [SerializeField] private AudioClip coronationClip = null;
-    [TextArea(minLines: 1, maxLines: 6)] [SerializeField] private string[] coronationText;
 
     [Header("End Audio Clips/Text")]
     [SerializeField] private AudioClip reginaClip = null;
-    [TextArea(minLines: 1, maxLines: 6)] [SerializeField] private string[] reginaText;
+    [TextArea(minLines: 1, maxLines: 12)] [SerializeField] private string reginaText;
     [SerializeField] private AudioClip godClip = null;
-    [TextArea(minLines: 1, maxLines: 6)] [SerializeField] private string[] godText;
+    [TextArea(minLines: 1, maxLines: 12)] [SerializeField] private string godText;
     [SerializeField] private AudioClip memorareClip = null;
-    [TextArea(minLines: 1, maxLines: 6)] [SerializeField] private string[] memorareText;
+    [TextArea(minLines: 1, maxLines: 12)] [SerializeField] private string memorareText;
     [SerializeField] private AudioClip michaelClip = null;
-    [TextArea(minLines: 1, maxLines: 6)] [SerializeField] private string[] michaelText;
+    [TextArea(minLines: 1, maxLines: 12)] [SerializeField] private string michaelText;
     [SerializeField] private AudioClip heartClip = null;
-    [TextArea(minLines: 1, maxLines: 6)] [SerializeField] private string[] heartText;
+    [TextArea(minLines: 1, maxLines: 12)] [SerializeField] private string heartText;
     [SerializeField] private AudioClip crossEndClip = null;
-    [TextArea(minLines: 1, maxLines: 6)] [SerializeField] private string[] crossEndText;
+    [TextArea(minLines: 1, maxLines: 12)] [SerializeField] private string crossEndText;
 
     private AudioClip[] currentClips = new AudioClip[13];
 
@@ -100,8 +80,11 @@ public class PrayerAndTextManager : MonoBehaviour
     }
 
     private void Start() {
+        fatherTempClips = new AudioClip[ourFatherClips.Length];
         CopyArray(ourFatherClips, fatherTempClips);
+        maryTempClips = new AudioClip[hailMaryClips.Length];
         CopyArray(hailMaryClips, maryTempClips);
+        gloryTempClips = new AudioClip[gloryBeClips.Length];
         CopyArray(gloryBeClips, gloryTempClips);
 
         FillCurrentClips(annunciationClip);
@@ -130,11 +113,10 @@ public class PrayerAndTextManager : MonoBehaviour
         currentClips[currentIndex] = clipsToSet[random];
         clipsToSet[random] = null;
 
-        AudioClip[] temp = null;
-        CopyArray(clipsToSet, temp);
+        AudioClip[] temp = new AudioClip[clipsToSet.Length - 1];
+        CopyArraySkipNull(clipsToSet, temp);
 
-        clipsToSet = new AudioClip[clipsToSet.Length - 1];
-        CopyArraySkipNull(temp, clipsToSet);
+        clipsToSet = temp;
     }
 
     private IEnumerator Speech() {
