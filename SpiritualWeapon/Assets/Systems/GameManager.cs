@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
         EndTransition();
     }
     private void ToLuminousMysteriesHelper() {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(8);
     }
 
     public void ToSorrowfulMysteries() {
@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour
         EndTransition();
     }
     private void ToSorrowfulMysteriesHelper() {
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene(13);
     }
 
     public void ToGloriusMysteries() {
@@ -104,7 +104,7 @@ public class GameManager : MonoBehaviour
         EndTransition();
     }
     private void ToGloriusMysteriesHelper() {
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene(18);
     }
 
     public void Quit() {
@@ -114,12 +114,20 @@ public class GameManager : MonoBehaviour
     private void QuitHelper() {
         Application.Quit();
     }
+
+    public void ToTestScene() {
+        function = 10;
+        EndTransition();
+    }
+    private void ToTestSceneHelper() {
+        SceneManager.LoadScene(23);
+    }
     
     public void EndTransition() {
         StartCoroutine(EndTransitionHelper());
     }
     private IEnumerator EndTransitionHelper() {
-        if(rosaryCanvas.activeSelf) {
+        if(rosaryCanvas != null && rosaryCanvas.activeSelf) {
             rosaryCanvas.SetActive(false);
         }
         endTransitionObj.SetActive(true);
@@ -169,6 +177,9 @@ public class GameManager : MonoBehaviour
                 break;
             case 9:
                 QuitHelper();
+                break;
+            case 10:
+                ToTestSceneHelper();
                 break;
             default:
                 Debug.Log("This should never run");

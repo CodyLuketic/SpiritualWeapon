@@ -41,23 +41,26 @@ public class EnemyValues : MonoBehaviour
         if(other == playerParticleObject && delayed) {
             Debug.Log("Hit");
             delayed = false;
-            _health -= playerDamage;
-
-            if(_health <= 0) {
-                StartCoroutine(Die());
-            } else {
-                StartCoroutine(Delayed());
-            }
+            DamageCheck(playerDamage);
         }
     }
 
+    private void DamageCheck(float damageType) {
+        _health -= damageType;
+
+        if(_health <= 0) {
+            StartCoroutine(Die());
+        } else {
+            StartCoroutine(Delayed());
+        }
+    }
     private IEnumerator Die() {
         agent.enabled = false;
         animator.SetTrigger("Die");
         face.GetComponent<SkinnedMeshRenderer>().material = faces[2];
 
         Vector3 position = gameObject.transform.position + (Vector3.up * particleHeight);
-        //Instantiate(deathParticles, gameObject.transform.position + Vector3.up, Quaternion.identity);
+        Instantiate(deathParticles, gameObject.transform.position + Vector3.up, Quaternion.identity);
 
         yield return new WaitForSeconds(deathDelay);
 
@@ -77,6 +80,6 @@ public class EnemyValues : MonoBehaviour
         HolyDamageHelper();
     }
     private void HolyDamageHelper() {
-        _health -= holyDamage;
+        DamageCheck(holyDamage);
     }
 }

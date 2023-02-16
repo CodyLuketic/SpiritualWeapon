@@ -320,6 +320,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7634047082360022519, guid: 7792b3a39aaa168428482c7b999a44a9,
+        type: 3}
+      propertyPath: m_Cameras.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7634047082360022523, guid: 7792b3a39aaa168428482c7b999a44a9,
         type: 3}
       propertyPath: m_Name
@@ -1284,7 +1289,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1581878237}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: NextScene
+        m_MethodName: ToTestScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
