@@ -59,6 +59,8 @@ public class PrayerAndTextManager : MonoBehaviour
     [SerializeField] private AudioClip assumptionClip = null;
     [SerializeField] private AudioClip coronationClip = null;
 
+    private AudioClip[] mysteries = null;
+
     [Header("End Audio Clips/Text")]
     [SerializeField] private AudioClip reginaClip = null;
     [TextArea(minLines: 1, maxLines: 12)] [SerializeField] private string reginaText;
@@ -75,6 +77,8 @@ public class PrayerAndTextManager : MonoBehaviour
 
     private AudioClip[] currentClips = new AudioClip[13];
 
+    private bool canContinue = false;
+
     private void Awake() {
         DontDestroyOnLoad(transform.gameObject);
     }
@@ -87,9 +91,28 @@ public class PrayerAndTextManager : MonoBehaviour
         gloryTempClips = new AudioClip[gloryBeClips.Length];
         CopyArray(gloryBeClips, gloryTempClips);
 
-        FillCurrentClips(annunciationClip);
+        mysteries = new AudioClip[] {annunciationClip, visitationClip, nativityClip,
+            presentationClip, templeClip, baptismClip, weddingClip, kingdomClip,
+            transfigurationClip, eucharistClip, gardenClip, pillarClip, thornsClip,
+            carryingClip, crucifixionClip, resurrectionClip, ascensionClip, pentacostClip,
+            assumptionClip, coronationClip};
+    }
 
-        StartCoroutine(Speech());
+    public void AllMysteriesPrayer() {
+        AllMysteriesPrayerHelper();
+    }
+    private void AllMysteriesPrayerHelper() {
+        for(int i = 0; i < mysteries.Length; i++) {
+            if(canContinue) {
+                FillCurrentClips(mysteries[i]);
+
+                canContinue = false;
+
+                StartCoroutine(Speech());
+            } else {
+                i--;
+            }
+        }
     }
 
     private void FillCurrentClips(AudioClip sceneClip) {
@@ -125,6 +148,8 @@ public class PrayerAndTextManager : MonoBehaviour
             audioSource.Play();
             yield return new WaitForSeconds(currentClips[i].length);
         }
+
+        canContinue = true;
     }
 
     private void CopyArray(AudioClip[] arrayToCopy, AudioClip[] copiedArray) {
