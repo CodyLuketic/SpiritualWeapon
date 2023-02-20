@@ -3,8 +3,12 @@ using UnityEngine;
 
 public class PrayerAndTextManager : MonoBehaviour
 {
+    [Header("Scripts")]
+    private StartingPrayerFill startingPrayerScript = null;
+    private DecadePrayerFill decadePrayerScript = null;
+
     [Header("Components")]
-    [SerializeField]private AudioSource audioSource = null;
+    [SerializeField] private AudioSource audioSource = null;
 
     [Header("General Audio Clips/Text")]
     [SerializeField] private AudioClip[] ourFatherClips = null;
@@ -75,8 +79,9 @@ public class PrayerAndTextManager : MonoBehaviour
     [SerializeField] private AudioClip crossEndClip = null;
     [TextArea(minLines: 1, maxLines: 12)] [SerializeField] private string crossEndText;
 
-    private AudioClip[] currentClips = new AudioClip[13];
-
+    private AudioClip[] currentClips = null;
+    private int currentMystery = 0;
+    private int endingMystery = 0;
     private bool canContinue = false;
 
     private void Awake() {
@@ -84,6 +89,10 @@ public class PrayerAndTextManager : MonoBehaviour
     }
 
     private void Start() {
+        Setup();
+    }
+
+    private void Setup() {
         fatherTempClips = new AudioClip[ourFatherClips.Length];
         CopyArray(ourFatherClips, fatherTempClips);
         maryTempClips = new AudioClip[hailMaryClips.Length];
@@ -91,31 +100,73 @@ public class PrayerAndTextManager : MonoBehaviour
         gloryTempClips = new AudioClip[gloryBeClips.Length];
         CopyArray(gloryBeClips, gloryTempClips);
 
-        mysteries = new AudioClip[] {annunciationClip, visitationClip, nativityClip,
+        mysteries = new AudioClip[] { annunciationClip, visitationClip, nativityClip,
             presentationClip, templeClip, baptismClip, weddingClip, kingdomClip,
             transfigurationClip, eucharistClip, gardenClip, pillarClip, thornsClip,
             carryingClip, crucifixionClip, resurrectionClip, ascensionClip, pentacostClip,
-            assumptionClip, coronationClip};
+            assumptionClip, coronationClip };
     }
 
-    public void AllMysteriesPrayer() {
-        AllMysteriesPrayerHelper();
+    public void StartingPrayers() {
+        StartingPrayersHelper();
     }
-    private void AllMysteriesPrayerHelper() {
-        for(int i = 0; i < mysteries.Length; i++) {
-            if(canContinue) {
-                FillCurrentClips(mysteries[i]);
+    private void StartingPrayersHelper() {
+        currentClips = new AudioClip[13];
 
-                canContinue = false;
+        currentClips[0] = crossStartClip;
+        currentClips[1] = creedClip;
+        currentClips[2] = intentionsClip;
+        currentClips[3] = faithClip;
+        currentClips[4] = hopeClip;
+        currentClips[5] = loveClip;
 
-                StartCoroutine(Speech());
-            } else {
-                i--;
-            }
+        canContinue = false;
+
+        startingPrayerScript = GameObject.FindGameObjectWithTag("StartingPrayers").GetComponent<StartingPrayerFill>();
+        StartCoroutine(Speech(startingPrayerScript));
+    }
+
+    public void EndingPrayers() {
+        EndingPrayersHelper();
+    }
+    private void EndingPrayersHelper() {
+        currentClips = new AudioClip[13];
+
+        currentClips[0] = reginaClip;
+        currentClips[1] = godClip;
+        currentClips[2] = memorareClip;
+        currentClips[3] = michaelClip;
+        currentClips[4] = heartClip;
+        currentClips[5] = crossEndClip;
+
+        startingPrayerScript = GameObject.FindGameObjectWithTag("StartingPrayers").GetComponent<StartingPrayerFill>();
+        StartCoroutine(Speech(startingPrayerScript));
+    }
+
+    public void MysteriesPrayer(int startingPrayer, int endingPrayer) {
+        MysteriesPrayerInitial(startingPrayer, endingPrayer);
+    }
+    private void MysteriesPrayerInitial(int startingPrayer, int endingPrayer) {
+        decadePrayerScript = GameObject.FindGameObjectWithTag("DecadePrayers").GetComponent<DecadePrayerFill>();
+
+        currentMystery = startingPrayer;
+        endingMystery = endingPrayer;
+
+        MysteriesPrayerContinuous();
+    }
+    private void MysteriesPrayerContinuous() {
+        if(currentMystery == endingMystery) {
+            EndingPrayersHelper();
         }
+
+        FillCurrentClips(mysteries[currentMystery]);
+
+        StartCoroutine(Speech(decadePrayerScript));
     }
 
     private void FillCurrentClips(AudioClip sceneClip) {
+        currentClips = new AudioClip[13];
+
         currentClips[0] = sceneClip;
 
         SetCurrentClip(1, ourFatherClips, fatherTempClips);
@@ -142,14 +193,31 @@ public class PrayerAndTextManager : MonoBehaviour
         clipsToSet = temp;
     }
 
-    private IEnumerator Speech() {
+    private IEnumerator Speech(StartingPrayerFill script) {
+        script.Fill();
+
         for(int i = 0; i < currentClips.Length; i++) {
             audioSource.clip = currentClips[i];
             audioSource.Play();
+            script.SetWaitTime(currentClips[i].length);
             yield return new WaitForSeconds(currentClips[i].length);
         }
 
-        canContinue = true;
+        MysteriesPrayerInitial(0, -1);
+    }
+
+    private IEnumerator Speech(DecadePrayerFill script) {
+        script.Fill();
+
+        for(int i = 0; i < currentClips.Length; i++) {
+            audioSource.clip = currentClips[i];
+            audioSource.Play();
+            script.SetWaitTime(currentClips[i].length);
+            yield return new WaitForSeconds(currentClips[i].length);
+        }
+
+        currentMystery++;
+        MysteriesPrayerContinuous();
     }
 
     private void CopyArray(AudioClip[] arrayToCopy, AudioClip[] copiedArray) {

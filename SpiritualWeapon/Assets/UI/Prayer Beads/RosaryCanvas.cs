@@ -2,15 +2,12 @@ using UnityEngine;
 
 public class RosaryCanvas : MonoBehaviour
 {
+    /*
     [Header("Scripts")]
     [SerializeField] private StartingPrayerFill startFill = null;
     [SerializeField] private DecadePrayerFill decadeFill = null;
 
     private bool startActive = true, startDone = false, decadeActive = true, decadeDone = false;
-    
-    private void Start() {
-        startFill.Fill();
-    }
     
     private void Update() {
         if(!startActive && !startDone) {
@@ -45,5 +42,6 @@ public class RosaryCanvas : MonoBehaviour
     }
     private void SetDecadeActiveHelper(bool isActive) {
         decadeActive = isActive;
-    }  
+    }
+    */
 }

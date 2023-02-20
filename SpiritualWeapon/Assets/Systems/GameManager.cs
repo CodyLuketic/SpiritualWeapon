@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     }
     private void NextSceneHelper() {
         int index = SceneManager.GetActiveScene().buildIndex;
-        if(index < SceneManager.sceneCount) {
+        if(index < SceneManager.sceneCountInBuildSettings) {
             SceneManager.LoadScene(index + 1);
         } else {
             SceneManager.LoadScene(0);

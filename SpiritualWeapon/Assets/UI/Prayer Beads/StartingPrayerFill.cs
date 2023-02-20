@@ -29,6 +29,7 @@ public class StartingPrayerFill : MonoBehaviour
     [SerializeField] private float increment = 0.1f;
 
     private float r, g, b, a;
+    private float waitTime = 1;
 
     private bool changed = false;
 
@@ -66,7 +67,7 @@ public class StartingPrayerFill : MonoBehaviour
             yield return new WaitForSeconds(resetTime);
         }
         ColorOut();
-        rosaryCanvas.SetStartActive(false);
+        //rosaryCanvas.SetStartActive(false);
     }
 
     public void Fill() {
@@ -74,7 +75,7 @@ public class StartingPrayerFill : MonoBehaviour
         StartCoroutine(FillHelper());
     }
     private IEnumerator FillHelper() {
-        yield return new WaitForSeconds(crossTime);
+        yield return new WaitForSeconds(waitTime);
 
         r = cross.color.r;
         g = cross.color.g;
@@ -187,33 +188,33 @@ public class StartingPrayerFill : MonoBehaviour
         bool pass1 = false, pass2 = false, pass3 = false, pass4 = false;
 
         if(r < col.r -0.05) {
-            r += increment;
+            r += increment / waitTime;
         } else if(r > col.r + 0.05) {
-            r -= increment;
+            r -= increment / waitTime;
         } else {
             pass1 = true;
         }
 
         if(g < col.g -0.05) {
-            g += increment;
+            g += increment / waitTime;
         } else if(g > col.g + 0.05) {
-            g -= increment;
+            g -= increment / waitTime;
         } else {
             pass2 = true;
         }
 
         if(b < col.b -0.05) {
-            b += increment;
+            b += increment / waitTime;
         } else if(b > col.b + 0.05) {
-            b -= increment;
+            b -= increment / waitTime;
         } else {
             pass3 = true;
         }
 
         if(a < col.a -0.05) {
-            a += increment;
+            a += increment / waitTime;
         } else if(a > col.a + 0.05) {
-            a -= increment;
+            a -= increment / waitTime;
         } else {
             pass4 = true;
         }
@@ -248,5 +249,12 @@ public class StartingPrayerFill : MonoBehaviour
         mSmallBead.color = new Color(smallBeadColor.r, smallBeadColor.g, smallBeadColor.b, 0);
         rSmallBead.color = new Color(smallBeadColor.r, smallBeadColor.g, smallBeadColor.b, 0);
         rLargeBead.color = new Color(largeBeadColor.r, largeBeadColor.g, largeBeadColor.b, 0);
+    }
+
+    public void SetWaitTime(float time) {
+        SetWaitTimeHelper(time);
+    }
+    private void SetWaitTimeHelper(float time) {
+        waitTime = time;
     }
 }

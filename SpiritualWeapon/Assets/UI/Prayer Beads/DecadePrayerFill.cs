@@ -36,6 +36,7 @@ public class DecadePrayerFill : MonoBehaviour
     [SerializeField] private float increment = 0.1f;
 
     private float r = 0, g = 0, b = 0, a = 1;
+    private float waitTime = -1;
 
     private bool changed = false;
 
@@ -44,7 +45,6 @@ public class DecadePrayerFill : MonoBehaviour
         outlineColor.a = outlineAlpha;
         largeBeadColor = lLargeBead.color;
         smallBeadColor = smallBead1.color;
-        StartCoroutine(OutlineFill());
     }
 
     public void Reset() {
@@ -67,7 +67,7 @@ public class DecadePrayerFill : MonoBehaviour
             FadeOutAlpha(rLargeBead);
             yield return new WaitForSeconds(resetTime);
         }
-        rosaryCanvas.SetDecadeActive(false);
+        //rosaryCanvas.SetDecadeActive(false);
     }
 
     public void FullReset() {
@@ -95,6 +95,7 @@ public class DecadePrayerFill : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    /*
     private IEnumerator OutlineFill() {
         r = outlineColor.r;
         g = outlineColor.g;
@@ -108,6 +109,7 @@ public class DecadePrayerFill : MonoBehaviour
         changed = false;
         Fill();
     }
+    */
 
     public void Fill() {
         StopAllCoroutines();
@@ -122,7 +124,8 @@ public class DecadePrayerFill : MonoBehaviour
 
         while(!changed) {
             IncrementColor(lLargeBead, largeBeadColor);
-            yield return new WaitForSeconds(largeBeadTime);
+            //yield return new WaitForSeconds(largeBeadTime);
+            yield return new WaitForSeconds(waitTime);
         }
         changed = false;
         while(!changed) {
@@ -140,7 +143,8 @@ public class DecadePrayerFill : MonoBehaviour
 
         while(!changed) {
             IncrementColor(smallBead1, smallBeadColor);
-            yield return new WaitForSeconds(smallBeadTime);
+            //yield return new WaitForSeconds(smallBeadTime);
+            yield return new WaitForSeconds(waitTime);
         }
         changed = false;
         while(!changed) {
@@ -158,7 +162,8 @@ public class DecadePrayerFill : MonoBehaviour
 
         while(!changed) {
             IncrementColor(smallBead2, smallBeadColor);
-            yield return new WaitForSeconds(smallBeadTime);
+            //yield return new WaitForSeconds(smallBeadTime);
+            yield return new WaitForSeconds(waitTime);
         }
         changed = false;
         while(!changed) {
@@ -176,7 +181,8 @@ public class DecadePrayerFill : MonoBehaviour
 
         while(!changed) {
             IncrementColor(smallBead3, smallBeadColor);
-            yield return new WaitForSeconds(smallBeadTime);
+            //yield return new WaitForSeconds(smallBeadTime);
+            yield return new WaitForSeconds(waitTime);
         }
         changed = false;
         while(!changed) {
@@ -194,7 +200,8 @@ public class DecadePrayerFill : MonoBehaviour
 
         while(!changed) {
             IncrementColor(smallBead4, smallBeadColor);
-            yield return new WaitForSeconds(smallBeadTime);
+            //yield return new WaitForSeconds(smallBeadTime);
+            yield return new WaitForSeconds(waitTime);
         }
         changed = false;
         while(!changed) {
@@ -212,7 +219,8 @@ public class DecadePrayerFill : MonoBehaviour
 
         while(!changed) {
             IncrementColor(smallBead5, smallBeadColor);
-            yield return new WaitForSeconds(smallBeadTime);
+            //yield return new WaitForSeconds(smallBeadTime);
+            yield return new WaitForSeconds(waitTime);
         }
         changed = false;
         while(!changed) {
@@ -230,7 +238,8 @@ public class DecadePrayerFill : MonoBehaviour
 
         while(!changed) {
             IncrementColor(smallBead6, smallBeadColor);
-            yield return new WaitForSeconds(smallBeadTime);
+            //yield return new WaitForSeconds(smallBeadTime);
+            yield return new WaitForSeconds(waitTime);
         }
         changed = false;
         while(!changed) {
@@ -248,7 +257,8 @@ public class DecadePrayerFill : MonoBehaviour
 
         while(!changed) {
             IncrementColor(smallBead7, smallBeadColor);
-            yield return new WaitForSeconds(smallBeadTime);
+            //yield return new WaitForSeconds(smallBeadTime);
+            yield return new WaitForSeconds(waitTime);
         }
         changed = false;
         while(!changed) {
@@ -266,7 +276,8 @@ public class DecadePrayerFill : MonoBehaviour
 
         while(!changed) {
             IncrementColor(smallBead8, smallBeadColor);
-            yield return new WaitForSeconds(smallBeadTime);
+            //yield return new WaitForSeconds(smallBeadTime);
+            yield return new WaitForSeconds(waitTime);
         }
         changed = false;
         while(!changed) {
@@ -284,7 +295,8 @@ public class DecadePrayerFill : MonoBehaviour
 
         while(!changed) {
             IncrementColor(smallBead9, smallBeadColor);
-            yield return new WaitForSeconds(smallBeadTime);
+            //yield return new WaitForSeconds(smallBeadTime);
+            yield return new WaitForSeconds(waitTime);
         }
         changed = false;
         while(!changed) {
@@ -302,7 +314,8 @@ public class DecadePrayerFill : MonoBehaviour
 
         while(!changed) {
             IncrementColor(smallBead10, smallBeadColor);
-            yield return new WaitForSeconds(smallBeadTime);
+            //yield return new WaitForSeconds(smallBeadTime);
+            yield return new WaitForSeconds(waitTime);
         }
         changed = false;
         while(!changed) {
@@ -320,7 +333,8 @@ public class DecadePrayerFill : MonoBehaviour
 
         while(!changed) {
             IncrementColor(rLargeBead, largeBeadColor);
-            yield return new WaitForSeconds(largeBeadTime);
+            //yield return new WaitForSeconds(largeBeadTime);
+            yield return new WaitForSeconds(waitTime);
         }
         changed = false;
         while(!changed) {
@@ -400,5 +414,12 @@ public class DecadePrayerFill : MonoBehaviour
         smallBead9.color = new Color(smallBeadColor.r, smallBeadColor.g, smallBeadColor.b, 0);
         smallBead10.color = new Color(smallBeadColor.r, smallBeadColor.g, smallBeadColor.b, 0);
         rLargeBead.color = new Color(largeBeadColor.r, largeBeadColor.g, largeBeadColor.b, 0);
+    }
+
+    public void SetWaitTime(float time) {
+        SetWaitTimeHelper(time);
+    }
+    private void SetWaitTimeHelper(float time) {
+        waitTime = time;
     }
 }
