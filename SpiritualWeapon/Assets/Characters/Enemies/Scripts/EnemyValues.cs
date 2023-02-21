@@ -71,6 +71,8 @@ public class EnemyValues : MonoBehaviour
     }
 
     private IEnumerator Delayed() {
+        delayed = false;
+
         yield return new WaitForSeconds(damageDelay);
 
         delayed = true;
@@ -80,6 +82,10 @@ public class EnemyValues : MonoBehaviour
         HolyDamageHelper();
     }
     private void HolyDamageHelper() {
-        DamageCheck(holyDamage);
+        if(delayed) {
+            DamageCheck(holyDamage);
+
+            StartCoroutine(Delayed());
+        }
     }
 }

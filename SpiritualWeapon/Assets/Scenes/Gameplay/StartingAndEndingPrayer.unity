@@ -1973,11 +1973,10 @@ MonoBehaviour:
   rSmallBead: {fileID: 1869157803}
   rLargeBead: {fileID: 1523492493}
   completedColor: {r: 0.77254903, g: 0.25882354, b: 1, a: 1}
-  crossTime: 3
   largeBeadTime: 0.01
   smallBeadTime: 0.01
   resetTime: 0.1
-  completedTime: 0.01
+  completedTime: 0.009
   increment: 0.01
 --- !u!1001 &1334304904
 PrefabInstance:
@@ -7594,7 +7593,7 @@ GameObject:
   - component: {fileID: 1844389062}
   - component: {fileID: 1844389061}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7702,7 +7701,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sphere: {fileID: 1844389060}
   fieldRadius: 10
-  damageDelay: 1
 --- !u!208 &1854108878
 NavMeshObstacle:
   m_ObjectHideFlags: 0

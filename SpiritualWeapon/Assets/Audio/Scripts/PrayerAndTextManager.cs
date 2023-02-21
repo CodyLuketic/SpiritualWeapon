@@ -4,6 +4,7 @@ using UnityEngine;
 public class PrayerAndTextManager : MonoBehaviour
 {
     [Header("Scripts")]
+    private GameManager gameManager = null;
     private StartingPrayerFill startingPrayerScript = null;
     private DecadePrayerFill decadePrayerScript = null;
 
@@ -196,12 +197,15 @@ public class PrayerAndTextManager : MonoBehaviour
     private IEnumerator Speech(StartingPrayerFill script) {
         script.Fill();
 
-        for(int i = 0; i < currentClips.Length; i++) {
+        for(int i = 0; i < currentClips.Length - 1; i++) {
             audioSource.clip = currentClips[i];
             audioSource.Play();
             script.SetWaitTime(currentClips[i].length);
             yield return new WaitForSeconds(currentClips[i].length);
         }
+
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        gameManager.NextScene();
 
         MysteriesPrayerInitial(0, -1);
     }

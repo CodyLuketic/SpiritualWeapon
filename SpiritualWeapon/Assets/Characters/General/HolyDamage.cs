@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HolyDamage : MonoBehaviour
@@ -10,9 +9,6 @@ public class HolyDamage : MonoBehaviour
 
     [Header("Basic Values")]
     [SerializeField] private float fieldRadius = 5f;
-    [SerializeField] private float damageDelay = 1f;
-
-    private bool delayed = true;
 
     private void Start() {
         field = gameObject.GetComponent<SphereCollider>();
@@ -21,18 +17,8 @@ public class HolyDamage : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        if(other.gameObject.CompareTag("Enemy") && delayed) {
-            Debug.Log("Enemy Damaged");
-            delayed = false;
+        if(other.gameObject.CompareTag("Enemy")) {
             other.GetComponent<EnemyValues>().HolyDamage();
-
-            StartCoroutine(Delayed());
         }
-    }
-
-    private IEnumerator Delayed() {
-        yield return new WaitForSeconds(damageDelay);
-
-        delayed = true;
     }
 }

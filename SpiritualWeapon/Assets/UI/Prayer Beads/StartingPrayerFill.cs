@@ -21,15 +21,13 @@ public class StartingPrayerFill : MonoBehaviour
     private Color crossColor, outlineColor, largeBeadColor, smallBeadColor;
 
     [Header("Basic Values")]
-    [SerializeField] private float crossTime = 0.1f;
     [SerializeField] private float largeBeadTime = 0.1f;
     [SerializeField] private float smallBeadTime = 0.1f;
     [SerializeField] private float resetTime = 0.1f;
     [SerializeField] private float completedTime = 0.05f;
     [SerializeField] private float increment = 0.1f;
 
-    private float r, g, b, a;
-    private float waitTime = 1;
+    private float r = 0, g = 0, b = 0, a = 0, waitTime = 1f;
 
     private bool changed = false;
 
@@ -67,7 +65,6 @@ public class StartingPrayerFill : MonoBehaviour
             yield return new WaitForSeconds(resetTime);
         }
         ColorOut();
-        //rosaryCanvas.SetStartActive(false);
     }
 
     public void Fill() {
