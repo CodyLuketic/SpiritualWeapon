@@ -1,0 +1,298 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5488718514252475610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5488718514252475609}
+  - component: {fileID: 5488718514252475608}
+  - component: {fileID: 5488718514252475611}
+  m_Layer: 0
+  m_Name: PrayerAndTextManager
+  m_TagString: PrayerAndTextManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5488718514252475609
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5488718514252475610}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: -3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &5488718514252475608
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5488718514252475610}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &5488718514252475611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5488718514252475610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89d06b8d569e8204b9416b358ba5d402, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 5488718514252475608}
+  ourFatherClips:
+  - {fileID: 8300000, guid: 0769bf92f92792d40b03408f1248e75f, type: 3}
+  - {fileID: 8300000, guid: e66da31b651994844bd2e4765733a95f, type: 3}
+  - {fileID: 8300000, guid: ffd7058d6ff462b4ab92d3aaae648466, type: 3}
+  - {fileID: 8300000, guid: ec8146f8ea2672d42a09371a87e74881, type: 3}
+  - {fileID: 8300000, guid: a2a371f893f84d24da39c99f56eccf90, type: 3}
+  ourFatherText: Our Father, Who art in heaven, hallowed be Thy name; Thy kingdom
+    come; Thy will be done on earth as it is in heaven. Give us this day our daily
+    bread; and forgive us our trespasses as we forgive those who trespass against
+    us; and lead us not into temptation, but deliver us from evil. Amen.
+  hailMaryClips:
+  - {fileID: 8300000, guid: b6571d29322b2f1418433c0490446338, type: 3}
+  - {fileID: 8300000, guid: 9ebb1bdb5338da14ab0c979f0f97a68b, type: 3}
+  - {fileID: 8300000, guid: 3e572907cb4dc3141a5692175e0c8ab0, type: 3}
+  - {fileID: 8300000, guid: 68a9114918728fa469fb0f1712e657ba, type: 3}
+  - {fileID: 8300000, guid: a8d1e58e79ab2194083c984f32c8e91b, type: 3}
+  - {fileID: 8300000, guid: 28b462813555494438c53a5e075ed2dc, type: 3}
+  - {fileID: 8300000, guid: 15d7dd1017338174aa8658c9293843ec, type: 3}
+  - {fileID: 8300000, guid: 785d50b067adbb74085bb2fd9631c6c8, type: 3}
+  - {fileID: 8300000, guid: 6bf1c2e667c330348988470656e90cd3, type: 3}
+  - {fileID: 8300000, guid: a8565afdf7be4c2458503b4e3cb48ed4, type: 3}
+  - {fileID: 8300000, guid: 214813eaa4da6544d84fca5bb3b1f3a2, type: 3}
+  - {fileID: 8300000, guid: dc508f88cf281ee40825b422adb44300, type: 3}
+  - {fileID: 8300000, guid: 926586e31aa58b347b2ddbdfd79c7af4, type: 3}
+  - {fileID: 8300000, guid: eac4e6dc34adf7f43a48c697c6c9923b, type: 3}
+  - {fileID: 8300000, guid: 5d125ffce56096e408ddd67666d52bf8, type: 3}
+  - {fileID: 8300000, guid: fa3cc783ea150a24fb9a207197785842, type: 3}
+  - {fileID: 8300000, guid: 11dd0f846f39be34a817c51e81667b38, type: 3}
+  - {fileID: 8300000, guid: e55e8253c73302e4b94ab2da9debc5ad, type: 3}
+  - {fileID: 8300000, guid: c808078a233e9ac49aa49e19272e7dde, type: 3}
+  - {fileID: 8300000, guid: f740132a8634f44429bdb68d63a0e659, type: 3}
+  - {fileID: 8300000, guid: 9d2f1f3cb98d56a468b4b783d14e89f8, type: 3}
+  - {fileID: 8300000, guid: 982361e76302aa54eba2ed23f1970b9d, type: 3}
+  - {fileID: 8300000, guid: 96dca05dfc0ea96408633cd36999c58d, type: 3}
+  - {fileID: 8300000, guid: b0332f02fac11f54780d3e9251e55894, type: 3}
+  - {fileID: 8300000, guid: 4018dbc203819fa4b82fe768284e51c7, type: 3}
+  - {fileID: 8300000, guid: e598904162a3555419f289ba3ed17509, type: 3}
+  - {fileID: 8300000, guid: 7f0a6c88892ddd8499ff77bef0bf1ee1, type: 3}
+  - {fileID: 8300000, guid: 34ff271e2c3683b4eb1f854edf714350, type: 3}
+  - {fileID: 8300000, guid: e738167e2d86f354b9ffe4169ed8d72d, type: 3}
+  - {fileID: 8300000, guid: c81063fa84e28b04fa056ac87cf5e902, type: 3}
+  - {fileID: 8300000, guid: 4c22f2fe39d549d408fecd443781fc96, type: 3}
+  - {fileID: 8300000, guid: 776c1d6fc5b405e4d8438a3c851633f8, type: 3}
+  - {fileID: 8300000, guid: ec37752ce1d2f2c448a9b1ff17db3893, type: 3}
+  - {fileID: 8300000, guid: c587a22030b89cd48b4de4ebf56a9e81, type: 3}
+  - {fileID: 8300000, guid: 5cbe27fad4c025f4698e1e164177c00b, type: 3}
+  - {fileID: 8300000, guid: c31e06d5701ddc944a56cdde9cb8c44e, type: 3}
+  - {fileID: 8300000, guid: 3ad62aba3675b5641973995aa07ba211, type: 3}
+  - {fileID: 8300000, guid: 800d15e24d01b20438036222884d41aa, type: 3}
+  - {fileID: 8300000, guid: bef92f44401d64e48a4d3ac6a86b20d4, type: 3}
+  - {fileID: 8300000, guid: a1d9b78310eb59048bd4bf6304e7c870, type: 3}
+  - {fileID: 8300000, guid: dd9e27e3b93dd0447b9b76cf57a28c63, type: 3}
+  - {fileID: 8300000, guid: 961f9cc77e69e334ab123f8cfbe3a5e6, type: 3}
+  - {fileID: 8300000, guid: 80e0de1f45d7dfa4ca29245fbd28c04f, type: 3}
+  - {fileID: 8300000, guid: 4fa6cfd795ed2574981d1325185d8bf1, type: 3}
+  - {fileID: 8300000, guid: cadbf53d2d1d0f64b9f40585e8e00327, type: 3}
+  - {fileID: 8300000, guid: 28da6148a3c07934fbe69dc20e474daf, type: 3}
+  - {fileID: 8300000, guid: 976f05164acbdba4da446fa804e666f3, type: 3}
+  - {fileID: 8300000, guid: 155d939f98fcd0f4696c65acc95adeb3, type: 3}
+  - {fileID: 8300000, guid: 7782d619c7d2895499fdd4c8bc0a2b92, type: 3}
+  - {fileID: 8300000, guid: 580673815c3946249b3bded762ef33a5, type: 3}
+  - {fileID: 8300000, guid: 943c72106546e124f912db9725a1b338, type: 3}
+  - {fileID: 8300000, guid: f433bb3ed05fa9f4bb435c8e277dd072, type: 3}
+  hailMaryText: Hail Mary, full of grace. The Lord is with thee. Blessed art thou
+    amongst women, and blessed is the fruit of thy womb, Jesus. Holy Mary, Mother
+    of God, pray for us sinners, now and at the hour of our death, Amen.
+  gloryBeClips:
+  - {fileID: 8300000, guid: e69c869b0a082c940a36318775f8b6ab, type: 3}
+  - {fileID: 8300000, guid: 0924a106ad84f434d83a141f1fc3151c, type: 3}
+  - {fileID: 8300000, guid: 57f28d725502d0848b1afa59da0bdc55, type: 3}
+  - {fileID: 8300000, guid: 71e0d770346d5fd47979b44b55c4ea77, type: 3}
+  - {fileID: 8300000, guid: 44d870cc572037543846cc42954aa28c, type: 3}
+  - {fileID: 8300000, guid: 5602b942894762a4dbce174a05fcd308, type: 3}
+  gloryBeText: Glory be to the Father, and to the Son, and to the Holy Spirit. As
+    it was in the beginning, is now, and ever shall be, world without end. Amen.
+  crossStartClip: {fileID: 8300000, guid: efa6546b2433fd04384959cab200ce3c, type: 3}
+  crossStartText: In the name of the Father, and the Son, and the Holy Spirit. Amen
+  creedClip: {fileID: 8300000, guid: b57107ba381d39842b195f19256e3c57, type: 3}
+  creedText: "I believe in God, the Father Almighty, Creator of Heaven and earth;\r
+    and in Jesus Christ, His only Son Our Lord,\r Who was conceived by the Holy Spirit,
+    born of the Virgin Mary, suffered under Pontius Pilate, was crucified, died,
+    and was buried.\r\nHe descended into Hell; the third day He rose again from the
+    dead;\r He ascended into Heaven, and sat at the right hand of God, the Father
+    almighty; from there He shall come to judge the living and the dead.\r I believe
+    in the Holy Spirit, the holy Catholic Church, the communion of saints, the forgiveness
+    of sins, the resurrection of the body and life everlasting."
+  intentionsClip: {fileID: 8300000, guid: c41ff2e40e3c7864c82b238f6668166b, type: 3}
+  intentionsText: For all our special intentions
+  faithClip: {fileID: 8300000, guid: 9b051c65f5d49df41a5db582a8e036b5, type: 3}
+  faithText: "For the increase of the virtue of Faith. Hail Mary, full of grace.
+    The Lord is with thee. Blessed are thou\r amongst women, and blessed is the fruit
+    of thy womb, Jesus.\r Holy Mary, Mother of God, pray for us sinners, now and
+    at the hour\r of our death. Amen."
+  hopeClip: {fileID: 8300000, guid: a3c22d61acfbae941a2b3488be73511c, type: 3}
+  hopeText: "For the increase of the virtue of Hope. Hail Mary, full of grace. The
+    Lord is with thee. Blessed are thou\r amongst women, and blessed is the fruit
+    of thy womb, Jesus.\r Holy Mary, Mother of God, pray for us sinners, now and
+    at the hour\r of our death. Amen."
+  loveClip: {fileID: 8300000, guid: dcbaab13faf3f91438d8f075e4eef49a, type: 3}
+  loveText: "For the increase of the virtue of Love. Hail Mary, full of grace. The
+    Lord is with thee. Blessed are thou\r amongst women, and blessed is the fruit
+    of thy womb, Jesus.\r Holy Mary, Mother of God, pray for us sinners, now and
+    at the hour\r of our death. Amen."
+  annunciationClip: {fileID: 8300000, guid: eb572655b7f9b32468cc45147e0476a0, type: 3}
+  visitationClip: {fileID: 8300000, guid: e068fe586672b7b42bc4fc32845aec82, type: 3}
+  nativityClip: {fileID: 8300000, guid: 2fdd354c635ccd94e9f82bf407d9ae44, type: 3}
+  presentationClip: {fileID: 8300000, guid: 8525f3da6e695cf4d9459eaa41ca843d, type: 3}
+  templeClip: {fileID: 8300000, guid: e081e41b7fe9ea943884ec3808c08373, type: 3}
+  baptismClip: {fileID: 8300000, guid: d6b138277f8d8d14f89d5cb02e072f99, type: 3}
+  weddingClip: {fileID: 8300000, guid: b4dc0a6194071dc44929f1098eec8f56, type: 3}
+  kingdomClip: {fileID: 8300000, guid: 5ab6d1c5e7fe4ef419077b6dbdf5a72c, type: 3}
+  transfigurationClip: {fileID: 8300000, guid: 528c8d854e214ad4094f8d0727b1ad40, type: 3}
+  eucharistClip: {fileID: 8300000, guid: a0dc35b223fa14245a3bd520f948c506, type: 3}
+  gardenClip: {fileID: 8300000, guid: a56211b002d327341af101c38ba1b942, type: 3}
+  pillarClip: {fileID: 8300000, guid: e688f222def53494099d715fae506163, type: 3}
+  thornsClip: {fileID: 8300000, guid: 8a2cfb5e5b8e26e49b3a949594480307, type: 3}
+  carryingClip: {fileID: 8300000, guid: 9d7fc08faf46f93418e576f26c4e0854, type: 3}
+  crucifixionClip: {fileID: 8300000, guid: 8b2e8348a6ebf3b428d7edfe950b5280, type: 3}
+  resurrectionClip: {fileID: 8300000, guid: 33664a3086129a348af7daf407755a8f, type: 3}
+  ascensionClip: {fileID: 8300000, guid: e46c314d344a3094baab04093472ab63, type: 3}
+  pentacostClip: {fileID: 8300000, guid: 98d26f415ed1e9e4ba91918c1de67795, type: 3}
+  assumptionClip: {fileID: 8300000, guid: 6ed32fbcc3ca27e468fd82e245fbb272, type: 3}
+  coronationClip: {fileID: 8300000, guid: 04824bce779352a488116f9fecbfde60, type: 3}
+  reginaClip: {fileID: 8300000, guid: 97ebbaa1f5a811044abb649f4bb825d8, type: 3}
+  reginaText: "Hail, holy Queen, Mother of mercy, our life, our sweetness and our
+    hope. To thee do we cry, poor banished children of Eve. To thee do we send up
+    our sighs, mourning and weeping in this valley of tears. Turn, then, most gracious
+    advocate, thine eyes of mercy toward us, and after this, our exile, show unto
+    us the blessed fruit of thy womb, Jesus. O clement, O loving, O sweet Virgin
+    Mary.\r Pray for us, O holy Mother of God.\r That we may be made worthy of the
+    promises of Christ."
+  godClip: {fileID: 8300000, guid: 3e7ae48713c1bdd46a570a16f40b462c, type: 3}
+  godText: Let us pray. O God, whose only begotten Son, by His life, death, and resurrection,
+    has purchased for us the rewards of eternal life. Grant, we beseech Thee, that
+    while meditating on these mysteries of the most holy Rosary of the Blessed Virgin
+    Mary, that we may both imitate what they contain and obtain what they promise,
+    through Christ our Lord. Amen.
+  memorareClip: {fileID: 8300000, guid: ac3426793e6f90b4d8b1b8eaa413b135, type: 3}
+  memorareText: "Remember, O blessed Virgin Mary, that never was it known that anyone
+    that fled to your protection, implored your help, or sought your intercession,
+    was left unaided.\r Inspired by this confidence, we fly unto thee, O Virgin of
+    virgins, our Mother. To you do we come, before you we stand, sinful and sorrowful.
+    O Mother of the Word Incarnate, despise not our petitions, but in your mercy
+    hear and answer them.\r Amen."
+  michaelClip: {fileID: 8300000, guid: ac00197be28bbd241b5ec4e5f9f63fb3, type: 3}
+  michaelText: Saint Michael the Archangel, defend us in battle. Be our protection
+    against the wickedness and snares of the devil; May God rebuke him, we humbly
+    pray; And do thou, O Prince of the Heavenly Host, by the power of God, cast into
+    hell Satan and all the evil spirits who prowl about the world. Amen.
+  heartClip: {fileID: 8300000, guid: e25b5212007b89d4e8b574d0efa02e7b, type: 3}
+  heartText: Most sacred heart of Jesus, have mercy on us. Immaculate heart of Mary,
+    pray for us.
+  crossEndClip: {fileID: 8300000, guid: f362512ea4aaff94e8867185243d6241, type: 3}
+  crossEndText: In the name of the Father, and the Son, and the Holy Spirit. Amen

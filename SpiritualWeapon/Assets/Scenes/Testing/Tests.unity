@@ -1308,7 +1308,7 @@ GameObject:
   - component: {fileID: 588881546}
   m_Layer: 5
   m_Name: DecadePrayers
-  m_TagString: Untagged
+  m_TagString: DecadePrayers
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2320,7 +2320,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sphere: {fileID: 457870625}
   fieldRadius: 10
-  damageDelay: 1
 --- !u!136 &906672662
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8463,7 +8462,7 @@ GameObject:
   - component: {fileID: 1741630053}
   m_Layer: 5
   m_Name: StartingPrayers
-  m_TagString: Untagged
+  m_TagString: StartingPrayers
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8511,7 +8510,6 @@ MonoBehaviour:
   rSmallBead: {fileID: 521847221}
   rLargeBead: {fileID: 270472347}
   completedColor: {r: 0.77254903, g: 0.25882354, b: 1, a: 1}
-  crossTime: 3
   largeBeadTime: 0.01
   smallBeadTime: 0.01
   resetTime: 0.1
@@ -8838,8 +8836,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fddbda4bcd1cc9459702f2ae430eb4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startFill: {fileID: 1741630053}
-  decadeFill: {fileID: 588881546}
 --- !u!1 &1860362219
 GameObject:
   m_ObjectHideFlags: 0
