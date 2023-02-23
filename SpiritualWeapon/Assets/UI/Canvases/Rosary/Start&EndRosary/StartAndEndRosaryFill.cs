@@ -2,8 +2,12 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StartingPrayerRosaryFill : MonoBehaviour
+public class StartAndEndRosaryFill : MonoBehaviour
 {
+    [Header("Scripts")]
+    [SerializeField] private GameManager gameManager = null;
+    [SerializeField] private SpeechManager speechScript = null;
+
     [Header("Objects")]
     [SerializeField] private Image cross = null;
     [SerializeField] private Image lLargeBead = null;
@@ -28,12 +32,21 @@ public class StartingPrayerRosaryFill : MonoBehaviour
 
     private bool changed = false;
 
+    private void Start() {
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        speechScript = GameObject.FindGameObjectWithTag("SpeechManager").GetComponent<SpeechManager>();
+    }
+
     public void Fill() {
         StopAllCoroutines();
         StartCoroutine(FillHelper());
     }
     private IEnumerator FillHelper() {
+        speechScript.StartNextPrayer(0);
+
         yield return new WaitForSeconds(crossTime);
+
+        speechScript.StartNextPrayer(1);
 
         r = cross.color.r;
         g = cross.color.g;
@@ -48,6 +61,8 @@ public class StartingPrayerRosaryFill : MonoBehaviour
 
         Debug.Log("Completed cross");
 
+        speechScript.StartNextPrayer(2);
+
         r = lLargeBead.color.r;
         g = lLargeBead.color.g;
         b = lLargeBead.color.b;
@@ -60,6 +75,8 @@ public class StartingPrayerRosaryFill : MonoBehaviour
         changed = false;
 
         Debug.Log("Completed lLargeBead");
+
+        speechScript.StartNextPrayer(3);
 
         r = lSmallBead.color.r;
         g = lSmallBead.color.g;
@@ -74,6 +91,8 @@ public class StartingPrayerRosaryFill : MonoBehaviour
 
         Debug.Log("Completed lSmallBead");
 
+        speechScript.StartNextPrayer(4);
+
         r = mSmallBead.color.r;
         g = mSmallBead.color.g;
         b = mSmallBead.color.b;
@@ -86,6 +105,8 @@ public class StartingPrayerRosaryFill : MonoBehaviour
         changed = false;
 
         Debug.Log("Completed mSmallBead");
+
+        speechScript.StartNextPrayer(5);
 
         r = rSmallBead.color.r;
         g = rSmallBead.color.g;
@@ -100,6 +121,8 @@ public class StartingPrayerRosaryFill : MonoBehaviour
 
         Debug.Log("Completed rSmallBead");
 
+        speechScript.StartNextPrayer(6);
+
         r = rLargeBead.color.r;
         g = rLargeBead.color.g;
         b = rLargeBead.color.b;
@@ -112,6 +135,8 @@ public class StartingPrayerRosaryFill : MonoBehaviour
         changed = false;
 
         Debug.Log("Completed rLargeBead");
+
+        gameManager.NextScene();
     }
 
     private void IncrementColor(Image img, Color col) {

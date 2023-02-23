@@ -4,6 +4,10 @@ using UnityEngine.UI;
 
 public class MysteryRosaryFill : MonoBehaviour
 {
+    [Header("Scripts")]
+    [SerializeField] private GameManager gameManager = null;
+    [SerializeField] private SpeechManager speechScript = null;
+
     [Header("Objects")]
     [SerializeField] private Image lLargeBead = null;
     [SerializeField] private Image smallBead1 = null;
@@ -27,9 +31,14 @@ public class MysteryRosaryFill : MonoBehaviour
     [SerializeField] private float rLargeBeadTime = 0.1f;
     [SerializeField] private float increment = 0.1f;
 
-    private float r = 0, g = 0, b = 0, a = 1;
+    private float r = 0, g = 0, b = 0, a = 0;
 
     private bool changed = false;
+
+    private void Start() {
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        speechScript = GameObject.FindGameObjectWithTag("SpeechManager").GetComponent<SpeechManager>();
+    }
 
     public void Fill() {
         StopAllCoroutines();
@@ -37,7 +46,12 @@ public class MysteryRosaryFill : MonoBehaviour
     }
 
     private IEnumerator FillHelper() {
+        speechScript.StartNextPrayer(0);
+
         yield return new WaitForSeconds(announcementTime);
+
+        speechScript.StartNextPrayer(1);
+
         r = lLargeBead.color.r;
         g = lLargeBead.color.g;
         b = lLargeBead.color.b;
@@ -50,6 +64,8 @@ public class MysteryRosaryFill : MonoBehaviour
         changed = false;
 
         Debug.Log("Completed lLargeBead");
+
+        speechScript.StartNextPrayer(2);
 
         r = smallBead1.color.r;
         g = smallBead1.color.g;
@@ -64,6 +80,8 @@ public class MysteryRosaryFill : MonoBehaviour
 
         Debug.Log("Completed smallBead1");
 
+        speechScript.StartNextPrayer(3);
+
         r = smallBead2.color.r;
         g = smallBead2.color.g;
         b = smallBead2.color.b;
@@ -76,6 +94,8 @@ public class MysteryRosaryFill : MonoBehaviour
         changed = false;
 
         Debug.Log("Completed smallBead2");
+
+        speechScript.StartNextPrayer(4);
 
         r = smallBead3.color.r;
         g = smallBead3.color.g;
@@ -90,6 +110,8 @@ public class MysteryRosaryFill : MonoBehaviour
 
         Debug.Log("Completed smallBead3");
 
+        speechScript.StartNextPrayer(5);
+
         r = smallBead4.color.r;
         g = smallBead4.color.g;
         b = smallBead4.color.b;
@@ -102,6 +124,8 @@ public class MysteryRosaryFill : MonoBehaviour
         changed = false;
 
         Debug.Log("Completed smallBead4");
+
+        speechScript.StartNextPrayer(6);
 
         r = smallBead5.color.r;
         g = smallBead5.color.g;
@@ -116,6 +140,8 @@ public class MysteryRosaryFill : MonoBehaviour
 
         Debug.Log("Completed smallBead5");
 
+        speechScript.StartNextPrayer(7);
+
         r = smallBead6.color.r;
         g = smallBead6.color.g;
         b = smallBead6.color.b;
@@ -128,6 +154,8 @@ public class MysteryRosaryFill : MonoBehaviour
         changed = false;
 
         Debug.Log("Completed smallBead6");
+
+        speechScript.StartNextPrayer(8);
 
         r = smallBead7.color.r;
         g = smallBead7.color.g;
@@ -142,6 +170,8 @@ public class MysteryRosaryFill : MonoBehaviour
 
         Debug.Log("Completed smallBead7");
 
+        speechScript.StartNextPrayer(9);
+
         r = smallBead8.color.r;
         g = smallBead8.color.g;
         b = smallBead8.color.b;
@@ -154,6 +184,8 @@ public class MysteryRosaryFill : MonoBehaviour
         changed = false;
 
         Debug.Log("Completed smallBead8");
+
+        speechScript.StartNextPrayer(10);
 
         r = smallBead9.color.r;
         g = smallBead9.color.g;
@@ -168,6 +200,8 @@ public class MysteryRosaryFill : MonoBehaviour
 
         Debug.Log("Completed smallBead9");
 
+        speechScript.StartNextPrayer(11);
+
         r = smallBead10.color.r;
         g = smallBead10.color.g;
         b = smallBead10.color.b;
@@ -181,6 +215,8 @@ public class MysteryRosaryFill : MonoBehaviour
 
         Debug.Log("Completed smallBead10");
 
+        speechScript.StartNextPrayer(12);
+
         r = rLargeBead.color.r;
         g = rLargeBead.color.g;
         b = rLargeBead.color.b;
@@ -193,6 +229,8 @@ public class MysteryRosaryFill : MonoBehaviour
         changed = false;
 
         Debug.Log("Completed rLargeBead");
+
+        gameManager.NextScene();
     }   
 
     private void IncrementColor(Image img, Color col) {

@@ -923,7 +923,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da90a41053ea9904e9a6e32f9b8ce99b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outline: {fileID: 1781397506291538235}
   lLargeBead: {fileID: 1781397504501352198}
   smallBead1: {fileID: 1781397504869432239}
   smallBead2: {fileID: 1781397505319446634}
@@ -937,9 +936,10 @@ MonoBehaviour:
   smallBead10: {fileID: 1781397505406645530}
   rLargeBead: {fileID: 1781397504697053486}
   completedColor: {r: 1, g: 0, b: 1, a: 1}
-  lLargeBeadTime: 0.1
-  smallBeadTime: 0.1
-  rLargeBeadTime: 0.1
+  announcementTime: 5
+  lLargeBeadTime: 0.18
+  smallBeadTime: 0.133
+  rLargeBeadTime: 0.18
   increment: 0.01
 --- !u!1 &1781397505827888715
 GameObject:

@@ -67,11 +67,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    public void ToStartAndEndingPrayer() {
+    public void ToStartingRosary() {
         function = 4;
         EndTransition();
     }
-    private void ToStartAndEndingPrayerHelper() {
+    private void ToStartingRosaryHelper() {
         SceneManager.LoadScene(2);
     }
 
@@ -107,8 +107,16 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(18);
     }
 
-    public void Quit() {
+    public void ToEndingRosary() {
         function = 9;
+        EndTransition();
+    }
+    private void ToEndingRosaryHelper() {
+        SceneManager.LoadScene(23);
+    }
+
+    public void Quit() {
+        function = 10;
         EndTransition();
     }
     private void QuitHelper() {
@@ -116,11 +124,11 @@ public class GameManager : MonoBehaviour
     }
 
     public void ToTestScene() {
-        function = 10;
+        function = 11;
         EndTransition();
     }
     private void ToTestSceneHelper() {
-        SceneManager.LoadScene(23);
+        SceneManager.LoadScene(24);
     }
     
     public void EndTransition() {
@@ -161,7 +169,7 @@ public class GameManager : MonoBehaviour
                 ToMainMenuHelper();
                 break;
             case 4:
-                ToStartAndEndingPrayerHelper();
+                ToStartingRosaryHelper();
                 break;
             case 5:
                 ToJoyfulMysteriesHelper();
