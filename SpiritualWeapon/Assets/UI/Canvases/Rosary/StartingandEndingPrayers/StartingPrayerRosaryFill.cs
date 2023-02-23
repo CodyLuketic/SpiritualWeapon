@@ -6,7 +6,6 @@ public class StartingPrayerRosaryFill : MonoBehaviour
 {
     [Header("Objects")]
     [SerializeField] private Image cross = null;
-    [SerializeField] private Image outline = null;
     [SerializeField] private Image lLargeBead = null;
     [SerializeField] private Image lSmallBead = null;
     [SerializeField] private Image mSmallBead = null;

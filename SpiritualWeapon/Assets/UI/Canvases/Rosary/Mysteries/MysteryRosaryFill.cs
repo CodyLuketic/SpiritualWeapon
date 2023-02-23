@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class MysteryRosaryFill : MonoBehaviour
 {
     [Header("Objects")]
-    [SerializeField] private Image outline = null;
     [SerializeField] private Image lLargeBead = null;
     [SerializeField] private Image smallBead1 = null;
     [SerializeField] private Image smallBead2 = null;
@@ -22,6 +21,7 @@ public class MysteryRosaryFill : MonoBehaviour
     [SerializeField] private Color completedColor;
 
     [Header("Basic Values")]
+    [SerializeField] private float announcementTime = 1f;
     [SerializeField] private float lLargeBeadTime = 0.1f;
     [SerializeField] private float smallBeadTime = 0.1f;
     [SerializeField] private float rLargeBeadTime = 0.1f;
@@ -37,6 +37,7 @@ public class MysteryRosaryFill : MonoBehaviour
     }
 
     private IEnumerator FillHelper() {
+        yield return new WaitForSeconds(announcementTime);
         r = lLargeBead.color.r;
         g = lLargeBead.color.g;
         b = lLargeBead.color.b;

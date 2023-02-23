@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5488718514252475610
+--- !u!1 &3840900417107556794
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5488718514252475609}
-  - component: {fileID: 5488718514252475608}
-  - component: {fileID: 5488718514252475611}
+  - component: {fileID: 3840900417107556799}
+  - component: {fileID: 3840900417107556796}
+  - component: {fileID: 3840900417107556797}
   m_Layer: 0
-  m_Name: PrayerAndTextManager
-  m_TagString: PrayerAndTextManager
+  m_Name: SpeechManager
+  m_TagString: SpeechManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5488718514252475609
+--- !u!4 &3840900417107556799
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5488718514252475610}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: -3}
+  m_GameObject: {fileID: 3840900417107556794}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &5488718514252475608
+--- !u!82 &3840900417107556796
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5488718514252475610}
+  m_GameObject: {fileID: 3840900417107556794}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -129,19 +129,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5488718514252475611
+--- !u!114 &3840900417107556797
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5488718514252475610}
+  m_GameObject: {fileID: 3840900417107556794}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89d06b8d569e8204b9416b358ba5d402, type: 3}
+  m_Script: {fileID: 11500000, guid: a6e1e825965f42344b78cd9d8e3b6d30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 5488718514252475608}
+  audioSource: {fileID: 3840900417107556796}
   ourFatherClips:
   - {fileID: 8300000, guid: 0769bf92f92792d40b03408f1248e75f, type: 3}
   - {fileID: 8300000, guid: e66da31b651994844bd2e4765733a95f, type: 3}
@@ -245,26 +245,27 @@ MonoBehaviour:
     Lord is with thee. Blessed are thou\r amongst women, and blessed is the fruit
     of thy womb, Jesus.\r Holy Mary, Mother of God, pray for us sinners, now and
     at the hour\r of our death. Amen."
-  annunciationClip: {fileID: 8300000, guid: eb572655b7f9b32468cc45147e0476a0, type: 3}
-  visitationClip: {fileID: 8300000, guid: e068fe586672b7b42bc4fc32845aec82, type: 3}
-  nativityClip: {fileID: 8300000, guid: 2fdd354c635ccd94e9f82bf407d9ae44, type: 3}
-  presentationClip: {fileID: 8300000, guid: 8525f3da6e695cf4d9459eaa41ca843d, type: 3}
-  templeClip: {fileID: 8300000, guid: e081e41b7fe9ea943884ec3808c08373, type: 3}
-  baptismClip: {fileID: 8300000, guid: d6b138277f8d8d14f89d5cb02e072f99, type: 3}
-  weddingClip: {fileID: 8300000, guid: b4dc0a6194071dc44929f1098eec8f56, type: 3}
-  kingdomClip: {fileID: 8300000, guid: 5ab6d1c5e7fe4ef419077b6dbdf5a72c, type: 3}
-  transfigurationClip: {fileID: 8300000, guid: 528c8d854e214ad4094f8d0727b1ad40, type: 3}
-  eucharistClip: {fileID: 8300000, guid: a0dc35b223fa14245a3bd520f948c506, type: 3}
-  gardenClip: {fileID: 8300000, guid: a56211b002d327341af101c38ba1b942, type: 3}
-  pillarClip: {fileID: 8300000, guid: e688f222def53494099d715fae506163, type: 3}
-  thornsClip: {fileID: 8300000, guid: 8a2cfb5e5b8e26e49b3a949594480307, type: 3}
-  carryingClip: {fileID: 8300000, guid: 9d7fc08faf46f93418e576f26c4e0854, type: 3}
-  crucifixionClip: {fileID: 8300000, guid: 8b2e8348a6ebf3b428d7edfe950b5280, type: 3}
-  resurrectionClip: {fileID: 8300000, guid: 33664a3086129a348af7daf407755a8f, type: 3}
-  ascensionClip: {fileID: 8300000, guid: e46c314d344a3094baab04093472ab63, type: 3}
-  pentacostClip: {fileID: 8300000, guid: 98d26f415ed1e9e4ba91918c1de67795, type: 3}
-  assumptionClip: {fileID: 8300000, guid: 6ed32fbcc3ca27e468fd82e245fbb272, type: 3}
-  coronationClip: {fileID: 8300000, guid: 04824bce779352a488116f9fecbfde60, type: 3}
+  mysteryClips:
+  - {fileID: 8300000, guid: eb572655b7f9b32468cc45147e0476a0, type: 3}
+  - {fileID: 8300000, guid: e068fe586672b7b42bc4fc32845aec82, type: 3}
+  - {fileID: 8300000, guid: 2fdd354c635ccd94e9f82bf407d9ae44, type: 3}
+  - {fileID: 8300000, guid: 8525f3da6e695cf4d9459eaa41ca843d, type: 3}
+  - {fileID: 8300000, guid: e081e41b7fe9ea943884ec3808c08373, type: 3}
+  - {fileID: 8300000, guid: d6b138277f8d8d14f89d5cb02e072f99, type: 3}
+  - {fileID: 8300000, guid: b4dc0a6194071dc44929f1098eec8f56, type: 3}
+  - {fileID: 8300000, guid: 5ab6d1c5e7fe4ef419077b6dbdf5a72c, type: 3}
+  - {fileID: 8300000, guid: 528c8d854e214ad4094f8d0727b1ad40, type: 3}
+  - {fileID: 8300000, guid: a0dc35b223fa14245a3bd520f948c506, type: 3}
+  - {fileID: 8300000, guid: a56211b002d327341af101c38ba1b942, type: 3}
+  - {fileID: 8300000, guid: e688f222def53494099d715fae506163, type: 3}
+  - {fileID: 8300000, guid: 8a2cfb5e5b8e26e49b3a949594480307, type: 3}
+  - {fileID: 8300000, guid: 9d7fc08faf46f93418e576f26c4e0854, type: 3}
+  - {fileID: 8300000, guid: 8b2e8348a6ebf3b428d7edfe950b5280, type: 3}
+  - {fileID: 8300000, guid: 33664a3086129a348af7daf407755a8f, type: 3}
+  - {fileID: 8300000, guid: e46c314d344a3094baab04093472ab63, type: 3}
+  - {fileID: 8300000, guid: 98d26f415ed1e9e4ba91918c1de67795, type: 3}
+  - {fileID: 8300000, guid: 6ed32fbcc3ca27e468fd82e245fbb272, type: 3}
+  - {fileID: 8300000, guid: 04824bce779352a488116f9fecbfde60, type: 3}
   reginaClip: {fileID: 8300000, guid: 97ebbaa1f5a811044abb649f4bb825d8, type: 3}
   reginaText: "Hail, holy Queen, Mother of mercy, our life, our sweetness and our
     hope. To thee do we cry, poor banished children of Eve. To thee do we send up

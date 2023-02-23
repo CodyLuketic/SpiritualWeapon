@@ -36,40 +36,8 @@ public class SpeechManager : MonoBehaviour
     [SerializeField] private AudioClip loveClip = null;
     [TextArea(minLines: 1, maxLines: 12)] [SerializeField] private string loveText;
 
-    [Header("Mystery Audio Clips/Text")]
+    [Header("Mystery Audio Clips")]
     [SerializeField] private AudioClip[] mysteryClips = null;
-
-    /*
-    [Header("Joyful Mystery Audio Clips/Text")]
-    [SerializeField] private AudioClip annunciationClip = null;
-    [SerializeField] private AudioClip visitationClip = null;
-    [SerializeField] private AudioClip nativityClip = null;
-    [SerializeField] private AudioClip presentationClip = null;
-    [SerializeField] private AudioClip templeClip = null;
-
-    [Header("Luminous Mystery Audio Clips/Text")]
-    [SerializeField] private AudioClip baptismClip = null;
-    [SerializeField] private AudioClip weddingClip = null;
-    [SerializeField] private AudioClip kingdomClip = null;
-    [SerializeField] private AudioClip transfigurationClip = null;
-    [SerializeField] private AudioClip eucharistClip = null;
-
-    [Header("Sorrowful Mystery Audio Clips/Text")]
-    [SerializeField] private AudioClip gardenClip = null;
-    [SerializeField] private AudioClip pillarClip = null;
-    [SerializeField] private AudioClip thornsClip = null;
-    [SerializeField] private AudioClip carryingClip = null;
-    [SerializeField] private AudioClip crucifixionClip = null;
-
-    [Header("Glorious Mystery Audio Clips/Text")]
-    [SerializeField] private AudioClip resurrectionClip = null;
-    [SerializeField] private AudioClip ascensionClip = null;
-    [SerializeField] private AudioClip pentacostClip = null;
-    [SerializeField] private AudioClip assumptionClip = null;
-    [SerializeField] private AudioClip coronationClip = null;
-
-    private AudioClip[] mysteries = null;
-    */
 
     [Header("End Audio Clips/Text")]
     [SerializeField] private AudioClip reginaClip = null;
@@ -84,12 +52,10 @@ public class SpeechManager : MonoBehaviour
     [TextArea(minLines: 1, maxLines: 12)] [SerializeField] private string heartText;
     [SerializeField] private AudioClip crossEndClip = null;
     [TextArea(minLines: 1, maxLines: 12)] [SerializeField] private string crossEndText;
-    
 
     private AudioClip[] currentClips = null;
     private int currentMystery = 0;
     private int endingMystery = 13;
-    private bool canContinue = false;
 
     private void Awake() {
         DontDestroyOnLoad(transform.gameObject);
@@ -106,14 +72,6 @@ public class SpeechManager : MonoBehaviour
         CopyArray(hailMaryClips, maryTempClips);
         gloryTempClips = new AudioClip[gloryBeClips.Length];
         CopyArray(gloryBeClips, gloryTempClips);
-
-        /*
-        mysteries = new AudioClip[] { annunciationClip, visitationClip, nativityClip,
-            presentationClip, templeClip, baptismClip, weddingClip, kingdomClip,
-            transfigurationClip, eucharistClip, gardenClip, pillarClip, thornsClip,
-            carryingClip, crucifixionClip, resurrectionClip, ascensionClip, pentacostClip,
-            assumptionClip, coronationClip };
-            */
     }
 
     public void StartingPrayers() {
@@ -128,8 +86,6 @@ public class SpeechManager : MonoBehaviour
         currentClips[3] = faithClip;
         currentClips[4] = hopeClip;
         currentClips[5] = loveClip;
-
-        canContinue = false;
 
         startingPrayerRosaryScript = GameObject.FindGameObjectWithTag("StartingPrayerRosary").GetComponent<StartingPrayerRosaryFill>();
         StartCoroutine(Speech(startingPrayerRosaryScript));
@@ -190,7 +146,10 @@ public class SpeechManager : MonoBehaviour
             CopyArray(tempClips,  clipsToSet);
         }
 
-        int random = Random.Range(0, clipsToSet.Length - 1);
+        int random = 0;
+        do{
+            random = Random.Range(0, clipsToSet.Length - 1);
+        } while(clipsToSet[random] == null);
 
         currentClips[currentIndex] = clipsToSet[random];
         clipsToSet[random] = null;
@@ -208,6 +167,7 @@ public class SpeechManager : MonoBehaviour
             audioSource.clip = currentClips[i];
             audioSource.Play();
             yield return new WaitForSeconds(currentClips[i].length);
+            Debug.Log("Finished Playing: " + currentClips[i]);
         }
 
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
@@ -218,9 +178,11 @@ public class SpeechManager : MonoBehaviour
         script.Fill();
 
         for(int i = 0; i < currentClips.Length; i++) {
+            Debug.Log("Current Clip Playing: " + currentClips[i]);
             audioSource.clip = currentClips[i];
             audioSource.Play();
             yield return new WaitForSeconds(currentClips[i].length);
+            Debug.Log("Finished Playing: " + currentClips[i]);
         }
 
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
@@ -238,7 +200,11 @@ public class SpeechManager : MonoBehaviour
             if(arrayToCopy[i] != null) {
                 copiedArray[i] = arrayToCopy[i];
             } else {
-                copiedArray[i] = arrayToCopy[copiedArray.Length];
+                int random = 0;
+                do {
+                    random = Random.Range(0, arrayToCopy.Length - 1);
+                } while(random != i);
+                copiedArray[i] = arrayToCopy[random];
             }
         }
     }

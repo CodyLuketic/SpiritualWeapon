@@ -83,7 +83,6 @@ public class PrayerAndTextManager : MonoBehaviour
     private AudioClip[] currentClips = null;
     private int currentMystery = 0;
     private int endingMystery = 13;
-    private bool canContinue = false;
 
     private void Awake() {
         DontDestroyOnLoad(transform.gameObject);
@@ -120,8 +119,6 @@ public class PrayerAndTextManager : MonoBehaviour
         currentClips[3] = faithClip;
         currentClips[4] = hopeClip;
         currentClips[5] = loveClip;
-
-        canContinue = false;
 
         startingPrayerRosaryScript = GameObject.FindGameObjectWithTag("StartingPrayerRosary").GetComponent<StartingPrayerRosaryFill>();
         StartCoroutine(Speech(startingPrayerRosaryScript));
