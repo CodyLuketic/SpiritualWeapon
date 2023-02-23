@@ -89,11 +89,11 @@ public class SpeechManager : MonoBehaviour
         startAndEndRosaryScript.Fill();
     }
 
-    public void EndingRosary() {
-        EndingRosaryHelper();
+    public void EndRosary() {
+        EndRosaryHelper();
     }
-    private void EndingRosaryHelper() {
-        gameManager.ToEndingRosary();
+    private void EndRosaryHelper() {
+        gameManager.ToEndRosary();
 
         currentClips = new AudioClip[6];
 
@@ -114,7 +114,7 @@ public class SpeechManager : MonoBehaviour
         mysteryRosaryScript = GameObject.FindGameObjectWithTag("MysteryRosary").GetComponent<MysteryRosaryFill>();
 
         if(startingMystery == endingMystery) {
-            EndingRosaryHelper();
+            EndRosaryHelper();
         } else {
             FillCurrentClips(mysteryClips[startingMystery]);
 

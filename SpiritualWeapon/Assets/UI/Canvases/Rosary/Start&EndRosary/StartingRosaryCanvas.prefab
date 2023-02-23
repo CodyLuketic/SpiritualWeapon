@@ -122,10 +122,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8933151160996385843}
-  - component: {fileID: 1874184812902858260}
+  - component: {fileID: 8933151161894447108}
   m_Layer: 5
-  m_Name: StartingPrayerRosary
-  m_TagString: StartingPrayers
+  m_Name: Start&EndRosary
+  m_TagString: Start&EndRosary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -152,7 +152,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1874184812902858260
+--- !u!114 &8933151161894447108
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,24 +161,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 8933151160996385842}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 201ceb0d7d972d240884d589acd11e6a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c9bdc9ec30e45d4bb3cc352c18466c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   cross: {fileID: 8933151161526761242}
-  outline: {fileID: 8933151162378280942}
   lLargeBead: {fileID: 8933151161751388421}
   lSmallBead: {fileID: 8933151162242848641}
   mSmallBead: {fileID: 8933151161073420279}
   rSmallBead: {fileID: 8933151160508822103}
   rLargeBead: {fileID: 8933151161252872561}
   completedColor: {r: 1, g: 0.1, b: 1, a: 1}
-  crossTime: 3
-  lLargeBeadTime: 0.445
-  lSmallBeadTime: 0.02
-  mSmallBeadTime: 0.14
-  rSmallBeadTime: 0.14
-  rLargeBeadTime: 0.14
-  completedTime: 0.01
+  crossTime: 0.1
+  lLargeBeadTime: 0.1
+  lSmallBeadTime: 0.1
+  mSmallBeadTime: 0.1
+  rSmallBeadTime: 0.1
+  rLargeBeadTime: 0.1
+  completedTime: 0.05
   increment: 0.01
 --- !u!1 &8933151161073420277
 GameObject:

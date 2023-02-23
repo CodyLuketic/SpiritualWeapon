@@ -6,7 +6,6 @@ public class StartAndEndRosaryFill : MonoBehaviour
 {
     [Header("Scripts")]
     [SerializeField] private GameManager gameManager = null;
-    [SerializeField] private SpeechManager speechScript = null;
 
     [Header("Objects")]
     [SerializeField] private Image cross = null;
@@ -27,6 +26,8 @@ public class StartAndEndRosaryFill : MonoBehaviour
     [SerializeField] private float rLargeBeadTime = 0.1f;
     [SerializeField] private float completedTime = 0.05f;
     [SerializeField] private float increment = 0.1f;
+
+    private SpeechManager speechScript = null;
 
     private float r = 0, g = 0, b = 0, a = 0;
 

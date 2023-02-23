@@ -107,11 +107,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(18);
     }
 
-    public void ToEndingRosary() {
+    public void ToEndRosary() {
         function = 9;
         EndTransition();
     }
-    private void ToEndingRosaryHelper() {
+    private void ToEndRosaryHelper() {
         SceneManager.LoadScene(23);
     }
 

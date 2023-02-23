@@ -1,18 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EndSpeechActivator : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private SpeechManager speechManager = null;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void Start() {
+        speechManager = GameObject.FindGameObjectWithTag("SpeechManager").GetComponent<SpeechManager>();
+
+        speechManager.EndRosary();
     }
 }
