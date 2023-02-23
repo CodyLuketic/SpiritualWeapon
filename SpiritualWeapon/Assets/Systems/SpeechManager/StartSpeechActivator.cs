@@ -7,6 +7,6 @@ public class StartSpeechActivator : MonoBehaviour
     private void Start() {
         speechManager = GameObject.FindGameObjectWithTag("SpeechManager").GetComponent<SpeechManager>();
 
-        speechManager.StartingPrayers();
+        speechManager.StartRosary();
     }
 }

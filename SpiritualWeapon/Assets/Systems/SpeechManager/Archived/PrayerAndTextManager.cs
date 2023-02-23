@@ -5,7 +5,7 @@ public class PrayerAndTextManager : MonoBehaviour
 {
     [Header("Scripts")]
     private GameManager gameManager = null;
-    private StartingPrayerRosaryFill startingPrayerRosaryScript = null;
+    private StartAndEndRosaryFill startAndEndRosaryScript = null;
     private MysteryRosaryFill mysteryRosaryScript = null;
 
     [Header("Components")]
@@ -107,10 +107,10 @@ public class PrayerAndTextManager : MonoBehaviour
             assumptionClip, coronationClip };
     }
 
-    public void StartingPrayers() {
-        StartingPrayersHelper();
+    public void StartRosary() {
+        StartRosaryHelper();
     }
-    private void StartingPrayersHelper() {
+    private void StartRosaryHelper() {
         currentClips = new AudioClip[6];
 
         currentClips[0] = crossStartClip;
@@ -120,14 +120,14 @@ public class PrayerAndTextManager : MonoBehaviour
         currentClips[4] = hopeClip;
         currentClips[5] = loveClip;
 
-        startingPrayerRosaryScript = GameObject.FindGameObjectWithTag("StartingPrayerRosary").GetComponent<StartingPrayerRosaryFill>();
-        StartCoroutine(Speech(startingPrayerRosaryScript));
+        startAndEndRosaryScript = GameObject.FindGameObjectWithTag("StartAndEndRosary").GetComponent<StartAndEndRosaryFill>();
+        StartCoroutine(Speech(startAndEndRosaryScript));
     }
 
-    public void EndingPrayers() {
-        EndingPrayersHelper();
+    public void EndingRosary() {
+        EndingRosaryHelper();
     }
-    private void EndingPrayersHelper() {
+    private void EndingRosaryHelper() {
         currentClips = new AudioClip[6];
 
         currentClips[0] = reginaClip;
@@ -137,8 +137,8 @@ public class PrayerAndTextManager : MonoBehaviour
         currentClips[4] = heartClip;
         currentClips[5] = crossEndClip;
 
-        startingPrayerRosaryScript = GameObject.FindGameObjectWithTag("StartingPrayerRosary").GetComponent<StartingPrayerRosaryFill>();
-        StartCoroutine(Speech(startingPrayerRosaryScript));
+        startAndEndRosaryScript = GameObject.FindGameObjectWithTag("StartAndEndRosary").GetComponent<StartAndEndRosaryFill>();
+        StartCoroutine(Speech(startAndEndRosaryScript));
     }
 
     public void MysteriesPrayer(int startingPrayer) {
@@ -153,7 +153,7 @@ public class PrayerAndTextManager : MonoBehaviour
     }
     private void MysteriesPrayerContinuous() {
         if(currentMystery == endingMystery) {
-            EndingPrayersHelper();
+            EndingRosaryHelper();
         }
 
         FillCurrentClips(mysteries[currentMystery]);
@@ -190,7 +190,7 @@ public class PrayerAndTextManager : MonoBehaviour
         clipsToSet = temp;
     }
 
-    private IEnumerator Speech(StartingPrayerRosaryFill script) {
+    private IEnumerator Speech(StartAndEndRosaryFill script) {
         script.Fill();
 
         for(int i = 0; i < currentClips.Length; i++) {

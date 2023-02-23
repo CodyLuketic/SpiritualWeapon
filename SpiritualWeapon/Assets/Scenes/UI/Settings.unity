@@ -545,6 +545,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7634047082360022519, guid: 7792b3a39aaa168428482c7b999a44a9,
+        type: 3}
+      propertyPath: m_Cameras.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7634047082360022523, guid: 7792b3a39aaa168428482c7b999a44a9,
         type: 3}
       propertyPath: m_Name
@@ -751,11 +756,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 387948575}
     m_Modifications:
-    - target: {fileID: 307506097946238256, guid: 30966bdcea56c9f4bac4e8800ef862a1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 779572002477659515, guid: 30966bdcea56c9f4bac4e8800ef862a1,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -944,7 +944,7 @@ PrefabInstance:
     - target: {fileID: 779572004004532283, guid: 30966bdcea56c9f4bac4e8800ef862a1,
         type: 3}
       propertyPath: m_Name
-      value: SettingsCanvas
+      value: MainSettingsCanvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30966bdcea56c9f4bac4e8800ef862a1, type: 3}
