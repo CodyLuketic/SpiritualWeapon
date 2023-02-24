@@ -93,6 +93,7 @@ public class SpeechManager : MonoBehaviour
         EndRosaryHelper();
     }
     private void EndRosaryHelper() {
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         gameManager.ToEndRosary();
 
         currentClips = new AudioClip[6];
@@ -104,6 +105,7 @@ public class SpeechManager : MonoBehaviour
         currentClips[4] = heartClip;
         currentClips[5] = crossEndClip;
 
+        startAndEndRosaryScript = GameObject.FindGameObjectWithTag("StartAndEndRosary").GetComponent<StartAndEndRosaryFill>();
         startAndEndRosaryScript.Fill();
     }
 
@@ -111,13 +113,12 @@ public class SpeechManager : MonoBehaviour
         MysteriesHelper(startingMystery);
     }
     private void MysteriesHelper(int startingMystery) {
-        mysteryRosaryScript = GameObject.FindGameObjectWithTag("MysteryRosary").GetComponent<MysteryRosaryFill>();
-
         if(startingMystery == endingMystery) {
             EndRosaryHelper();
         } else {
             FillCurrentClips(mysteryClips[startingMystery]);
 
+            mysteryRosaryScript = GameObject.FindGameObjectWithTag("MysteryRosary").GetComponent<MysteryRosaryFill>();
             mysteryRosaryScript.Fill();
         }
     }

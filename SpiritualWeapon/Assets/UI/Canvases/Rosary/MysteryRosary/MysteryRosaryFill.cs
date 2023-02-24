@@ -6,7 +6,7 @@ public class MysteryRosaryFill : MonoBehaviour
 {
     [Header("Scripts")]
     [SerializeField] private GameManager gameManager = null;
-    [SerializeField] private SpeechManager speechScript = null;
+    private SpeechManager speechScript = null;
 
     [Header("Objects")]
     [SerializeField] private Image lLargeBead = null;
