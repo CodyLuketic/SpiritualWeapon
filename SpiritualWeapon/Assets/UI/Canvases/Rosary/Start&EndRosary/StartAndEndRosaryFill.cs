@@ -19,13 +19,12 @@ public class StartAndEndRosaryFill : MonoBehaviour
     [SerializeField] private Color completedColor;
 
     [Header("Basic Values")]
-    [SerializeField] private float crossTime = 0.1f;
+    [SerializeField] private float crossTime = 0.05f;
     [SerializeField] private float lLargeBeadTime = 0.1f;
     [SerializeField] private float lSmallBeadTime = 0.1f;
     [SerializeField] private float mSmallBeadTime = 0.1f;
     [SerializeField] private float rSmallBeadTime = 0.1f;
     [SerializeField] private float rLargeBeadTime = 0.1f;
-    [SerializeField] private float completedTime = 0.05f;
     [SerializeField] private float increment = 0.1f;
 
     private float r = 0, g = 0, b = 0, a = 0;
@@ -44,10 +43,6 @@ public class StartAndEndRosaryFill : MonoBehaviour
     private IEnumerator FillHelper() {
         speechScript.StartNextPrayer(0);
 
-        yield return new WaitForSeconds(crossTime);
-
-        speechScript.StartNextPrayer(1);
-
         r = cross.color.r;
         g = cross.color.g;
         b = cross.color.b;
@@ -55,13 +50,13 @@ public class StartAndEndRosaryFill : MonoBehaviour
 
         while(!changed) {
             IncrementColor(cross, completedColor);
-            yield return new WaitForSeconds(completedTime);
+            yield return new WaitForSeconds(crossTime);
         }
         changed = false;
 
         Debug.Log("Completed cross");
 
-        speechScript.StartNextPrayer(2);
+        speechScript.StartNextPrayer(1);
 
         r = lLargeBead.color.r;
         g = lLargeBead.color.g;
@@ -76,7 +71,7 @@ public class StartAndEndRosaryFill : MonoBehaviour
 
         Debug.Log("Completed lLargeBead");
 
-        speechScript.StartNextPrayer(3);
+        speechScript.StartNextPrayer(2);
 
         r = lSmallBead.color.r;
         g = lSmallBead.color.g;
@@ -91,7 +86,7 @@ public class StartAndEndRosaryFill : MonoBehaviour
 
         Debug.Log("Completed lSmallBead");
 
-        speechScript.StartNextPrayer(4);
+        speechScript.StartNextPrayer(3);
 
         r = mSmallBead.color.r;
         g = mSmallBead.color.g;
@@ -106,7 +101,7 @@ public class StartAndEndRosaryFill : MonoBehaviour
 
         Debug.Log("Completed mSmallBead");
 
-        speechScript.StartNextPrayer(5);
+        speechScript.StartNextPrayer(4);
 
         r = rSmallBead.color.r;
         g = rSmallBead.color.g;
@@ -121,7 +116,7 @@ public class StartAndEndRosaryFill : MonoBehaviour
 
         Debug.Log("Completed rSmallBead");
 
-        speechScript.StartNextPrayer(6);
+        speechScript.StartNextPrayer(5);
 
         r = rLargeBead.color.r;
         g = rLargeBead.color.g;

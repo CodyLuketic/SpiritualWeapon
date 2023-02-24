@@ -86,6 +86,7 @@ public class SpeechManager : MonoBehaviour
         currentClips[4] = hopeClip;
         currentClips[5] = loveClip;
 
+        startAndEndRosaryScript = GameObject.FindGameObjectWithTag("StartAndEndRosary").GetComponent<StartAndEndRosaryFill>();
         startAndEndRosaryScript.Fill();
     }
 
