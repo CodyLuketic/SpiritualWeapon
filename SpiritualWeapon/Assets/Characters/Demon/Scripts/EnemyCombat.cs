@@ -4,6 +4,9 @@ using UnityEngine.AI;
 
 public class EnemyCombat : MonoBehaviour
 {
+    [Header("Scripts")]
+    [SerializeField] private EnemyValues valuesScript = null;
+
     [Header("Components")]
     [SerializeField] private Animator animator = null;
     [SerializeField] private NavMeshAgent agent = null;
@@ -35,14 +38,13 @@ public class EnemyCombat : MonoBehaviour
 
     private IEnumerator Attack() {
         animator.SetTrigger("Attack");
+        agent.enabled = false;
+        face.GetComponent<SkinnedMeshRenderer>().material = faces[1];
 
         Vector3 position = gameObject.transform.position + (Vector3.up * particleHeight);
         Instantiate(attackParticles, gameObject.transform.position + Vector3.up, Quaternion.identity);
 
         yield return new WaitForSeconds(shrinkDelay);
-
-        agent.enabled = false;
-        face.GetComponent<SkinnedMeshRenderer>().material = faces[1];
 
         while(gameObject.transform.localScale.x > deincrement) {
             gameObject.transform.localScale += new Vector3(-deincrement, -deincrement, -deincrement);
@@ -57,6 +59,9 @@ public class EnemyCombat : MonoBehaviour
         gameObject.transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().enabled = true;
 
         agent.enabled = true;
+        face.GetComponent<SkinnedMeshRenderer>().material = faces[0];
+        valuesScript.ResetHealth();
+
         gameObject.SetActive(false);
     }
 }

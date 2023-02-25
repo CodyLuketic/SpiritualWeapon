@@ -18,8 +18,8 @@ public class EnemyValues : MonoBehaviour
     [Header("Basic Values")]
     [SerializeField] private float shrinkSpeed = 0.1f;
     [SerializeField] private float deincrement = 0.01f;
-    [SerializeField] private float _health = 1f;
-    [SerializeField] private float _speed = 1f;
+    [SerializeField] private float health = 1f;
+    [SerializeField] private float speed = 1f;
     [SerializeField] private float playerDamage = 1f;
     [SerializeField] private float holyDamage = 1f;
     [SerializeField] private float damageDelay = 1f;
@@ -34,26 +34,26 @@ public class EnemyValues : MonoBehaviour
         playerParticleObject = GameObject.FindGameObjectWithTag("PlayerParticleObject");
         face = gameObject.transform.GetChild(0).GetChild(1).gameObject;
 
-        tempHealth = _health;
+        tempHealth = health;
 
-        agent.speed = _speed;
+        agent.speed = speed;
     }
 
     private void OnParticleCollision(GameObject other) {
-        if(other == playerParticleObject && delayed) {
+        if(other == playerParticleObject) {
             Debug.Log("Hit");
+
             delayed = false;
+
             DamageCheck(playerDamage);
         }
     }
 
     private void DamageCheck(float damageType) {
-        _health -= damageType;
+        health -= damageType;
 
-        if(_health <= 0) {
+        if(health <= 0) {
             StartCoroutine(Die());
-        } else {
-            StartCoroutine(Delayed());
         }
     }
     private IEnumerator Die() {
@@ -80,27 +80,22 @@ public class EnemyValues : MonoBehaviour
         
         agent.enabled = true;
         face.GetComponent<SkinnedMeshRenderer>().material = faces[0];
-        _health = tempHealth;
+        health = tempHealth;
 
         gameObject.SetActive(false);
-    }
-
-    private IEnumerator Delayed() {
-        delayed = false;
-
-        yield return new WaitForSeconds(damageDelay);
-
-        delayed = true;
     }
 
     public void HolyDamage() {
         HolyDamageHelper();
     }
     private void HolyDamageHelper() {
-        if(delayed) {
-            DamageCheck(holyDamage);
+        DamageCheck(holyDamage);
+    }
 
-            StartCoroutine(Delayed());
-        }
+    public void ResetHealth() {
+        ResetHealthHelper();
+    }
+    private void ResetHealthHelper() {
+        health = tempHealth;
     }
 }
