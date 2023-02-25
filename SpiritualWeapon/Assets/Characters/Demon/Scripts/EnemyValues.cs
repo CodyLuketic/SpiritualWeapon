@@ -16,12 +16,14 @@ public class EnemyValues : MonoBehaviour
     private GameObject playerParticleObject = null, face = null;
 
     [Header("Basic Values")]
+    [SerializeField] private float shrinkSpeed = 0.1f;
+    [SerializeField] private float deincrement = 0.01f;
     [SerializeField] private float _health = 1f;
     [SerializeField] private float _speed = 1f;
     [SerializeField] private float playerDamage = 1f;
     [SerializeField] private float holyDamage = 1f;
     [SerializeField] private float damageDelay = 1f;
-    [SerializeField] private float deathDelay = 1f;
+    [SerializeField] private float shrinkDelay = 1f;
     [SerializeField] private float particleHeight = 1f;
 
     private float tempHealth = 0;
@@ -55,16 +57,29 @@ public class EnemyValues : MonoBehaviour
         }
     }
     private IEnumerator Die() {
-        agent.enabled = false;
         animator.SetTrigger("Die");
+        agent.enabled = false;
         face.GetComponent<SkinnedMeshRenderer>().material = faces[2];
 
         Vector3 position = gameObject.transform.position + (Vector3.up * particleHeight);
         Instantiate(deathParticles, gameObject.transform.position + Vector3.up, Quaternion.identity);
 
-        yield return new WaitForSeconds(deathDelay);
+        yield return new WaitForSeconds(shrinkDelay);
 
+        while(gameObject.transform.localScale.x > deincrement) {
+            gameObject.transform.localScale += new Vector3(-deincrement, -deincrement, -deincrement);
+            yield return new WaitForSeconds(shrinkSpeed);
+        }
+        gameObject.transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>().enabled = false; 
+        gameObject.transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().enabled = false;
+
+        gameObject.transform.localScale = new Vector3(1, 1, 1);
+
+        gameObject.transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>().enabled = true;
+        gameObject.transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().enabled = true;
+        
         agent.enabled = true;
+        face.GetComponent<SkinnedMeshRenderer>().material = faces[0];
         _health = tempHealth;
 
         gameObject.SetActive(false);

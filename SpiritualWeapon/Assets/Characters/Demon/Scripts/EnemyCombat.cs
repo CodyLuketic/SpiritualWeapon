@@ -36,13 +36,13 @@ public class EnemyCombat : MonoBehaviour
     private IEnumerator Attack() {
         animator.SetTrigger("Attack");
 
+        Vector3 position = gameObject.transform.position + (Vector3.up * particleHeight);
+        Instantiate(attackParticles, gameObject.transform.position + Vector3.up, Quaternion.identity);
+
         yield return new WaitForSeconds(shrinkDelay);
 
         agent.enabled = false;
         face.GetComponent<SkinnedMeshRenderer>().material = faces[1];
-
-        Vector3 position = gameObject.transform.position + (Vector3.up * particleHeight);
-        Instantiate(attackParticles, gameObject.transform.position + Vector3.up, Quaternion.identity);
 
         while(gameObject.transform.localScale.x > deincrement) {
             gameObject.transform.localScale += new Vector3(-deincrement, -deincrement, -deincrement);
