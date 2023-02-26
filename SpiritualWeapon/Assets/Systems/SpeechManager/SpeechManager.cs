@@ -54,7 +54,7 @@ public class SpeechManager : MonoBehaviour
     [TextArea(minLines: 1, maxLines: 12)] [SerializeField] private string crossEndText;
 
     private AudioClip[] currentClips = null;
-    private int endingMystery = 13;
+    private int endingMystery = 19;
 
     private void Awake() {
         DontDestroyOnLoad(transform.gameObject);
@@ -71,6 +71,8 @@ public class SpeechManager : MonoBehaviour
         CopyArray(hailMaryClips, maryTempClips);
         gloryTempClips = new AudioClip[gloryBeClips.Length];
         CopyArray(gloryBeClips, gloryTempClips);
+
+        PlayerPrefs.SetInt("HitCount", 0);
     }
 
     public void StartRosary() {
@@ -183,5 +185,12 @@ public class SpeechManager : MonoBehaviour
                 copiedArray[i] = arrayToCopy[random];
             }
         }
+    }
+
+    public void SetEndingMystery(int ending) {
+        SetEndingMysteryHelper(ending);
+    }
+    private void SetEndingMysteryHelper(int ending) {
+        endingMystery = ending;
     }
 }

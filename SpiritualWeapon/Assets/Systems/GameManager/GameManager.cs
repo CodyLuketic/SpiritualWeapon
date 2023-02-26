@@ -10,39 +10,39 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject startTransitionObj = null;
     [SerializeField] private GameObject endTransitionObj = null;
 
-    private Image transition, startTransition;
-
     [Header("Basic Values")]
     [SerializeField] private float increment = 0.1f;
     [SerializeField] private float sceneTick = 0.1f;
 
-    private void Start() {
-        transition = endTransitionObj.GetComponent<Image>();
-        startTransition = startTransitionObj.GetComponent<Image>();
+    private Image endTransition = null, startTransition = null;
 
-        if(startTransitionObj.activeSelf) {
-            StartTransition();
-        }
+    private string function = null;
+
+    private void Start() {
+        startTransition = startTransitionObj.GetComponent<Image>();
+        endTransition = endTransitionObj.GetComponent<Image>();
+
+        CheckStartTransition();
     }
 
     public void NextScene() {
-        EndTransition();
+        function = "Next";
 
-        NextSceneHelper();
+        EndTransition();
     }
     private void NextSceneHelper() {
         int index = SceneManager.GetActiveScene().buildIndex;
         if(index < SceneManager.sceneCountInBuildSettings) {
             SceneManager.LoadScene(index + 1);
         } else {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
     }
 
     public void PreviousScene() {
-        EndTransition();
+        function = "Previous";
 
-        PreviousSceneHelper();
+        EndTransition();
     }
     private void PreviousSceneHelper() {
         int index = SceneManager.GetActiveScene().buildIndex;
@@ -52,127 +52,174 @@ public class GameManager : MonoBehaviour
     }
 
     public void ToMainMenu() {
+        function = "Main";
+
         EndTransition();
     }
     private void ToMainMenuHelper() {
-        SceneManager.LoadScene(0);
-    }
-
-    public void ToDecadeSelection() {
-        EndTransition();
-
-        ToDecadeSelectionHelper();
-    }
-    private void ToDecadeSelectionHelper() {
         SceneManager.LoadScene(1);
     }
 
     public void ToSettings() {
-        EndTransition();
+        function = "Settings";
 
-        ToSettingsHelper();
+        EndTransition();
     }
     private void ToSettingsHelper() {
         SceneManager.LoadScene(2);
     }
 
-    public void ToStartingRosary() {
-        EndTransition();
+    public void ToDecadeSelection() {
+        function = "Decade";
 
-        ToStartingRosaryHelper();
+        EndTransition();
     }
-    private void ToStartingRosaryHelper() {
+    private void ToDecadeSelectionHelper() {
         SceneManager.LoadScene(3);
     }
 
-    public void ToJoyfulMysteries() {
-        EndTransition();
+    public void ToStartRosary(string decades = "All") {
+        PlayerPrefs.SetString("Decades", decades);
 
-        ToJoyfulMysteriesHelper();
+        function = "Start";
+
+        EndTransition();
     }
-    private void ToJoyfulMysteriesHelper() {
+    private void ToStartRosaryHelper() {
         SceneManager.LoadScene(4);
     }
 
-    public void ToLuminousMysteries() {
-        EndTransition();
+    public void ToJoyfulMysteries() {
+        function = "Joyful";
 
-        ToLuminousMysteriesHelper();
+        EndTransition();
+    }
+    private void ToJoyfulMysteriesHelper() {
+        SceneManager.LoadScene(5);
+    }
+
+    public void ToLuminousMysteries() {
+        function = "Luminous";
+
+        EndTransition();
     }
     private void ToLuminousMysteriesHelper() {
-        SceneManager.LoadScene(9);
+        SceneManager.LoadScene(10);
     }
 
     public void ToSorrowfulMysteries() {
-        EndTransition();
+        function = "Sorrowful";
 
-        ToSorrowfulMysteriesHelper();
+        EndTransition();
     }
     private void ToSorrowfulMysteriesHelper() {
-        SceneManager.LoadScene(14);
+        SceneManager.LoadScene(15);
     }
 
     public void ToGloriusMysteries() {
-        EndTransition();
+        function = "Glorius";
 
-        ToGloriusMysteriesHelper();
+        EndTransition();
     }
     private void ToGloriusMysteriesHelper() {
-        SceneManager.LoadScene(19);
+        SceneManager.LoadScene(20);
     }
 
     public void ToEndRosary() {
-        EndTransition();
+        function = "End";
 
-        ToEndRosaryHelper();
+        EndTransition();
     }
     private void ToEndRosaryHelper() {
-        SceneManager.LoadScene(24);
+        SceneManager.LoadScene(25);
+    }
+    
+    public void ToTestScene() {
+        function = "Test";
+
+        EndTransition();
+    }
+    private void ToTestSceneHelper() {
+        SceneManager.LoadScene(26);
     }
 
-    public void Quit() {;
-        EndTransition();
+    public void Quit() {
+        function = "Quit";
 
-        QuitHelper();
+        EndTransition();
     }
     private void QuitHelper() {
         Application.Quit();
     }
 
-    public void ToTestScene() {;
-        EndTransition();
-
-        ToTestSceneHelper();
-    }
-    private void ToTestSceneHelper() {
-        SceneManager.LoadScene(25);
+    private void FunctionRunner() {
+        switch(function) {
+            case "Next":
+                NextSceneHelper();
+                break;
+            case "Previous":
+                PreviousSceneHelper();
+                break;
+            case "Main":
+                ToMainMenuHelper();
+                break;
+            case "Decade":
+                ToDecadeSelectionHelper();
+                break;
+            case "Settings":
+                ToSettingsHelper();
+                break;
+            case "Start":
+                ToStartRosaryHelper();
+                break;
+            case "Joyful":
+                ToJoyfulMysteriesHelper();
+                break;
+            case "Luminous":
+                ToLuminousMysteriesHelper();
+                break;
+            case "Sorrowful":
+                ToSorrowfulMysteriesHelper();
+                break;
+            case "Glorius":
+                ToGloriusMysteriesHelper();
+                break;
+            case "End":
+                ToEndRosaryHelper();
+                break;
+            case "Quit":
+                QuitHelper();
+                break;
+            case "Test":
+                ToTestSceneHelper();
+                break;
+            default:
+                Debug.Log("Error");
+                break;
+        }
     }
     
-    public void EndTransition() {
-        StartCoroutine(EndTransitionHelper());
-    }
-    private IEnumerator EndTransitionHelper() {
-        if(rosaryCanvas != null && rosaryCanvas.activeSelf) {
-            rosaryCanvas.SetActive(false);
-        }
-        endTransitionObj.SetActive(true);
-
-        float r = transition.color.r;
-        float g = transition.color.g;
-        float b = transition.color.b;
-        float alpha = transition.color.a;
-
-        while(alpha < 0.999) {
-            alpha += increment;
-            transition.color = new Color(r, g, b, alpha);
-            yield return new WaitForSeconds(sceneTick);
+    private void CheckStartTransition() {
+        int sceneName = SceneManager.GetActiveScene().buildIndex;
+        switch(sceneName) {
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 24:
+                StartTransition();
+                break;
+            default:
+                break;
         }
     }
-    
     public void StartTransition() {
         StartCoroutine(StartTransitionHelper());
     }
     private IEnumerator StartTransitionHelper() {
+        startTransition = startTransitionObj.GetComponent<Image>();
+
         float r = startTransition.color.r;
         float g = startTransition.color.g;
         float b = startTransition.color.b;
@@ -185,5 +232,28 @@ public class GameManager : MonoBehaviour
         }
 
         startTransitionObj.SetActive(false);
+    }
+
+    public void EndTransition() {
+        StartCoroutine(EndTransitionHelper());
+    }
+    private IEnumerator EndTransitionHelper() {
+        if(rosaryCanvas != null && rosaryCanvas.activeSelf) {
+            rosaryCanvas.SetActive(false);
+        }
+        endTransitionObj.SetActive(true);
+
+        float r = endTransition.color.r;
+        float g = endTransition.color.g;
+        float b = endTransition.color.b;
+        float alpha = endTransition.color.a;
+
+        while(alpha < 0.999) {
+            alpha += increment;
+            endTransition.color = new Color(r, g, b, alpha);
+            yield return new WaitForSeconds(sceneTick);
+        }
+
+        FunctionRunner();
     }
 }

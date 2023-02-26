@@ -1,12 +1,13 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class MysteryRosaryFill : MonoBehaviour
 {
     [Header("Scripts")]
     [SerializeField] private GameManager gameManager = null;
-    private SpeechManager speechScript = null;
+    [SerializeField] private EnemyPooler enemyPooler = null;
 
     [Header("Objects")]
     [SerializeField] private Image lLargeBead = null;
@@ -24,12 +25,17 @@ public class MysteryRosaryFill : MonoBehaviour
 
     [SerializeField] private Color completedColor;
 
+    [SerializeField] private TMP_Text title = null;
+
     [Header("Basic Values")]
+    [SerializeField] private float titleTime = 1f;
     [SerializeField] private float announcementTime = 1f;
     [SerializeField] private float lLargeBeadTime = 0.1f;
     [SerializeField] private float smallBeadTime = 0.1f;
     [SerializeField] private float rLargeBeadTime = 0.1f;
     [SerializeField] private float increment = 0.1f;
+    
+    private SpeechManager speechScript = null;
 
     private float r = 0, g = 0, b = 0, a = 0;
 
@@ -48,8 +54,27 @@ public class MysteryRosaryFill : MonoBehaviour
     private IEnumerator FillHelper() {
         speechScript.StartNextPrayer(0);
 
-        yield return new WaitForSeconds(announcementTime);
+        r = 0;
+        g = 0;
+        b = 0;
+        a = title.color.a;
 
+        while(!changed) {
+            IncrementTitle(title, new Color(0, 0, 0, 1));
+            yield return new WaitForSeconds(titleTime);
+        }
+        changed = false;
+
+        while(!changed) {
+            IncrementTitle(title, new Color(0, 0, 0, 0));
+            yield return new WaitForSeconds(titleTime);
+        }
+        changed = false;
+
+        yield return new WaitForSeconds(announcementTime);
+        
+        gameManager.StartTransition();
+        enemyPooler.StartSpawning();
         speechScript.StartNextPrayer(1);
 
         r = lLargeBead.color.r;
@@ -270,11 +295,33 @@ public class MysteryRosaryFill : MonoBehaviour
 
         if(pass1 && pass2 && pass3 && pass4) {
             changed = true;
+
             r = col.r;
             g = col.g;
             b = col.b;
-        } else {
-            img.color = new Color(r, g, b, a);
+            a = col.a;
         }
+
+        img.color = new Color(r, g, b, a);
+    }
+
+    private void IncrementTitle(TMP_Text text, Color col) {
+        bool pass = false;
+
+        if(a < col.a - 0.05) {
+            a += increment;
+        } else if(a > col.a + 0.05) {
+            a -= increment;
+        } else {
+            pass = true;
+        }
+
+        if(pass) {
+            changed = true;
+
+            a = col.a;
+        }
+
+        text.color = new Color(r, g, b, a);
     }
 }

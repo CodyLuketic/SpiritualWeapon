@@ -6,7 +6,7 @@ public class StartAndEndRosaryFill : MonoBehaviour
 {
     [Header("Scripts")]
     [SerializeField] private GameManager gameManager = null;
-    private SpeechManager speechScript = null;
+    private SpeechManager speechManager = null;
 
     [Header("Objects")]
     [SerializeField] private Image cross = null;
@@ -33,7 +33,7 @@ public class StartAndEndRosaryFill : MonoBehaviour
 
     private void Start() {
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
-        speechScript = GameObject.FindGameObjectWithTag("SpeechManager").GetComponent<SpeechManager>();
+        speechManager = GameObject.FindGameObjectWithTag("SpeechManager").GetComponent<SpeechManager>();
     }
 
     public void Fill() {
@@ -41,7 +41,7 @@ public class StartAndEndRosaryFill : MonoBehaviour
         StartCoroutine(FillHelper());
     }
     private IEnumerator FillHelper() {
-        speechScript.StartNextPrayer(0);
+        speechManager.StartNextPrayer(0);
 
         r = cross.color.r;
         g = cross.color.g;
@@ -56,7 +56,7 @@ public class StartAndEndRosaryFill : MonoBehaviour
 
         Debug.Log("Completed cross");
 
-        speechScript.StartNextPrayer(1);
+        speechManager.StartNextPrayer(1);
 
         r = lLargeBead.color.r;
         g = lLargeBead.color.g;
@@ -71,7 +71,7 @@ public class StartAndEndRosaryFill : MonoBehaviour
 
         Debug.Log("Completed lLargeBead");
 
-        speechScript.StartNextPrayer(2);
+        speechManager.StartNextPrayer(2);
 
         r = lSmallBead.color.r;
         g = lSmallBead.color.g;
@@ -86,7 +86,7 @@ public class StartAndEndRosaryFill : MonoBehaviour
 
         Debug.Log("Completed lSmallBead");
 
-        speechScript.StartNextPrayer(3);
+        speechManager.StartNextPrayer(3);
 
         r = mSmallBead.color.r;
         g = mSmallBead.color.g;
@@ -101,7 +101,7 @@ public class StartAndEndRosaryFill : MonoBehaviour
 
         Debug.Log("Completed mSmallBead");
 
-        speechScript.StartNextPrayer(4);
+        speechManager.StartNextPrayer(4);
 
         r = rSmallBead.color.r;
         g = rSmallBead.color.g;
@@ -116,7 +116,7 @@ public class StartAndEndRosaryFill : MonoBehaviour
 
         Debug.Log("Completed rSmallBead");
 
-        speechScript.StartNextPrayer(5);
+        speechManager.StartNextPrayer(5);
 
         r = rLargeBead.color.r;
         g = rLargeBead.color.g;
@@ -131,7 +131,36 @@ public class StartAndEndRosaryFill : MonoBehaviour
 
         Debug.Log("Completed rLargeBead");
 
-        gameManager.NextScene();
+        CheckNextScene();
+    }
+
+    private void CheckNextScene() {
+        string nextScene = PlayerPrefs.GetString("Decades");
+        int endingMystery = 19;
+
+        switch(nextScene) {
+            case "All":
+            case "Joyful":
+                gameManager.ToJoyfulMysteries();
+                endingMystery = 4;
+                break;
+            case "Luminous":
+                gameManager.ToLuminousMysteries();
+                endingMystery = 9;
+                break;
+            case "Sorrowful":
+                gameManager.ToSorrowfulMysteries();
+                endingMystery = 14;
+                break;
+            case "Glorius":
+                gameManager.ToGloriusMysteries();
+                break;
+            default:
+                Debug.Log("Error");
+                break;
+        }
+
+        speechManager.SetEndingMystery(endingMystery);
     }
 
     private void IncrementColor(Image img, Color col) {

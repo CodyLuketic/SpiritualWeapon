@@ -26,6 +26,12 @@ public class EnemyPooler : MonoBehaviour
 
     private void Start() {
         SetDictionary();
+    }
+
+    public void StartSpawning() {
+        StartSpawningHelper();
+    }
+    private void StartSpawningHelper() {
         spawnCoroutine = StartCoroutine(SpawnEnemy());
     }
 

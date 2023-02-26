@@ -23,9 +23,5 @@ public class PlayerHitCount : MonoBehaviour
         hitCountText.text = "Hitcount: " + hitCount;
 
         PlayerPrefs.SetInt("HitCount", hitCount);
-
-        if(hitCount < PlayerPrefs.GetInt("LowestHitCount", 1000)) {
-            PlayerPrefs.SetInt("LowestHitCount", hitCount);
-        }
     }
 }
