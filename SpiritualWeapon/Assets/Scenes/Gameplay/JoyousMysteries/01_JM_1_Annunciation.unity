@@ -167,10 +167,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: HolyCharacterContainer
       objectReference: {fileID: 0}
+    - target: {fileID: 4086179003391183988, guid: 4b7a4c689abcc754cbec10e0df9e0240,
+        type: 3}
+      propertyPath: m_Carve
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086179003391183988, guid: 4b7a4c689abcc754cbec10e0df9e0240,
+        type: 3}
+      propertyPath: m_Extents.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086179003391183988, guid: 4b7a4c689abcc754cbec10e0df9e0240,
+        type: 3}
+      propertyPath: m_Extents.z
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4086179003391183991, guid: 4b7a4c689abcc754cbec10e0df9e0240,
         type: 3}
       propertyPath: fieldRadius
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7340411974540372045, guid: 4b7a4c689abcc754cbec10e0df9e0240,
         type: 3}
@@ -838,6 +853,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2312392799537697236, guid: 04816d281f030fb4493a4dc4bde39a47,
+        type: 3}
+      propertyPath: divider
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312392799537697236, guid: 04816d281f030fb4493a4dc4bde39a47,
+        type: 3}
+      propertyPath: shotAngle
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312392799537697236, guid: 04816d281f030fb4493a4dc4bde39a47,
+        type: 3}
+      propertyPath: shotspeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312392799537697236, guid: 04816d281f030fb4493a4dc4bde39a47,
+        type: 3}
+      propertyPath: angleDivider
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312392799537697236, guid: 04816d281f030fb4493a4dc4bde39a47,
+        type: 3}
+      propertyPath: speedDivider
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 2312392799537697239, guid: 04816d281f030fb4493a4dc4bde39a47,
         type: 3}
       propertyPath: hitCountText

@@ -22,13 +22,10 @@ public class EnemyValues : MonoBehaviour
     [SerializeField] private float speed = 1f;
     [SerializeField] private float playerDamage = 1f;
     [SerializeField] private float holyDamage = 1f;
-    [SerializeField] private float damageDelay = 1f;
     [SerializeField] private float shrinkDelay = 1f;
     [SerializeField] private float particleHeight = 1f;
 
     private float tempHealth = 0;
-
-    private bool delayed = true;
 
     private void Start() {
         playerParticleObject = GameObject.FindGameObjectWithTag("PlayerParticleObject");
@@ -41,10 +38,6 @@ public class EnemyValues : MonoBehaviour
 
     private void OnParticleCollision(GameObject other) {
         if(other == playerParticleObject) {
-            Debug.Log("Hit");
-
-            delayed = false;
-
             DamageCheck(playerDamage);
         }
     }

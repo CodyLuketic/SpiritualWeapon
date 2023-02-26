@@ -8,6 +8,12 @@ public class PlayerHitCount : MonoBehaviour
 
     private int hitCount = 0;
 
+    private void Start() {
+        hitCount = PlayerPrefs.GetInt("HitCount", 0);
+
+        hitCountText.text = "Hitcount: " + hitCount;
+    }
+
     public void IncrementHitCount() {
         IncrementHitCountHelper();
     }
@@ -15,5 +21,11 @@ public class PlayerHitCount : MonoBehaviour
         hitCount++;
 
         hitCountText.text = "Hitcount: " + hitCount;
+
+        PlayerPrefs.SetInt("HitCount", hitCount);
+
+        if(hitCount < PlayerPrefs.GetInt("LowestHitCount", 1000)) {
+            PlayerPrefs.SetInt("LowestHitCount", hitCount);
+        }
     }
 }

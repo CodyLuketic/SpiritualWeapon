@@ -16,8 +16,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float increment = 0.1f;
     [SerializeField] private float sceneTick = 0.1f;
 
-    private int function = 0;
-
     private void Start() {
         transition = endTransitionObj.GetComponent<Image>();
         startTransition = startTransitionObj.GetComponent<Image>();
@@ -28,8 +26,9 @@ public class GameManager : MonoBehaviour
     }
 
     public void NextScene() {
-        function = 0;
         EndTransition();
+
+        NextSceneHelper();
     }
     private void NextSceneHelper() {
         int index = SceneManager.GetActiveScene().buildIndex;
@@ -41,8 +40,9 @@ public class GameManager : MonoBehaviour
     }
 
     public void PreviousScene() {
-        function = 1;
         EndTransition();
+
+        PreviousSceneHelper();
     }
     private void PreviousSceneHelper() {
         int index = SceneManager.GetActiveScene().buildIndex;
@@ -51,84 +51,101 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ToSettings() {
-        function = 2;
-        EndTransition();
-    }
-    private void ToSettingsHelper() {
-        SceneManager.LoadScene(0);
-    }
-
     public void ToMainMenu() {
-        function = 3;
         EndTransition();
     }
     private void ToMainMenuHelper() {
+        SceneManager.LoadScene(0);
+    }
+
+    public void ToDecadeSelection() {
+        EndTransition();
+
+        ToDecadeSelectionHelper();
+    }
+    private void ToDecadeSelectionHelper() {
         SceneManager.LoadScene(1);
     }
 
-    public void ToStartingRosary() {
-        function = 4;
+    public void ToSettings() {
         EndTransition();
+
+        ToSettingsHelper();
     }
-    private void ToStartingRosaryHelper() {
+    private void ToSettingsHelper() {
         SceneManager.LoadScene(2);
     }
 
-    public void ToJoyfulMysteries() {
-        function = 5;
+    public void ToStartingRosary() {
         EndTransition();
+
+        ToStartingRosaryHelper();
     }
-    private void ToJoyfulMysteriesHelper() {
+    private void ToStartingRosaryHelper() {
         SceneManager.LoadScene(3);
     }
 
-    public void ToLuminousMysteries() {
-        function = 6;
+    public void ToJoyfulMysteries() {
         EndTransition();
+
+        ToJoyfulMysteriesHelper();
+    }
+    private void ToJoyfulMysteriesHelper() {
+        SceneManager.LoadScene(4);
+    }
+
+    public void ToLuminousMysteries() {
+        EndTransition();
+
+        ToLuminousMysteriesHelper();
     }
     private void ToLuminousMysteriesHelper() {
-        SceneManager.LoadScene(8);
+        SceneManager.LoadScene(9);
     }
 
     public void ToSorrowfulMysteries() {
-        function = 7;
         EndTransition();
+
+        ToSorrowfulMysteriesHelper();
     }
     private void ToSorrowfulMysteriesHelper() {
-        SceneManager.LoadScene(13);
+        SceneManager.LoadScene(14);
     }
 
     public void ToGloriusMysteries() {
-        function = 8;
         EndTransition();
+
+        ToGloriusMysteriesHelper();
     }
     private void ToGloriusMysteriesHelper() {
-        SceneManager.LoadScene(18);
+        SceneManager.LoadScene(19);
     }
 
     public void ToEndRosary() {
-        function = 9;
         EndTransition();
+
+        ToEndRosaryHelper();
     }
     private void ToEndRosaryHelper() {
-        SceneManager.LoadScene(23);
+        SceneManager.LoadScene(24);
     }
 
-    public void Quit() {
-        function = 10;
+    public void Quit() {;
         EndTransition();
+
+        QuitHelper();
     }
     private void QuitHelper() {
         Application.Quit();
     }
 
-    public void ToTestScene() {
-        function = 11;
+    public void ToTestScene() {;
         EndTransition();
+
+        ToTestSceneHelper();
     }
     private void ToTestSceneHelper() {
-        SceneManager.LoadScene(24);
+        SceneManager.LoadScene(25);
     }
     
     public void EndTransition() {
@@ -149,49 +166,6 @@ public class GameManager : MonoBehaviour
             alpha += increment;
             transition.color = new Color(r, g, b, alpha);
             yield return new WaitForSeconds(sceneTick);
-        }
-
-        FunctionRunner();
-    }
-
-    private void FunctionRunner() {
-        switch (function) {
-            case 0:
-                NextSceneHelper();
-                break;
-            case 1:
-                PreviousSceneHelper();
-                break;
-            case 2:
-                ToSettingsHelper();
-                break;
-            case 3:
-                ToMainMenuHelper();
-                break;
-            case 4:
-                ToStartingRosaryHelper();
-                break;
-            case 5:
-                ToJoyfulMysteriesHelper();
-                break;
-            case 6:
-                ToLuminousMysteriesHelper();
-                break;
-            case 7:
-                ToSorrowfulMysteriesHelper();
-                break;
-            case 8:
-                ToGloriusMysteriesHelper();
-                break;
-            case 9:
-                QuitHelper();
-                break;
-            case 10:
-                ToTestSceneHelper();
-                break;
-            default:
-                Debug.Log("This should never run");
-                break;
         }
     }
     
