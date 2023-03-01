@@ -268,6 +268,18 @@ Camera:
     type: 3}
   m_PrefabInstance: {fileID: 2942594967439910343}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &356546884 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8182015718011729227, guid: 500327e1c0ea46b4387f376a7324f84c,
+    type: 3}
+  m_PrefabInstance: {fileID: 8182015718271565810}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2e5a11a8308f2b4daade6dcdad535e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &377181068
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -957,7 +969,7 @@ PrefabInstance:
     - target: {fileID: 5072926739088368259, guid: 940ba9e0bc8d43b4db3485723cd90d5f,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5072926739088368383, guid: 940ba9e0bc8d43b4db3485723cd90d5f,
         type: 3}
@@ -1547,7 +1559,7 @@ PrefabInstance:
     - target: {fileID: 8182015718011729221, guid: 500327e1c0ea46b4387f376a7324f84c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8182015718011729226, guid: 500327e1c0ea46b4387f376a7324f84c,
         type: 3}
@@ -1628,6 +1640,11 @@ PrefabInstance:
       propertyPath: crossTime
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 8933151161894447108, guid: 778b0dedb79f29a44a3f47b7a7ee4802,
+        type: 3}
+      propertyPath: enemyPooler
+      value: 
+      objectReference: {fileID: 356546884}
     - target: {fileID: 8933151161894447108, guid: 778b0dedb79f29a44a3f47b7a7ee4802,
         type: 3}
       propertyPath: gameManager

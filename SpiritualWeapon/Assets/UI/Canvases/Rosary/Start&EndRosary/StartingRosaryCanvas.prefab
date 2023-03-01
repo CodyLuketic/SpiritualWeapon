@@ -142,8 +142,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8933151161526761241}
   - {fileID: 8933151162378280941}
+  - {fileID: 8933151161526761241}
   m_Father: {fileID: 8933151161928255097}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -165,6 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
+  enemyPooler: {fileID: 0}
   cross: {fileID: 8933151161526761242}
   lLargeBead: {fileID: 8933151161751388421}
   lSmallBead: {fileID: 8933151162242848641}
@@ -178,7 +179,6 @@ MonoBehaviour:
   mSmallBeadTime: 0.1
   rSmallBeadTime: 0.1
   rLargeBeadTime: 0.1
-  completedTime: 0.05
   increment: 0.01
 --- !u!1 &8933151161073420277
 GameObject:
@@ -363,7 +363,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8933151160996385843}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -833,7 +833,7 @@ RectTransform:
   - {fileID: 8933151160508822102}
   - {fileID: 8933151161252872560}
   m_Father: {fileID: 8933151160996385843}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}

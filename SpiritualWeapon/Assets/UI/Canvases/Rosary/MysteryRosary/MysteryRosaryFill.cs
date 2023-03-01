@@ -43,7 +43,6 @@ public class MysteryRosaryFill : MonoBehaviour
 
     private void Start() {
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
-        speechScript = GameObject.FindGameObjectWithTag("SpeechManager").GetComponent<SpeechManager>();
     }
 
     public void Fill() {
@@ -52,6 +51,7 @@ public class MysteryRosaryFill : MonoBehaviour
     }
 
     private IEnumerator FillHelper() {
+        speechScript = GameObject.FindGameObjectWithTag("SpeechManager").GetComponent<SpeechManager>();
         speechScript.StartNextPrayer(0);
 
         r = 0;
