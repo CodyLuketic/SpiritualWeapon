@@ -6,7 +6,6 @@ public class StartAndEndRosaryFill : MonoBehaviour
 {
     [Header("Scripts")]
     [SerializeField] private GameManager gameManager = null;
-    [SerializeField] private EnemyPooler enemyPooler = null;
     private SpeechManager speechManager = null;
 
     [Header("Objects")]
@@ -43,7 +42,6 @@ public class StartAndEndRosaryFill : MonoBehaviour
     }
     private IEnumerator FillHelper() {
         speechManager.StartNextPrayer(0);
-        enemyPooler.StartSpawning();
 
         r = cross.color.r;
         g = cross.color.g;

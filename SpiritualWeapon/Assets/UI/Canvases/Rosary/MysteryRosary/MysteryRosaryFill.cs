@@ -7,7 +7,6 @@ public class MysteryRosaryFill : MonoBehaviour
 {
     [Header("Scripts")]
     [SerializeField] private GameManager gameManager = null;
-    [SerializeField] private EnemyPooler enemyPooler = null;
 
     [Header("Objects")]
     [SerializeField] private Image lLargeBead = null;
@@ -74,7 +73,6 @@ public class MysteryRosaryFill : MonoBehaviour
         yield return new WaitForSeconds(announcementTime);
         
         gameManager.StartTransition();
-        enemyPooler.StartSpawning();
         speechScript.StartNextPrayer(1);
 
         r = lLargeBead.color.r;

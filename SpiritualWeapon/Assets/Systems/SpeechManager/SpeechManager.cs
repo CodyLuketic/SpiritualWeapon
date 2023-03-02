@@ -54,6 +54,7 @@ public class SpeechManager : MonoBehaviour
     [TextArea(minLines: 1, maxLines: 12)] [SerializeField] private string crossEndText;
 
     private AudioClip[] currentClips = null;
+    private string[] currentText = null;
     private int endingMystery = 19;
 
     private void Awake() {
@@ -80,6 +81,7 @@ public class SpeechManager : MonoBehaviour
     }
     private void StartRosaryHelper() {
         currentClips = new AudioClip[6];
+        currentText = new string[6];
 
         currentClips[0] = crossStartClip;
         currentClips[1] = creedClip;
@@ -87,6 +89,13 @@ public class SpeechManager : MonoBehaviour
         currentClips[3] = faithClip;
         currentClips[4] = hopeClip;
         currentClips[5] = loveClip;
+
+        currentText[0] = crossStartText;
+        currentText[1] = creedText;
+        currentText[2] = intentionsText;
+        currentText[3] = faithText;
+        currentText[4] = hopeText;
+        currentText[5] = loveText;
 
         startAndEndRosaryScript = GameObject.FindGameObjectWithTag("StartAndEndRosary").GetComponent<StartAndEndRosaryFill>();
         startAndEndRosaryScript.Fill();
@@ -100,6 +109,7 @@ public class SpeechManager : MonoBehaviour
         gameManager.ToEndRosary();
 
         currentClips = new AudioClip[6];
+        currentText = new string[6];
 
         currentClips[0] = reginaClip;
         currentClips[1] = godClip;
@@ -107,6 +117,13 @@ public class SpeechManager : MonoBehaviour
         currentClips[3] = michaelClip;
         currentClips[4] = heartClip;
         currentClips[5] = crossEndClip;
+
+        currentText[0] = reginaText;
+        currentText[1] = godText;
+        currentText[2] = memorareText;
+        currentText[3] = michaelText;
+        currentText[4] = heartText;
+        currentText[5] = crossEndText;
 
         startAndEndRosaryScript = GameObject.FindGameObjectWithTag("StartAndEndRosary").GetComponent<StartAndEndRosaryFill>();
         startAndEndRosaryScript.Fill();
@@ -137,14 +154,18 @@ public class SpeechManager : MonoBehaviour
 
     private void FillCurrentClips(AudioClip sceneClip) {
         currentClips = new AudioClip[13];
+        currentText = new string[12];
 
         currentClips[0] = sceneClip;
 
         SetCurrentClip(1, ourFatherClips, fatherTempClips);
+        currentText[0] = ourFatherText;
         for(int i = 2; i < 12; i++) {
             SetCurrentClip(i, hailMaryClips, maryTempClips);
+            currentText[1] = hailMaryText;
         }
         SetCurrentClip(12, gloryBeClips, gloryTempClips);
+        currentText[11] = ourFatherText;
     }
 
     private void SetCurrentClip(int currentIndex, AudioClip[] clipsToSet, AudioClip[] tempClips) {
@@ -192,5 +213,12 @@ public class SpeechManager : MonoBehaviour
     }
     private void SetEndingMysteryHelper(int ending) {
         endingMystery = ending;
+    }
+
+    public void StartScrollingText(int text) {
+        StartScrollingTextHelper(text);
+    }
+    private void StartScrollingTextHelper(int text) {
+        Debug.Log("Current Text Printing: " + currentText[text]);
     }
 }
