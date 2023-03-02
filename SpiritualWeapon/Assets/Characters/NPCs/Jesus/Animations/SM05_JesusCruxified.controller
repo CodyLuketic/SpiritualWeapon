@@ -31,15 +31,15 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SM05_JesusAnimations
+  m_Name: SM05_JesusCruxified
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: jesusDead
-    m_Type: 4
+    m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -74,7 +74,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 8517685352179928449, guid: 58030520e70e4de45adf579ae980e22a,
+  m_Motion: {fileID: -6313351144440677252, guid: a819ffe65f49acf4d84d2b98d81f89df,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -98,9 +98,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 1.3204366
-  m_TransitionOffset: 0
-  m_ExitTime: 0.5573971
+  m_TransitionDuration: 2.058595
+  m_TransitionOffset: 233.02556
+  m_ExitTime: 1.3017997
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -126,7 +126,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -5412435311597553579, guid: 58030520e70e4de45adf579ae980e22a,
+  m_Motion: {fileID: -4667149284934479551, guid: a819ffe65f49acf4d84d2b98d81f89df,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
