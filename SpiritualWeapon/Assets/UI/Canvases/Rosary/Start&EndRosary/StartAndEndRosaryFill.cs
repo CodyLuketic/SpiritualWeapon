@@ -1,12 +1,12 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class StartAndEndRosaryFill : MonoBehaviour
 {
     [Header("Scripts")]
     [SerializeField] private GameManager gameManager = null;
-    private SpeechManager speechManager = null;
 
     [Header("Objects")]
     [SerializeField] private Image cross = null;
@@ -27,7 +27,19 @@ public class StartAndEndRosaryFill : MonoBehaviour
     [SerializeField] private float rLargeBeadTime = 0.1f;
     [SerializeField] private float increment = 0.1f;
 
+    [Header("ScrollingText")]
+    [SerializeField] private float textSpeed = 0.01f;
+    [SerializeField] private int maxStringLength = 10;
+    [SerializeField] private TMP_Text textBox = null;
+    private string currentText = null;
+    private Coroutine textCoroutine = null;
+
+
+    private SpeechManager speechManager = null;
+
     private float r = 0, g = 0, b = 0, a = 0;
+
+    private int currentDisplayingText = 0;
 
     private bool changed = false;
 
@@ -42,6 +54,8 @@ public class StartAndEndRosaryFill : MonoBehaviour
     }
     private IEnumerator FillHelper() {
         speechManager.StartNextPrayer(0);
+        currentText = speechManager.StartScrollingText(0);
+        textCoroutine = StartCoroutine(Scroll());
 
         r = cross.color.r;
         g = cross.color.g;
@@ -57,6 +71,10 @@ public class StartAndEndRosaryFill : MonoBehaviour
         Debug.Log("Completed cross");
 
         speechManager.StartNextPrayer(1);
+        currentText = speechManager.StartScrollingText(1);
+
+        StopCoroutine(textCoroutine);
+        textCoroutine = StartCoroutine(Scroll());
 
         r = lLargeBead.color.r;
         g = lLargeBead.color.g;
@@ -207,4 +225,17 @@ public class StartAndEndRosaryFill : MonoBehaviour
             img.color = new Color(r, g, b, a);
         }
     }
+
+    private IEnumerator Scroll() {
+        currentText = currentText.Replace("\r", "");
+
+        for (int i = 0, j = 0; i < currentText.Length + 1; i++) {
+            textBox.text = currentText.Substring(j, i - j);
+
+            if(textBox.text.Length > maxStringLength) {
+                j++;
+            }
+            yield return new WaitForSeconds(textSpeed);
+        }
+    }   
 }

@@ -1,12 +1,7 @@
-using System.Collections;
 using UnityEngine;
 
 public class SpeechManager : MonoBehaviour
 {
-    [Header("Scripts")]
-    private GameManager gameManager = null;
-    private StartAndEndRosaryFill startAndEndRosaryScript = null;
-    private MysteryRosaryFill mysteryRosaryScript = null;
 
     [Header("Components")]
     [SerializeField] private AudioSource audioSource = null;
@@ -53,8 +48,13 @@ public class SpeechManager : MonoBehaviour
     [SerializeField] private AudioClip crossEndClip = null;
     [TextArea(minLines: 1, maxLines: 12)] [SerializeField] private string crossEndText;
 
+    private GameManager gameManager = null;
+    private StartAndEndRosaryFill startAndEndRosaryScript = null;
+    private MysteryRosaryFill mysteryRosaryScript = null;
+
     private AudioClip[] currentClips = null;
     private string[] currentText = null;
+
     private int endingMystery = 19;
 
     private void Awake() {
@@ -162,7 +162,7 @@ public class SpeechManager : MonoBehaviour
         currentText[0] = ourFatherText;
         for(int i = 2; i < 12; i++) {
             SetCurrentClip(i, hailMaryClips, maryTempClips);
-            currentText[1] = hailMaryText;
+            currentText[i] = hailMaryText;
         }
         SetCurrentClip(12, gloryBeClips, gloryTempClips);
         currentText[11] = ourFatherText;
@@ -215,10 +215,11 @@ public class SpeechManager : MonoBehaviour
         endingMystery = ending;
     }
 
-    public void StartScrollingText(int text) {
-        StartScrollingTextHelper(text);
+    public string StartScrollingText(int text) {
+        return StartScrollingTextHelper(text);
     }
-    private void StartScrollingTextHelper(int text) {
+    private string StartScrollingTextHelper(int text) {
         Debug.Log("Current Text Printing: " + currentText[text]);
+        return currentText[text];
     }
 }
