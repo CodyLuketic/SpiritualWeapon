@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 118
+  controlID: 104
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -543,9 +543,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 566.73956, y: 324.78955, z: -9.671249}
+    m_Target: {x: 512.2487, y: 449.7685, z: 0.77425003}
     speed: 2
-    m_Value: {x: 566.73956, y: 324.78955, z: -9.671249}
+    m_Value: {x: 512.2487, y: 449.7685, z: 0.77425003}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -592,13 +592,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0, y: 0, z: 0, w: 1}
+    m_Target: {x: 0.005999723, y: -0.008999728, z: 0.000053998112, w: 0.9999418}
     speed: 2
-    m_Value: {x: 0, y: 0, z: 0, w: 1}
+    m_Value: {x: 0.0059997216, y: -0.008999726, z: 0.000053998097, w: 0.9999416}
   m_Size:
-    m_Target: 166.64809
+    m_Target: 174.25256
     speed: 2
-    m_Value: 166.64809
+    m_Value: 174.25256
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -655,23 +655,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 26f8ffff
-      m_LastClickedID: -2010
-      m_ExpandedIDs: 3ef8ffff08fbffff7a690000b0690000
+      m_SelectedIDs: 58a90000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 3eaef2ffdcb3f2ff4cb9f2ffcc71f3ff0482f3ffec83f3ff00a8f3ffc2aaf3ffa462f4ffa069f4ff0070f4ff1c28f5ff1230f5ff5835f5ffc03ff5ffa641f5ff4249f5ff0c4cf5ffd64ef5ff08fbffff7a690000b86900005aaa000098aa000068ac0000caac00006cb200009eb20000e4b2000044b3000066bb000098bb0000aebc00000ebd00006ac100009cc10000bec200001ec30000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: General
+        m_OriginalName: General
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -704576
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 8}
       m_SearchString: 
@@ -1314,22 +1314,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Others
+    - Assets/Scenes/UI
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Others
+  - Assets/Scenes/UI
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Personal\GameCodeWork\GitHub\SpiritualWeapon\SpiritualWeapon
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: d2720000
-    m_LastClickedID: 29394
-    m_ExpandedIDs: 00000000a0720000a2720000a4720000a6720000a8720000aa720000ac72000000ca9a3b
+    scrollPos: {x: 0, y: 339}
+    m_SelectedIDs: 28a90000
+    m_LastClickedID: 43304
+    m_ExpandedIDs: 00000000aa720000ac720000ae720000b0720000b2720000b4720000b672000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1357,7 +1357,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000a0720000a2720000a4720000a6720000a8720000aa720000ac720000
+    m_ExpandedIDs: 00000000aa720000ac720000ae720000b0720000b2720000b4720000b6720000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1382,9 +1382,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 26f8ffff
-    m_LastClickedInstanceID: -2010
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: 58a90000
+    m_LastClickedInstanceID: 43352
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000b6690000b8690000b0690000b2690000b46900007acce2ff00000000ce73000016b30000f07b00007c6d00002676000040760000aa710000a08e0100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1473,7 +1473,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -2010
+  m_LastSelectedObjectID: -2008
 --- !u!114 &22
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1510,7 +1510,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 209.60004
+  m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:

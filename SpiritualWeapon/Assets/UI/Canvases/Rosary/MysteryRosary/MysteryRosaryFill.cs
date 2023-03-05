@@ -7,8 +7,9 @@ public class MysteryRosaryFill : MonoBehaviour
 {
     [Header("Scripts")]
     [SerializeField] private GameManager gameManager = null;
+     private SpeechManager speechManager = null;
 
-    [Header("Objects")]
+    [Header("Images")]
     [SerializeField] private Image lLargeBead = null;
     [SerializeField] private Image smallBead1 = null;
     [SerializeField] private Image smallBead2 = null;
@@ -22,21 +23,29 @@ public class MysteryRosaryFill : MonoBehaviour
     [SerializeField] private Image smallBead10 = null;
     [SerializeField] private Image rLargeBead = null;
 
+    [Header("Color")]
     [SerializeField] private Color completedColor;
+    private float r = 0, g = 0, b = 0, a = 0;
 
     [SerializeField] private TMP_Text title = null;
 
-    [Header("Basic Values")]
+    [Header("Fill Speeds")]
     [SerializeField] private float titleTime = 1f;
     [SerializeField] private float announcementTime = 1f;
     [SerializeField] private float lLargeBeadTime = 0.1f;
     [SerializeField] private float smallBeadTime = 0.1f;
     [SerializeField] private float rLargeBeadTime = 0.1f;
     [SerializeField] private float increment = 0.1f;
-    
-    private SpeechManager speechScript = null;
 
-    private float r = 0, g = 0, b = 0, a = 0;
+    [Header("Scrolling Text Values")]
+    [SerializeField] private TMP_Text textBox = null;
+    [SerializeField] private GameObject fadeOut = null;
+
+    [SerializeField] private float textSpeed = 0.01f;
+    [SerializeField] private int maxStringLength = 10;
+
+    private string currentText = null;
+    private Coroutine textCoroutine = null;
 
     private bool changed = false;
 
@@ -50,8 +59,10 @@ public class MysteryRosaryFill : MonoBehaviour
     }
 
     private IEnumerator FillHelper() {
-        speechScript = GameObject.FindGameObjectWithTag("SpeechManager").GetComponent<SpeechManager>();
-        speechScript.StartNextPrayer(0);
+        speechManager = GameObject.FindGameObjectWithTag("SpeechManager").GetComponent<SpeechManager>();
+        speechManager.StartNextPrayer(0);
+        currentText = speechManager.StartScrollingText(0);
+        textCoroutine = StartCoroutine(Scroll());
 
         r = 0;
         g = 0;
@@ -73,7 +84,12 @@ public class MysteryRosaryFill : MonoBehaviour
         yield return new WaitForSeconds(announcementTime);
         
         gameManager.StartTransition();
-        speechScript.StartNextPrayer(1);
+        speechManager.StartNextPrayer(1);
+        currentText = speechManager.StartScrollingText(1);
+
+        StopCoroutine(textCoroutine);
+        fadeOut.SetActive(false);
+        textCoroutine = StartCoroutine(Scroll());
 
         r = lLargeBead.color.r;
         g = lLargeBead.color.g;
@@ -88,7 +104,12 @@ public class MysteryRosaryFill : MonoBehaviour
 
         Debug.Log("Completed lLargeBead");
 
-        speechScript.StartNextPrayer(2);
+        speechManager.StartNextPrayer(2);
+        currentText = speechManager.StartScrollingText(2);
+
+        StopCoroutine(textCoroutine);
+        fadeOut.SetActive(false);
+        textCoroutine = StartCoroutine(Scroll());
 
         r = smallBead1.color.r;
         g = smallBead1.color.g;
@@ -103,7 +124,12 @@ public class MysteryRosaryFill : MonoBehaviour
 
         Debug.Log("Completed smallBead1");
 
-        speechScript.StartNextPrayer(3);
+        speechManager.StartNextPrayer(3);
+        currentText = speechManager.StartScrollingText(3);
+
+        StopCoroutine(textCoroutine);
+        fadeOut.SetActive(false);
+        textCoroutine = StartCoroutine(Scroll());
 
         r = smallBead2.color.r;
         g = smallBead2.color.g;
@@ -118,7 +144,12 @@ public class MysteryRosaryFill : MonoBehaviour
 
         Debug.Log("Completed smallBead2");
 
-        speechScript.StartNextPrayer(4);
+        speechManager.StartNextPrayer(4);
+        currentText = speechManager.StartScrollingText(4);
+
+        StopCoroutine(textCoroutine);
+        fadeOut.SetActive(false);
+        textCoroutine = StartCoroutine(Scroll());
 
         r = smallBead3.color.r;
         g = smallBead3.color.g;
@@ -133,7 +164,12 @@ public class MysteryRosaryFill : MonoBehaviour
 
         Debug.Log("Completed smallBead3");
 
-        speechScript.StartNextPrayer(5);
+        speechManager.StartNextPrayer(5);
+        currentText = speechManager.StartScrollingText(5);
+
+        StopCoroutine(textCoroutine);
+        fadeOut.SetActive(false);
+        textCoroutine = StartCoroutine(Scroll());
 
         r = smallBead4.color.r;
         g = smallBead4.color.g;
@@ -148,7 +184,12 @@ public class MysteryRosaryFill : MonoBehaviour
 
         Debug.Log("Completed smallBead4");
 
-        speechScript.StartNextPrayer(6);
+        speechManager.StartNextPrayer(6);
+        currentText = speechManager.StartScrollingText(6);
+
+        StopCoroutine(textCoroutine);
+        fadeOut.SetActive(false);
+        textCoroutine = StartCoroutine(Scroll());
 
         r = smallBead5.color.r;
         g = smallBead5.color.g;
@@ -163,7 +204,12 @@ public class MysteryRosaryFill : MonoBehaviour
 
         Debug.Log("Completed smallBead5");
 
-        speechScript.StartNextPrayer(7);
+        speechManager.StartNextPrayer(7);
+        currentText = speechManager.StartScrollingText(7);
+
+        StopCoroutine(textCoroutine);
+        fadeOut.SetActive(false);
+        textCoroutine = StartCoroutine(Scroll());
 
         r = smallBead6.color.r;
         g = smallBead6.color.g;
@@ -178,7 +224,12 @@ public class MysteryRosaryFill : MonoBehaviour
 
         Debug.Log("Completed smallBead6");
 
-        speechScript.StartNextPrayer(8);
+        speechManager.StartNextPrayer(8);
+        currentText = speechManager.StartScrollingText(8);
+
+        StopCoroutine(textCoroutine);
+        fadeOut.SetActive(false);
+        textCoroutine = StartCoroutine(Scroll());
 
         r = smallBead7.color.r;
         g = smallBead7.color.g;
@@ -193,7 +244,12 @@ public class MysteryRosaryFill : MonoBehaviour
 
         Debug.Log("Completed smallBead7");
 
-        speechScript.StartNextPrayer(9);
+        speechManager.StartNextPrayer(9);
+        currentText = speechManager.StartScrollingText(9);
+
+        StopCoroutine(textCoroutine);
+        fadeOut.SetActive(false);
+        textCoroutine = StartCoroutine(Scroll());
 
         r = smallBead8.color.r;
         g = smallBead8.color.g;
@@ -208,7 +264,12 @@ public class MysteryRosaryFill : MonoBehaviour
 
         Debug.Log("Completed smallBead8");
 
-        speechScript.StartNextPrayer(10);
+        speechManager.StartNextPrayer(10);
+        currentText = speechManager.StartScrollingText(10);
+
+        StopCoroutine(textCoroutine);
+        fadeOut.SetActive(false);
+        textCoroutine = StartCoroutine(Scroll());
 
         r = smallBead9.color.r;
         g = smallBead9.color.g;
@@ -223,7 +284,12 @@ public class MysteryRosaryFill : MonoBehaviour
 
         Debug.Log("Completed smallBead9");
 
-        speechScript.StartNextPrayer(11);
+        speechManager.StartNextPrayer(11);
+        currentText = speechManager.StartScrollingText(11);
+
+        StopCoroutine(textCoroutine);
+        fadeOut.SetActive(false);
+        textCoroutine = StartCoroutine(Scroll());
 
         r = smallBead10.color.r;
         g = smallBead10.color.g;
@@ -238,7 +304,12 @@ public class MysteryRosaryFill : MonoBehaviour
 
         Debug.Log("Completed smallBead10");
 
-        speechScript.StartNextPrayer(12);
+        speechManager.StartNextPrayer(12);
+        currentText = speechManager.StartScrollingText(12);
+
+        StopCoroutine(textCoroutine);
+        fadeOut.SetActive(false);
+        textCoroutine = StartCoroutine(Scroll());
 
         r = rLargeBead.color.r;
         g = rLargeBead.color.g;
@@ -322,4 +393,18 @@ public class MysteryRosaryFill : MonoBehaviour
 
         text.color = new Color(r, g, b, a);
     }
+
+    private IEnumerator Scroll() {
+        currentText = currentText.Replace("\r", "");
+
+        for (int i = 0, j = 0; i < currentText.Length + 1; i++) {
+            textBox.text = currentText.Substring(j, i - j);
+
+            if(textBox.text.Length > maxStringLength) {
+                fadeOut.SetActive(true);
+                j++;
+            }
+            yield return new WaitForSeconds(textSpeed);
+        }
+    }   
 }

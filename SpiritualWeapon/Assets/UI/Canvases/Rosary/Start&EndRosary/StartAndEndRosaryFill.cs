@@ -36,8 +36,6 @@ public class StartAndEndRosaryFill : MonoBehaviour
 
     [SerializeField] private float textSpeed = 0.01f;
     [SerializeField] private int maxStringLength = 10;
-    [SerializeField] private int beginningSpaces = 0;
-    [SerializeField] private int endingSpaces = 0;
 
     private string currentText = null;
     private Coroutine textCoroutine = null;
@@ -46,7 +44,6 @@ public class StartAndEndRosaryFill : MonoBehaviour
 
     private void Start() {
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
-        speechManager = GameObject.FindGameObjectWithTag("SpeechManager").GetComponent<SpeechManager>();
     }
 
     public void Fill() {
@@ -54,8 +51,11 @@ public class StartAndEndRosaryFill : MonoBehaviour
         StartCoroutine(FillHelper());
     }
     private IEnumerator FillHelper() {
+        speechManager = GameObject.FindGameObjectWithTag("SpeechManager").GetComponent<SpeechManager>();
         speechManager.StartNextPrayer(0);
         currentText = speechManager.StartScrollingText(0);
+
+        fadeOut.SetActive(false);
         textCoroutine = StartCoroutine(Scroll());
 
         r = cross.color.r;
@@ -75,6 +75,7 @@ public class StartAndEndRosaryFill : MonoBehaviour
         currentText = speechManager.StartScrollingText(1);
 
         StopCoroutine(textCoroutine);
+        fadeOut.SetActive(false);
         textCoroutine = StartCoroutine(Scroll());
 
         r = lLargeBead.color.r;
@@ -91,6 +92,11 @@ public class StartAndEndRosaryFill : MonoBehaviour
         Debug.Log("Completed lLargeBead");
 
         speechManager.StartNextPrayer(2);
+        currentText = speechManager.StartScrollingText(2);
+
+        StopCoroutine(textCoroutine);
+        fadeOut.SetActive(false);
+        textCoroutine = StartCoroutine(Scroll());
 
         r = lSmallBead.color.r;
         g = lSmallBead.color.g;
@@ -106,6 +112,11 @@ public class StartAndEndRosaryFill : MonoBehaviour
         Debug.Log("Completed lSmallBead");
 
         speechManager.StartNextPrayer(3);
+        currentText = speechManager.StartScrollingText(3);
+
+        StopCoroutine(textCoroutine);
+        fadeOut.SetActive(false);
+        textCoroutine = StartCoroutine(Scroll());
 
         r = mSmallBead.color.r;
         g = mSmallBead.color.g;
@@ -121,6 +132,11 @@ public class StartAndEndRosaryFill : MonoBehaviour
         Debug.Log("Completed mSmallBead");
 
         speechManager.StartNextPrayer(4);
+        currentText = speechManager.StartScrollingText(4);
+
+        StopCoroutine(textCoroutine);
+        fadeOut.SetActive(false);
+        textCoroutine = StartCoroutine(Scroll());
 
         r = rSmallBead.color.r;
         g = rSmallBead.color.g;
@@ -136,6 +152,11 @@ public class StartAndEndRosaryFill : MonoBehaviour
         Debug.Log("Completed rSmallBead");
 
         speechManager.StartNextPrayer(5);
+        currentText = speechManager.StartScrollingText(5);
+
+        StopCoroutine(textCoroutine);
+        fadeOut.SetActive(false);
+        textCoroutine = StartCoroutine(Scroll());
 
         r = rLargeBead.color.r;
         g = rLargeBead.color.g;
@@ -154,24 +175,26 @@ public class StartAndEndRosaryFill : MonoBehaviour
     }
 
     private void CheckNextScene() {
-        string nextScene = PlayerPrefs.GetString("Decades");
+        int nextScene = PlayerPrefs.GetInt("Decades");
         int endingMystery = 19;
 
         switch(nextScene) {
-            case "All":
-            case "Joyful":
+            case 0:
+                gameManager.ToJoyfulMysteries();
+                break;
+            case 1:
                 gameManager.ToJoyfulMysteries();
                 endingMystery = 4;
                 break;
-            case "Luminous":
+            case 2:
                 gameManager.ToLuminousMysteries();
                 endingMystery = 9;
                 break;
-            case "Sorrowful":
+            case 3:
                 gameManager.ToSorrowfulMysteries();
                 endingMystery = 14;
                 break;
-            case "Glorius":
+            case 4:
                 gameManager.ToGloriusMysteries();
                 break;
             default:
@@ -230,7 +253,7 @@ public class StartAndEndRosaryFill : MonoBehaviour
     private IEnumerator Scroll() {
         currentText = currentText.Replace("\r", "");
 
-        for (int i = maxStringLength, j = 0; i < currentText.Length + 1; i++) {
+        for (int i = 0, j = 0; i < currentText.Length + 1; i++) {
             textBox.text = currentText.Substring(j, i - j);
 
             if(textBox.text.Length > maxStringLength) {

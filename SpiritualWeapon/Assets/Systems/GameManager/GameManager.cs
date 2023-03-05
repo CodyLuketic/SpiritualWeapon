@@ -78,8 +78,8 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(3);
     }
 
-    public void ToStartRosary(string decades = "All") {
-        PlayerPrefs.SetString("Decades", decades);
+    public void ToStartRosary(int decade = 0) {
+        PlayerPrefs.SetInt("Decades", decade);
 
         function = "Start";
 
