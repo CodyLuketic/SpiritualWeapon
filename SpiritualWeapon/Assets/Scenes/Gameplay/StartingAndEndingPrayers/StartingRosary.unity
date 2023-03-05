@@ -459,6 +459,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 720254025645244201}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &798359245 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1701348202, guid: 778b0dedb79f29a44a3f47b7a7ee4802,
+    type: 3}
+  m_PrefabInstance: {fileID: 8933151161894447100}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &817841276
 GameObject:
   m_ObjectHideFlags: 0
@@ -1778,11 +1784,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1186414745}
     m_Modifications:
+    - target: {fileID: 1701348202, guid: 778b0dedb79f29a44a3f47b7a7ee4802, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1701348203, guid: 778b0dedb79f29a44a3f47b7a7ee4802, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -10.447113
+      objectReference: {fileID: 0}
+    - target: {fileID: 8933151161894447108, guid: 778b0dedb79f29a44a3f47b7a7ee4802,
+        type: 3}
+      propertyPath: fadeOut
+      value: 
+      objectReference: {fileID: 798359245}
     - target: {fileID: 8933151161894447108, guid: 778b0dedb79f29a44a3f47b7a7ee4802,
         type: 3}
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 1334304905}
+    - target: {fileID: 8933151161894447108, guid: 778b0dedb79f29a44a3f47b7a7ee4802,
+        type: 3}
+      propertyPath: maxStringLength
+      value: 110
+      objectReference: {fileID: 0}
     - target: {fileID: 8933151161928255096, guid: 778b0dedb79f29a44a3f47b7a7ee4802,
         type: 3}
       propertyPath: m_Name

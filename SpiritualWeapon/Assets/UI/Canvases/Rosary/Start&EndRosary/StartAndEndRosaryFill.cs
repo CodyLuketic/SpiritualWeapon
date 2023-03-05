@@ -7,8 +7,9 @@ public class StartAndEndRosaryFill : MonoBehaviour
 {
     [Header("Scripts")]
     [SerializeField] private GameManager gameManager = null;
+    private SpeechManager speechManager = null;
 
-    [Header("Objects")]
+    [Header("Images")]
     [SerializeField] private Image cross = null;
     [SerializeField] private Image lLargeBead = null;
     [SerializeField] private Image lSmallBead = null;
@@ -16,9 +17,11 @@ public class StartAndEndRosaryFill : MonoBehaviour
     [SerializeField] private Image rSmallBead = null;
     [SerializeField] private Image rLargeBead = null;
 
+    [Header("Color")]
     [SerializeField] private Color completedColor;
+    private float r = 0, g = 0, b = 0, a = 0;
 
-    [Header("Basic Values")]
+    [Header("Fill Speeds")]
     [SerializeField] private float crossTime = 0.05f;
     [SerializeField] private float lLargeBeadTime = 0.1f;
     [SerializeField] private float lSmallBeadTime = 0.1f;
@@ -27,19 +30,15 @@ public class StartAndEndRosaryFill : MonoBehaviour
     [SerializeField] private float rLargeBeadTime = 0.1f;
     [SerializeField] private float increment = 0.1f;
 
-    [Header("ScrollingText")]
+    [Header("Scrolling Text Values")]
+    [SerializeField] private TMP_Text textBox = null;
+    [SerializeField] private GameObject fadeOut = null;
+
     [SerializeField] private float textSpeed = 0.01f;
     [SerializeField] private int maxStringLength = 10;
-    [SerializeField] private TMP_Text textBox = null;
+
     private string currentText = null;
     private Coroutine textCoroutine = null;
-
-
-    private SpeechManager speechManager = null;
-
-    private float r = 0, g = 0, b = 0, a = 0;
-
-    private int currentDisplayingText = 0;
 
     private bool changed = false;
 
@@ -233,6 +232,7 @@ public class StartAndEndRosaryFill : MonoBehaviour
             textBox.text = currentText.Substring(j, i - j);
 
             if(textBox.text.Length > maxStringLength) {
+                fadeOut.SetActive(true);
                 j++;
             }
             yield return new WaitForSeconds(textSpeed);
