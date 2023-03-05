@@ -36,6 +36,8 @@ public class StartAndEndRosaryFill : MonoBehaviour
 
     [SerializeField] private float textSpeed = 0.01f;
     [SerializeField] private int maxStringLength = 10;
+    [SerializeField] private int beginningSpaces = 0;
+    [SerializeField] private int endingSpaces = 0;
 
     private string currentText = null;
     private Coroutine textCoroutine = null;
@@ -228,7 +230,7 @@ public class StartAndEndRosaryFill : MonoBehaviour
     private IEnumerator Scroll() {
         currentText = currentText.Replace("\r", "");
 
-        for (int i = 0, j = 0; i < currentText.Length + 1; i++) {
+        for (int i = maxStringLength, j = 0; i < currentText.Length + 1; i++) {
             textBox.text = currentText.Substring(j, i - j);
 
             if(textBox.text.Length > maxStringLength) {
