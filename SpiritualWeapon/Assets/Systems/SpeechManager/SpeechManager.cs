@@ -154,18 +154,19 @@ public class SpeechManager : MonoBehaviour
 
     private void FillCurrentClips(AudioClip sceneClip) {
         currentClips = new AudioClip[13];
-        currentText = new string[12];
+        currentText = new string[13];
 
         currentClips[0] = sceneClip;
+        currentText[0] = "";
 
         SetCurrentClip(1, ourFatherClips, fatherTempClips);
-        currentText[0] = ourFatherText;
+        currentText[1] = ourFatherText;
         for(int i = 2; i < 12; i++) {
             SetCurrentClip(i, hailMaryClips, maryTempClips);
             currentText[i] = hailMaryText;
         }
         SetCurrentClip(12, gloryBeClips, gloryTempClips);
-        currentText[11] = ourFatherText;
+        currentText[12] = gloryBeText;
     }
 
     private void SetCurrentClip(int currentIndex, AudioClip[] clipsToSet, AudioClip[] tempClips) {

@@ -31,7 +31,7 @@ public class EnemyCombat : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if(other.gameObject.CompareTag("Player")) {
-            other.gameObject.GetComponent<PlayerHitCount>().IncrementHitCount();
+            //other.gameObject.GetComponent<PlayerHitCount>().IncrementHitCount();
             StartCoroutine("Attack");
         }
     }

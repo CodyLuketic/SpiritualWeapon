@@ -34,7 +34,12 @@ public class StartAndEndRosaryFill : MonoBehaviour
     [SerializeField] private TMP_Text textBox = null;
     [SerializeField] private GameObject fadeOut = null;
 
-    [SerializeField] private float textSpeed = 0.01f;
+    [SerializeField] private float crosstextSpeed = 0.05f;
+    [SerializeField] private float lLargeBeadtextSpeed = 0.1f;
+    [SerializeField] private float lSmallBeadtextSpeed = 0.1f;
+    [SerializeField] private float mSmallBeadtextSpeed = 0.1f;
+    [SerializeField] private float rSmallBeadtextSpeed = 0.1f;
+    [SerializeField] private float rLargeBeadtextSpeed = 0.1f;
     [SerializeField] private int maxStringLength = 10;
 
     private string currentText = null;
@@ -56,7 +61,7 @@ public class StartAndEndRosaryFill : MonoBehaviour
         currentText = speechManager.StartScrollingText(0);
 
         fadeOut.SetActive(false);
-        textCoroutine = StartCoroutine(Scroll());
+        textCoroutine = StartCoroutine(Scroll(crosstextSpeed));
 
         r = cross.color.r;
         g = cross.color.g;
@@ -76,7 +81,7 @@ public class StartAndEndRosaryFill : MonoBehaviour
 
         StopCoroutine(textCoroutine);
         fadeOut.SetActive(false);
-        textCoroutine = StartCoroutine(Scroll());
+        textCoroutine = StartCoroutine(Scroll(lLargeBeadtextSpeed));
 
         r = lLargeBead.color.r;
         g = lLargeBead.color.g;
@@ -96,7 +101,7 @@ public class StartAndEndRosaryFill : MonoBehaviour
 
         StopCoroutine(textCoroutine);
         fadeOut.SetActive(false);
-        textCoroutine = StartCoroutine(Scroll());
+        textCoroutine = StartCoroutine(Scroll(lSmallBeadtextSpeed));
 
         r = lSmallBead.color.r;
         g = lSmallBead.color.g;
@@ -116,7 +121,7 @@ public class StartAndEndRosaryFill : MonoBehaviour
 
         StopCoroutine(textCoroutine);
         fadeOut.SetActive(false);
-        textCoroutine = StartCoroutine(Scroll());
+        textCoroutine = StartCoroutine(Scroll(mSmallBeadtextSpeed));
 
         r = mSmallBead.color.r;
         g = mSmallBead.color.g;
@@ -136,7 +141,7 @@ public class StartAndEndRosaryFill : MonoBehaviour
 
         StopCoroutine(textCoroutine);
         fadeOut.SetActive(false);
-        textCoroutine = StartCoroutine(Scroll());
+        textCoroutine = StartCoroutine(Scroll(rSmallBeadtextSpeed));
 
         r = rSmallBead.color.r;
         g = rSmallBead.color.g;
@@ -156,7 +161,7 @@ public class StartAndEndRosaryFill : MonoBehaviour
 
         StopCoroutine(textCoroutine);
         fadeOut.SetActive(false);
-        textCoroutine = StartCoroutine(Scroll());
+        textCoroutine = StartCoroutine(Scroll(rLargeBeadtextSpeed));
 
         r = rLargeBead.color.r;
         g = rLargeBead.color.g;
@@ -250,7 +255,7 @@ public class StartAndEndRosaryFill : MonoBehaviour
         }
     }
 
-    private IEnumerator Scroll() {
+    private IEnumerator Scroll(float textSpeed) {
         currentText = currentText.Replace("\r", "");
 
         for (int i = 0, j = 0; i < currentText.Length + 1; i++) {

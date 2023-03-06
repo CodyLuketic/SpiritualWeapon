@@ -111,7 +111,6 @@ GameObject:
   - component: {fileID: 2312392799537697234}
   - component: {fileID: 2312392799537697237}
   - component: {fileID: 2312392799537697236}
-  - component: {fileID: 2312392799537697239}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Player
@@ -235,19 +234,11 @@ MonoBehaviour:
   particleObject: {fileID: 2312392799741298108}
   cooldown: 2
   shotDist: 1
---- !u!114 &2312392799537697239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2312392799537697241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfcc5de9db5d6a44cbbea56baeb3bd98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitCountText: {fileID: 0}
+  shotCharge: 0
+  speedDivider: 90
+  angleDivider: 30
+  shotAngle: 50
+  shotspeed: 1
 --- !u!1 &2312392799541932442
 GameObject:
   m_ObjectHideFlags: 0
