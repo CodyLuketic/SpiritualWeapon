@@ -86,7 +86,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1781397504404870200}
   m_Layer: 5
-  m_Name: Text
+  m_Name: PrayerText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -884,10 +884,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1781397505540630084}
-  - component: {fileID: 1234139224}
   m_Layer: 5
-  m_Name: MysteryRosary
-  m_TagString: MysteryRosary
+  m_Name: Rosary
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -925,45 +924,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1234139224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1781397505540630085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da90a41053ea9904e9a6e32f9b8ce99b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
-  lLargeBead: {fileID: 1781397504501352198}
-  smallBead1: {fileID: 1781397504869432239}
-  smallBead2: {fileID: 1781397505319446634}
-  smallBead3: {fileID: 1781397504777091185}
-  smallBead4: {fileID: 1781397505827888713}
-  smallBead5: {fileID: 1781397504427035813}
-  smallBead6: {fileID: 1781397504758121972}
-  smallBead7: {fileID: 1781397504508691361}
-  smallBead8: {fileID: 1781397504851508262}
-  smallBead9: {fileID: 1781397504174973438}
-  smallBead10: {fileID: 1781397505406645530}
-  rLargeBead: {fileID: 1781397504697053486}
-  completedColor: {r: 1, g: 0, b: 1, a: 1}
-  title: {fileID: 0}
-  titleTime: 0.02
-  announcementTime: 1
-  lLargeBeadTime: 0.2
-  smallBeadTime: 0.15
-  rLargeBeadTime: 0.1
-  increment: 0.01
-  textBox: {fileID: 7633464044925923760}
-  fadeOut: {fileID: 6902198950201818694}
-  lLargeBeadTextSpeed: 0.056
-  smallBeadTextSpeed: 0.1
-  rLargeBeadTextSpeed: 0.1
-  maxStringLength: 110
 --- !u!1 &1781397505827888715
 GameObject:
   m_ObjectHideFlags: 0
@@ -1052,9 +1012,10 @@ GameObject:
   - component: {fileID: 1781397505861898685}
   - component: {fileID: 1781397505861898686}
   - component: {fileID: 1781397505861898687}
+  - component: {fileID: 4164004290175547905}
   m_Layer: 5
   m_Name: MysteryRosaryCanvas
-  m_TagString: Untagged
+  m_TagString: MysteryRosary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1100,7 +1061,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_TargetDisplay: 0
 --- !u!114 &1781397505861898686
 MonoBehaviour:
@@ -1142,6 +1103,45 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &4164004290175547905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781397505861898682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da90a41053ea9904e9a6e32f9b8ce99b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  lLargeBead: {fileID: 1781397504501352198}
+  smallBead1: {fileID: 1781397504869432239}
+  smallBead2: {fileID: 1781397505319446634}
+  smallBead3: {fileID: 1781397504777091185}
+  smallBead4: {fileID: 1781397505827888713}
+  smallBead5: {fileID: 1781397504427035813}
+  smallBead6: {fileID: 1781397504758121972}
+  smallBead7: {fileID: 1781397504508691361}
+  smallBead8: {fileID: 1781397504851508262}
+  smallBead9: {fileID: 1781397504174973438}
+  smallBead10: {fileID: 1781397505406645530}
+  rLargeBead: {fileID: 1781397504697053486}
+  completedColor: {r: 1, g: 0, b: 1, a: 1}
+  title: {fileID: 0}
+  titleTime: 0.02
+  announcementTime: 1
+  lLargeBeadTime: 0.2
+  smallBeadTime: 0.15
+  rLargeBeadTime: 0.1
+  increment: 0.01
+  textBox: {fileID: 7633464044925923760}
+  fadeOut: {fileID: 6902198950201818694}
+  lLargeBeadTextSpeed: 0.056
+  smallBeadTextSpeed: 0.1
+  rLargeBeadTextSpeed: 0.1
+  maxStringLength: 110
 --- !u!1 &1781397506291538229
 GameObject:
   m_ObjectHideFlags: 0
@@ -1382,7 +1382,7 @@ GameObject:
   - component: {fileID: 7738105895407792909}
   - component: {fileID: 7633464044925923760}
   m_Layer: 5
-  m_Name: PrayerText
+  m_Name: TextBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

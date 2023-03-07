@@ -13,6 +13,7 @@ public class EnemyCombat : MonoBehaviour
 
     [Header("Objects")]
     [SerializeField] private GameObject attackParticles = null;
+    private GameObject currentAttackParticles = null;
 
     [SerializeField] private Material[] faces;
 
@@ -30,8 +31,8 @@ public class EnemyCombat : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        if(other.gameObject.CompareTag("Player")) {
-            //other.gameObject.GetComponent<PlayerHitCount>().IncrementHitCount();
+        if(other.gameObject.CompareTag("Player") && currentAttackParticles == null) {
+            other.gameObject.GetComponent<PlayerHitCount>().IncrementHitCount();
             StartCoroutine("Attack");
         }
     }
@@ -42,7 +43,7 @@ public class EnemyCombat : MonoBehaviour
         face.GetComponent<SkinnedMeshRenderer>().material = faces[1];
 
         Vector3 position = gameObject.transform.position + (Vector3.up * particleHeight);
-        Instantiate(attackParticles, gameObject.transform.position + Vector3.up, Quaternion.identity);
+        currentAttackParticles = Instantiate(attackParticles, gameObject.transform.position + Vector3.up, Quaternion.identity);
 
         yield return new WaitForSeconds(shrinkDelay);
 

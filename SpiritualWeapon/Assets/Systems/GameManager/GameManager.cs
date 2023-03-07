@@ -200,14 +200,14 @@ public class GameManager : MonoBehaviour
     }
     
     private void CheckStartTransition() {
-        int sceneName = SceneManager.GetActiveScene().buildIndex;
-        switch(sceneName) {
+        int scene = SceneManager.GetActiveScene().buildIndex;
+        switch(scene) {
             case 0:
             case 1:
             case 2:
             case 3:
             case 4:
-            case 24:
+            case 25:
                 StartTransition();
                 break;
             default:

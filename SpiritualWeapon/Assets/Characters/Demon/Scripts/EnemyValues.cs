@@ -10,6 +10,7 @@ public class EnemyValues : MonoBehaviour
 
     [Header("Objects")]
     [SerializeField] private GameObject deathParticles = null;
+    private GameObject currentDeathParticles = null;
 
     [SerializeField] private Material[] faces;
 
@@ -45,7 +46,7 @@ public class EnemyValues : MonoBehaviour
     private void DamageCheck(float damageType) {
         health -= damageType;
 
-        if(health <= 0) {
+        if(health <= 0 && currentDeathParticles == null) {
             StartCoroutine(Die());
         }
     }
@@ -55,7 +56,7 @@ public class EnemyValues : MonoBehaviour
         face.GetComponent<SkinnedMeshRenderer>().material = faces[2];
 
         Vector3 position = gameObject.transform.position + (Vector3.up * particleHeight);
-        Instantiate(deathParticles, gameObject.transform.position + Vector3.up, Quaternion.identity);
+        currentDeathParticles = Instantiate(deathParticles, gameObject.transform.position + Vector3.up, Quaternion.identity);
 
         yield return new WaitForSeconds(shrinkDelay);
 

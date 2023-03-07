@@ -2,10 +2,15 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    [Header("Objects")]
+    [Header("Player")]
+    [SerializeField] private PlayerController playerController = null;
+
+    [Header("UI")]
     [SerializeField] private GameObject menuContainer = null;
     [SerializeField] private GameObject settingsCanvas = null;
     [SerializeField] private GameObject endTransitionObj = null;
+
+    private SpeechManager speechManager = null;
 
     private bool paused = false;
 
@@ -18,10 +23,10 @@ public class PauseMenu : MonoBehaviour
             if(!paused) {
                 Freeze();
             } else {
-                Move();
+                Resume();
             }
         } else if(endTransitionObj.activeSelf) {
-            Move();
+            Resume();
         }
     }
 
@@ -30,6 +35,10 @@ public class PauseMenu : MonoBehaviour
     }
 
     private void ResumeHelper() {
+        speechManager = GameObject.FindGameObjectWithTag("SpeechManager").GetComponent<SpeechManager>();
+        speechManager.PlayVocals();
+        playerController.SetCanRotate(true);
+
         Move();
     }
 
@@ -53,16 +62,18 @@ public class PauseMenu : MonoBehaviour
 
     private void Freeze() {
         paused = true;
-        //rosaryCanvas.SetActive(false);
         menuContainer.SetActive(true);
         Time.timeScale = 0;
+
+        speechManager = GameObject.FindGameObjectWithTag("SpeechManager").GetComponent<SpeechManager>();
+        speechManager.PauseVocals();
+        playerController.SetCanRotate(false);
     }
 
     private void Move() {
         Time.timeScale = 1;
         menuContainer.SetActive(false);
         settingsCanvas.SetActive(false);
-        //rosaryCanvas.SetActive(true);
         paused = false;
     }
 }

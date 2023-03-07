@@ -323,7 +323,11 @@ public class MysteryRosaryFill : MonoBehaviour
 
         Debug.Log("Completed rLargeBead");
 
-        gameManager.NextScene();
+        if(speechManager.GetStartingMystery() == speechManager.GetEndingMystery()) {
+            speechManager.EndRosary();
+        } else {
+            gameManager.NextScene();
+        }
     }   
 
     private void IncrementColor(Image img, Color col) {
@@ -405,5 +409,5 @@ public class MysteryRosaryFill : MonoBehaviour
             }
             yield return new WaitForSeconds(textSpeed);
         }
-    }   
+    }
 }

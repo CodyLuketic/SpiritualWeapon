@@ -55,6 +55,7 @@ public class SpeechManager : MonoBehaviour
     private AudioClip[] currentClips = null;
     private string[] currentText = null;
 
+    private int startingMystery = 0;
     private int endingMystery = 19;
 
     private void Awake() {
@@ -129,18 +130,15 @@ public class SpeechManager : MonoBehaviour
         startAndEndRosaryScript.Fill();
     }
 
-    public void Mysteries(int startingMystery) {
-        MysteriesHelper(startingMystery);
+    public void Mysteries(int starting) {
+        MysteriesHelper(starting);
     }
-    private void MysteriesHelper(int startingMystery) {
-        if(startingMystery == endingMystery) {
-            EndRosaryHelper();
-        } else {
-            FillCurrentClips(mysteryClips[startingMystery]);
+    private void MysteriesHelper(int starting) {
+        startingMystery = starting;
+        FillCurrentClips(mysteryClips[startingMystery]);
 
-            mysteryRosaryScript = GameObject.FindGameObjectWithTag("MysteryRosary").GetComponent<MysteryRosaryFill>();
-            mysteryRosaryScript.Fill();
-        }
+        mysteryRosaryScript = GameObject.FindGameObjectWithTag("MysteryRosary").GetComponent<MysteryRosaryFill>();
+        mysteryRosaryScript.Fill();
     }
 
     public void StartNextPrayer(int prayer) {
@@ -207,6 +205,33 @@ public class SpeechManager : MonoBehaviour
                 copiedArray[i] = arrayToCopy[random];
             }
         }
+    }
+
+    public void PauseVocals() {
+        PauseVocalsHelper();
+    }
+    private void PauseVocalsHelper() {
+        audioSource.Pause();
+    }
+
+    public void PlayVocals() {
+        PlayVocalsHelper();
+    }
+    private void PlayVocalsHelper() {
+        audioSource.Play();
+    }
+
+    public int GetStartingMystery() {
+        return GetStartingMysteryHelper();
+    }
+    private int GetStartingMysteryHelper() {
+        return startingMystery;
+    }
+    public int GetEndingMystery() {
+        return GetEndingMysteryHelper();
+    }
+    private int GetEndingMysteryHelper() {
+        return endingMystery;
     }
 
     public void SetEndingMystery(int ending) {

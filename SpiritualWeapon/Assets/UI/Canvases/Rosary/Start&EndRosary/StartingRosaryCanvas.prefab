@@ -412,10 +412,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8933151160996385843}
-  - component: {fileID: 8933151161894447108}
   m_Layer: 5
   m_Name: Start&EndRosary
-  m_TagString: StartAndEndRosary
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -447,42 +446,6 @@ RectTransform:
   m_AnchoredPosition: {x: 210, y: -60}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8933151161894447108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8933151160996385842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c9bdc9ec30e45d4bb3cc352c18466c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
-  cross: {fileID: 8933151161526761242}
-  lLargeBead: {fileID: 8933151161751388421}
-  lSmallBead: {fileID: 8933151162242848641}
-  mSmallBead: {fileID: 8933151161073420279}
-  rSmallBead: {fileID: 8933151160508822103}
-  rLargeBead: {fileID: 8933151161252872561}
-  completedColor: {r: 1, g: 0.1, b: 1, a: 1}
-  crossTime: 0.05
-  lLargeBeadTime: 0.45
-  lSmallBeadTime: 0.03
-  mSmallBeadTime: 0.16
-  rSmallBeadTime: 0.16
-  rLargeBeadTime: 0.16
-  increment: 0.01
-  textBox: {fileID: 111727374}
-  fadeOut: {fileID: 1701348202}
-  crosstextSpeed: 0.05
-  lLargeBeadtextSpeed: 0.1
-  lSmallBeadtextSpeed: 0.1
-  mSmallBeadtextSpeed: 0.1
-  rSmallBeadtextSpeed: 0.1
-  rLargeBeadtextSpeed: 0.1
-  maxStringLength: 110
 --- !u!1 &8933151161073420277
 GameObject:
   m_ObjectHideFlags: 0
@@ -934,9 +897,10 @@ GameObject:
   - component: {fileID: 8933151161928255093}
   - component: {fileID: 8933151161928255092}
   - component: {fileID: 8933151161928255099}
+  - component: {fileID: 6438546935577111448}
   m_Layer: 5
   m_Name: StartingRosaryCanvas
-  m_TagString: Untagged
+  m_TagString: StartAndEndRosary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1024,6 +988,42 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &6438546935577111448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8933151161928255096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c9bdc9ec30e45d4bb3cc352c18466c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  cross: {fileID: 8933151161526761242}
+  lLargeBead: {fileID: 8933151161751388421}
+  lSmallBead: {fileID: 8933151162242848641}
+  mSmallBead: {fileID: 8933151161073420279}
+  rSmallBead: {fileID: 8933151160508822103}
+  rLargeBead: {fileID: 8933151161252872561}
+  completedColor: {r: 1, g: 0.1, b: 1, a: 1}
+  crossTime: 0.05
+  lLargeBeadTime: 0.45
+  lSmallBeadTime: 0.03
+  mSmallBeadTime: 0.16
+  rSmallBeadTime: 0.16
+  rLargeBeadTime: 0.16
+  increment: 0.01
+  textBox: {fileID: 111727374}
+  fadeOut: {fileID: 1701348202}
+  crosstextSpeed: 0.05
+  lLargeBeadtextSpeed: 0.1
+  lSmallBeadtextSpeed: 0.1
+  mSmallBeadtextSpeed: 0.1
+  rSmallBeadtextSpeed: 0.1
+  rLargeBeadtextSpeed: 0.1
+  maxStringLength: 110
 --- !u!1 &8933151162242848647
 GameObject:
   m_ObjectHideFlags: 0
