@@ -35,11 +35,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Main_Normal:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: a7d2549f09a933744aef274c5aeeaefa, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Secondary_Normal:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: a34bad3218f5f0c44b8e340a57c2b5a6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -56,13 +56,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Depth: 1
-    - _Normal_Strength: 0
+    - _Depth: 1.07
+    - _Displacement: 1.02
+    - _Normal_Strength: 2
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Smoothness: 1
-    - _Strength: 0.2
+    - _Strength: 0.08
     m_Colors:
-    - _Deep_Water_Color: {r: 0.20784312, g: 0.77254903, b: 0.68950397, a: 1}
-    - _Shallow_Water_Color: {r: 0.50980395, g: 0.99215686, b: 0.99215686, a: 0.21176471}
+    - _Deep_Water_Color: {r: 0.2078431, g: 0.77254903, b: 0.68950397, a: 1}
+    - _Shallow_Water_Color: {r: 0.5098039, g: 0.9921568, b: 0.9921568, a: 0.2}
   m_BuildTextureStacks: []
