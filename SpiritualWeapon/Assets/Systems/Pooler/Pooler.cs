@@ -5,7 +5,7 @@ public class Pooler : MonoBehaviour
 {
     [System.Serializable]
     public class Pool {
-        public string tag;
+        public string name;
         public GameObject prefab;
         public int size;
     }
@@ -39,13 +39,13 @@ public class Pooler : MonoBehaviour
         }
     }
 
-    public GameObject SpawnFromPool() {
-        return SpawnFromPoolHelper();
+    public GameObject SelectFromPool(int intIndex) {
+        return SelectFromPoolHelper(intIndex);
     }
 
-    private GameObject SpawnFromPoolHelper() {
-        string index = Random.Range(0, pools.Count).ToString();
-            
+    private GameObject SelectFromPoolHelper(int intIndex) {
+        string index = intIndex.ToString();
+        
         if(!poolDictionary.ContainsKey(index)) {
             Debug.LogWarning("Pool in index " + index + " doesn't exist");
             return null;

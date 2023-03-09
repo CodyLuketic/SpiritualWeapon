@@ -3,11 +3,10 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
-    [Header("Objects/Components")]
-    [SerializeField] private GameObject particleObject = null;
-    private ParticleSystem attackParticles = null;
+    [Header("Pool")]
+    [SerializeField] private Pooler pooler = null;
 
-    [Header("Basic Values")]
+    [Header("Attack Values")]
     [SerializeField] private float cooldown = 1f;
     [SerializeField] private float shotDist = 1f;
     [SerializeField] private float shotCharge = 0;
@@ -15,6 +14,8 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private float angleDivider = 1f;
     [SerializeField] private float shotAngle = 0;
     [SerializeField] private float shotspeed = 5f;
+
+    private GameObject particleInstance = null;
 
     private bool canAttack = true;
 
@@ -28,19 +29,17 @@ public class PlayerCombat : MonoBehaviour
     }
 
     private IEnumerator Attack() {
-        particleObject = Instantiate(particleObject);
-        attackParticles = particleObject.GetComponent<ParticleSystem>();
+        particleInstance = pooler.SelectFromPool(1);
 
-        ParticleSystem.MainModule mainParticles = particleObject.GetComponent<ParticleSystem>().main;
-        ParticleSystem.ShapeModule shapeParticles = particleObject.GetComponent<ParticleSystem>().shape;
+        ParticleSystem.MainModule mainParticles = particleInstance.GetComponent<ParticleSystem>().main;
+        mainParticles.startSpeed = shotspeed + shotCharge / speedDivider;
+        ParticleSystem.ShapeModule shapeParticles = particleInstance.GetComponent<ParticleSystem>().shape;
+        shapeParticles.angle = shotAngle - shotCharge / angleDivider;
 
-        particleObject.transform.position = gameObject.transform.position + gameObject.transform.forward * shotDist;
-        particleObject.transform.rotation = gameObject.transform.rotation;
+        particleInstance.transform.position = transform.position + transform.forward * shotDist;
+        particleInstance.transform.rotation = transform.rotation;
 
-        mainParticles.startSpeed = shotspeed + shotCharge/speedDivider;
-        shapeParticles.angle = shotAngle - shotCharge/angleDivider;
-
-        attackParticles.Play();
+        particleInstance.GetComponent<ParticleSystem>().Play();
 
         yield return new WaitForSeconds(cooldown);
         

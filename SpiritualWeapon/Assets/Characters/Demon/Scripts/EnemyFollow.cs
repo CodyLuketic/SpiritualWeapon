@@ -3,11 +3,11 @@ using UnityEngine.AI;
 
 public class EnemyFollow : MonoBehaviour
 {
-    private NavMeshAgent agent= null;
+    private NavMeshAgent agent = null;
     private Transform player;
     
     private void Start() {
-        agent= gameObject.GetComponent<NavMeshAgent>();
+        agent = GetComponent<NavMeshAgent>();
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }

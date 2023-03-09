@@ -10,29 +10,31 @@ public class EnemyValues : MonoBehaviour
     [SerializeField] private BoxCollider boxCollider1 = null;
     [SerializeField] private BoxCollider boxCollider2 = null;
 
-    [Header("Objects")]
-    [SerializeField] private GameObject deathParticles = null;
-    private GameObject currentDeathParticles = null;
-
+    [Header("Faces")]
     [SerializeField] private Material[] faces;
+    [SerializeField] private SkinnedMeshRenderer faceRenderer = null;
 
-    private GameObject playerParticleObject = null, face = null;
-
-    [Header("Basic Values")]
+    [Header("Shrink Values")]
     [SerializeField] private float shrinkSpeed = 0.1f;
     [SerializeField] private float deincrement = 0.01f;
+    [SerializeField] private float shrinkDelay = 1f;
+
+    [Header("Enemy Values")]
     [SerializeField] private float health = 1f;
+    private float tempHealth = 0;
     [SerializeField] private float speed = 1f;
     [SerializeField] private float playerDamage = 1f;
     [SerializeField] private float holyDamage = 1f;
-    [SerializeField] private float shrinkDelay = 1f;
     [SerializeField] private float particleHeight = 1f;
 
-    private float tempHealth = 0;
+    private Pooler pooler = null;
+    private GameObject particleInstance = null;
+
+    private bool canBeDamaged = true;
+    private bool canDie = true;
 
     private void Start() {
-        playerParticleObject = GameObject.FindGameObjectWithTag("PlayerParticleObject");
-        face = gameObject.transform.GetChild(0).GetChild(1).gameObject;
+        pooler = GameObject.FindGameObjectWithTag("Pooler").GetComponent<Pooler>();
 
         tempHealth = health;
 
@@ -40,49 +42,41 @@ public class EnemyValues : MonoBehaviour
     }
 
     private void OnParticleCollision(GameObject other) {
-        if(other == playerParticleObject) {
+        if(canBeDamaged && other.CompareTag("PlayerParticleObject")) {
             DamageCheck(playerDamage);
+
+            canBeDamaged = false;
         }
     }
 
     private void DamageCheck(float damageType) {
         health -= damageType;
 
-        if(health <= 0 && currentDeathParticles == null) {
+        if(canDie && health <= 0) {
             StartCoroutine(Die());
+
+            canDie = false;
         }
+        canBeDamaged = true;
     }
     private IEnumerator Die() {
-        animator.SetTrigger("Die");
-        agent.enabled = false;
-        face.GetComponent<SkinnedMeshRenderer>().material = faces[2];
-
-        Vector3 position = gameObject.transform.position + (Vector3.up * particleHeight);
-        currentDeathParticles = Instantiate(deathParticles, gameObject.transform.position + Vector3.up, Quaternion.identity);
+        HitSetup("Die", 2);
 
         yield return new WaitForSeconds(shrinkDelay);
-        boxCollider1.enabled = false;
-        boxCollider2.enabled = false;
 
         while(gameObject.transform.localScale.x > deincrement) {
             gameObject.transform.localScale += new Vector3(-deincrement, -deincrement, -deincrement);
             yield return new WaitForSeconds(shrinkSpeed);
         }
-        gameObject.transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>().enabled = false; 
-        gameObject.transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().enabled = false;
+        //gameObject.transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>().enabled = false; 
+        //gameObject.transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().enabled = false;
 
-        gameObject.transform.localScale = new Vector3(1, 1, 1);
+        //gameObject.transform.localScale = new Vector3(1, 1, 1);
 
-        gameObject.transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>().enabled = true;
-        gameObject.transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().enabled = true;
-        
-        agent.enabled = true;
-        face.GetComponent<SkinnedMeshRenderer>().material = faces[0];
-        health = tempHealth;
+        //gameObject.transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>().enabled = true;
+        //gameObject.transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().enabled = true;
 
-        boxCollider1.enabled = true;
-        boxCollider2.enabled = true;
-        gameObject.SetActive(false);
+        HitReset();
     }
 
     public void HolyDamage() {
@@ -92,10 +86,38 @@ public class EnemyValues : MonoBehaviour
         DamageCheck(holyDamage);
     }
 
-    public void ResetHealth() {
-        ResetHealthHelper();
+    public void HitSetup(string anim, int face) {
+        HitSetupHelper(anim, face);
     }
-    private void ResetHealthHelper() {
+    private void HitSetupHelper(string anim, int face) {
+        agent.enabled = false;
+
+        animator.SetTrigger(anim);
+        faceRenderer.materials[0] = faces[face];
+
+        boxCollider1.enabled = false;
+        boxCollider2.enabled = false;
+
+        particleInstance = pooler.SelectFromPool(2);
+
+        particleInstance.transform.position = transform.position + (Vector3.up * particleHeight);
+    }
+
+    public void HitReset() {
+        HitResetHelper();
+    }
+    private void HitResetHelper() {
+        agent.enabled = true;
+
+        faceRenderer.materials[0] = faces[0];
+
         health = tempHealth;
+
+        boxCollider1.enabled = true;
+        boxCollider2.enabled = true;
+
+        canDie = true;
+        
+        gameObject.SetActive(false);
     }
 }

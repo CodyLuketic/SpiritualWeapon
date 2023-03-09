@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class SpeechManager : MonoBehaviour
 {
-
     [Header("Components")]
     [SerializeField] private AudioSource audioSource = null;
 

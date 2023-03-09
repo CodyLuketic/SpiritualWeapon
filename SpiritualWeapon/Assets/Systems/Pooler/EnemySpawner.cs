@@ -1,12 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [Header("Pool")]
-    [SerializeField] private Pooler pooler = null;
+    private Pooler pooler = null;
 
     [Header("Spawning Values")]
     [SerializeField] private float minRadius = 5f;
@@ -16,6 +14,7 @@ public class EnemySpawner : MonoBehaviour
     private Coroutine spawnCoroutine = null;
 
     private void Start() {
+        pooler = GetComponent<Pooler>();
         spawnCoroutine = StartCoroutine(ContinuouslySpawnEnemies());
     }
 
@@ -28,8 +27,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
     private void SpawnEnemy() {
-        GameObject enemyInstance = pooler.SpawnFromPool();
-        enemyInstance.SetActive(true);
+        GameObject enemyInstance = pooler.SelectFromPool(0);
 
         float ranX = Random.Range(-maxRadius, maxRadius);
         float ranZ = Random.Range(-maxRadius, maxRadius);
@@ -55,7 +53,7 @@ public class EnemySpawner : MonoBehaviour
         spawnPos += new Vector3(ranX, 0,ranZ);
 
         NavMeshHit closestHit;
-        if(NavMesh.SamplePosition(spawnPos, out closestHit, 500, 1 )) {
+        if(NavMesh.SamplePosition(spawnPos, out closestHit, 1000, 1 )) {
             enemyInstance.transform.position = closestHit.position;
         }
         enemyInstance.GetComponent<NavMeshAgent>().enabled = true;

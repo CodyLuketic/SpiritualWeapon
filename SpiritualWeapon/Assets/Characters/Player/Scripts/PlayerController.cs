@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float walkingSpeed = 1f;
     [SerializeField] private float runningSpeed = 1f;
     [SerializeField] private float gravity = 1f;
-
     private float currentSpeedX = 0, currentSpeedY = 0, movementDirectionY = 0;
 
     private Vector3 moveDirection = Vector3.zero;
