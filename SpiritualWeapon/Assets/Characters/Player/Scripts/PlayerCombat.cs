@@ -18,10 +18,6 @@ public class PlayerCombat : MonoBehaviour
 
     private bool canAttack = true;
 
-    private void Start() {
-        attackParticles = particleObject.GetComponent<ParticleSystem>();
-    }
-
     private void Update() {
         if(canAttack && Input.GetMouseButton(0)) {
             shotCharge++;
@@ -32,6 +28,9 @@ public class PlayerCombat : MonoBehaviour
     }
 
     private IEnumerator Attack() {
+        particleObject = Instantiate(particleObject);
+        attackParticles = particleObject.GetComponent<ParticleSystem>();
+
         ParticleSystem.MainModule mainParticles = particleObject.GetComponent<ParticleSystem>().main;
         ParticleSystem.ShapeModule shapeParticles = particleObject.GetComponent<ParticleSystem>().shape;
 

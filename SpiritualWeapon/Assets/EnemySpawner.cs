@@ -3,70 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyPooler : MonoBehaviour
+public class EnemySpawner : MonoBehaviour
 {
-    [System.Serializable]
-    public class Pool {
-        public string tag;
-        public GameObject prefab;
-        public int size;
-    }
-
-    [Header("Systems")]
-    [SerializeField] private List<Pool> pools;
-
-    private Dictionary<string, Queue<GameObject>> poolDictionary;
-
-    private Coroutine spawnCoroutine = null;
+    [Header("Pool")]
+    [SerializeField] private Pooler pooler = null;
 
     [Header("Spawning Values")]
     [SerializeField] private float minRadius = 5f;
     [SerializeField] private float maxRadius = 10f;
     [SerializeField] private float spawnTime = 1f;
 
+    private Coroutine spawnCoroutine = null;
+
     private void Start() {
         SetDictionary();
 
-        spawnCoroutine = StartCoroutine(SpawnEnemy());
+        spawnCoroutine = StartCoroutine(ContinuouslySpawnEnemies());
     }
 
-    private void SetDictionary() {
-        poolDictionary = new Dictionary<string, Queue<GameObject>>();
-        
-        int index = 0;
-
-        foreach(Pool pool in pools) {
-            Queue<GameObject> objectPool = new Queue<GameObject>();
-
-            for(int i = 0; i < pool.size; i++) {
-                GameObject obj = Instantiate(pool.prefab);
-                obj.SetActive(false);
-                obj.transform.parent = gameObject.transform;
-                objectPool.Enqueue(obj);
-            }
-
-            poolDictionary.Add(index.ToString(), objectPool);
-            index++;
-        }
-    }
-
-    private IEnumerator SpawnEnemy() {
+    private IEnumerator ContinuouslySpawnEnemies() {
         while(true) {
-            SpawnFromPool();
+            SpawnEnemy();
 
             yield return new WaitForSeconds(spawnTime);
         }
     }
 
-    private GameObject SpawnFromPool() {
-        string index = Random.Range(0, pools.Count).ToString();
-            
-        if(!poolDictionary.ContainsKey(index)) {
-            Debug.LogWarning("Pool in index " + index + " doesn't exist");
-            return null;
-        }
-        
-        GameObject enemyInstance = poolDictionary[index].Dequeue();
+    private void SpawnEnemy() {
+        GameObject enemyInstance = pooler.SpawnFromPool();
         enemyInstance.SetActive(true);
 
         float ranX = Random.Range(-maxRadius, maxRadius);
@@ -96,10 +60,7 @@ public class EnemyPooler : MonoBehaviour
         if(NavMesh.SamplePosition(spawnPos, out closestHit, 500, 1 )) {
             enemyInstance.transform.position = closestHit.position;
         }
-
         enemyInstance.GetComponent<NavMeshAgent>().enabled = true;
-        
-        poolDictionary[index].Enqueue(enemyInstance);
 
         return enemyInstance;
     }

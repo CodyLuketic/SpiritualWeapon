@@ -1452,6 +1452,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1368812131945953923}
   agent: {fileID: 2539291015317168120}
+  boxCollider1: {fileID: 0}
+  boxCollider2: {fileID: 0}
   deathParticles: {fileID: 6959127934165647018, guid: 2f5487e5f9e1fa546af89e06d97861c4,
     type: 3}
   faces:
@@ -1464,7 +1466,6 @@ MonoBehaviour:
   speed: 6
   playerDamage: 1
   holyDamage: 1
-  damageDelay: 1
   shrinkDelay: 1
   particleHeight: 1
 --- !u!114 &2539291015317168103
@@ -1494,6 +1495,8 @@ MonoBehaviour:
   valuesScript: {fileID: -5880536992970760414}
   animator: {fileID: 1368812131945953923}
   agent: {fileID: 2539291015317168120}
+  boxCollider1: {fileID: 2539291015317168122}
+  boxCollider2: {fileID: 2539291015317168121}
   attackParticles: {fileID: 6959127934165647018, guid: 2f5487e5f9e1fa546af89e06d97861c4,
     type: 3}
   faces:

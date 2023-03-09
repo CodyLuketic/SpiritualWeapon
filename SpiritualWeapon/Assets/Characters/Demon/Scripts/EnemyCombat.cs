@@ -10,6 +10,8 @@ public class EnemyCombat : MonoBehaviour
     [Header("Components")]
     [SerializeField] private Animator animator = null;
     [SerializeField] private NavMeshAgent agent = null;
+    [SerializeField] private BoxCollider boxCollider1 = null;
+    [SerializeField] private BoxCollider boxCollider2 = null;
 
     [Header("Objects")]
     [SerializeField] private GameObject attackParticles = null;
@@ -46,6 +48,8 @@ public class EnemyCombat : MonoBehaviour
         currentAttackParticles = Instantiate(attackParticles, gameObject.transform.position + Vector3.up, Quaternion.identity);
 
         yield return new WaitForSeconds(shrinkDelay);
+        boxCollider1.enabled = false;
+        boxCollider2.enabled = false;
 
         while(gameObject.transform.localScale.x > deincrement) {
             gameObject.transform.localScale += new Vector3(-deincrement, -deincrement, -deincrement);
@@ -63,6 +67,8 @@ public class EnemyCombat : MonoBehaviour
         face.GetComponent<SkinnedMeshRenderer>().material = faces[0];
         valuesScript.ResetHealth();
 
+        boxCollider1.enabled = true;
+        boxCollider2.enabled = true;
         gameObject.SetActive(false);
     }
 }

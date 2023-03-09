@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float walkingSpeed = 1f;
     [SerializeField] private float runningSpeed = 1f;
+    [SerializeField] private float gravity = 1f;
 
     private float currentSpeedX = 0, currentSpeedY = 0, movementDirectionY = 0;
 
@@ -30,8 +31,12 @@ public class PlayerController : MonoBehaviour
         currentSpeedX = canMove ? (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Vertical") : 0;
         currentSpeedY = canMove ? (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Horizontal") : 0;
         movementDirectionY = moveDirection.y;
+        
         moveDirection = (Vector3.forward * currentSpeedX) + (Vector3.right * currentSpeedY);
 
+        if(!characterController.isGrounded) {
+            movementDirectionY -= gravity * Time.deltaTime;
+        }
         moveDirection.y = movementDirectionY;
 
         characterController.Move(moveDirection * Time.deltaTime);
