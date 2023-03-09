@@ -16,8 +16,6 @@ public class EnemySpawner : MonoBehaviour
     private Coroutine spawnCoroutine = null;
 
     private void Start() {
-        SetDictionary();
-
         spawnCoroutine = StartCoroutine(ContinuouslySpawnEnemies());
     }
 
@@ -61,8 +59,6 @@ public class EnemySpawner : MonoBehaviour
             enemyInstance.transform.position = closestHit.position;
         }
         enemyInstance.GetComponent<NavMeshAgent>().enabled = true;
-
-        return enemyInstance;
     }
 
     public void EndSpawnCoroutine() {
