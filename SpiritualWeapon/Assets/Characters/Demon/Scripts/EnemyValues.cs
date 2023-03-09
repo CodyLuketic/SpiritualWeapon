@@ -28,6 +28,7 @@ public class EnemyValues : MonoBehaviour
     [SerializeField] private float particleHeight = 1f;
 
     private Pooler pooler = null;
+    private EnemySpawner enemySpawner = null;
     private GameObject particleInstance = null;
 
     private bool canBeDamaged = true;
@@ -35,6 +36,7 @@ public class EnemyValues : MonoBehaviour
 
     private void Start() {
         pooler = GameObject.FindGameObjectWithTag("Pooler").GetComponent<Pooler>();
+        enemySpawner = GameObject.FindGameObjectWithTag("Pooler").GetComponent<EnemySpawner>();
 
         tempHealth = health;
 
@@ -68,13 +70,6 @@ public class EnemyValues : MonoBehaviour
             gameObject.transform.localScale += new Vector3(-deincrement, -deincrement, -deincrement);
             yield return new WaitForSeconds(shrinkSpeed);
         }
-        //gameObject.transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>().enabled = false; 
-        //gameObject.transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().enabled = false;
-
-        //gameObject.transform.localScale = new Vector3(1, 1, 1);
-
-        //gameObject.transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>().enabled = true;
-        //gameObject.transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().enabled = true;
 
         HitReset();
     }
@@ -107,6 +102,7 @@ public class EnemyValues : MonoBehaviour
         HitResetHelper();
     }
     private void HitResetHelper() {
+        enemySpawner.RandomPosition(gameObject);
         agent.enabled = true;
 
         faceRenderer.materials[0] = faces[0];

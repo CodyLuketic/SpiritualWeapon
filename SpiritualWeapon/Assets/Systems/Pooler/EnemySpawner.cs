@@ -29,6 +29,20 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy() {
         GameObject enemyInstance = pooler.SelectFromPool(0);
 
+        RandomPositionHelper(enemyInstance);
+    }
+
+    public void EndSpawnCoroutine() {
+        EndSpawnCoroutineHelper();
+    }
+    private void EndSpawnCoroutineHelper() {
+        StopCoroutine(spawnCoroutine);
+    }
+
+    public void RandomPosition(GameObject instance) {
+        RandomPositionHelper(instance);
+    }
+    private void RandomPositionHelper(GameObject instance) {
         float ranX = Random.Range(-maxRadius, maxRadius);
         float ranZ = Random.Range(-maxRadius, maxRadius);
         if(ranX < minRadius && ranX > -minRadius && ranZ < minRadius && ranZ > -minRadius) {
@@ -53,16 +67,9 @@ public class EnemySpawner : MonoBehaviour
         spawnPos += new Vector3(ranX, 0,ranZ);
 
         NavMeshHit closestHit;
-        if(NavMesh.SamplePosition(spawnPos, out closestHit, 1000, 1 )) {
-            enemyInstance.transform.position = closestHit.position;
+        if(NavMesh.SamplePosition(spawnPos, out closestHit, 500, 1 )) {
+            instance.transform.position = closestHit.position;
         }
-        enemyInstance.GetComponent<NavMeshAgent>().enabled = true;
-    }
-
-    public void EndSpawnCoroutine() {
-        EndSpawnCoroutineHelper();
-    }
-    private void EndSpawnCoroutineHelper() {
-        StopCoroutine(spawnCoroutine);
+        instance.GetComponent<NavMeshAgent>().enabled = true;
     }
 }

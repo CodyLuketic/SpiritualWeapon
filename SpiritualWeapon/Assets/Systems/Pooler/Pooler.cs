@@ -15,7 +15,7 @@ public class Pooler : MonoBehaviour
 
     private Dictionary<string, Queue<GameObject>> poolDictionary;
 
-    private void Start() {
+    private void Awake() {
         SetDictionary();
     }
 
