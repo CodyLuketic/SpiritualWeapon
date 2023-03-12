@@ -35,6 +35,7 @@ public class MysteryRosaryFill : MonoBehaviour
     [SerializeField] private float lLargeBeadTime = 0.1f;
     [SerializeField] private float smallBeadTime = 0.1f;
     [SerializeField] private float rLargeBeadTime = 0.1f;
+    [SerializeField] private float fatimaTime = 0.1f;
     [SerializeField] private float increment = 0.1f;
 
     [Header("Scrolling Text Values")]
@@ -322,6 +323,15 @@ public class MysteryRosaryFill : MonoBehaviour
         changed = false;
 
         Debug.Log("Completed rLargeBead");
+
+        speechManager.StartNextPrayer(13);
+        currentText = speechManager.StartScrollingText(13);
+
+        StopCoroutine(textCoroutine);
+        fadeOut.SetActive(false);
+        textCoroutine = StartCoroutine(Scroll(rLargeBeadTextSpeed));
+
+        yield return new WaitForSeconds(fatimaTime);
 
         if(speechManager.GetStartingMystery() == speechManager.GetEndingMystery()) {
             speechManager.EndRosary();

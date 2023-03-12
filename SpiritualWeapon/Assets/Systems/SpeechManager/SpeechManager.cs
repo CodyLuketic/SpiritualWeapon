@@ -15,6 +15,9 @@ public class SpeechManager : MonoBehaviour
     [SerializeField] private AudioClip[] gloryBeClips = null;
     private AudioClip[] gloryTempClips = null;
     [TextArea(minLines: 1, maxLines: 12)] [SerializeField] private string gloryBeText;
+    [SerializeField] private AudioClip[] fatimaClips = null;
+    private AudioClip[] fatimaTempClips = null;
+    [TextArea(minLines: 1, maxLines: 12)] [SerializeField] private string fatimaText;
 
     [Header("Start Audio Clips/Text")]
     [SerializeField] private AudioClip crossStartClip = null;
@@ -72,6 +75,8 @@ public class SpeechManager : MonoBehaviour
         CopyArray(hailMaryClips, maryTempClips);
         gloryTempClips = new AudioClip[gloryBeClips.Length];
         CopyArray(gloryBeClips, gloryTempClips);
+        fatimaTempClips = new AudioClip[fatimaClips.Length];
+        CopyArray(fatimaClips, fatimaTempClips);
 
         PlayerPrefs.SetInt("HitCount", 0);
     }
@@ -150,20 +155,25 @@ public class SpeechManager : MonoBehaviour
     }
 
     private void FillCurrentClips(AudioClip sceneClip) {
-        currentClips = new AudioClip[13];
-        currentText = new string[13];
+        currentClips = new AudioClip[14];
+        currentText = new string[14];
 
         currentClips[0] = sceneClip;
         currentText[0] = "";
 
         SetCurrentClip(1, ourFatherClips, fatherTempClips);
         currentText[1] = ourFatherText;
+
         for(int i = 2; i < 12; i++) {
             SetCurrentClip(i, hailMaryClips, maryTempClips);
             currentText[i] = hailMaryText;
         }
+
         SetCurrentClip(12, gloryBeClips, gloryTempClips);
         currentText[12] = gloryBeText;
+
+        SetCurrentClip(13, fatimaClips, fatimaTempClips);
+        currentText[13] = fatimaText;
     }
 
     private void SetCurrentClip(int currentIndex, AudioClip[] clipsToSet, AudioClip[] tempClips) {

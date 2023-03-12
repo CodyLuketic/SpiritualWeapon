@@ -17,7 +17,7 @@ public class PlayerCombat : MonoBehaviour
 
     private GameObject particleInstance = null;
 
-    private bool canAttack = true;
+    private bool canAttack = false;
 
     private void Update() {
         if(canAttack && Input.GetMouseButton(0)) {
@@ -45,5 +45,12 @@ public class PlayerCombat : MonoBehaviour
         
         shotCharge = 0;
         canAttack = true;
+    }
+
+    public void SetCanAttack(bool attack) {
+        SetCanAttackHelper(attack);
+    }
+    private void SetCanAttackHelper(bool attack) {
+        canAttack = attack;
     }
 }
