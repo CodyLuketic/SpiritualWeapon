@@ -142,7 +142,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1544165029961974943}
-  - {fileID: 3257275240814467613}
   m_Father: {fileID: 8124332265968054452}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -234,8 +233,8 @@ SkinnedMeshRenderer:
   - {fileID: 5737192830079485510}
   - {fileID: 1211552703916057783}
   - {fileID: 3637379517183223183}
-  - {fileID: 3257275240814467613}
-  - {fileID: 7340166115696005491}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 8175488799402410241}
   - {fileID: 7602281418017963771}
   - {fileID: 168771576946993154}
@@ -444,8 +443,8 @@ SkinnedMeshRenderer:
   - {fileID: 5737192830079485510}
   - {fileID: 1211552703916057783}
   - {fileID: 3637379517183223183}
-  - {fileID: 3257275240814467613}
-  - {fileID: 7340166115696005491}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 8175488799402410241}
   - {fileID: 7602281418017963771}
   - {fileID: 168771576946993154}
@@ -1145,37 +1144,6 @@ Transform:
   m_Father: {fileID: 3386529444472140614}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3333790119944268050
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7340166115696005491}
-  m_Layer: 0
-  m_Name: headDress_02
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7340166115696005491
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3333790119944268050}
-  m_LocalRotation: {x: -4.4356285e-10, y: 0.0000000033550007, z: 0.005773912, w: 0.9999834}
-  m_LocalPosition: {x: -3.3527595e-10, y: 0.009064587, z: 2.3980816e-16}
-  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3257275240814467613}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3566790955293650151
 GameObject:
   m_ObjectHideFlags: 0
@@ -1462,8 +1430,8 @@ SkinnedMeshRenderer:
   - {fileID: 5737192830079485510}
   - {fileID: 1211552703916057783}
   - {fileID: 3637379517183223183}
-  - {fileID: 3257275240814467613}
-  - {fileID: 7340166115696005491}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 8175488799402410241}
   - {fileID: 7602281418017963771}
   - {fileID: 168771576946993154}
@@ -1797,8 +1765,8 @@ SkinnedMeshRenderer:
   - {fileID: 5737192830079485510}
   - {fileID: 1211552703916057783}
   - {fileID: 3637379517183223183}
-  - {fileID: 3257275240814467613}
-  - {fileID: 7340166115696005491}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 8175488799402410241}
   - {fileID: 7602281418017963771}
   - {fileID: 168771576946993154}
@@ -2489,38 +2457,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3998465137758496252}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &7523313194093486610
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3257275240814467613}
-  m_Layer: 0
-  m_Name: headDress_01
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3257275240814467613
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7523313194093486610}
-  m_LocalRotation: {x: -0.00000013265075, y: -0.000000071352694, z: 0.999706, w: 0.0242497}
-  m_LocalPosition: {x: 0.0064467643, y: 0.0024450484, z: -9.317684e-10}
-  m_LocalScale: {x: 1.0000014, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7340166115696005491}
-  m_Father: {fileID: 3637379517183223183}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7609319321719153790
 GameObject:

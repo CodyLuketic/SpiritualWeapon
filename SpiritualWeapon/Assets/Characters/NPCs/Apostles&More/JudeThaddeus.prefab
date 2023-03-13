@@ -246,8 +246,8 @@ SkinnedMeshRenderer:
   - {fileID: 351436170510193470}
   - {fileID: 6606318778796028367}
   - {fileID: 8720242424947503351}
-  - {fileID: 7370771619098021733}
-  - {fileID: 3360693709789119499}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 4182503276524426361}
   - {fileID: 2521643629847964547}
   - {fileID: 5271903118168046970}
@@ -454,8 +454,8 @@ SkinnedMeshRenderer:
   - {fileID: 351436170510193470}
   - {fileID: 6606318778796028367}
   - {fileID: 8720242424947503351}
-  - {fileID: 7370771619098021733}
-  - {fileID: 3360693709789119499}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 4182503276524426361}
   - {fileID: 2521643629847964547}
   - {fileID: 5271903118168046970}
@@ -894,38 +894,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2760273600347238072}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2528272372449294186
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7370771619098021733}
-  m_Layer: 0
-  m_Name: headDress_01
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7370771619098021733
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2528272372449294186}
-  m_LocalRotation: {x: -0.00000013265075, y: -0.000000071352694, z: 0.999706, w: 0.0242497}
-  m_LocalPosition: {x: 0.0064467643, y: 0.0024450484, z: -9.317684e-10}
-  m_LocalScale: {x: 1.0000014, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3360693709789119499}
-  m_Father: {fileID: 8720242424947503351}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3048047411393093330
 GameObject:
@@ -1455,8 +1423,8 @@ SkinnedMeshRenderer:
   - {fileID: 351436170510193470}
   - {fileID: 6606318778796028367}
   - {fileID: 8720242424947503351}
-  - {fileID: 7370771619098021733}
-  - {fileID: 3360693709789119499}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 4182503276524426361}
   - {fileID: 2521643629847964547}
   - {fileID: 5271903118168046970}
@@ -1897,7 +1865,6 @@ Transform:
   m_Children:
   - {fileID: 3973524408224810503}
   - {fileID: 4451102024756502431}
-  - {fileID: 7370771619098021733}
   m_Father: {fileID: 4305856893838992844}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1989,8 +1956,8 @@ SkinnedMeshRenderer:
   - {fileID: 351436170510193470}
   - {fileID: 6606318778796028367}
   - {fileID: 8720242424947503351}
-  - {fileID: 7370771619098021733}
-  - {fileID: 3360693709789119499}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 4182503276524426361}
   - {fileID: 2521643629847964547}
   - {fileID: 5271903118168046970}
@@ -2315,37 +2282,6 @@ Transform:
   m_Children:
   - {fileID: 5010197953769974195}
   m_Father: {fileID: 2521643629847964547}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &7294168237938949226
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3360693709789119499}
-  m_Layer: 0
-  m_Name: headDress_02
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3360693709789119499
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7294168237938949226}
-  m_LocalRotation: {x: -4.4356285e-10, y: 0.0000000033550007, z: 0.005773912, w: 0.9999834}
-  m_LocalPosition: {x: -3.3527595e-10, y: 0.009064587, z: 2.3980816e-16}
-  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7370771619098021733}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7297446728683202237

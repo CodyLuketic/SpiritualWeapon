@@ -383,37 +383,6 @@ Transform:
   m_Father: {fileID: 411983077291162943}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1918206445568288398
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5838728742312156911}
-  m_Layer: 0
-  m_Name: headDress_02
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5838728742312156911
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1918206445568288398}
-  m_LocalRotation: {x: -4.4356285e-10, y: 0.0000000033550007, z: 0.005773912, w: 0.9999834}
-  m_LocalPosition: {x: -3.3527595e-10, y: 0.009064587, z: 2.3980816e-16}
-  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1868708491747759489}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1936966644140112985
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,8 +773,8 @@ SkinnedMeshRenderer:
   - {fileID: 8882308552543439322}
   - {fileID: 2597057639516924715}
   - {fileID: 477460228161841683}
-  - {fileID: 1868708491747759489}
-  - {fileID: 5838728742312156911}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 5021510652508409501}
   - {fileID: 6726808023157256551}
   - {fileID: 3930884021773526942}
@@ -891,7 +860,6 @@ Transform:
   m_Children:
   - {fileID: 5224187255046429923}
   - {fileID: 8976352269290610303}
-  - {fileID: 1868708491747759489}
   m_Father: {fileID: 4928551855049375528}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1255,8 +1223,8 @@ SkinnedMeshRenderer:
   - {fileID: 8882308552543439322}
   - {fileID: 2597057639516924715}
   - {fileID: 477460228161841683}
-  - {fileID: 1868708491747759489}
-  - {fileID: 5838728742312156911}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 5021510652508409501}
   - {fileID: 6726808023157256551}
   - {fileID: 3930884021773526942}
@@ -1751,38 +1719,6 @@ Transform:
   - {fileID: 8882308552543439322}
   m_Father: {fileID: 7235049246686220776}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6679677825130818958
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1868708491747759489}
-  m_Layer: 0
-  m_Name: headDress_01
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1868708491747759489
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6679677825130818958}
-  m_LocalRotation: {x: -0.00000013265075, y: -0.000000071352694, z: 0.999706, w: 0.0242497}
-  m_LocalPosition: {x: 0.0064467643, y: 0.0024450484, z: -9.317684e-10}
-  m_LocalScale: {x: 1.0000014, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5838728742312156911}
-  m_Father: {fileID: 477460228161841683}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6720335403189824482
 GameObject:
@@ -2371,8 +2307,8 @@ SkinnedMeshRenderer:
   - {fileID: 8882308552543439322}
   - {fileID: 2597057639516924715}
   - {fileID: 477460228161841683}
-  - {fileID: 1868708491747759489}
-  - {fileID: 5838728742312156911}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 5021510652508409501}
   - {fileID: 6726808023157256551}
   - {fileID: 3930884021773526942}
@@ -2547,8 +2483,8 @@ SkinnedMeshRenderer:
   - {fileID: 8882308552543439322}
   - {fileID: 2597057639516924715}
   - {fileID: 477460228161841683}
-  - {fileID: 1868708491747759489}
-  - {fileID: 5838728742312156911}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 5021510652508409501}
   - {fileID: 6726808023157256551}
   - {fileID: 3930884021773526942}
