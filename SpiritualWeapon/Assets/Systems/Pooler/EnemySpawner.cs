@@ -5,11 +5,18 @@ using UnityEngine.AI;
 public class EnemySpawner : MonoBehaviour
 {
     private Pooler pooler = null;
+    private GameObject enemyInstance = null;
 
     [Header("Spawning Values")]
     [SerializeField] private float minRadius = 5f;
     [SerializeField] private float maxRadius = 10f;
     [SerializeField] private float spawnTime = 1f;
+    private float ranX = 0;
+    private float ranZ = 0;
+    private float temp = 0;
+
+    private Vector3 spawnPos;
+    private NavMeshHit closestHit;
 
     private Coroutine spawnCoroutine = null;
 
@@ -27,7 +34,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
     private void SpawnEnemy() {
-        GameObject enemyInstance = pooler.SelectFromPool(0);
+        enemyInstance = pooler.SelectFromPool(0, false);
 
         RandomPositionHelper(enemyInstance);
     }
@@ -43,10 +50,10 @@ public class EnemySpawner : MonoBehaviour
         RandomPositionHelper(instance);
     }
     private void RandomPositionHelper(GameObject instance) {
-        float ranX = Random.Range(-maxRadius, maxRadius);
-        float ranZ = Random.Range(-maxRadius, maxRadius);
+        ranX = Random.Range(-maxRadius, maxRadius);
+        ranZ = Random.Range(-maxRadius, maxRadius);
         if(ranX < minRadius && ranX > -minRadius && ranZ < minRadius && ranZ > -minRadius) {
-            int temp = Random.Range(0, 1);
+            temp = Random.Range(0, 1);
 
             if(temp == 1) {
                 if(Mathf.Sign(ranX) == 1) {
@@ -63,10 +70,9 @@ public class EnemySpawner : MonoBehaviour
             }
         }
 
-        Vector3 spawnPos = GameObject.FindGameObjectWithTag("Player").transform.position;
+        spawnPos = GameObject.FindGameObjectWithTag("Player").transform.position;
         spawnPos += new Vector3(ranX, 0,ranZ);
 
-        NavMeshHit closestHit;
         if(NavMesh.SamplePosition(spawnPos, out closestHit, 500, 1 )) {
             instance.transform.position = closestHit.position;
         }

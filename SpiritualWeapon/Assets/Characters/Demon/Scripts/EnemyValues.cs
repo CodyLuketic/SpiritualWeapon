@@ -66,8 +66,8 @@ public class EnemyValues : MonoBehaviour
 
         yield return new WaitForSeconds(shrinkDelay);
 
-        while(gameObject.transform.localScale.x > deincrement) {
-            gameObject.transform.localScale += new Vector3(-deincrement, -deincrement, -deincrement);
+        while(transform.localScale.x > deincrement) {
+            transform.localScale += new Vector3(-deincrement, -deincrement, -deincrement);
             yield return new WaitForSeconds(shrinkSpeed);
         }
 
@@ -93,7 +93,7 @@ public class EnemyValues : MonoBehaviour
         boxCollider1.enabled = false;
         boxCollider2.enabled = false;
 
-        particleInstance = pooler.SelectFromPool(2);
+        particleInstance = pooler.SelectFromPool(2, false);
 
         particleInstance.transform.position = transform.position + (Vector3.up * particleHeight);
     }

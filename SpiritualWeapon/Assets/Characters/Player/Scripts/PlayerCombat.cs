@@ -16,6 +16,8 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private float shotspeed = 5f;
 
     private GameObject particleInstance = null;
+    private ParticleSystem.MainModule mainParticles;
+    private ParticleSystem.ShapeModule shapeParticles;
 
     private bool canAttack = false;
 
@@ -29,11 +31,11 @@ public class PlayerCombat : MonoBehaviour
     }
 
     private IEnumerator Attack() {
-        particleInstance = pooler.SelectFromPool(1);
+        particleInstance = pooler.SelectFromPool(1, false);
 
-        ParticleSystem.MainModule mainParticles = particleInstance.GetComponent<ParticleSystem>().main;
+        mainParticles = particleInstance.GetComponent<ParticleSystem>().main;
         mainParticles.startSpeed = shotspeed + shotCharge / speedDivider;
-        ParticleSystem.ShapeModule shapeParticles = particleInstance.GetComponent<ParticleSystem>().shape;
+        shapeParticles = particleInstance.GetComponent<ParticleSystem>().shape;
         shapeParticles.angle = shotAngle - shotCharge / angleDivider;
 
         particleInstance.transform.position = transform.position + transform.forward * shotDist;

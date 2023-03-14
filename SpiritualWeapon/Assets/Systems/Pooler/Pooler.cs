@@ -6,14 +6,21 @@ public class Pooler : MonoBehaviour
     [System.Serializable]
     public class Pool {
         public string name;
-        public GameObject prefab;
+        public GameObject[] prefab;
         public int size;
     }
 
     [Header("Systems")]
     [SerializeField] private List<Pool> pools;
+    private Queue<GameObject> objectPool = null;
 
     private Dictionary<string, Queue<GameObject>> poolDictionary;
+
+    private GameObject instance = null;
+    
+    private int indexInt = 0;
+    private string indexStr = "";
+    private int random = 0;
 
     private void Awake() {
         SetDictionary();
@@ -22,39 +29,50 @@ public class Pooler : MonoBehaviour
     private void SetDictionary() {
         poolDictionary = new Dictionary<string, Queue<GameObject>>();
         
-        int index = 0;
+        indexInt = 0;
 
         foreach(Pool pool in pools) {
-            Queue<GameObject> objectPool = new Queue<GameObject>();
+            objectPool = new Queue<GameObject>();
 
             for(int i = 0; i < pool.size; i++) {
-                GameObject obj = Instantiate(pool.prefab);
-                obj.SetActive(false);
-                obj.transform.parent = gameObject.transform;
-                objectPool.Enqueue(obj);
+                foreach(GameObject p in pool.prefab) {
+                    GameObject obj = Instantiate(p);
+                    obj.SetActive(false);
+                    obj.transform.parent = gameObject.transform;
+                    objectPool.Enqueue(obj);
+                }
             }
 
-            poolDictionary.Add(index.ToString(), objectPool);
-            index++;
+            poolDictionary.Add(indexInt.ToString(), objectPool);
+            indexInt++;
         }
     }
 
-    public GameObject SelectFromPool(int intIndex) {
-        return SelectFromPoolHelper(intIndex);
+    public GameObject SelectFromPool(int intIndex, bool randomize) {
+        return SelectFromPoolHelper(intIndex, randomize);
     }
 
-    private GameObject SelectFromPoolHelper(int intIndex) {
-        string index = intIndex.ToString();
+    private GameObject SelectFromPoolHelper(int intIndex, bool randomize) {
+        indexStr = intIndex.ToString();
         
-        if(!poolDictionary.ContainsKey(index)) {
-            Debug.LogWarning("Pool in index " + index + " doesn't exist");
+        if(!poolDictionary.ContainsKey(indexStr)) {
+            Debug.LogWarning("Pool in index " + indexStr + " doesn't exist");
             return null;
         }
+
+        random = Random.Range(0, 3);
+
+        if(randomize) {
+            for(int i = 0; i < random; i++) {
+                instance = poolDictionary[indexStr].Dequeue();
+                poolDictionary[indexStr].Enqueue(instance);
+            }
+        }
         
-        GameObject instance = poolDictionary[index].Dequeue();
+        instance = poolDictionary[indexStr].Dequeue();
         instance.SetActive(true);
         
-        poolDictionary[index].Enqueue(instance);
+        poolDictionary[indexStr].Enqueue(instance);
 
         return instance;
     }
