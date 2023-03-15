@@ -19,7 +19,7 @@ public class PlayerCombat : MonoBehaviour
     private ParticleSystem.MainModule mainParticles;
     private ParticleSystem.ShapeModule shapeParticles;
 
-    private bool canAttack = false;
+    private bool canAttack = true;
 
     private void Update() {
         if(canAttack && Input.GetMouseButton(0)) {

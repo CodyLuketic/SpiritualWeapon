@@ -42,7 +42,7 @@ ParticleSystem:
   m_GameObject: {fileID: 6959127934165647018}
   serializedVersion: 8
   lengthInSec: 1
-  simulationSpeed: 1
+  simulationSpeed: 0.8
   stopAction: 2
   cullingMode: 0
   ringBufferMode: 0
@@ -116,7 +116,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -169,7 +169,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -285,8 +285,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 3000
-      minScalar: 2000
+      scalar: 2000
+      minScalar: 1000
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -601,7 +601,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 1000
+    maxNumParticles: 800
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -867,7 +867,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 100
+      scalar: 50
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -992,8 +992,8 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.18541683
-          value: 0.22222096
+          time: 0.32598078
+          value: 0.23760182
           inSlope: 0.15757878
           outSlope: 0.15757878
           tangentMode: 0
@@ -1003,8 +1003,8 @@ ParticleSystem:
         - serializedVersion: 3
           time: 1
           value: 0
-          inSlope: -0.27280328
-          outSlope: -0.27280328
+          inSlope: -0.3525149
+          outSlope: -0.3525149
           tangentMode: 34
           weightedMode: 0
           inWeight: 0.33333334
@@ -1254,8 +1254,8 @@ ParticleSystem:
     curve:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 4.101524
-      minScalar: 0.7853982
+      scalar: 0.6981317
+      minScalar: 0.17453292
       maxCurve:
         serializedVersion: 2
         m_Curve:
