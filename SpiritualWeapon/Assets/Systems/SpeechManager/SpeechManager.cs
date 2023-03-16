@@ -257,4 +257,13 @@ public class SpeechManager : MonoBehaviour
         Debug.Log("Current Text Printing: " + currentText[text]);
         return currentText[text];
     }
+
+    public void ResetAll() {
+        ResetAllHelper();
+    }
+    private void ResetAllHelper() {
+        audioSource.Stop();
+
+        Setup();
+    }
 }

@@ -265,7 +265,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &283605835
 Transform:
   m_ObjectHideFlags: 0
@@ -479,11 +479,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 44229155}
     m_Modifications:
-    - target: {fileID: 1559466276197214780, guid: b188e2512f906dc4e9b9f22abf71adb5,
-        type: 3}
-      propertyPath: pools.Array.data[0].size
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 7217033396541622998, guid: b188e2512f906dc4e9b9f22abf71adb5,
         type: 3}
       propertyPath: m_Name
@@ -1708,7 +1703,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3248664440544333112, guid: 34a524ec8357b5342adaff2b027660b0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 34a524ec8357b5342adaff2b027660b0, type: 3}
 --- !u!1001 &8933151161894447100
 PrefabInstance:
