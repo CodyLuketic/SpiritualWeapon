@@ -1,10 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelMovementManager : MonoBehaviour
 {
-    [Header("Pooler")]
+    [Header("Pooler/Objects")]
     [SerializeField] private Pooler pooler = null;
 
     [Header("Spawn Points")]
@@ -12,6 +11,7 @@ public class LevelMovementManager : MonoBehaviour
     private GameObject buildingInstance = null;
     [SerializeField] private Transform npcSpawnPoint = null;
     private GameObject npcInstance = null;
+    private GameObject[] buildings = null, npcs = null;
 
     [Header("Spawning Values")]
     [SerializeField] private float randomX = 5f;
@@ -19,17 +19,71 @@ public class LevelMovementManager : MonoBehaviour
     [SerializeField] private float randomZ = 5f;
     private float ranZ = 0;
     [SerializeField] private float buildingSpawnTime = 1f;
+    [SerializeField] private float buildingSpawnTimeMult = 1f;
     [SerializeField] private float npcSpawnTime = 1f;
+    [SerializeField] private float npcSpawnTimeMult = 1f;
     [SerializeField] private float lifeTime = 1f;
-
     private Vector3 spawnPos;
+    private Coroutine buildingSpawnCoroutine = null, npcSpawnCoroutine = null;
 
-    private Coroutine buildingSpawnCoroutine = null;
-    private Coroutine npcSpawnCoroutine = null;
+    [Header("Movement")]
+    [SerializeField] private MovingFloor movingFloor = null;
+    [SerializeField] private float speedMult = 1f;
+    [SerializeField] private float resetDelay = 1f;
+    private float speed = 1f, floorSpeed = 1f;
+    private bool canPause = true, canPlay = true;
 
     private void Start() {
+        StartCoroutine(Setup());
+    }
+
+    private void Update() {
+        if(canPause && Input.GetKeyDown(KeyCode.O)) {
+            PauseMovement();
+        }
+
+        if(canPlay && Input.GetKeyDown(KeyCode.K)) {
+            PlayMovement();
+        }
+    }
+
+    private IEnumerator Setup() {
+        buildingSpawnTime /= buildingSpawnTimeMult;
+        npcSpawnTime /= npcSpawnTimeMult;
+
         buildingSpawnCoroutine = StartCoroutine(ContinuouslySpawnBuildings());
         npcSpawnCoroutine = StartCoroutine(ContinuouslySpawnNPCs());
+
+        buildings = GameObject.FindGameObjectsWithTag("Building");
+        npcs = GameObject.FindGameObjectsWithTag("NPC");
+
+        speed = buildings[0].GetComponent<AutomaticMovement>().GetTempSpeed();
+        floorSpeed = movingFloor.GetTempSpeed();
+
+        movingFloor.GetComponent<MovingFloor>().SetSpeed(floorSpeed * speedMult);
+
+        foreach(GameObject building in buildings) {
+            building.GetComponent<AutomaticMovement>().SetSpeed(speed * speedMult);
+        }
+
+        foreach(GameObject npc in npcs) {
+            npc.GetComponent<AutomaticMovement>().SetSpeed(speed * speedMult);
+        }
+
+        yield return new WaitForSeconds(resetDelay);
+
+        buildingSpawnTime *= buildingSpawnTimeMult;
+        npcSpawnTime *= npcSpawnTimeMult;
+
+        movingFloor.GetComponent<MovingFloor>().SetSpeed(floorSpeed);
+
+        foreach(GameObject building in buildings) {
+            building.GetComponent<AutomaticMovement>().SetSpeed(speed);
+        }
+
+        foreach(GameObject npc in npcs) {
+            npc.GetComponent<AutomaticMovement>().SetSpeed(speed);
+        }
     }
 
     private IEnumerator ContinuouslySpawnBuildings() {
@@ -78,5 +132,49 @@ public class LevelMovementManager : MonoBehaviour
         yield return new WaitForSeconds(lifeTime);
 
         instance.SetActive(false);
+    }
+
+    public void PauseMovement() {
+        PauseMovementHelper();
+    }
+    private void PauseMovementHelper() {
+        StopAllCoroutines();
+        canPause = false;
+        canPlay = true;
+
+        movingFloor.SetSpeed(0);
+
+        foreach (GameObject building in buildings) {
+            building.GetComponent<AutomaticMovement>().SetSpeed(0);
+        }
+
+        foreach (GameObject npc in npcs) {
+            npc.GetComponent<AutomaticMovement>().SetSpeed(0);
+        }
+    }
+
+    public void PlayMovement() {
+        PlayMovementHelper();
+    }
+    private void PlayMovementHelper() {
+        StopAllCoroutines();
+        canPause = true;
+        canPlay = false;
+
+        buildingSpawnCoroutine = StartCoroutine(ContinuouslySpawnBuildings());
+        npcSpawnCoroutine = StartCoroutine(ContinuouslySpawnNPCs());
+
+        buildings = GameObject.FindGameObjectsWithTag("Building");
+        npcs = GameObject.FindGameObjectsWithTag("NPC");
+
+        movingFloor.SetSpeed(floorSpeed);
+
+        foreach (GameObject building in buildings) {
+            building.GetComponent<AutomaticMovement>().SetSpeed(speed);
+        }
+
+        foreach (GameObject npc in npcs) {
+            npc.GetComponent<AutomaticMovement>().SetSpeed(speed);
+        }
     }
 }

@@ -37,7 +37,9 @@ public class Pooler : MonoBehaviour
             for(int i = 0; i < pool.size; i++) {
                 foreach(GameObject p in pool.prefab) {
                     GameObject obj = Instantiate(p);
-                    obj.SetActive(false);
+                    if(pool.name != "Buildings" && pool.name != "NPCs") {
+                        obj.SetActive(false);
+                    }
                     obj.transform.parent = gameObject.transform;
                     objectPool.Enqueue(obj);
                 }
