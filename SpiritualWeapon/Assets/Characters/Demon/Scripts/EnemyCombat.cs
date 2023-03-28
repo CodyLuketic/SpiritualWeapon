@@ -3,11 +3,7 @@ using UnityEngine;
 
 public class EnemyCombat : MonoBehaviour
 {
-
-    [Header("Shrink Values")]
-    [SerializeField] private float shrinkSpeed = 0.1f;
-    [SerializeField] private float deincrement = 0.01f;
-    [SerializeField] private float shrinkDelay = 1f;
+    [SerializeField] private float resetDelay = 1f;
 
     private EnemyValues valuesScript = null;
 
@@ -30,12 +26,7 @@ public class EnemyCombat : MonoBehaviour
     private IEnumerator Attack() {
         valuesScript.HitSetup("Attack", 1);
 
-        yield return new WaitForSeconds(shrinkDelay);
-
-        while(gameObject.transform.localScale.x > deincrement) {
-            gameObject.transform.localScale += new Vector3(-deincrement, -deincrement, -deincrement);
-            yield return new WaitForSeconds(shrinkSpeed);
-        }
+        yield return new WaitForSeconds(resetDelay);
 
         canAttack = true;
         valuesScript.HitReset();

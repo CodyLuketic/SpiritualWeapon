@@ -30,7 +30,8 @@ public class LevelMovementManager : MonoBehaviour
     [SerializeField] private MovingFloor movingFloor = null;
     [SerializeField] private float speedMult = 1f;
     [SerializeField] private float resetDelay = 1f;
-    private float speed = 1f, floorSpeed = 1f;
+    [SerializeField] private float objectSpeed = 1f;
+    [SerializeField] private float floorSpeed = 1f;
     private bool canPause = true, canPlay = true;
 
     private void Start() {
@@ -57,17 +58,14 @@ public class LevelMovementManager : MonoBehaviour
         buildings = GameObject.FindGameObjectsWithTag("Building");
         npcs = GameObject.FindGameObjectsWithTag("NPC");
 
-        speed = buildings[0].GetComponent<AutomaticMovement>().GetTempSpeed();
-        floorSpeed = movingFloor.GetTempSpeed();
-
         movingFloor.GetComponent<MovingFloor>().SetSpeed(floorSpeed * speedMult);
 
         foreach(GameObject building in buildings) {
-            building.GetComponent<AutomaticMovement>().SetSpeed(speed * speedMult);
+            building.GetComponent<AutomaticMovement>().SetSpeed(objectSpeed * speedMult);
         }
 
         foreach(GameObject npc in npcs) {
-            npc.GetComponent<AutomaticMovement>().SetSpeed(speed * speedMult);
+            npc.GetComponent<AutomaticMovement>().SetSpeed(objectSpeed * speedMult);
         }
 
         yield return new WaitForSeconds(resetDelay);
@@ -78,27 +76,27 @@ public class LevelMovementManager : MonoBehaviour
         movingFloor.GetComponent<MovingFloor>().SetSpeed(floorSpeed);
 
         foreach(GameObject building in buildings) {
-            building.GetComponent<AutomaticMovement>().SetSpeed(speed);
+            building.GetComponent<AutomaticMovement>().SetSpeed(objectSpeed);
         }
 
         foreach(GameObject npc in npcs) {
-            npc.GetComponent<AutomaticMovement>().SetSpeed(speed);
+            npc.GetComponent<AutomaticMovement>().SetSpeed(objectSpeed);
         }
     }
 
     private IEnumerator ContinuouslySpawnBuildings() {
         while(true) {
-            SpawnBuilding();
-
             yield return new WaitForSeconds(buildingSpawnTime);
+
+            SpawnBuilding();
         }
     }
 
     private IEnumerator ContinuouslySpawnNPCs() {
         while(true) {
-            SpawnNPC();
-
             yield return new WaitForSeconds(npcSpawnTime);
+
+            SpawnNPC();
         }
     }
 
@@ -170,11 +168,11 @@ public class LevelMovementManager : MonoBehaviour
         movingFloor.SetSpeed(floorSpeed);
 
         foreach (GameObject building in buildings) {
-            building.GetComponent<AutomaticMovement>().SetSpeed(speed);
+            building.GetComponent<AutomaticMovement>().SetSpeed(objectSpeed);
         }
 
         foreach (GameObject npc in npcs) {
-            npc.GetComponent<AutomaticMovement>().SetSpeed(speed);
+            npc.GetComponent<AutomaticMovement>().SetSpeed(objectSpeed);
         }
     }
 }

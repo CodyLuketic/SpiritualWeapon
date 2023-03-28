@@ -3,9 +3,7 @@ using UnityEngine;
 
 public class MovingFloor : MonoBehaviour
 {
-    [Header("Movement Values")]
-    [SerializeField] private float speed = 0.5f;
-    private float tempSpeed = 1f;
+    private float speed = 0.5f, tempSpeed = 1f;
     private float offset = 0f;
 
     private void Start() {

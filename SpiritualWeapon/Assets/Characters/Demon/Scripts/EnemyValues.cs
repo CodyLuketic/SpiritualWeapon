@@ -14,11 +14,6 @@ public class EnemyValues : MonoBehaviour
     [SerializeField] private Material[] faces;
     [SerializeField] private SkinnedMeshRenderer faceRenderer = null;
 
-    [Header("Shrink Values")]
-    [SerializeField] private float shrinkSpeed = 0.1f;
-    [SerializeField] private float deincrement = 0.01f;
-    [SerializeField] private float shrinkDelay = 1f;
-
     [Header("Enemy Values")]
     [SerializeField] private float health = 1f;
     private float tempHealth = 0;
@@ -26,9 +21,11 @@ public class EnemyValues : MonoBehaviour
     [SerializeField] private float playerDamage = 1f;
     [SerializeField] private float holyDamage = 1f;
     [SerializeField] private float particleHeight = 1f;
+    [SerializeField] private float resetDelay = 1f;
 
     private Pooler pooler = null;
     private EnemySpawner enemySpawner = null;
+    private EnemySideSpawner enemySideSpawner = null;
     private GameObject particleInstance = null;
 
     private bool canBeDamaged = true;
@@ -37,6 +34,7 @@ public class EnemyValues : MonoBehaviour
     private void Start() {
         pooler = GameObject.FindGameObjectWithTag("Pooler").GetComponent<Pooler>();
         enemySpawner = GameObject.FindGameObjectWithTag("Pooler").GetComponent<EnemySpawner>();
+        enemySideSpawner = GameObject.FindGameObjectWithTag("Pooler").GetComponent<EnemySideSpawner>();
 
         tempHealth = health;
 
@@ -64,12 +62,7 @@ public class EnemyValues : MonoBehaviour
     private IEnumerator Die() {
         HitSetup("Die", 2);
 
-        yield return new WaitForSeconds(shrinkDelay);
-
-        while(transform.localScale.x > deincrement) {
-            transform.localScale += new Vector3(-deincrement, -deincrement, -deincrement);
-            yield return new WaitForSeconds(shrinkSpeed);
-        }
+        yield return new WaitForSeconds(resetDelay);
 
         HitReset();
     }
@@ -102,7 +95,6 @@ public class EnemyValues : MonoBehaviour
         HitResetHelper();
     }
     private void HitResetHelper() {
-        enemySpawner.RandomPosition(gameObject);
         agent.enabled = true;
 
         faceRenderer.materials[0] = faces[0];
@@ -113,6 +105,13 @@ public class EnemyValues : MonoBehaviour
         boxCollider2.enabled = true;
 
         canDie = true;
+
+        if(enemySpawner != null) {
+            enemySpawner.RandomPosition(gameObject);
+        } else {
+            enemySideSpawner.RandomPosition(gameObject);
+        }
+        
         
         gameObject.SetActive(false);
     }

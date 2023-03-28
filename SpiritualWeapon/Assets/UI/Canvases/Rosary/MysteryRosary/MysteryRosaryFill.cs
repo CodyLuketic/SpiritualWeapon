@@ -7,6 +7,9 @@ public class MysteryRosaryFill : MonoBehaviour
 {
     [Header("Scripts")]
     [SerializeField] private GameManager gameManager = null;
+    [SerializeField] private EnemySpawner enemySpawner = null;
+    [SerializeField] private EnemySideSpawner enemySideSpawner = null;
+    [SerializeField] private float spawnEnemiesDelay = 1f;
      private SpeechManager speechManager = null;
 
     [Header("Images")]
@@ -85,6 +88,9 @@ public class MysteryRosaryFill : MonoBehaviour
         yield return new WaitForSeconds(announcementTime);
         
         gameManager.StartTransition();
+
+        StartCoroutine(SpawnEnemiesDelay());
+
         speechManager.StartNextPrayer(1);
         currentText = speechManager.StartScrollingText(1);
 
@@ -418,6 +424,16 @@ public class MysteryRosaryFill : MonoBehaviour
                 j++;
             }
             yield return new WaitForSeconds(textSpeed);
+        }
+    }
+
+    private IEnumerator SpawnEnemiesDelay() {
+        yield return new WaitForSeconds(spawnEnemiesDelay);
+
+        if(enemySpawner != null) {
+            enemySpawner.enabled = true;
+        } else {
+            enemySideSpawner.enabled = true;
         }
     }
 }

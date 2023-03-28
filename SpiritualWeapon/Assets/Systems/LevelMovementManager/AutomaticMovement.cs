@@ -3,9 +3,7 @@ using UnityEngine;
 
 public class AutomaticMovement : MonoBehaviour
 {
-    [Header("Movement Values")]
-    [SerializeField] private float speed = 1f;
-    private float tempSpeed = 1f;
+    private float speed = 1f, tempSpeed = 1f;
 
     private void Start() {
         tempSpeed = speed;

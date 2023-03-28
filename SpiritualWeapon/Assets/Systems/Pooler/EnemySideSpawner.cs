@@ -1,8 +1,7 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.AI;
 
-public class EnemySpawner : MonoBehaviour
+public class EnemySideSpawner : MonoBehaviour
 {
     private Pooler pooler = null;
     private GameObject enemyInstance = null;
@@ -10,13 +9,13 @@ public class EnemySpawner : MonoBehaviour
     [Header("Spawning Values")]
     [SerializeField] private float minRadius = 5f;
     [SerializeField] private float maxRadius = 10f;
+    [SerializeField] private float length = 1f;
     [SerializeField] private float spawnTime = 1f;
     private float ranX = 0;
     private float ranZ = 0;
-    private float temp = 0;
 
     private Vector3 spawnPos;
-    private NavMeshHit closestHit;
+    private UnityEngine.AI.NavMeshHit closestHit;
 
     private Coroutine spawnCoroutine = null;
 
@@ -53,31 +52,22 @@ public class EnemySpawner : MonoBehaviour
     }
     private void RandomPositionHelper(GameObject instance) {
         ranX = Random.Range(-maxRadius, maxRadius);
-        ranZ = Random.Range(-maxRadius, maxRadius);
-        if(ranX < minRadius && ranX > -minRadius && ranZ < minRadius && ranZ > -minRadius) {
-            temp = Random.Range(0, 1);
+        ranZ = Random.Range(-length, length);
+        if(ranX < minRadius && ranX > -minRadius) {
 
-            if(temp == 1) {
-                if(Mathf.Sign(ranX) == 1) {
-                    ranX += minRadius;
-                } else {
-                    ranX -= minRadius;
-                }
-            } else{
-                if(Mathf.Sign(ranZ) == 1) {
-                    ranZ += minRadius;
-                } else {
-                    ranZ -= minRadius;
-                }
+            if(Mathf.Sign(ranX) == 1) {
+                ranX += minRadius;
+            } else {
+                ranX -= minRadius;
             }
         }
 
         spawnPos = GameObject.FindGameObjectWithTag("Player").transform.position;
-        spawnPos += new Vector3(ranX, 0, ranZ);
+        spawnPos += new Vector3(ranX, 0, length);
 
-        if(NavMesh.SamplePosition(spawnPos, out closestHit, 500, 1 )) {
+        if(UnityEngine.AI.NavMesh.SamplePosition(spawnPos, out closestHit, 500, 1 )) {
             instance.transform.position = closestHit.position;
         }
-        instance.GetComponent<NavMeshAgent>().enabled = true;
+        instance.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
     }
 }
