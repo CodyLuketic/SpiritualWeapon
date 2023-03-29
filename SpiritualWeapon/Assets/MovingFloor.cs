@@ -6,10 +6,6 @@ public class MovingFloor : MonoBehaviour
     private float speed = 0.5f, tempSpeed = 1f;
     private float offset = 0f;
 
-    private void Start() {
-        tempSpeed = speed;
-    }
-
     private void Update() {
         Move();
     }
@@ -26,6 +22,13 @@ public class MovingFloor : MonoBehaviour
         return tempSpeed;
     }
 
+    public void SetTempSpeed(float _tempSpeed) {
+        SetTempSpeedHelper(_tempSpeed);
+    }
+    private void SetTempSpeedHelper(float _tempSpeed) {
+        tempSpeed = _tempSpeed;
+    }
+
     public void SetSpeed(float _speed) {
         SetSpeedHelper(_speed);
     }
@@ -33,7 +36,7 @@ public class MovingFloor : MonoBehaviour
         speed = _speed;
     }
 
-    /*
+    
     public void SlowSpeed(float slowAmount, float waitTime) {
         StartCoroutine(SlowSpeedHelper(slowAmount, waitTime));
     }
@@ -55,5 +58,5 @@ public class MovingFloor : MonoBehaviour
             yield return new WaitForSeconds(waitTime);
         }
     }
-    */
+    
 }

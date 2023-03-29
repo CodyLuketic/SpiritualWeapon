@@ -1459,14 +1459,12 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 02a5ba6db4918b34a948e5c770de7702, type: 2}
   - {fileID: 2100000, guid: cfd332c3e3573014c85d4d405f2fdc42, type: 2}
   faceRenderer: {fileID: 8386594916313740876}
-  shrinkSpeed: 0.1
-  deincrement: 0.01
-  shrinkDelay: 1
   health: 1
   speed: 6
   playerDamage: 1
   holyDamage: 1
   particleHeight: 1
+  resetDelay: 1
 --- !u!114 &2539291015317168103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1491,9 +1489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be701ef1dd61e8f4da20dcee7f1813e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shrinkSpeed: 0.001
-  deincrement: 0.005
-  shrinkDelay: 0.3
+  resetDelay: 0.5
 --- !u!1 &2568002178294761540
 GameObject:
   m_ObjectHideFlags: 0

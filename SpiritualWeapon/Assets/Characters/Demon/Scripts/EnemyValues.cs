@@ -43,6 +43,7 @@ public class EnemyValues : MonoBehaviour
 
     private void OnParticleCollision(GameObject other) {
         if(canBeDamaged && other.CompareTag("PlayerParticleObject")) {
+            Debug.Log("Hit by particles");
             DamageCheck(playerDamage);
 
             canBeDamaged = false;
@@ -104,15 +105,32 @@ public class EnemyValues : MonoBehaviour
         boxCollider1.enabled = true;
         boxCollider2.enabled = true;
 
+        canBeDamaged = true;
         canDie = true;
 
         if(enemySpawner != null) {
             enemySpawner.RandomPosition(gameObject);
-        } else {
+        } else if(enemySideSpawner != null){
             enemySideSpawner.RandomPosition(gameObject);
         }
         
-        
         gameObject.SetActive(false);
+    }
+
+    public void Reset() {
+        ResetHelper();
+    }
+    private void ResetHelper() {
+        faceRenderer.materials[0] = faces[0];
+
+        health = tempHealth;
+
+        boxCollider1.enabled = true;
+        boxCollider2.enabled = true;
+
+        canBeDamaged = true;
+        canDie = true;
+
+        gameObject.SetActive(true);
     }
 }

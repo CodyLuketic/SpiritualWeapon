@@ -36,7 +36,7 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy() {
         enemyInstance = pooler.SelectFromPool(0, false);
 
-        enemyInstance.GetComponent<EnemyValues>().HitReset();
+        enemyInstance.GetComponent<EnemyValues>().Reset();
 
         RandomPositionHelper(enemyInstance);
     }
