@@ -7,6 +7,8 @@ public class StartAndEndRosaryFill : MonoBehaviour
 {
     [Header("Scripts")]
     [SerializeField] private GameManager gameManager = null;
+    [SerializeField] private EnemySpawner enemySpawner = null;
+    [SerializeField] private float spawnEnemiesDelay = 1f;
     private SpeechManager speechManager = null;
 
     [Header("Images")]
@@ -56,6 +58,8 @@ public class StartAndEndRosaryFill : MonoBehaviour
         StartCoroutine(FillHelper());
     }
     private IEnumerator FillHelper() {
+        StartCoroutine(SpawnEnemiesDelay());
+
         speechManager = GameObject.FindGameObjectWithTag("SpeechManager").GetComponent<SpeechManager>();
         speechManager.StartNextPrayer(0);
         currentText = speechManager.StartScrollingText(0);
@@ -267,5 +271,13 @@ public class StartAndEndRosaryFill : MonoBehaviour
             }
             yield return new WaitForSeconds(textSpeed);
         }
-    }   
+    }
+
+    private IEnumerator SpawnEnemiesDelay() {
+        yield return new WaitForSeconds(spawnEnemiesDelay);
+
+        if(enemySpawner != null) {
+            enemySpawner.enabled = true;
+        }
+    }
 }

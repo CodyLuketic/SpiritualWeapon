@@ -1117,6 +1117,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
+  enemySpawner: {fileID: 0}
+  enemySideSpawner: {fileID: 0}
+  spawnEnemiesDelay: 2
   lLargeBead: {fileID: 1781397504501352198}
   smallBead1: {fileID: 1781397504869432239}
   smallBead2: {fileID: 1781397505319446634}
@@ -1141,7 +1144,7 @@ MonoBehaviour:
   textBox: {fileID: 7633464044925923760}
   fadeOut: {fileID: 6902198950201818694}
   lLargeBeadTextSpeed: 0.056
-  smallBeadTextSpeed: 0.1
+  smallBeadTextSpeed: 0.055
   rLargeBeadTextSpeed: 0.056
   maxStringLength: 110
 --- !u!1 &1781397506291538229
