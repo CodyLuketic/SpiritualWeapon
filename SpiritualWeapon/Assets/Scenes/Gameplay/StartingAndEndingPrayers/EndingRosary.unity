@@ -720,7 +720,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &388200427
 Transform:
   m_ObjectHideFlags: 0
@@ -1198,6 +1198,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 993733677}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1073923222 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1559466276197214780, guid: b188e2512f906dc4e9b9f22abf71adb5,
+    type: 3}
+  m_PrefabInstance: {fileID: 162617142}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 107f12a3e25392d4d97ffa930c584565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1179867296
 GameObject:
   m_ObjectHideFlags: 0
@@ -1382,6 +1394,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2312392799537697236, guid: 04816d281f030fb4493a4dc4bde39a47,
+        type: 3}
+      propertyPath: pooler
+      value: 
+      objectReference: {fileID: 1073923222}
     - target: {fileID: 2312392799537697236, guid: 04816d281f030fb4493a4dc4bde39a47,
         type: 3}
       propertyPath: divider
