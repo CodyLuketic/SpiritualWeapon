@@ -944,7 +944,7 @@ PrefabInstance:
     - target: {fileID: 1043418390243665271, guid: 3db1e889ecd91bb4c9ebc2252fc048c3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.7375002
+      value: -0.44
       objectReference: {fileID: 0}
     - target: {fileID: 1043418390243665271, guid: 3db1e889ecd91bb4c9ebc2252fc048c3,
         type: 3}
@@ -990,6 +990,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7780163088704810496, guid: 3db1e889ecd91bb4c9ebc2252fc048c3,
+        type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7780163088704810496, guid: 3db1e889ecd91bb4c9ebc2252fc048c3,
+        type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7780163088704810496, guid: 3db1e889ecd91bb4c9ebc2252fc048c3,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7780163088704810496, guid: 3db1e889ecd91bb4c9ebc2252fc048c3,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8227033957213141850, guid: 3db1e889ecd91bb4c9ebc2252fc048c3,
         type: 3}
@@ -2122,6 +2142,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: MusicManager
       objectReference: {fileID: 0}
+    - target: {fileID: 720254025262344564, guid: 793b80409b61c844595f0f814739a2be,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 720254025262344564, guid: 793b80409b61c844595f0f814739a2be,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 720254025262344564, guid: 793b80409b61c844595f0f814739a2be,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b3b281bb0dd2a6d4082ff4075be8937d, type: 3}
     - target: {fileID: 720254025262344565, guid: 793b80409b61c844595f0f814739a2be,
         type: 3}
       propertyPath: m_RootOrder
