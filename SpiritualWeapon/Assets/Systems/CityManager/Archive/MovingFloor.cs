@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class MovingFloor : MonoBehaviour
 {
+    /*
     private float speed = 0.5f, tempSpeed = 1f;
     private float offset = 0f;
 
@@ -58,5 +59,5 @@ public class MovingFloor : MonoBehaviour
             yield return new WaitForSeconds(waitTime);
         }
     }
-    
+    */
 }

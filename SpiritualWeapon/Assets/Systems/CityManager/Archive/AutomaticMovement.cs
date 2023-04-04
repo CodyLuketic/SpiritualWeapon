@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class AutomaticMovement : MonoBehaviour
 {
+    /*
     private float speed = 1f, tempSpeed = 1f, random = 0;
 
     private void Update() {
@@ -69,5 +70,6 @@ public class AutomaticMovement : MonoBehaviour
             yield return new WaitForSeconds(waitTime);
         }
     }
+    */
     
 }

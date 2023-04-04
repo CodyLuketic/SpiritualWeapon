@@ -10,7 +10,12 @@ PrefabInstance:
     - target: {fileID: 1559466276197214780, guid: b188e2512f906dc4e9b9f22abf71adb5,
         type: 3}
       propertyPath: pools.Array.size
-      value: 5
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1559466276197214780, guid: b188e2512f906dc4e9b9f22abf71adb5,
+        type: 3}
+      propertyPath: pools.Array.data[0].size
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1559466276197214780, guid: b188e2512f906dc4e9b9f22abf71adb5,
         type: 3}
@@ -142,4 +147,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minRadius: 19
   maxRadius: 40
+  length: 1
   spawnTime: 1

@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class LevelMovementManager : MonoBehaviour
 {
+    /*
     [Header("Pooler/Objects")]
     [SerializeField] private Pooler pooler = null;
     [SerializeField] private GameObject[] romans = null;
@@ -193,4 +194,5 @@ public class LevelMovementManager : MonoBehaviour
             r.GetComponent<Animator>().SetBool("isMarchingSM", true);
         }
     }
+    */
 }
