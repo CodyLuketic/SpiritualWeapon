@@ -1457,6 +1457,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: MusicManager
       objectReference: {fileID: 0}
+    - target: {fileID: 720254025262344564, guid: 793b80409b61c844595f0f814739a2be,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 720254025262344564, guid: 793b80409b61c844595f0f814739a2be,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 720254025262344564, guid: 793b80409b61c844595f0f814739a2be,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: efc3eece5bde9a2429ea6886c1a65dc8, type: 3}
     - target: {fileID: 720254025262344565, guid: 793b80409b61c844595f0f814739a2be,
         type: 3}
       propertyPath: m_RootOrder
@@ -2928,6 +2943,8 @@ GameObject:
   m_Component:
   - component: {fileID: 481079589096451980}
   - component: {fileID: 481079589096451981}
+  - component: {fileID: 1001756226406102328}
+  - component: {fileID: 1001756226406102327}
   m_Layer: 0
   m_Name: Elizabeth
   m_TagString: Untagged
@@ -2935,6 +2952,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!208 &1001756226406102327
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001756226406102326}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 1.13, y: 2.055, z: 1.13}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 1.65, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!136 &1001756226406102328
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001756226406102326}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.87
+  m_Height: 4.11
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.65, z: 0}
 --- !u!4 &1052117107385469699
 Transform:
   m_ObjectHideFlags: 0
@@ -4659,6 +4706,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4415456032936878969}
   - component: {fileID: 4415456032936878968}
+  - component: {fileID: 4415456032936878970}
+  - component: {fileID: 4415456032936878971}
   m_Layer: 0
   m_Name: Mary
   m_TagString: Untagged
@@ -5064,6 +5113,36 @@ Transform:
   m_Father: {fileID: 1209340165}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -49.973, z: 0}
+--- !u!136 &4415456032936878970
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3894779641033832899}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.87
+  m_Height: 4.11
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.65, z: 0}
+--- !u!208 &4415456032936878971
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3894779641033832899}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 2.08, y: 2.055, z: 2.08}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 1.65, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!4 &4519504484872769592
 Transform:
   m_ObjectHideFlags: 0
