@@ -7,6 +7,7 @@ public class StartAndEndRosaryFill : MonoBehaviour
 {
     [Header("Scripts")]
     [SerializeField] private GameManager gameManager = null;
+    [SerializeField] private MusicManager musicManager = null;
     [SerializeField] private EnemySpawner enemySpawner = null;
     [SerializeField] private float spawnEnemiesDelay = 1f;
     private SpeechManager speechManager = null;
@@ -171,6 +172,8 @@ public class StartAndEndRosaryFill : MonoBehaviour
         g = rLargeBead.color.g;
         b = rLargeBead.color.b;
         a = rLargeBead.color.a;
+
+        musicManager.AudioFadeOut();
 
         while(!changed) {
             IncrementColor(rLargeBead, completedColor);
