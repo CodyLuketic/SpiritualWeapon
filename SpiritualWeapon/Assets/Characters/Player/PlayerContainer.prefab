@@ -237,7 +237,9 @@ MonoBehaviour:
   chargeParticles: {fileID: 8333824460061431022}
   shotCharge: 0
   chargeParticleAmount: 100
+  maxAmount: 10000
   chargeParticleSize: 1
+  maxSize: 10
   cooldown: 2
   shotDist: 1
   speedDivider: 90
@@ -5118,6 +5120,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2312392799537697238}
     m_Modifications:
+    - target: {fileID: 428109919919785885, guid: f301a57ab4cc2984095b6e0c04130d28,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7a47bc8fa232f2e42934730f2bc166c1, type: 2}
     - target: {fileID: 3740466668356046131, guid: f301a57ab4cc2984095b6e0c04130d28,
         type: 3}
       propertyPath: m_RootOrder
