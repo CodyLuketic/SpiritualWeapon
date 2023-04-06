@@ -7,10 +7,11 @@ public class MysteryRosaryFill : MonoBehaviour
 {
     [Header("Scripts")]
     [SerializeField] private GameManager gameManager = null;
+    [SerializeField] private MusicManager musicManager = null;
     [SerializeField] private EnemySpawner enemySpawner = null;
     [SerializeField] private EnemySideSpawner enemySideSpawner = null;
     [SerializeField] private float spawnEnemiesDelay = 1f;
-     private SpeechManager speechManager = null;
+    private SpeechManager speechManager = null;
 
     [Header("Images")]
     [SerializeField] private Image lLargeBead = null;
@@ -336,6 +337,8 @@ public class MysteryRosaryFill : MonoBehaviour
         StopCoroutine(textCoroutine);
         fadeOut.SetActive(false);
         textCoroutine = StartCoroutine(Scroll(rLargeBeadTextSpeed));
+
+        musicManager.AudioFadeOut();
 
         yield return new WaitForSeconds(fatimaTime);
 

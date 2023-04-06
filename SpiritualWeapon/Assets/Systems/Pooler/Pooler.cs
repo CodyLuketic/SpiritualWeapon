@@ -38,6 +38,7 @@ public class Pooler : MonoBehaviour
                 foreach(GameObject p in pool.prefab) {
                     GameObject obj = Instantiate(p);
                     obj.transform.parent = gameObject.transform;
+                    obj.SetActive(false);
                     objectPool.Enqueue(obj);
                 }
             }
