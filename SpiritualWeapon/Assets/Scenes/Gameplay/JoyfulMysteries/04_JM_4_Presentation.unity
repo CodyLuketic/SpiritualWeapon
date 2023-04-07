@@ -236,6 +236,11 @@ PrefabInstance:
       objectReference: {fileID: 2049464860}
     - target: {fileID: 5840058888401574459, guid: a7036269c4eee534d8c09c29ef47c614,
         type: 3}
+      propertyPath: mysteryTitleObj
+      value: 
+      objectReference: {fileID: 833166124}
+    - target: {fileID: 5840058888401574459, guid: a7036269c4eee534d8c09c29ef47c614,
+        type: 3}
       propertyPath: endTransitionObj
       value: 
       objectReference: {fileID: 648486896}
@@ -2484,6 +2489,11 @@ PrefabInstance:
       objectReference: {fileID: 788579918}
     - target: {fileID: 4164004290175547905, guid: 666acf19c1140ec4ab91a46e77d436ed,
         type: 3}
+      propertyPath: titleTime
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164004290175547905, guid: 666acf19c1140ec4ab91a46e77d436ed,
+        type: 3}
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 212133281}
@@ -2497,6 +2507,11 @@ PrefabInstance:
       propertyPath: musicManager
       value: 
       objectReference: {fileID: 1745645900}
+    - target: {fileID: 4164004290175547905, guid: 666acf19c1140ec4ab91a46e77d436ed,
+        type: 3}
+      propertyPath: skipSpeeches
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 666acf19c1140ec4ab91a46e77d436ed, type: 3}
 --- !u!224 &2049464858 stripped

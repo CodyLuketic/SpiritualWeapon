@@ -5,6 +5,9 @@ using TMPro;
 
 public class MysteryRosaryFill : MonoBehaviour
 {
+    [Header("Debug")]
+    [SerializeField] private bool skipSpeeches = false;
+
     [Header("Scripts")]
     [SerializeField] private GameManager gameManager = null;
     [SerializeField] private MusicManager musicManager = null;
@@ -62,7 +65,12 @@ public class MysteryRosaryFill : MonoBehaviour
 
     public void Fill() {
         StopAllCoroutines();
-        StartCoroutine(FillHelper());
+
+        if(!skipSpeeches) {
+            StartCoroutine(FillHelper());
+        } else {
+            StartCoroutine(SkipFill());
+        }
     }
 
     private IEnumerator FillHelper() {
@@ -341,13 +349,26 @@ public class MysteryRosaryFill : MonoBehaviour
         musicManager.AudioFadeOut();
 
         yield return new WaitForSeconds(fatimaTime);
+        speechManager.SetVolume(0);
 
         if(speechManager.GetStartingMystery() == speechManager.GetEndingMystery()) {
-            speechManager.EndRosary();
+            gameManager.ToEndRosary();
         } else {
             gameManager.NextScene();
         }
-    }   
+    }
+
+    private IEnumerator SkipFill() {
+        speechManager = GameObject.FindGameObjectWithTag("SpeechManager").GetComponent<SpeechManager>();
+
+        yield return new WaitForSeconds(0.1f);
+
+        if(speechManager.GetStartingMystery() == speechManager.GetEndingMystery()) {
+            gameManager.ToEndRosary();
+        } else {
+            gameManager.NextScene();
+        }
+    }
 
     private void IncrementColor(Image img, Color col) {
         bool pass1 = false, pass2 = false, pass3 = false, pass4 = false;

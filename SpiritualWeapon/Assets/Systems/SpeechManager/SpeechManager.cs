@@ -2,21 +2,20 @@ using UnityEngine;
 
 public class SpeechManager : MonoBehaviour
 {
+    [Header("Debug")]
+    [SerializeField] private int endingMystery = 19;
+
     [Header("Components")]
     [SerializeField] private AudioSource audioSource = null;
 
     [Header("General Audio Clips/Text")]
     [SerializeField] private AudioClip[] ourFatherClips = null;
-    private AudioClip[] fatherTempClips = null;
     [TextArea(minLines: 1, maxLines: 12)] [SerializeField] private string ourFatherText;
     [SerializeField] private AudioClip[] hailMaryClips = null;
-    private AudioClip[] maryTempClips = null;
     [TextArea(minLines: 1, maxLines: 12)] [SerializeField] private string hailMaryText;
     [SerializeField] private AudioClip[] gloryBeClips = null;
-    private AudioClip[] gloryTempClips = null;
     [TextArea(minLines: 1, maxLines: 12)] [SerializeField] private string gloryBeText;
     [SerializeField] private AudioClip[] fatimaClips = null;
-    private AudioClip[] fatimaTempClips = null;
     [TextArea(minLines: 1, maxLines: 12)] [SerializeField] private string fatimaText;
 
     [Header("Start Audio Clips/Text")]
@@ -58,7 +57,6 @@ public class SpeechManager : MonoBehaviour
     private string[] currentText = null;
 
     private int startingMystery = 0;
-    private int endingMystery = 19;
 
     private void Awake() {
         DontDestroyOnLoad(transform.gameObject);
@@ -69,15 +67,6 @@ public class SpeechManager : MonoBehaviour
     }
 
     private void Setup() {
-        fatherTempClips = new AudioClip[ourFatherClips.Length];
-        CopyArray(ourFatherClips, fatherTempClips);
-        maryTempClips = new AudioClip[hailMaryClips.Length];
-        CopyArray(hailMaryClips, maryTempClips);
-        gloryTempClips = new AudioClip[gloryBeClips.Length];
-        CopyArray(gloryBeClips, gloryTempClips);
-        fatimaTempClips = new AudioClip[fatimaClips.Length];
-        CopyArray(fatimaClips, fatimaTempClips);
-
         PlayerPrefs.SetInt("HitCount", 0);
     }
 
@@ -110,9 +99,6 @@ public class SpeechManager : MonoBehaviour
         EndRosaryHelper();
     }
     private void EndRosaryHelper() {
-        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
-        gameManager.ToEndRosary();
-
         currentClips = new AudioClip[6];
         currentText = new string[6];
 
@@ -130,8 +116,10 @@ public class SpeechManager : MonoBehaviour
         currentText[4] = heartText;
         currentText[5] = crossEndText;
 
-        startAndEndRosaryScript = GameObject.FindGameObjectWithTag("StartAndEndRosary").GetComponent<StartAndEndRosaryFill>();
-        startAndEndRosaryScript.Fill();
+        if(GameObject.FindGameObjectWithTag("StartAndEndRosary")) {
+            startAndEndRosaryScript = GameObject.FindGameObjectWithTag("StartAndEndRosary").GetComponent<StartAndEndRosaryFill>();
+            startAndEndRosaryScript.Fill();
+        }
     }
 
     public void Mysteries(int starting) {
@@ -146,6 +134,7 @@ public class SpeechManager : MonoBehaviour
     }
 
     public void StartNextPrayer(int prayer) {
+        SetVolume(1);
         StartNextPrayerHelper(prayer);
     }
     private void StartNextPrayerHelper(int prayer) {
@@ -161,59 +150,28 @@ public class SpeechManager : MonoBehaviour
         currentClips[0] = sceneClip;
         currentText[0] = "";
 
-        SetCurrentClip(1, ourFatherClips, fatherTempClips);
+        RandomClip(1, ourFatherClips);
         currentText[1] = ourFatherText;
 
         for(int i = 2; i < 12; i++) {
-            SetCurrentClip(i, hailMaryClips, maryTempClips);
+            RandomClip(i, hailMaryClips);
             currentText[i] = hailMaryText;
         }
 
-        SetCurrentClip(12, gloryBeClips, gloryTempClips);
+        RandomClip(12, gloryBeClips);
         currentText[12] = gloryBeText;
 
-        SetCurrentClip(13, fatimaClips, fatimaTempClips);
+        RandomClip(13, fatimaClips);
         currentText[13] = fatimaText;
     }
 
-    private void SetCurrentClip(int currentIndex, AudioClip[] clipsToSet, AudioClip[] tempClips) {
-        if(clipsToSet.Length == 0) {
-            clipsToSet = new AudioClip[tempClips.Length];
-            CopyArray(tempClips,  clipsToSet);
-        }
-
+    private void RandomClip(int currentIndex, AudioClip[] clipsToSet) {
         int random = 0;
         do{
             random = Random.Range(0, clipsToSet.Length - 1);
         } while(clipsToSet[random] == null);
 
         currentClips[currentIndex] = clipsToSet[random];
-        clipsToSet[random] = null;
-
-        AudioClip[] temp = new AudioClip[clipsToSet.Length - 1];
-        CopyArraySkipNull(clipsToSet, temp);
-
-        clipsToSet = temp;
-    }
-
-    private void CopyArray(AudioClip[] arrayToCopy, AudioClip[] copiedArray) {
-        for(int i = 0; i < copiedArray.Length; i++) {
-            copiedArray[i] = arrayToCopy[i];
-        }
-    }
-
-    private void CopyArraySkipNull(AudioClip[] arrayToCopy, AudioClip[] copiedArray) {
-        for(int i = 0; i < copiedArray.Length; i++) {
-            if(arrayToCopy[i] != null) {
-                copiedArray[i] = arrayToCopy[i];
-            } else {
-                int random = 0;
-                do {
-                    random = Random.Range(0, arrayToCopy.Length - 1);
-                } while(random != i);
-                copiedArray[i] = arrayToCopy[random];
-            }
-        }
     }
 
     public void PauseVocals() {
@@ -265,5 +223,12 @@ public class SpeechManager : MonoBehaviour
         audioSource.Stop();
 
         Setup();
+    }
+
+    public void SetVolume(float _volume) {
+        SetVolumeHelper(_volume);
+    }
+    private void SetVolumeHelper(float _volume) {
+        audioSource.volume = _volume;
     }
 }

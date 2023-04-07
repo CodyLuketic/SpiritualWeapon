@@ -891,6 +891,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EndSpeechActivator
       objectReference: {fileID: 0}
+    - target: {fileID: 7221860943354441389, guid: 558ea0f6fc77f5941a1095cd9147ce58,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 558ea0f6fc77f5941a1095cd9147ce58, type: 3}
 --- !u!4 &710193893 stripped
@@ -1339,6 +1344,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1179867297}
     m_Modifications:
+    - target: {fileID: 5072926738508360431, guid: 940ba9e0bc8d43b4db3485723cd90d5f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5072926739088368259, guid: 940ba9e0bc8d43b4db3485723cd90d5f,
         type: 3}
       propertyPath: m_Name
@@ -1720,6 +1730,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6438546935577111448, guid: 778b0dedb79f29a44a3f47b7a7ee4802,
         type: 3}
+      propertyPath: crossTime
+      value: 0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 6438546935577111448, guid: 778b0dedb79f29a44a3f47b7a7ee4802,
+        type: 3}
+      propertyPath: endRosary
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6438546935577111448, guid: 778b0dedb79f29a44a3f47b7a7ee4802,
+        type: 3}
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 843909949}
@@ -1733,6 +1753,61 @@ PrefabInstance:
       propertyPath: musicManager
       value: 
       objectReference: {fileID: 37488229}
+    - target: {fileID: 6438546935577111448, guid: 778b0dedb79f29a44a3f47b7a7ee4802,
+        type: 3}
+      propertyPath: crosstextSpeed
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 6438546935577111448, guid: 778b0dedb79f29a44a3f47b7a7ee4802,
+        type: 3}
+      propertyPath: lLargeBeadTime
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6438546935577111448, guid: 778b0dedb79f29a44a3f47b7a7ee4802,
+        type: 3}
+      propertyPath: lSmallBeadTime
+      value: 0.275
+      objectReference: {fileID: 0}
+    - target: {fileID: 6438546935577111448, guid: 778b0dedb79f29a44a3f47b7a7ee4802,
+        type: 3}
+      propertyPath: mSmallBeadTime
+      value: 0.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 6438546935577111448, guid: 778b0dedb79f29a44a3f47b7a7ee4802,
+        type: 3}
+      propertyPath: rLargeBeadTime
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 6438546935577111448, guid: 778b0dedb79f29a44a3f47b7a7ee4802,
+        type: 3}
+      propertyPath: rSmallBeadTime
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 6438546935577111448, guid: 778b0dedb79f29a44a3f47b7a7ee4802,
+        type: 3}
+      propertyPath: lLargeBeadtextSpeed
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 6438546935577111448, guid: 778b0dedb79f29a44a3f47b7a7ee4802,
+        type: 3}
+      propertyPath: lSmallBeadtextSpeed
+      value: 0.055
+      objectReference: {fileID: 0}
+    - target: {fileID: 6438546935577111448, guid: 778b0dedb79f29a44a3f47b7a7ee4802,
+        type: 3}
+      propertyPath: mSmallBeadtextSpeed
+      value: 0.064
+      objectReference: {fileID: 0}
+    - target: {fileID: 6438546935577111448, guid: 778b0dedb79f29a44a3f47b7a7ee4802,
+        type: 3}
+      propertyPath: rLargeBeadtextSpeed
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 6438546935577111448, guid: 778b0dedb79f29a44a3f47b7a7ee4802,
+        type: 3}
+      propertyPath: rSmallBeadtextSpeed
+      value: 0.06
+      objectReference: {fileID: 0}
     - target: {fileID: 8933151161894447108, guid: 778b0dedb79f29a44a3f47b7a7ee4802,
         type: 3}
       propertyPath: textSpeed

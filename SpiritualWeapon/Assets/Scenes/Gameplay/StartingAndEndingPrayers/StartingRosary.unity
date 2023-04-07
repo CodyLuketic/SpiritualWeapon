@@ -265,7 +265,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &283605835
 Transform:
   m_ObjectHideFlags: 0
@@ -1052,6 +1052,11 @@ PrefabInstance:
       propertyPath: rosaryCanvas
       value: 
       objectReference: {fileID: 34349444}
+    - target: {fileID: 5840058888401574459, guid: a7036269c4eee534d8c09c29ef47c614,
+        type: 3}
+      propertyPath: mysteryTitleObj
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5840058888401574459, guid: a7036269c4eee534d8c09c29ef47c614,
         type: 3}
       propertyPath: endTransitionObj

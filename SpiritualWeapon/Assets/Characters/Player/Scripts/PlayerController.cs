@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header("Component")]
-    [SerializeField] private CharacterController characterController;
+    [Header("Components")]
+    [SerializeField] private CharacterController characterController = null;
+    [SerializeField] private Animator animator = null;
 
     [Header("Movement")]
     [SerializeField] private float walkingSpeed = 1f;
@@ -37,6 +38,12 @@ public class PlayerController : MonoBehaviour
             movementDirectionY -= gravity * Time.deltaTime;
         }
         moveDirection.y = movementDirectionY;
+
+        if(moveDirection.x != 0 || moveDirection.z != 0) {
+            animator.SetBool("moving", true);
+        } else {
+            animator.SetBool("moving", false);
+        }
 
         characterController.Move(moveDirection * Time.deltaTime);
     }

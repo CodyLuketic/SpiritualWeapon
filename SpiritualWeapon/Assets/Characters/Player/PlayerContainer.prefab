@@ -218,6 +218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 2312392799537697234}
+  animator: {fileID: 5523028584015468061}
   walkingSpeed: 7.5
   runningSpeed: 11.5
   gravity: 1
@@ -234,6 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pooler: {fileID: 0}
+  animator: {fileID: 5523028584015468061}
   chargeParticles: {fileID: 8333824460061431022}
   shotCharge: 0
   chargeParticleAmount: 100
@@ -5202,6 +5204,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f301a57ab4cc2984095b6e0c04130d28, type: 3}
+--- !u!95 &5523028584015468061 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 428109919919785885, guid: f301a57ab4cc2984095b6e0c04130d28,
+    type: 3}
+  m_PrefabInstance: {fileID: 5284216084200804736}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8844366074712218803 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3740466668356046131, guid: f301a57ab4cc2984095b6e0c04130d28,

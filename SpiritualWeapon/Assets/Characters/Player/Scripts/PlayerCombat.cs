@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
-    [Header("Pool")]
+    [Header("Components")]
     [SerializeField] private Pooler pooler = null;
+    [SerializeField] private Animator animator = null;
 
     [Header("Charge Values")]
     [SerializeField] private GameObject chargeParticles = null;
@@ -48,7 +49,10 @@ public class PlayerCombat : MonoBehaviour
 
     private void Charge() {
         if(canAttack && Input.GetMouseButton(0)) {
+            animator.SetTrigger("charging");
+
             chargeParticles.SetActive(true);
+
             mainParticles = chargeParticles.GetComponent<ParticleSystem>().main;
             mainParticles.maxParticles = (int) chargeParticleAmount;
             mainParticles.startSize = chargeParticleSize;
@@ -62,12 +66,14 @@ public class PlayerCombat : MonoBehaviour
             shotCharge++;
         } else if (canAttack & shotCharge > 0) {
             StartCoroutine(Attack());
-
-            canAttack = false;
         }
     }
 
     private IEnumerator Attack() {
+        canAttack = false;
+
+        animator.SetTrigger("shoot");
+
         chargeParticles.SetActive(false);
         chargeParticleAmount = amountTemp;
         chargeParticleSize = sizeTemp;
@@ -105,5 +111,12 @@ public class PlayerCombat : MonoBehaviour
     }
     private void SetCanAttackHelper(bool attack) {
         canAttack = attack;
+    }
+
+    public void PlayerHit() {
+        PlayerHitHelper();
+    }
+    private void PlayerHitHelper() {
+        animator.SetTrigger("playerHit");
     }
 }

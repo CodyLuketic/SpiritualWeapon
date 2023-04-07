@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [Header("Objects")]
     [SerializeField] private GameObject rosaryCanvas = null;
     [SerializeField] private GameObject startTransitionObj = null;
+    [SerializeField] private GameObject mysteryTitleObj = null;
     [SerializeField] private GameObject endTransitionObj = null;
 
     [Header("Basic Values")]
@@ -232,17 +233,18 @@ public class GameManager : MonoBehaviour
         }
 
         startTransitionObj.SetActive(false);
+        if(mysteryTitleObj != null) {
+            mysteryTitleObj.SetActive(false);
+        }
     }
 
     public void EndTransition() {
         StartCoroutine(EndTransitionHelper());
     }
     private IEnumerator EndTransitionHelper() {
-        if(rosaryCanvas != null && rosaryCanvas.activeSelf) {
-            rosaryCanvas.SetActive(false);
-        }
         endTransitionObj.SetActive(true);
 
+        endTransition = endTransitionObj.GetComponent<Image>();
         float r = endTransition.color.r;
         float g = endTransition.color.g;
         float b = endTransition.color.b;

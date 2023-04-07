@@ -5,11 +5,15 @@ using TMPro;
 
 public class StartAndEndRosaryFill : MonoBehaviour
 {
+    [Header("Debug")]
+    [SerializeField] private bool skipSpeeches = false;
+
     [Header("Scripts")]
     [SerializeField] private GameManager gameManager = null;
     [SerializeField] private MusicManager musicManager = null;
     [SerializeField] private EnemySpawner enemySpawner = null;
     [SerializeField] private float spawnEnemiesDelay = 1f;
+    [SerializeField] private bool endRosary = false;
     private SpeechManager speechManager = null;
 
     [Header("Images")]
@@ -56,7 +60,12 @@ public class StartAndEndRosaryFill : MonoBehaviour
 
     public void Fill() {
         StopAllCoroutines();
-        StartCoroutine(FillHelper());
+
+        if(!skipSpeeches) {
+            StartCoroutine(FillHelper());
+        } else {
+            StartCoroutine(SkipFill());
+        }
     }
     private IEnumerator FillHelper() {
         StartCoroutine(SpawnEnemiesDelay());
@@ -183,7 +192,23 @@ public class StartAndEndRosaryFill : MonoBehaviour
 
         Debug.Log("Completed rLargeBead");
 
-        CheckNextScene();
+        if(!endRosary) {
+            CheckNextScene();
+        } else {
+            gameManager.ToMainMenu();
+        }
+    }
+
+    private IEnumerator SkipFill() {
+        speechManager = GameObject.FindGameObjectWithTag("SpeechManager").GetComponent<SpeechManager>();
+
+        yield return new WaitForSeconds(0.1f);
+
+        if(!endRosary) {
+            CheckNextScene();
+        } else {
+            gameManager.ToMainMenu();
+        }
     }
 
     private void CheckNextScene() {
@@ -192,29 +217,37 @@ public class StartAndEndRosaryFill : MonoBehaviour
 
         switch(nextScene) {
             case 0:
+                speechManager.SetEndingMystery(endingMystery);
+
                 gameManager.ToJoyfulMysteries();
                 break;
             case 1:
-                gameManager.ToJoyfulMysteries();
                 endingMystery = 4;
+                speechManager.SetEndingMystery(endingMystery);
+
+                gameManager.ToJoyfulMysteries();
                 break;
             case 2:
-                gameManager.ToLuminousMysteries();
                 endingMystery = 9;
+                speechManager.SetEndingMystery(endingMystery);
+
+                gameManager.ToLuminousMysteries();
                 break;
             case 3:
-                gameManager.ToSorrowfulMysteries();
                 endingMystery = 14;
+                speechManager.SetEndingMystery(endingMystery);
+
+                gameManager.ToSorrowfulMysteries();
                 break;
             case 4:
+                speechManager.SetEndingMystery(endingMystery);
+
                 gameManager.ToGloriusMysteries();
                 break;
             default:
                 Debug.Log("Error");
                 break;
         }
-
-        speechManager.SetEndingMystery(endingMystery);
     }
 
     private void IncrementColor(Image img, Color col) {
