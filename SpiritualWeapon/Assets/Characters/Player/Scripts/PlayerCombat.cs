@@ -49,7 +49,7 @@ public class PlayerCombat : MonoBehaviour
 
     private void Charge() {
         if(canAttack && Input.GetMouseButton(0)) {
-            animator.SetTrigger("charging");
+            animator.SetBool("charging", true);
 
             chargeParticles.SetActive(true);
 
@@ -71,6 +71,7 @@ public class PlayerCombat : MonoBehaviour
 
     private IEnumerator Attack() {
         canAttack = false;
+        animator.SetBool("charging", false);
 
         animator.SetTrigger("shoot");
 
