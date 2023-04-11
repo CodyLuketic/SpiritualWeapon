@@ -66,10 +66,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Mysteries
+  m_text: 'Select a Decade
+
+'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4b41bb8012d7dbd4c935536b8c7576dc, type: 2}
+  m_sharedMaterial: {fileID: 6745608047010759946, guid: 4b41bb8012d7dbd4c935536b8c7576dc,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -166,7 +169,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4137614993491369261}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -203,8 +206,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Spiritual Weapon
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4b41bb8012d7dbd4c935536b8c7576dc, type: 2}
+  m_sharedMaterial: {fileID: 6745608047010759946, guid: 4b41bb8012d7dbd4c935536b8c7576dc,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -270,6 +274,103 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &3819659798076426280
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1180281601109447295}
+  - component: {fileID: 5001932278493597866}
+  - component: {fileID: 8308545243587238108}
+  - component: {fileID: 232642325905571935}
+  m_Layer: 5
+  m_Name: Cross
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1180281601109447295
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3819659798076426280}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4137614993491369261}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -3.0576, y: -20.028}
+  m_SizeDelta: {x: 119.4088, y: 209.73}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &5001932278493597866
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3819659798076426280}
+  m_CullTransparentMesh: 1
+--- !u!114 &8308545243587238108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3819659798076426280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.7843138, g: 0.6627451, b: 0.78823537, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 9d042d272c6fd03489607bcd05957a05, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!95 &232642325905571935
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3819659798076426280}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b2fc54e5e7cbebf4a8014f7152bff203, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &4137614993263391079
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,10 +437,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Quit
+  m_text: 'End Prayers
+
+'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4b41bb8012d7dbd4c935536b8c7576dc, type: 2}
+  m_sharedMaterial: {fileID: 6745608047010759946, guid: 4b41bb8012d7dbd4c935536b8c7576dc,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -437,6 +541,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2236143103285902570}
+  - {fileID: 1180281601109447295}
   - {fileID: 3085686134947211522}
   - {fileID: 4137614994386858150}
   - {fileID: 652934942228234015}
@@ -524,7 +629,7 @@ GameObject:
   - component: {fileID: 4137614994063008027}
   - component: {fileID: 4137614994063008026}
   m_Layer: 5
-  m_Name: Quit
+  m_Name: End Prayers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -544,12 +649,12 @@ RectTransform:
   m_Children:
   - {fileID: 4137614993263391076}
   m_Father: {fileID: 4137614993491369261}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -99.806, y: -166.87}
-  m_SizeDelta: {x: 174.91724, y: 84.837006}
+  m_AnchoredPosition: {x: -187.32076, y: -166.87}
+  m_SizeDelta: {x: 347.5515, y: 84.837}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4137614994063008024
 CanvasRenderer:
@@ -711,10 +816,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: All Mysteries
+  m_text: Pray All Decades
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4b41bb8012d7dbd4c935536b8c7576dc, type: 2}
+  m_sharedMaterial: {fileID: 6745608047010759946, guid: 4b41bb8012d7dbd4c935536b8c7576dc,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -850,8 +956,9 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4b41bb8012d7dbd4c935536b8c7576dc, type: 2}
+  m_sharedMaterial: {fileID: 6745608047010759946, guid: 4b41bb8012d7dbd4c935536b8c7576dc,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -930,7 +1037,7 @@ GameObject:
   - component: {fileID: 4137614994386858148}
   - component: {fileID: 4137614994386858151}
   m_Layer: 5
-  m_Name: All Mysteries
+  m_Name: Pray All Decades
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -950,12 +1057,12 @@ RectTransform:
   m_Children:
   - {fileID: 4137614994165265330}
   m_Father: {fileID: 4137614993491369261}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 411.64, y: -66}
-  m_SizeDelta: {x: 402.1901, y: 84.837}
+  m_AnchoredPosition: {x: 157, y: 5.9472}
+  m_SizeDelta: {x: 286.05, y: 157.7805}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4137614994386858149
 CanvasRenderer:
@@ -1084,12 +1191,12 @@ RectTransform:
   m_Children:
   - {fileID: 4137614994231749689}
   m_Father: {fileID: 4137614993491369261}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -248, y: 58}
-  m_SizeDelta: {x: 286.04138, y: 84.837006}
+  m_AnchoredPosition: {x: -212.24, y: 58.137}
+  m_SizeDelta: {x: 347.56, y: 84.837}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4137614994813369703
 CanvasRenderer:
@@ -1274,7 +1381,7 @@ GameObject:
   - component: {fileID: 6685139184022692587}
   - component: {fileID: 739441975068750794}
   m_Layer: 5
-  m_Name: Mysteries
+  m_Name: Select a Decade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1294,12 +1401,12 @@ RectTransform:
   m_Children:
   - {fileID: 2168990963063033824}
   m_Father: {fileID: 4137614993491369261}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 11.64, y: 42.418}
-  m_SizeDelta: {x: 309.3175, y: 84.837}
+  m_AnchoredPosition: {x: 243.44, y: 8.0925}
+  m_SizeDelta: {x: 286.04, y: 153.4898}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1956285362653081138
 CanvasRenderer:
