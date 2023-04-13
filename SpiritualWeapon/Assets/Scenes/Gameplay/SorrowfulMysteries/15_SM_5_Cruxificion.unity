@@ -106,15 +106,15 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.01
-    agentHeight: 2
+    agentRadius: 0.5
+    agentHeight: 1
     agentSlope: 45
     agentClimb: 0.4
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.0033333332
+    cellSize: 0.16666667
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -938,7 +938,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &965274685
 Transform:
   m_ObjectHideFlags: 0
@@ -1080,7 +1080,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 1c925193b3d567e4dbc9c82efeff7575,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 266.40005
+      value: 340
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1c925193b3d567e4dbc9c82efeff7575,
         type: 3}
@@ -1140,7 +1140,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 1c925193b3d567e4dbc9c82efeff7575,
         type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 1c925193b3d567e4dbc9c82efeff7575,
         type: 3}
@@ -1692,6 +1692,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1555820054}
     m_Modifications:
+    - target: {fileID: 7390053491393103636, guid: a9b3fbfac2bec2246ab175c409f446ab,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7390053491393103636, guid: a9b3fbfac2bec2246ab175c409f446ab,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7390053491472133784, guid: a9b3fbfac2bec2246ab175c409f446ab,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7390053491472133784, guid: a9b3fbfac2bec2246ab175c409f446ab,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15.08
+      objectReference: {fileID: 0}
     - target: {fileID: 7390053492223499748, guid: a9b3fbfac2bec2246ab175c409f446ab,
         type: 3}
       propertyPath: m_RootOrder
@@ -1751,6 +1771,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerBounds
+      objectReference: {fileID: 0}
+    - target: {fileID: 7390053492338817533, guid: a9b3fbfac2bec2246ab175c409f446ab,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7390053492338817533, guid: a9b3fbfac2bec2246ab175c409f446ab,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 7390053493364290452, guid: a9b3fbfac2bec2246ab175c409f446ab,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9b3fbfac2bec2246ab175c409f446ab, type: 3}
