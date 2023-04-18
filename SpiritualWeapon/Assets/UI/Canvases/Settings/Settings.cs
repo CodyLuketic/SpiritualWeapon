@@ -5,7 +5,11 @@ using TMPro;
 
 public class Settings : MonoBehaviour
 {
-    [Header("Objects")]
+    [Header("Canvases")]
+    [SerializeField] private GameObject settings = null;
+    [SerializeField] private GameObject scores = null;
+
+    [Header("Audio")]
     [SerializeField] private AudioMixer musicMixer = null;
     [SerializeField] private AudioMixer vocalsMixer = null;
     [SerializeField] private AudioMixer soundEffectsMixer = null; 
@@ -14,12 +18,23 @@ public class Settings : MonoBehaviour
     [SerializeField] private TMP_Text vocalsAmount = null;
     [SerializeField] private TMP_Text soundEffectsAmount = null;
 
+    [Header("Resolution")]
     [SerializeField] private TMP_Dropdown resolutionDropdown = null;
-
     private Resolution[] resolutions;
+
+    [Header("Scores")]
+    [SerializeField] private TMP_Text hitCountAll = null;
+    [SerializeField] private TMP_Text hitCountJoyful = null;
+    [SerializeField] private TMP_Text hitCountLuminous = null;
+    [SerializeField] private TMP_Text hitCountSorrowful = null;
+    [SerializeField] private TMP_Text hitCountGlorius = null;
 
     private void Start() {
         SetResolutions();
+    }
+
+    private void Update() {
+        UpdateScores();
     }
 
     private void SetResolutions() {
@@ -94,5 +109,31 @@ public class Settings : MonoBehaviour
         Screen.fullScreen = isFullscreen;
     }
 
+    public void ShowScores() {
+        ShowScoresHelper();
+    }
+    private void ShowScoresHelper() {
+        settings.SetActive(false);
+        scores.SetActive(true);
 
+        UpdateScores();
+    }
+
+    public void HideScores(){
+        HideScoresHelper();
+    }
+    private void HideScoresHelper() {
+        scores.SetActive(false);
+        settings.SetActive(true);
+
+        UpdateScores();
+    }
+
+    private void UpdateScores() {
+        hitCountAll.text = "All Decades Lowest Score: " + PlayerPrefs.GetInt("HitCountAll");
+        hitCountJoyful.text = "Joyful Decades Lowest Score: " + PlayerPrefs.GetInt("HitCountJoyful");
+        hitCountLuminous.text = "Luminous Decades Lowest Score: " + PlayerPrefs.GetInt("HitCountLuminous");
+        hitCountSorrowful.text = "Sorrowful Decades Lowest Score: " + PlayerPrefs.GetInt("HitCountSorrowful");
+        hitCountGlorius.text = "Glorius Decades Lowest Score: " + PlayerPrefs.GetInt("HitCountGlorius");
+    }
 }
