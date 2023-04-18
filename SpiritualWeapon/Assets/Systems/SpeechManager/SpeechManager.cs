@@ -49,7 +49,6 @@ public class SpeechManager : MonoBehaviour
     [SerializeField] private AudioClip crossEndClip = null;
     [TextArea(minLines: 1, maxLines: 12)] [SerializeField] private string crossEndText;
 
-    private GameManager gameManager = null;
     private StartAndEndRosaryFill startAndEndRosaryScript = null;
     private MysteryRosaryFill mysteryRosaryScript = null;
 

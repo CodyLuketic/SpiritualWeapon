@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [Header("Objects")]
-    [SerializeField] private GameObject rosaryCanvas = null;
     [SerializeField] private GameObject startTransitionObj = null;
     [SerializeField] private GameObject mysteryTitleObj = null;
     [SerializeField] private GameObject endTransitionObj = null;
