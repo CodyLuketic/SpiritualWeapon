@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1107 &-6852136543399316713
+--- !u!1107 &-2812246705573680661
 AnimatorStateMachine:
   serializedVersion: 6
   m_ObjectHideFlags: 1
@@ -10,37 +10,31 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
-    m_State: {fileID: 1048502753667731610}
-    m_Position: {x: 10, y: 110, z: 0}
+    m_State: {fileID: 4833857579458902915}
+    m_Position: {x: 255.8, y: 158, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: -80, y: -50, z: 0}
-  m_EntryPosition: {x: -150, y: 210, z: 0}
+  m_AnyStatePosition: {x: 50, y: 20, z: 0}
+  m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 1048502753667731610}
+  m_DefaultState: {fileID: 4833857579458902915}
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CriminalCruxified
+  m_Name: GabeLift
   serializedVersion: 5
-  m_AnimatorParameters:
-  - m_Name: jesusDead
-    m_Type: 9
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+  m_AnimatorParameters: []
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
-    m_StateMachine: {fileID: -6852136543399316713}
+    m_StateMachine: {fileID: -2812246705573680661}
     m_Mask: {fileID: 0}
     m_Motions: []
     m_Behaviours: []
@@ -50,15 +44,15 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!1102 &1048502753667731610
+--- !u!1102 &4833857579458902915
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Anim_CrucifiedBreathing(180)
-  m_Speed: 0.5
+  m_Name: Anim_AngelLift(60)
+  m_Speed: 0.2
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -70,7 +64,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -6313351144440677252, guid: a819ffe65f49acf4d84d2b98d81f89df,
+  m_Motion: {fileID: 2508230236294669493, guid: 734e3b60d53d1074d94a98821e0f575d,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
