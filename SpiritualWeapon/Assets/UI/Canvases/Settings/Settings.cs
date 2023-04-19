@@ -23,11 +23,11 @@ public class Settings : MonoBehaviour
     private Resolution[] resolutions;
 
     [Header("Scores")]
-    [SerializeField] private TMP_Text hitCountAll = null;
-    [SerializeField] private TMP_Text hitCountJoyful = null;
-    [SerializeField] private TMP_Text hitCountLuminous = null;
-    [SerializeField] private TMP_Text hitCountSorrowful = null;
-    [SerializeField] private TMP_Text hitCountGlorius = null;
+    [SerializeField] private TMP_Text scoreAll = null;
+    [SerializeField] private TMP_Text scoreJoyful = null;
+    [SerializeField] private TMP_Text scoreLuminous = null;
+    [SerializeField] private TMP_Text scoreSorrowful = null;
+    [SerializeField] private TMP_Text scoreGlorius = null;
 
     private void Start() {
         SetResolutions();
@@ -127,10 +127,10 @@ public class Settings : MonoBehaviour
     }
 
     private void UpdateScores() {
-        hitCountAll.text = "All Decades Lowest Score: " + PlayerPrefs.GetInt("HitCountAll");
-        hitCountJoyful.text = "Joyful Decades Lowest Score: " + PlayerPrefs.GetInt("HitCountJoyful");
-        hitCountLuminous.text = "Luminous Decades Lowest Score: " + PlayerPrefs.GetInt("HitCountLuminous");
-        hitCountSorrowful.text = "Sorrowful Decades Lowest Score: " + PlayerPrefs.GetInt("HitCountSorrowful");
-        hitCountGlorius.text = "Glorius Decades Lowest Score: " + PlayerPrefs.GetInt("HitCountGlorius");
+        scoreAll.text = "All Mysteries Highest Score: " + PlayerPrefs.GetInt("HighScoreAll");
+        scoreJoyful.text = "Joyful Mysteries Highest Score: " + PlayerPrefs.GetInt("HighScoreJoyful");
+        scoreLuminous.text = "Luminous Mysteries Highest Score: " + PlayerPrefs.GetInt("HighScoreLuminous");
+        scoreSorrowful.text = "Sorrowful Mysteries Highest Score: " + PlayerPrefs.GetInt("HighScoreSorrowful");
+        scoreGlorius.text = "Glorius Mysteries Highest Score: " + PlayerPrefs.GetInt("HighScoreGlorius");
     }
 }

@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void ToStartRosary(int decade = 0) {
-        PlayerPrefs.SetInt("Decades", decade);
+        SetPlayerPrefs(decade);
 
         function = "Start";
 
@@ -271,5 +271,16 @@ public class GameManager : MonoBehaviour
             musicManager.volume -= deincrement;
             yield return new WaitForSeconds(fadeTick);
         }
+    }
+
+    private void SetPlayerPrefs(int decade) {
+        PlayerPrefs.SetInt("Decades", decade);
+
+        PlayerPrefs.SetInt("ScoreAllTemp", 0);
+        PlayerPrefs.SetInt("ScoreJoyfulTemp", 0);
+        PlayerPrefs.SetInt("ScoreLuminousTemp", 0);
+        PlayerPrefs.SetInt("ScoreSorrowfulTemp", 0);
+        PlayerPrefs.SetInt("ScoreGloriusTemp", 0);
+        PlayerPrefs.SetInt("ScoreMultiplier", 1);
     }
 }

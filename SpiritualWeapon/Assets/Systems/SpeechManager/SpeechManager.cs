@@ -137,7 +137,6 @@ public class SpeechManager : MonoBehaviour
         StartNextPrayerHelper(prayer);
     }
     private void StartNextPrayerHelper(int prayer) {
-        Debug.Log("Current Clip Playing: " + currentClips[prayer]);
         audioSource.clip = currentClips[prayer];
         audioSource.Play();
     }
@@ -211,7 +210,6 @@ public class SpeechManager : MonoBehaviour
         return StartScrollingTextHelper(text);
     }
     private string StartScrollingTextHelper(int text) {
-        Debug.Log("Current Text Printing: " + currentText[text]);
         return currentText[text];
     }
 

@@ -13,18 +13,18 @@ public class PlayerScore : MonoBehaviour
     private void Start() {
         scoreDecade = PlayerPrefs.GetInt("Decades");
 
-        scoreAll = PlayerPrefs.GetInt("ScoreAllTemp");
-        scoreJoyful = PlayerPrefs.GetInt("ScoreJoyfulTemp");
-        scoreLuminous = PlayerPrefs.GetInt("ScoreLuminousTemp");
-        scoreSorrowful = PlayerPrefs.GetInt("ScoreSorrowfulTemp");
-        scoreGlorius = PlayerPrefs.GetInt("ScoreGloriusTemp");
+        scoreAll = PlayerPrefs.GetInt("ScoreAllTemp", 0);
+        scoreJoyful = PlayerPrefs.GetInt("ScoreJoyfulTemp", 0);
+        scoreLuminous = PlayerPrefs.GetInt("ScoreLuminousTemp", 0);
+        scoreSorrowful = PlayerPrefs.GetInt("ScoreSorrowfulTemp", 0);
+        scoreGlorius = PlayerPrefs.GetInt("ScoreGloriusTemp", 0);
     }
 
     public void IncrementScore() {
         IncrementScoreHelper();
     }
     private void IncrementScoreHelper() {
-        if(multiplier < 8) {
+        if(multiplier < 7) {
             multiplier++;
             PlayerPrefs.SetInt("ScoreMultiplier", multiplier);
         }
@@ -33,7 +33,7 @@ public class PlayerScore : MonoBehaviour
             case 0:
                 scoreAll += 1 * multiplier;
 
-                if(scoreAll > PlayerPrefs.GetInt("HighScoreAll")) {
+                if(scoreAll > PlayerPrefs.GetInt("HighScoreAll", 0)) {
                     PlayerPrefs.SetInt("HighScoreAll", scoreAll);
                 }
                 PlayerPrefs.SetInt("ScoreAllTemp", scoreAll);
@@ -42,7 +42,7 @@ public class PlayerScore : MonoBehaviour
             case 1:
                 scoreJoyful += 1 * multiplier;
 
-                if(scoreJoyful > PlayerPrefs.GetInt("HighScoreJoyful")) {
+                if(scoreJoyful > PlayerPrefs.GetInt("HighScoreJoyful", 0)) {
                     PlayerPrefs.SetInt("HighScoreJoyful", scoreJoyful);
                 }
                 PlayerPrefs.SetInt("ScoreJoyfulTemp", scoreJoyful);
@@ -51,7 +51,7 @@ public class PlayerScore : MonoBehaviour
             case 2:
                 scoreLuminous += 1 * multiplier;
 
-                if(scoreLuminous > PlayerPrefs.GetInt("HighScoreLuminous")) {
+                if(scoreLuminous > PlayerPrefs.GetInt("HighScoreLuminous", 0)) {
                     PlayerPrefs.SetInt("HighScoreLuminous", scoreLuminous);
                 }
                 PlayerPrefs.SetInt("ScoreLuminousTemp", scoreLuminous);
@@ -60,7 +60,7 @@ public class PlayerScore : MonoBehaviour
             case 3:
                 scoreSorrowful += 1 * multiplier;
 
-                if(scoreSorrowful > PlayerPrefs.GetInt("HighScoreSorrowful")) {
+                if(scoreSorrowful > PlayerPrefs.GetInt("HighScoreSorrowful", 0)) {
                     PlayerPrefs.SetInt("HighScoreSorrowful", scoreSorrowful);
                 }
                 PlayerPrefs.SetInt("ScoreSorrowfulTemp", scoreSorrowful);
@@ -69,7 +69,7 @@ public class PlayerScore : MonoBehaviour
             case 4:
                 scoreGlorius += 1 * multiplier;
 
-                if(scoreGlorius > PlayerPrefs.GetInt("HighScoreGlorius")) {
+                if(scoreGlorius > PlayerPrefs.GetInt("HighScoreGlorius", 0)) {
                     PlayerPrefs.SetInt("HighScoreGlorius", scoreGlorius);
                 }
                 PlayerPrefs.SetInt("ScoreGloriusTemp", scoreGlorius);
@@ -79,6 +79,8 @@ public class PlayerScore : MonoBehaviour
                 Debug.Log("Error");
                 break;
         }
+
+        PlayerPrefs.Save();
     }
 
     public void ResetMultiplier() {
@@ -87,5 +89,7 @@ public class PlayerScore : MonoBehaviour
     private void ResetMultiplierHelper() {
         multiplier = 1;
         PlayerPrefs.SetInt("ScoreMultiplier", multiplier);
+
+        PlayerPrefs.Save();
     }
 }
