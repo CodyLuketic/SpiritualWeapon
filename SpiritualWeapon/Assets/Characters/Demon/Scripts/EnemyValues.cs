@@ -43,10 +43,11 @@ public class EnemyValues : MonoBehaviour
 
     private void OnParticleCollision(GameObject other) {
         if(canBeDamaged && other.CompareTag("PlayerParticleObject")) {
-            Debug.Log("Hit by particles");
-            DamageCheck(playerDamage);
-
             canBeDamaged = false;
+
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScore>().IncrementScore();
+
+            DamageCheck(playerDamage);
         }
     }
 
@@ -58,6 +59,7 @@ public class EnemyValues : MonoBehaviour
 
             canDie = false;
         }
+        
         canBeDamaged = true;
     }
     private IEnumerator Die() {
