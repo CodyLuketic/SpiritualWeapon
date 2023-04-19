@@ -69,30 +69,27 @@ public class Settings : MonoBehaviour
         SetMusicVolumeHelper(volume);
     }
     private void SetMusicVolumeHelper(float volume) {
-        Debug.Log(volume);
         musicMixer.SetFloat("volume", volume);
         int volumeInt = (int) volume;
-        musicAmount.SetText((((volumeInt + 80) * 5) / 4) + "%");
+        musicAmount.SetText((((volumeInt + 50) * 8) / 4) + "%");
     }
 
     public void SetVocalsVolume(float volume) {
         SetVocalsVolumeHelper(volume);
     }
     private void SetVocalsVolumeHelper(float volume) {
-        Debug.Log(volume);
         vocalsMixer.SetFloat("volume", volume);
         int volumeInt = (int) volume;
-        vocalsAmount.SetText((((volumeInt + 80) * 5) / 4) + "%");
+        vocalsAmount.SetText((((volumeInt + 50) * 8) / 4) + "%");
     }
 
     public void SetSoundEffectsVolume(float volume) {
         SetSoundEffectsVolumeHelper(volume);
     }
     private void SetSoundEffectsVolumeHelper(float volume) {
-        Debug.Log(volume);
         soundEffectsMixer.SetFloat("volume", volume);
         int volumeInt = (int) volume;
-        soundEffectsAmount.SetText((((volumeInt + 80) * 5) / 4) + "%");
+        soundEffectsAmount.SetText((((volumeInt + 50) * 8) / 4) + "%");
     }
 
     public void SetQuality(int qualityIndex) {

@@ -5,17 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [Header("Objects")]
+    [Header("Starting Values")]
     [SerializeField] private GameObject startTransitionObj = null;
-    [SerializeField] private GameObject mysteryTitleObj = null;
-    [SerializeField] private GameObject endTransitionObj = null;
-
-    [Header("Basic Values")]
+    private Image startTransition = null;
     [SerializeField] private float increment = 0.1f;
     [SerializeField] private float sceneTick = 0.1f;
 
-    private Image endTransition = null, startTransition = null;
+    [Header("Ending Values")]
+    [SerializeField] private GameObject endTransitionObj = null;
+    private Image endTransition = null;
+    [SerializeField] private float deincrement = 0.1f;
+    [SerializeField] private float fadeTick = 0.1f;
 
+    [Header("Other Values")]
+    [SerializeField] private GameObject mysteryTitleObj = null;
+    [SerializeField] private AudioSource musicManager = null;
     private string function = null;
 
     private void Start() {
@@ -239,6 +243,10 @@ public class GameManager : MonoBehaviour
 
     public void EndTransition() {
         StartCoroutine(EndTransitionHelper());
+
+        if(musicManager != null) {
+            StartCoroutine(FadeVolume());
+        }
     }
     private IEnumerator EndTransitionHelper() {
         endTransitionObj.SetActive(true);
@@ -256,5 +264,12 @@ public class GameManager : MonoBehaviour
         }
 
         FunctionRunner();
+    }
+
+    private IEnumerator FadeVolume() {
+        while(musicManager.volume > 0) {
+            musicManager.volume -= deincrement;
+            yield return new WaitForSeconds(fadeTick);
+        }
     }
 }

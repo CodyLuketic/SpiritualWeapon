@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SpeachReset : MonoBehaviour
+public class SpeechReset : MonoBehaviour
 {
     private SpeechManager speechManager = null;
 
