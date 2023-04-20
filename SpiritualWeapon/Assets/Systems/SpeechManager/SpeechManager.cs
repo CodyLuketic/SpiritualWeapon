@@ -49,13 +49,15 @@ public class SpeechManager : MonoBehaviour
     [SerializeField] private AudioClip crossEndClip = null;
     [TextArea(minLines: 1, maxLines: 12)] [SerializeField] private string crossEndText;
 
-    private StartAndEndRosaryFill startAndEndRosaryScript = null;
+    private StartRosary startRosaryScript = null;
+    private EndRosary endRosaryScript = null;
     private MysteryRosaryFill mysteryRosaryScript = null;
 
     private AudioClip[] currentClips = null;
     private string[] currentText = null;
 
     private int startingMystery = 0;
+    private int random = 0;
 
     private void Awake() {
         DontDestroyOnLoad(transform.gameObject);
@@ -73,25 +75,31 @@ public class SpeechManager : MonoBehaviour
         StartRosaryHelper();
     }
     private void StartRosaryHelper() {
-        currentClips = new AudioClip[6];
-        currentText = new string[6];
+        currentClips = new AudioClip[8];
+        currentText = new string[8];
 
         currentClips[0] = crossStartClip;
         currentClips[1] = creedClip;
         currentClips[2] = intentionsClip;
-        currentClips[3] = faithClip;
-        currentClips[4] = hopeClip;
-        currentClips[5] = loveClip;
+        random = Random.Range(0, ourFatherClips.Length - 1);
+        currentClips[3] = ourFatherClips[random];
+        currentClips[4] = faithClip;
+        currentClips[5] = hopeClip;
+        currentClips[6] = loveClip;
+        random = Random.Range(0, ourFatherClips.Length - 1);
+        currentClips[7] = gloryBeClips[random];
 
         currentText[0] = crossStartText;
         currentText[1] = creedText;
         currentText[2] = intentionsText;
-        currentText[3] = faithText;
-        currentText[4] = hopeText;
-        currentText[5] = loveText;
+        currentText[3] = ourFatherText;
+        currentText[4] = faithText;
+        currentText[5] = hopeText;
+        currentText[6] = loveText;
+        currentText[7] = ourFatherText;
 
-        startAndEndRosaryScript = GameObject.FindGameObjectWithTag("StartAndEndRosary").GetComponent<StartAndEndRosaryFill>();
-        startAndEndRosaryScript.Fill();
+        startRosaryScript = GameObject.FindGameObjectWithTag("StartRosary").GetComponent<StartRosary>();
+        startRosaryScript.Fill();
     }
 
     public void EndRosary() {
@@ -115,10 +123,8 @@ public class SpeechManager : MonoBehaviour
         currentText[4] = heartText;
         currentText[5] = crossEndText;
 
-        if(GameObject.FindGameObjectWithTag("StartAndEndRosary")) {
-            startAndEndRosaryScript = GameObject.FindGameObjectWithTag("StartAndEndRosary").GetComponent<StartAndEndRosaryFill>();
-            startAndEndRosaryScript.Fill();
-        }
+        endRosaryScript = GameObject.FindGameObjectWithTag("EndRosary").GetComponent<EndRosary>();
+        endRosaryScript.Fill();
     }
 
     public void Mysteries(int starting) {
@@ -164,7 +170,7 @@ public class SpeechManager : MonoBehaviour
     }
 
     private void RandomClip(int currentIndex, AudioClip[] clipsToSet) {
-        int random = 0;
+        random = 0;
         do{
             random = Random.Range(0, clipsToSet.Length - 1);
         } while(clipsToSet[random] == null);

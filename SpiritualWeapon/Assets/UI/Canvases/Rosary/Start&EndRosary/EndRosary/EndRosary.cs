@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class StartAndEndRosaryFill : MonoBehaviour
+public class EndRosary : MonoBehaviour
 {
     [Header("Debug")]
     [SerializeField] private bool skipSpeeches = false;
@@ -13,7 +13,6 @@ public class StartAndEndRosaryFill : MonoBehaviour
     [SerializeField] private MusicManager musicManager = null;
     [SerializeField] private EnemySpawner enemySpawner = null;
     [SerializeField] private float spawnEnemiesDelay = 1f;
-    [SerializeField] private bool endRosary = false;
     private SpeechManager speechManager = null;
 
     [Header("Images")]
@@ -29,24 +28,27 @@ public class StartAndEndRosaryFill : MonoBehaviour
     private float r = 0, g = 0, b = 0, a = 0;
 
     [Header("Fill Speeds")]
-    [SerializeField] private float crossTime = 0.05f;
     [SerializeField] private float lLargeBeadTime = 0.1f;
     [SerializeField] private float lSmallBeadTime = 0.1f;
     [SerializeField] private float mSmallBeadTime = 0.1f;
     [SerializeField] private float rSmallBeadTime = 0.1f;
     [SerializeField] private float rLargeBeadTime = 0.1f;
+    [SerializeField] private float crossTime = 0.1f;
+
     [SerializeField] private float increment = 0.1f;
 
     [Header("Scrolling Text Values")]
     [SerializeField] private TMP_Text textBox = null;
     [SerializeField] private GameObject fadeOut = null;
 
-    [SerializeField] private float crosstextSpeed = 0.05f;
-    [SerializeField] private float lLargeBeadtextSpeed = 0.1f;
-    [SerializeField] private float lSmallBeadtextSpeed = 0.1f;
-    [SerializeField] private float mSmallBeadtextSpeed = 0.1f;
-    [SerializeField] private float rSmallBeadtextSpeed = 0.1f;
-    [SerializeField] private float rLargeBeadtextSpeed = 0.1f;
+    [SerializeField] private float lLargeBeadTextSpeed = 0.1f;
+    [SerializeField] private float lSmallBeadTextSpeed = 0.1f;
+    [SerializeField] private float mSmallBeadTextSpeed = 0.1f;
+    [SerializeField] private float rSmallBeadTextSpeed = 0.1f;
+    [SerializeField] private float rLargeBeadTextSpeed = 0.1f;
+
+    [SerializeField] private float crossTextSpeed = 0.1f;
+
     [SerializeField] private int maxStringLength = 10;
 
     private string currentText = null;
@@ -75,27 +77,7 @@ public class StartAndEndRosaryFill : MonoBehaviour
         currentText = speechManager.StartScrollingText(0);
 
         fadeOut.SetActive(false);
-        textCoroutine = StartCoroutine(Scroll(crosstextSpeed));
-
-        r = cross.color.r;
-        g = cross.color.g;
-        b = cross.color.b;
-        a = cross.color.a;
-
-        while(!changed) {
-            IncrementColor(cross, completedColor);
-            yield return new WaitForSeconds(crossTime);
-        }
-        changed = false;
-
-        Debug.Log("Completed cross");
-
-        speechManager.StartNextPrayer(1);
-        currentText = speechManager.StartScrollingText(1);
-
-        StopCoroutine(textCoroutine);
-        fadeOut.SetActive(false);
-        textCoroutine = StartCoroutine(Scroll(lLargeBeadtextSpeed));
+        textCoroutine = StartCoroutine(Scroll(lLargeBeadTextSpeed));
 
         r = lLargeBead.color.r;
         g = lLargeBead.color.g;
@@ -108,14 +90,14 @@ public class StartAndEndRosaryFill : MonoBehaviour
         }
         changed = false;
 
-        Debug.Log("Completed lLargeBead");
+        Debug.Log("Completed cross");
 
-        speechManager.StartNextPrayer(2);
-        currentText = speechManager.StartScrollingText(2);
+        speechManager.StartNextPrayer(1);
+        currentText = speechManager.StartScrollingText(1);
 
         StopCoroutine(textCoroutine);
         fadeOut.SetActive(false);
-        textCoroutine = StartCoroutine(Scroll(lSmallBeadtextSpeed));
+        textCoroutine = StartCoroutine(Scroll(lSmallBeadTextSpeed));
 
         r = lSmallBead.color.r;
         g = lSmallBead.color.g;
@@ -128,14 +110,14 @@ public class StartAndEndRosaryFill : MonoBehaviour
         }
         changed = false;
 
-        Debug.Log("Completed lSmallBead");
+        Debug.Log("Completed lLargeBead");
 
-        speechManager.StartNextPrayer(3);
-        currentText = speechManager.StartScrollingText(3);
+        speechManager.StartNextPrayer(2);
+        currentText = speechManager.StartScrollingText(2);
 
         StopCoroutine(textCoroutine);
         fadeOut.SetActive(false);
-        textCoroutine = StartCoroutine(Scroll(mSmallBeadtextSpeed));
+        textCoroutine = StartCoroutine(Scroll(mSmallBeadTextSpeed));
 
         r = mSmallBead.color.r;
         g = mSmallBead.color.g;
@@ -148,14 +130,14 @@ public class StartAndEndRosaryFill : MonoBehaviour
         }
         changed = false;
 
-        Debug.Log("Completed mSmallBead");
+        Debug.Log("Completed lSmallBead");
 
-        speechManager.StartNextPrayer(4);
-        currentText = speechManager.StartScrollingText(4);
+        speechManager.StartNextPrayer(3);
+        currentText = speechManager.StartScrollingText(3);
 
         StopCoroutine(textCoroutine);
         fadeOut.SetActive(false);
-        textCoroutine = StartCoroutine(Scroll(rSmallBeadtextSpeed));
+        textCoroutine = StartCoroutine(Scroll(rSmallBeadTextSpeed));
 
         r = rSmallBead.color.r;
         g = rSmallBead.color.g;
@@ -168,21 +150,19 @@ public class StartAndEndRosaryFill : MonoBehaviour
         }
         changed = false;
 
-        Debug.Log("Completed rSmallBead");
+        Debug.Log("Completed mSmallBead");
 
-        speechManager.StartNextPrayer(5);
-        currentText = speechManager.StartScrollingText(5);
+        speechManager.StartNextPrayer(4);
+        currentText = speechManager.StartScrollingText(4);
 
         StopCoroutine(textCoroutine);
         fadeOut.SetActive(false);
-        textCoroutine = StartCoroutine(Scroll(rLargeBeadtextSpeed));
+        textCoroutine = StartCoroutine(Scroll(rLargeBeadTextSpeed));
 
         r = rLargeBead.color.r;
         g = rLargeBead.color.g;
         b = rLargeBead.color.b;
         a = rLargeBead.color.a;
-
-        musicManager.AudioFadeOut();
 
         while(!changed) {
             IncrementColor(rLargeBead, completedColor);
@@ -190,13 +170,27 @@ public class StartAndEndRosaryFill : MonoBehaviour
         }
         changed = false;
 
-        Debug.Log("Completed rLargeBead");
+        speechManager.StartNextPrayer(5);
+        currentText = speechManager.StartScrollingText(5);
 
-        if(!endRosary) {
-            CheckNextScene();
-        } else {
-            gameManager.ToMainMenu();
+        StopCoroutine(textCoroutine);
+        fadeOut.SetActive(false);
+        textCoroutine = StartCoroutine(Scroll(crossTextSpeed));
+
+        r = cross.color.r;
+        g = cross.color.g;
+        b = cross.color.b;
+        a = cross.color.a;
+
+        musicManager.AudioFadeOut();
+
+        while(!changed) {
+            IncrementColor(cross, completedColor);
+            yield return new WaitForSeconds(crossTime);
         }
+        changed = false;
+
+        gameManager.ToMainMenu();
     }
 
     private IEnumerator SkipFill() {
@@ -204,11 +198,7 @@ public class StartAndEndRosaryFill : MonoBehaviour
 
         yield return new WaitForSeconds(0.1f);
 
-        if(!endRosary) {
-            CheckNextScene();
-        } else {
-            gameManager.ToMainMenu();
-        }
+        gameManager.ToMainMenu();
     }
 
     private void CheckNextScene() {
