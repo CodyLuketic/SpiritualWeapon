@@ -238,18 +238,18 @@ MonoBehaviour:
   animator: {fileID: 5523028584015468061}
   chargeParticles: {fileID: 8333824460061431022}
   shotCharge: 0
-  chargeParticleAmount: 100
-  maxAmount: 10000
-  chargeParticleSize: 1
-  maxSize: 10
-  cooldown: 2
+  chargeParticleAmount: 0
+  maxAmount: 300
+  chargeParticleSize: 0.01
+  maxSize: 2.5
+  cooldown: 1.5
   shotDist: 1
   speedDivider: 90
   shotspeed: 1
   maxSpeed: 10
   angleDivider: 30
   shotAngle: 50
-  minAngle: 1
+  minAngle: 10
 --- !u!114 &6788576926718811287
 MonoBehaviour:
   m_ObjectHideFlags: 0

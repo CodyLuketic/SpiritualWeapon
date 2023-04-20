@@ -265,7 +265,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &283605835
 Transform:
   m_ObjectHideFlags: 0
@@ -318,31 +318,6 @@ PrefabInstance:
       propertyPath: pooler
       value: 
       objectReference: {fileID: 704693214}
-    - target: {fileID: 2312392799537697236, guid: 04816d281f030fb4493a4dc4bde39a47,
-        type: 3}
-      propertyPath: maxSize
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2312392799537697236, guid: 04816d281f030fb4493a4dc4bde39a47,
-        type: 3}
-      propertyPath: minAngle
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2312392799537697236, guid: 04816d281f030fb4493a4dc4bde39a47,
-        type: 3}
-      propertyPath: maxAmount
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 2312392799537697236, guid: 04816d281f030fb4493a4dc4bde39a47,
-        type: 3}
-      propertyPath: chargeParticleSize
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 2312392799537697236, guid: 04816d281f030fb4493a4dc4bde39a47,
-        type: 3}
-      propertyPath: chargeParticleAmount
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2312392799541932442, guid: 04816d281f030fb4493a4dc4bde39a47,
         type: 3}
       propertyPath: m_Name
