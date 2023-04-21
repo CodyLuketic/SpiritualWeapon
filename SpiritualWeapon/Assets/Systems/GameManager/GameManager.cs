@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     [Header("Ending Values")]
     [SerializeField] private GameObject endTransitionObj = null;
     private Image endTransition = null;
+    [SerializeField] private AudioClip transitionClip = null;
+    private AudioSource audioSource = null;
     [SerializeField] private float deincrement = 0.1f;
     [SerializeField] private float fadeTick = 0.1f;
 
@@ -25,6 +27,8 @@ public class GameManager : MonoBehaviour
     private void Start() {
         startTransition = startTransitionObj.GetComponent<Image>();
         endTransition = endTransitionObj.GetComponent<Image>();
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = transitionClip;
 
         CheckStartTransition();
     }
@@ -249,6 +253,8 @@ public class GameManager : MonoBehaviour
         }
     }
     private IEnumerator EndTransitionHelper() {
+        audioSource.Play();
+
         endTransitionObj.SetActive(true);
 
         endTransition = endTransitionObj.GetComponent<Image>();
@@ -267,8 +273,9 @@ public class GameManager : MonoBehaviour
     }
 
     private IEnumerator FadeVolume() {
-        while(musicManager.volume > 0) {
+        while(musicManager.volume > 0 || audioSource.volume > 0) {
             musicManager.volume -= deincrement;
+            audioSource.volume -= deincrement;
             yield return new WaitForSeconds(fadeTick);
         }
     }

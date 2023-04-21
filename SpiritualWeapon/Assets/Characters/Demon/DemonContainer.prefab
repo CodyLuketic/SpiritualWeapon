@@ -1465,6 +1465,10 @@ MonoBehaviour:
   holyDamage: 1
   particleHeight: 1
   resetDelay: 1
+  deathClips:
+  - {fileID: 8300000, guid: fc59fdec6c337aa49a8d8b1427058416, type: 3}
+  - {fileID: 8300000, guid: f34d6dd7550a78946a9fb79212a530c3, type: 3}
+  - {fileID: 8300000, guid: e63c31de0a75d7a40bb6671ed5e8b2f1, type: 3}
 --- !u!114 &2539291015317168103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1490,6 +1494,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resetDelay: 0.5
+  attackClips:
+  - {fileID: 8300000, guid: ea4a934355f31d74f88a962edbebdcce, type: 3}
+  - {fileID: 8300000, guid: 36dd4ba782ff4d643bb2c274a249cb69, type: 3}
+  - {fileID: 8300000, guid: 073cc5a800950c3489b898dd86b89c5f, type: 3}
+  - {fileID: 8300000, guid: c9a885ad810e84a4b91309ca7b0e1606, type: 3}
+  - {fileID: 8300000, guid: dc95552bd0d90ca458e73be07635aee0, type: 3}
+  - {fileID: 8300000, guid: 490dd16312a6fbe428722565f0343f06, type: 3}
 --- !u!1 &2568002178294761540
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,11 @@ public class EnemyValues : MonoBehaviour
     [SerializeField] private BoxCollider boxCollider1 = null;
     [SerializeField] private BoxCollider boxCollider2 = null;
 
+    private Pooler pooler = null;
+    private EnemySpawner enemySpawner = null;
+    private EnemySideSpawner enemySideSpawner = null;
+    private GameObject particleInstance = null;
+
     [Header("Faces")]
     [SerializeField] private Material[] faces;
     [SerializeField] private SkinnedMeshRenderer faceRenderer = null;
@@ -17,24 +22,24 @@ public class EnemyValues : MonoBehaviour
     [Header("Enemy Values")]
     [SerializeField] private float health = 1f;
     private float tempHealth = 0;
+    private bool canBeDamaged = true;
+    private bool canDie = true;
     [SerializeField] private float speed = 1f;
     [SerializeField] private float playerDamage = 1f;
     [SerializeField] private float holyDamage = 1f;
     [SerializeField] private float particleHeight = 1f;
     [SerializeField] private float resetDelay = 1f;
 
-    private Pooler pooler = null;
-    private EnemySpawner enemySpawner = null;
-    private EnemySideSpawner enemySideSpawner = null;
-    private GameObject particleInstance = null;
-
-    private bool canBeDamaged = true;
-    private bool canDie = true;
+    [Header("Sound")]
+    [SerializeField] private AudioClip[] deathClips = null;
+    private AudioSource audioSource = null;
+    private int random = 0;
 
     private void Start() {
         pooler = GameObject.FindGameObjectWithTag("Pooler").GetComponent<Pooler>();
         enemySpawner = GameObject.FindGameObjectWithTag("Pooler").GetComponent<EnemySpawner>();
         enemySideSpawner = GameObject.FindGameObjectWithTag("Pooler").GetComponent<EnemySideSpawner>();
+        audioSource = GetComponent<AudioSource>();
 
         tempHealth = health;
 
@@ -81,6 +86,10 @@ public class EnemyValues : MonoBehaviour
         HitSetupHelper(anim, face);
     }
     private void HitSetupHelper(string anim, int face) {
+        random = Random.Range(0, deathClips.Length - 1);
+        audioSource.clip = deathClips[random];
+        audioSource.Play();
+
         agent.enabled = false;
 
         animator.SetTrigger(anim);

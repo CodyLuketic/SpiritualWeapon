@@ -318,6 +318,36 @@ PrefabInstance:
       propertyPath: pooler
       value: 
       objectReference: {fileID: 704693214}
+    - target: {fileID: 2312392799537697236, guid: 04816d281f030fb4493a4dc4bde39a47,
+        type: 3}
+      propertyPath: attackClips.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312392799537697236, guid: 04816d281f030fb4493a4dc4bde39a47,
+        type: 3}
+      propertyPath: attackClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 91387e1226ce6b646abcc871d4fccfe4, type: 3}
+    - target: {fileID: 2312392799537697236, guid: 04816d281f030fb4493a4dc4bde39a47,
+        type: 3}
+      propertyPath: attackClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4cffd91dc4a4abf47acafa0c595e038f, type: 3}
+    - target: {fileID: 2312392799537697236, guid: 04816d281f030fb4493a4dc4bde39a47,
+        type: 3}
+      propertyPath: attackClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3368944871936a446b5ea89e15899319, type: 3}
+    - target: {fileID: 2312392799537697236, guid: 04816d281f030fb4493a4dc4bde39a47,
+        type: 3}
+      propertyPath: attackClips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 407ad3f999789dc4d890b0fac3262ca3, type: 3}
+    - target: {fileID: 2312392799537697236, guid: 04816d281f030fb4493a4dc4bde39a47,
+        type: 3}
+      propertyPath: attackClips.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0c687fff2951c9e44a05d7525f3b2b1e, type: 3}
     - target: {fileID: 2312392799541932442, guid: 04816d281f030fb4493a4dc4bde39a47,
         type: 3}
       propertyPath: m_Name
@@ -378,6 +408,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4353379083960182801, guid: 04816d281f030fb4493a4dc4bde39a47,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 9c8bf2c789a899942a02a9bad5fb2f62,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04816d281f030fb4493a4dc4bde39a47, type: 3}
 --- !u!1001 &553426549
@@ -1151,6 +1187,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 44229155}
     m_Modifications:
+    - target: {fileID: 5840058888401574459, guid: a7036269c4eee534d8c09c29ef47c614,
+        type: 3}
+      propertyPath: musicManager
+      value: 
+      objectReference: {fileID: 720254025645244203}
     - target: {fileID: 5840058888401574459, guid: a7036269c4eee534d8c09c29ef47c614,
         type: 3}
       propertyPath: rosaryCanvas
@@ -2050,6 +2091,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 896c645511a5b1741a29658b50412278, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &720254025645244203 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 720254025262344564, guid: 793b80409b61c844595f0f814739a2be,
+    type: 3}
+  m_PrefabInstance: {fileID: 720254025645244201}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2942594967439910343
 PrefabInstance:
   m_ObjectHideFlags: 0

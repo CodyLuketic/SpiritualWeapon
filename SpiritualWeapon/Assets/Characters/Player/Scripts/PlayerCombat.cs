@@ -6,6 +6,9 @@ public class PlayerCombat : MonoBehaviour
     [Header("Components")]
     [SerializeField] private Pooler pooler = null;
     [SerializeField] private Animator animator = null;
+    private GameObject particleInstance = null;
+    private ParticleSystem.MainModule mainParticles;
+    private ParticleSystem.ShapeModule shapeParticles;
 
     [Header("Charge Values")]
     [SerializeField] private GameObject chargeParticles = null;
@@ -20,6 +23,8 @@ public class PlayerCombat : MonoBehaviour
     [Header("Main Attack Values")]
     [SerializeField] private float cooldown = 1f;
     [SerializeField] private float shotDist = 1f;
+    private bool canAttack = true;
+
 
     [Header("Speed Values")]
     [SerializeField] private float speedDivider = 1f;
@@ -33,14 +38,14 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private float minAngle = 1f;
     private float angle = 0;
 
-    private GameObject particleInstance = null;
-    private ParticleSystem.MainModule mainParticles;
-    private ParticleSystem.ShapeModule shapeParticles;
-
-    private bool canAttack = true;
+    [Header("Sound")]
+    [SerializeField] private AudioClip[] attackClips = null;
+    private AudioSource audioSource = null;
+    private int random = 0;
 
     private void Start() {
         amountTemp = chargeParticleAmount;
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update() {
@@ -70,6 +75,10 @@ public class PlayerCombat : MonoBehaviour
     }
 
     private IEnumerator Attack() {
+        random = Random.Range(0, attackClips.Length - 1);
+        audioSource.clip = attackClips[random];
+        audioSource.Play();
+
         canAttack = false;
         animator.SetBool("charging", false);
 
