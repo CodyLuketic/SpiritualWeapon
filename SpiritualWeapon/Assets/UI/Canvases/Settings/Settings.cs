@@ -71,7 +71,8 @@ public class Settings : MonoBehaviour
     private void SetMusicVolumeHelper(float volume) {
         musicMixer.SetFloat("volume", volume);
         int volumeInt = (int) volume;
-        musicAmount.SetText((((volumeInt + 50) * 8) / 4) + "%");
+        int displayNum = Mathf.Clamp((volumeInt + 50) * 3 / 2, 0, 100);
+        musicAmount.SetText(displayNum + "%");
     }
 
     public void SetVocalsVolume(float volume) {
@@ -80,7 +81,8 @@ public class Settings : MonoBehaviour
     private void SetVocalsVolumeHelper(float volume) {
         vocalsMixer.SetFloat("volume", volume);
         int volumeInt = (int) volume;
-        vocalsAmount.SetText((((volumeInt + 50) * 8) / 4) + "%");
+        int displayNum = Mathf.Clamp((volumeInt + 50) * 3 / 2, 0, 100);
+        vocalsAmount.SetText(displayNum + "%");
     }
 
     public void SetSoundEffectsVolume(float volume) {
@@ -89,7 +91,8 @@ public class Settings : MonoBehaviour
     private void SetSoundEffectsVolumeHelper(float volume) {
         soundEffectsMixer.SetFloat("volume", volume);
         int volumeInt = (int) volume;
-        soundEffectsAmount.SetText((((volumeInt + 50) * 8) / 4) + "%");
+        int displayNum = Mathf.Clamp((volumeInt + 50) * 3 / 2, 0, 100);
+        soundEffectsAmount.SetText(displayNum + "%");
     }
 
     public void SetQuality(int qualityIndex) {

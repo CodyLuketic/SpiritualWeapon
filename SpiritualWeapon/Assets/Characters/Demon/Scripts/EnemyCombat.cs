@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class EnemyCombat : MonoBehaviour
 {
@@ -10,12 +11,13 @@ public class EnemyCombat : MonoBehaviour
 
     [Header("Sound")]
     [SerializeField] private AudioClip[] attackClips = null;
-    private AudioSource audioSource = null;
+    [SerializeField] private AudioMixer mixer = null;
+    private float volume = 0, diffOutputRange = 0, diffInputRange = 0, convFactor = 0;
+    private bool volumeReceived = false;
     private int random = 0;
 
     private void Start() {
         valuesScript = GetComponent<EnemyValues>();
-        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -31,8 +33,7 @@ public class EnemyCombat : MonoBehaviour
 
     private IEnumerator Attack() {
         random = Random.Range(0, attackClips.Length - 1);
-        audioSource.clip = attackClips[random];
-        audioSource.Play();
+        AudioSource.PlayClipAtPoint(attackClips[random], transform.position, GetMixerLevel());
 
         valuesScript.HitSetup("Attack", 1);
 
@@ -40,5 +41,23 @@ public class EnemyCombat : MonoBehaviour
 
         canAttack = true;
         valuesScript.HitReset();
+    }
+
+    private float GetMixerLevel(){
+        volumeReceived = mixer.GetFloat("volume", out volume);
+        
+        if(volumeReceived){
+            volume = RerangeNumber(-50, 20, 0, 2, volume);
+            return volume;
+        } else{
+            return 0;
+        }
+    }
+
+    private float RerangeNumber(float inMin, float inMax, float outMin, float outMax, float convertedValue) {
+        diffOutputRange = Mathf.Abs((outMax - outMin));
+        diffInputRange = Mathf.Abs((inMax - inMin));
+        convFactor = (diffOutputRange / diffInputRange);
+        return (outMin + (convFactor * (convertedValue - inMin)));
     }
 }

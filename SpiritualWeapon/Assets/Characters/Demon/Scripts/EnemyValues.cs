@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Audio;
 
 public class EnemyValues : MonoBehaviour
 {
@@ -32,14 +33,15 @@ public class EnemyValues : MonoBehaviour
 
     [Header("Sound")]
     [SerializeField] private AudioClip[] deathClips = null;
-    private AudioSource audioSource = null;
+    [SerializeField] private AudioMixer mixer = null;
+    private float volume = 0, diffOutputRange = 0, diffInputRange = 0, convFactor = 0;
+    private bool volumeReceived = false;
     private int random = 0;
 
     private void Start() {
         pooler = GameObject.FindGameObjectWithTag("Pooler").GetComponent<Pooler>();
         enemySpawner = GameObject.FindGameObjectWithTag("Pooler").GetComponent<EnemySpawner>();
         enemySideSpawner = GameObject.FindGameObjectWithTag("Pooler").GetComponent<EnemySideSpawner>();
-        audioSource = GetComponent<AudioSource>();
 
         tempHealth = health;
 
@@ -87,8 +89,7 @@ public class EnemyValues : MonoBehaviour
     }
     private void HitSetupHelper(string anim, int face) {
         random = Random.Range(0, deathClips.Length - 1);
-        audioSource.clip = deathClips[random];
-        audioSource.Play();
+        AudioSource.PlayClipAtPoint(deathClips[random], transform.position, GetMixerLevel());
 
         agent.enabled = false;
 
@@ -143,5 +144,23 @@ public class EnemyValues : MonoBehaviour
         canDie = true;
 
         gameObject.SetActive(true);
+    }
+
+    private float GetMixerLevel(){
+        volumeReceived = mixer.GetFloat("volume", out volume);
+        
+        if(volumeReceived){
+            volume = RerangeNumber(-50, 20, 0, 2, volume);
+            return volume;
+        } else{
+            return 0;
+        }
+    }
+
+    private float RerangeNumber(float inMin, float inMax, float outMin, float outMax, float convertedValue) {
+        diffOutputRange = Mathf.Abs((outMax - outMin));
+        diffInputRange = Mathf.Abs((inMax - inMin));
+        convFactor = (diffOutputRange / diffInputRange);
+        return (outMin + (convFactor * (convertedValue - inMin)));
     }
 }
