@@ -56,8 +56,6 @@ public class PlayerCombat : MonoBehaviour
 
     private void Charge() {
         if(canAttack && Input.GetMouseButton(0)) {
-            animator.SetBool("charging", true);
-
             chargeParticles.SetActive(true);
 
             mainParticles = chargeParticles.GetComponent<ParticleSystem>().main;
@@ -71,8 +69,17 @@ public class PlayerCombat : MonoBehaviour
                 chargeParticleSize += 0.001f;
             }
             shotCharge++;
-        } else if (canAttack & shotCharge > 0) {
+        }
+
+        if(shotCharge > 100) {
+            animator.SetBool("charging", true);
+        }
+
+        if (canAttack & Input.GetMouseButtonUp(0) & shotCharge > 100) {
             StartCoroutine(Attack());
+        } else if(canAttack & Input.GetMouseButtonUp(0) & shotCharge < 100) {
+            StartCoroutine(QuickAttack());
+            shotCharge = 0;
         }
     }
 
@@ -108,6 +115,51 @@ public class PlayerCombat : MonoBehaviour
 
         particleInstance.transform.position = transform.position + transform.forward * shotDist;
         particleInstance.transform.rotation = transform.rotation;
+
+        particleInstance.SetActive(true);
+
+        particleInstance.GetComponent<ParticleSystem>().Play();
+
+        yield return new WaitForSeconds(cooldown);
+        
+        shotCharge = 0;
+        canAttack = true;
+    }
+
+    private IEnumerator QuickAttack() {
+        random = Random.Range(0, attackClips.Length - 1);
+        AudioSource.PlayClipAtPoint(attackClips[random], transform.position, GetMixerLevel());
+
+        canAttack = false;
+        animator.SetBool("charging", false);
+
+        animator.SetTrigger("shoot");
+
+        chargeParticles.SetActive(false);
+        chargeParticleAmount = amountTemp;
+        chargeParticleSize = sizeTemp;
+
+        particleInstance = pooler.SelectFromPool(1, false);
+
+        speed = shotspeed + shotCharge / speedDivider;
+        if(speed > maxSpeed) {
+            speed = maxSpeed;
+        }
+
+        angle = shotAngle - shotCharge / angleDivider;
+        if(angle < minAngle) {
+            angle = minAngle;
+        }
+
+        mainParticles = particleInstance.GetComponent<ParticleSystem>().main;
+        mainParticles.startSpeed = speed;
+        shapeParticles = particleInstance.GetComponent<ParticleSystem>().shape;
+        shapeParticles.angle = angle;
+
+        particleInstance.transform.position = transform.position + transform.forward * shotDist;
+        particleInstance.transform.rotation = transform.rotation;
+
+        particleInstance.SetActive(true);
 
         particleInstance.GetComponent<ParticleSystem>().Play();
 

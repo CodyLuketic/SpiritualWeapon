@@ -102,6 +102,8 @@ public class EnemyValues : MonoBehaviour
         particleInstance = pooler.SelectFromPool(2, false);
 
         particleInstance.transform.position = transform.position + (Vector3.up * particleHeight);
+
+        particleInstance.SetActive(true);
     }
 
     public void HitReset() {
