@@ -70,7 +70,7 @@ public class Pooler : MonoBehaviour
         }
         
         instance = poolDictionary[indexStr].Dequeue();
-        instance.SetActive(true);
+        //instance.SetActive(true);
         
         poolDictionary[indexStr].Enqueue(instance);
 

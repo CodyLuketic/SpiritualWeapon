@@ -7,12 +7,10 @@ public class EnemySideSpawner : MonoBehaviour
     private GameObject enemyInstance = null;
 
     [Header("Spawning Values")]
-    [SerializeField] private float minRadius = 5f;
-    [SerializeField] private float maxRadius = 10f;
-    [SerializeField] private float length = 1f;
+    [SerializeField] private Transform spawnPointLeft = null;
+    [SerializeField] private Transform spawnPointRight = null;
     [SerializeField] private float spawnTime = 1f;
-    private float ranX = 0;
-    private float ranZ = 0;
+    private int random = 0;
 
     private Vector3 spawnPos;
     private UnityEngine.AI.NavMeshHit closestHit;
@@ -22,6 +20,10 @@ public class EnemySideSpawner : MonoBehaviour
     private void Start() {
         pooler = GetComponent<Pooler>();
         spawnCoroutine = StartCoroutine(ContinuouslySpawnEnemies());
+
+        for(int i = 0; i < 25; i++) {
+            enemyInstance = pooler.SelectFromPool(0, false);
+        }
     }
 
     private IEnumerator ContinuouslySpawnEnemies() {
@@ -35,9 +37,9 @@ public class EnemySideSpawner : MonoBehaviour
     private void SpawnEnemy() {
         enemyInstance = pooler.SelectFromPool(0, false);
 
-        enemyInstance.GetComponent<EnemyValues>().Reset();
-
         RandomPositionHelper(enemyInstance);
+
+        enemyInstance.GetComponent<EnemyValues>().Reset();
     }
 
     public void EndSpawnCoroutine() {
@@ -51,23 +53,21 @@ public class EnemySideSpawner : MonoBehaviour
         RandomPositionHelper(instance);
     }
     private void RandomPositionHelper(GameObject instance) {
-        ranX = Random.Range(-maxRadius, maxRadius);
-        ranZ = Random.Range(-length, length);
-        if(ranX < minRadius && ranX > -minRadius) {
+        random = Random.Range(0, 2);
 
-            if(Mathf.Sign(ranX) == 1) {
-                ranX += minRadius;
-            } else {
-                ranX -= minRadius;
-            }
+        if(random == 0) {
+            spawnPos = spawnPointLeft.position;
+        } else {
+            spawnPos = spawnPointRight.position;
         }
 
-        spawnPos = GameObject.FindGameObjectWithTag("Player").transform.position;
-        spawnPos += new Vector3(ranX, 0, length);
+        instance.transform.position = spawnPos;
 
-        if(UnityEngine.AI.NavMesh.SamplePosition(spawnPos, out closestHit, 500, 1 )) {
+        /*
+        if(UnityEngine.AI.NavMesh.SamplePosition(spawnPos, out closestHit, 10, 1 )) {   
             instance.transform.position = closestHit.position;
         }
+        */
         instance.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
     }
 }
