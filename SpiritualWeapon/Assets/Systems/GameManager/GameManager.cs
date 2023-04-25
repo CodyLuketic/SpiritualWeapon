@@ -141,6 +141,15 @@ public class GameManager : MonoBehaviour
     private void ToEndRosaryHelper() {
         SceneManager.LoadScene(25);
     }
+
+    public void ToCredits() {
+        function = "Credits";
+
+        EndTransition();
+    }
+    private void ToCreditsHelper() {
+        SceneManager.LoadScene(26);
+    }
     
     public void ToTestScene() {
         function = "Test";
@@ -148,7 +157,7 @@ public class GameManager : MonoBehaviour
         EndTransition();
     }
     private void ToTestSceneHelper() {
-        SceneManager.LoadScene(26);
+        SceneManager.LoadScene(27);
     }
 
     public void Quit() {
@@ -192,6 +201,9 @@ public class GameManager : MonoBehaviour
             case "Glorius":
                 ToGloriusMysteriesHelper();
                 break;
+            case "Credits":
+                ToCreditsHelper();
+                break;
             case "End":
                 ToEndRosaryHelper();
                 break;
@@ -216,6 +228,7 @@ public class GameManager : MonoBehaviour
             case 3:
             case 4:
             case 25:
+            case 26:
                 StartTransition();
                 break;
             default:

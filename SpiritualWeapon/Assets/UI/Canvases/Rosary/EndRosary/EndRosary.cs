@@ -190,7 +190,7 @@ public class EndRosary : MonoBehaviour
         }
         changed = false;
 
-        gameManager.ToMainMenu();
+        gameManager.ToCredits();
     }
 
     private IEnumerator SkipFill() {
