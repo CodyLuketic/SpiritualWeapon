@@ -136,11 +136,11 @@ public class Settings : MonoBehaviour
     }
 
     private void UpdateScores() {
-        scoreAll.text = "All Mysteries Highest Score: " + PlayerPrefs.GetInt("HighScoreAll");
-        scoreJoyful.text = "Joyful Mysteries Highest Score: " + PlayerPrefs.GetInt("HighScoreJoyful");
-        scoreLuminous.text = "Luminous Mysteries Highest Score: " + PlayerPrefs.GetInt("HighScoreLuminous");
-        scoreSorrowful.text = "Sorrowful Mysteries Highest Score: " + PlayerPrefs.GetInt("HighScoreSorrowful");
-        scoreGlorius.text = "Glorius Mysteries Highest Score: " + PlayerPrefs.GetInt("HighScoreGlorius");
+        scoreAll.text = " All Mysteries Highest Score: " + PlayerPrefs.GetInt("HighScoreAll");
+        scoreJoyful.text = " Joyful Mysteries Highest Score: " + PlayerPrefs.GetInt("HighScoreJoyful");
+        scoreLuminous.text = " Luminous Mysteries Highest Score: " + PlayerPrefs.GetInt("HighScoreLuminous");
+        scoreSorrowful.text = " Sorrowful Mysteries Highest Score: " + PlayerPrefs.GetInt("HighScoreSorrowful");
+        scoreGlorius.text = " Glorius Mysteries Highest Score: " + PlayerPrefs.GetInt("HighScoreGlorius");
     }
     private void UpdateSettings() {
         SetReolution(currentResolutionIndex);
