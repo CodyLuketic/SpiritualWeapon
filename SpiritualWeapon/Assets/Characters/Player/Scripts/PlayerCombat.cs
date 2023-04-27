@@ -185,9 +185,6 @@ public class PlayerCombat : MonoBehaviour
 
     private float GetMixerLevel() {
         volumeReceived = mixer.GetFloat("volume", out volume);
-
-        Debug.Log(volumeReceived);
-        Debug.Log(volume);
         
         if(volumeReceived){
             volume = RerangeNumber(-50, 0, 0, 2, volume);
