@@ -46,12 +46,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTransitionObj: {fileID: 0}
-  increment: 0.005
-  sceneTick: 0.01
+  visualIncrement: 0.001
+  sceneTick: 0.0025
   endTransitionObj: {fileID: 0}
-  transitionClip: {fileID: 8300000, guid: ef640664e35957445a353d8114645c74, type: 3}
-  deincrement: 0.04
-  fadeTick: 0.1
+  musicIncrement: 0.0015
+  transitionIncrement: 0.00075
+  fadeTick: 0.001
   mysteryTitleObj: {fileID: 0}
   musicManager: {fileID: 0}
 --- !u!82 &8880773518490343510
@@ -65,8 +65,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 9c8bf2c789a899942a02a9bad5fb2f62,
     type: 2}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: ef640664e35957445a353d8114645c74, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 using TMPro;
 
 public class Settings : MonoBehaviour
@@ -11,16 +12,22 @@ public class Settings : MonoBehaviour
 
     [Header("Audio")]
     [SerializeField] private AudioMixer musicMixer = null;
-    [SerializeField] private AudioMixer vocalsMixer = null;
-    [SerializeField] private AudioMixer soundEffectsMixer = null; 
-    
     [SerializeField] private TMP_Text musicAmount = null;
+    [SerializeField] private Slider musicSlider = null;
+
+    [SerializeField] private AudioMixer vocalsMixer = null;
     [SerializeField] private TMP_Text vocalsAmount = null;
+    [SerializeField] private Slider vocalsSlider = null;
+
+    [SerializeField] private AudioMixer soundEffectsMixer = null; 
     [SerializeField] private TMP_Text soundEffectsAmount = null;
+    [SerializeField] private Slider soundEffectsSlider = null;
 
     [Header("Resolution")]
     [SerializeField] private TMP_Dropdown resolutionDropdown = null;
     private Resolution[] resolutions;
+    List<string> options = null;
+    private int currentResolutionIndex;
 
     [Header("Scores")]
     [SerializeField] private TMP_Text scoreAll = null;
@@ -31,10 +38,8 @@ public class Settings : MonoBehaviour
 
     private void Start() {
         SetResolutions();
-    }
-
-    private void Update() {
         UpdateScores();
+        UpdateSettings();
     }
 
     private void SetResolutions() {
@@ -42,9 +47,9 @@ public class Settings : MonoBehaviour
 
         resolutionDropdown.ClearOptions();
 
-        List<string> options = new List<string>();
+        options = new List<string>();
 
-        int currentResolutionIndex = 0;
+        currentResolutionIndex = 0;
         for (int i = 0; i < resolutions.Length; i++)
         {
             string option = resolutions[i].width + " x " + resolutions[i].height;
@@ -61,6 +66,7 @@ public class Settings : MonoBehaviour
         resolutionDropdown.RefreshShownValue();
     }
     public void SetReolution(int resolutionIndex) {
+        currentResolutionIndex = resolutionIndex;
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
@@ -135,5 +141,22 @@ public class Settings : MonoBehaviour
         scoreLuminous.text = "Luminous Mysteries Highest Score: " + PlayerPrefs.GetInt("HighScoreLuminous");
         scoreSorrowful.text = "Sorrowful Mysteries Highest Score: " + PlayerPrefs.GetInt("HighScoreSorrowful");
         scoreGlorius.text = "Glorius Mysteries Highest Score: " + PlayerPrefs.GetInt("HighScoreGlorius");
+    }
+    private void UpdateSettings() {
+        SetReolution(currentResolutionIndex);
+
+        SetQuality(QualitySettings.GetQualityLevel());
+
+        musicMixer.GetFloat("volume", out float musicVolume);
+        SetMusicVolumeHelper(musicVolume);
+        musicSlider.value = musicVolume;
+
+        vocalsMixer.GetFloat("volume", out float vocalsVolume);
+        SetVocalsVolumeHelper(vocalsVolume);
+        vocalsSlider.value = vocalsVolume;
+
+        soundEffectsMixer.GetFloat("volume", out float soundEffectsVolume);
+        SetSoundEffectsVolumeHelper(soundEffectsVolume);
+        soundEffectsSlider.value = soundEffectsVolume;
     }
 }
