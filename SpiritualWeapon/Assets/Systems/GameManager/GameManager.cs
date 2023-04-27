@@ -8,15 +8,17 @@ public class GameManager : MonoBehaviour
     [Header("Starting Values")]
     [SerializeField] private GameObject startTransitionObj = null;
     private Image startTransition = null;
-    [SerializeField] private float increment = 0.1f;
+    [SerializeField] private float visualIncrement = 0.1f;
     [SerializeField] private float sceneTick = 0.1f;
 
     [Header("Ending Values")]
     [SerializeField] private GameObject endTransitionObj = null;
     private Image endTransition = null;
-    [SerializeField] private AudioClip transitionClip = null;
+    
+    [Header("Audio")]
+    [SerializeField] private float musicIncrement = 0.1f;
+    [SerializeField] private float transitionIncrement = 0.1f;
     private AudioSource audioSource = null;
-    [SerializeField] private float deincrement = 0.1f;
     [SerializeField] private float fadeTick = 0.1f;
 
     [Header("Other Values")]
@@ -28,7 +30,7 @@ public class GameManager : MonoBehaviour
         startTransition = startTransitionObj.GetComponent<Image>();
         endTransition = endTransitionObj.GetComponent<Image>();
         audioSource = GetComponent<AudioSource>();
-        audioSource.clip = transitionClip;
+        //audioSource.clip = transitionClip;
 
         CheckStartTransition();
     }
@@ -247,7 +249,7 @@ public class GameManager : MonoBehaviour
         float alpha = startTransition.color.a;
 
         while(alpha > 0.001) {
-            alpha -= increment;
+            alpha -= visualIncrement;
             startTransition.color = new Color(r, g, b, alpha);
             yield return new WaitForSeconds(sceneTick);
         }
@@ -277,7 +279,7 @@ public class GameManager : MonoBehaviour
         float alpha = endTransition.color.a;
 
         while(alpha < 0.999) {
-            alpha += increment;
+            alpha += visualIncrement;
             endTransition.color = new Color(r, g, b, alpha);
             yield return new WaitForSeconds(sceneTick);
         }
@@ -287,8 +289,8 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator FadeVolume() {
         while(musicManager.volume > 0 || audioSource.volume > 0) {
-            musicManager.volume -= deincrement;
-            audioSource.volume -= deincrement;
+            musicManager.volume -= musicIncrement;
+            audioSource.volume -= transitionIncrement;
             yield return new WaitForSeconds(fadeTick);
         }
     }
