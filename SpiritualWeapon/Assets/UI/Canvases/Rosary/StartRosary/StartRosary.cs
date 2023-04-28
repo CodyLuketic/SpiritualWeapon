@@ -26,6 +26,7 @@ public class StartRosary : MonoBehaviour
     [Header("Color")]
     [SerializeField] private Color completedColor;
     private float r = 0, g = 0, b = 0, a = 0;
+    bool pass1 = false, pass2 = false, pass3 = false, pass4 = false; 
 
     [Header("Fill Speeds")]
     [SerializeField] private float signOfTheCrossTime = 5f;
@@ -254,7 +255,10 @@ public class StartRosary : MonoBehaviour
     }
 
     private void IncrementColor(Image img, Color col) {
-        bool pass1 = false, pass2 = false, pass3 = false, pass4 = false;
+        pass1 = false;
+        pass2 = false;
+        pass3 = false;
+        pass4 = false;
 
         if(r < col.r - 0.05) {
             r += increment;

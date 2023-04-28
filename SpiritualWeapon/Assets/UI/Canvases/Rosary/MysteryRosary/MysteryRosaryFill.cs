@@ -33,6 +33,7 @@ public class MysteryRosaryFill : MonoBehaviour
     [Header("Color")]
     [SerializeField] private Color completedColor;
     private float r = 0, g = 0, b = 0, a = 0;
+    private bool pass = false, pass1 = false, pass2 = false, pass3 = false, pass4 = false;
 
     [SerializeField] private TMP_Text title = null;
 
@@ -117,8 +118,6 @@ public class MysteryRosaryFill : MonoBehaviour
         }
         changed = false;
 
-        Debug.Log("Completed lLargeBead");
-
         speechManager.StartNextPrayer(2);
         currentText = speechManager.StartScrollingText(2);
 
@@ -136,8 +135,6 @@ public class MysteryRosaryFill : MonoBehaviour
             yield return new WaitForSeconds(smallBeadTime);
         }
         changed = false;
-
-        Debug.Log("Completed smallBead1");
 
         speechManager.StartNextPrayer(3);
         currentText = speechManager.StartScrollingText(3);
@@ -157,8 +154,6 @@ public class MysteryRosaryFill : MonoBehaviour
         }
         changed = false;
 
-        Debug.Log("Completed smallBead2");
-
         speechManager.StartNextPrayer(4);
         currentText = speechManager.StartScrollingText(4);
 
@@ -176,8 +171,6 @@ public class MysteryRosaryFill : MonoBehaviour
             yield return new WaitForSeconds(smallBeadTime);
         }
         changed = false;
-
-        Debug.Log("Completed smallBead3");
 
         speechManager.StartNextPrayer(5);
         currentText = speechManager.StartScrollingText(5);
@@ -197,8 +190,6 @@ public class MysteryRosaryFill : MonoBehaviour
         }
         changed = false;
 
-        Debug.Log("Completed smallBead4");
-
         speechManager.StartNextPrayer(6);
         currentText = speechManager.StartScrollingText(6);
 
@@ -216,8 +207,6 @@ public class MysteryRosaryFill : MonoBehaviour
             yield return new WaitForSeconds(smallBeadTime);
         }
         changed = false;
-
-        Debug.Log("Completed smallBead5");
 
         speechManager.StartNextPrayer(7);
         currentText = speechManager.StartScrollingText(7);
@@ -237,8 +226,6 @@ public class MysteryRosaryFill : MonoBehaviour
         }
         changed = false;
 
-        Debug.Log("Completed smallBead6");
-
         speechManager.StartNextPrayer(8);
         currentText = speechManager.StartScrollingText(8);
 
@@ -256,8 +243,6 @@ public class MysteryRosaryFill : MonoBehaviour
             yield return new WaitForSeconds(smallBeadTime);
         }
         changed = false;
-
-        Debug.Log("Completed smallBead7");
 
         speechManager.StartNextPrayer(9);
         currentText = speechManager.StartScrollingText(9);
@@ -277,8 +262,6 @@ public class MysteryRosaryFill : MonoBehaviour
         }
         changed = false;
 
-        Debug.Log("Completed smallBead8");
-
         speechManager.StartNextPrayer(10);
         currentText = speechManager.StartScrollingText(10);
 
@@ -296,8 +279,6 @@ public class MysteryRosaryFill : MonoBehaviour
             yield return new WaitForSeconds(smallBeadTime);
         }
         changed = false;
-
-        Debug.Log("Completed smallBead9");
 
         speechManager.StartNextPrayer(11);
         currentText = speechManager.StartScrollingText(11);
@@ -317,8 +298,6 @@ public class MysteryRosaryFill : MonoBehaviour
         }
         changed = false;
 
-        Debug.Log("Completed smallBead10");
-
         speechManager.StartNextPrayer(12);
         currentText = speechManager.StartScrollingText(12);
 
@@ -336,8 +315,6 @@ public class MysteryRosaryFill : MonoBehaviour
             yield return new WaitForSeconds(rLargeBeadTime);
         }
         changed = false;
-
-        Debug.Log("Completed rLargeBead");
 
         speechManager.StartNextPrayer(13);
         currentText = speechManager.StartScrollingText(13);
@@ -371,7 +348,10 @@ public class MysteryRosaryFill : MonoBehaviour
     }
 
     private void IncrementColor(Image img, Color col) {
-        bool pass1 = false, pass2 = false, pass3 = false, pass4 = false;
+        pass1 = false;
+        pass2 = false;
+        pass3 = false;
+        pass4 = false;
 
         if(r < col.r - 0.05) {
             r += increment;
@@ -418,7 +398,7 @@ public class MysteryRosaryFill : MonoBehaviour
     }
 
     private void IncrementTitle(TMP_Text text, Color col) {
-        bool pass = false;
+        pass = false;
 
         if(a < col.a - 0.05) {
             a += increment;

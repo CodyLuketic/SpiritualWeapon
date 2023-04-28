@@ -5,6 +5,8 @@ using UnityEngine;
 public class Crosshair : MonoBehaviour
 {
     [SerializeField] private GameObject crosshair = null; 
+    [SerializeField] private float offsetX = 0;
+    [SerializeField] private float offsetY = 0;
 
     private void Start() {
         Cursor.visible = false;
@@ -16,6 +18,6 @@ public class Crosshair : MonoBehaviour
     }
 
     private void AlignCrosshair() {
-        crosshair.transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
+        crosshair.transform.position = new Vector3(Input.mousePosition.x + offsetX, Input.mousePosition.y + offsetY, 0);
     }
 }

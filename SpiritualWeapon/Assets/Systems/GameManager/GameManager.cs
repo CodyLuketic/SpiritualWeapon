@@ -30,7 +30,6 @@ public class GameManager : MonoBehaviour
         startTransition = startTransitionObj.GetComponent<Image>();
         endTransition = endTransitionObj.GetComponent<Image>();
         audioSource = GetComponent<AudioSource>();
-        //audioSource.clip = transitionClip;
 
         CheckStartTransition();
     }
@@ -88,15 +87,24 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(3);
     }
 
-    public void ToStartRosary(int decade = 0) {
+    public void ToIntroduction(int decade = 0) {
         SetPlayerPrefs(decade);
 
+        function = "Introduction";
+
+        EndTransition();
+    }
+    private void ToIntroductionHelper() {
+        SceneManager.LoadScene(4);
+    }
+
+    public void ToStartRosary() {
         function = "Start";
 
         EndTransition();
     }
     private void ToStartRosaryHelper() {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(5);
     }
 
     public void ToJoyfulMysteries() {
@@ -105,7 +113,7 @@ public class GameManager : MonoBehaviour
         EndTransition();
     }
     private void ToJoyfulMysteriesHelper() {
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene(6);
     }
 
     public void ToLuminousMysteries() {
@@ -114,7 +122,7 @@ public class GameManager : MonoBehaviour
         EndTransition();
     }
     private void ToLuminousMysteriesHelper() {
-        SceneManager.LoadScene(10);
+        SceneManager.LoadScene(11);
     }
 
     public void ToSorrowfulMysteries() {
@@ -123,7 +131,7 @@ public class GameManager : MonoBehaviour
         EndTransition();
     }
     private void ToSorrowfulMysteriesHelper() {
-        SceneManager.LoadScene(15);
+        SceneManager.LoadScene(16);
     }
 
     public void ToGloriusMysteries() {
@@ -132,7 +140,7 @@ public class GameManager : MonoBehaviour
         EndTransition();
     }
     private void ToGloriusMysteriesHelper() {
-        SceneManager.LoadScene(20);
+        SceneManager.LoadScene(21);
     }
 
     public void ToEndRosary() {
@@ -141,7 +149,7 @@ public class GameManager : MonoBehaviour
         EndTransition();
     }
     private void ToEndRosaryHelper() {
-        SceneManager.LoadScene(25);
+        SceneManager.LoadScene(26);
     }
 
     public void ToCredits() {
@@ -150,7 +158,7 @@ public class GameManager : MonoBehaviour
         EndTransition();
     }
     private void ToCreditsHelper() {
-        SceneManager.LoadScene(26);
+        SceneManager.LoadScene(27);
     }
     
     public void ToTestScene() {
@@ -159,7 +167,7 @@ public class GameManager : MonoBehaviour
         EndTransition();
     }
     private void ToTestSceneHelper() {
-        SceneManager.LoadScene(27);
+        SceneManager.LoadScene(28);
     }
 
     public void Quit() {
@@ -187,6 +195,9 @@ public class GameManager : MonoBehaviour
                 break;
             case "Settings":
                 ToSettingsHelper();
+                break;
+            case "Introduction":
+                ToIntroductionHelper();
                 break;
             case "Start":
                 ToStartRosaryHelper();
@@ -229,8 +240,9 @@ public class GameManager : MonoBehaviour
             case 2:
             case 3:
             case 4:
-            case 25:
+            case 5:
             case 26:
+            case 27:
                 StartTransition();
                 break;
             default:
