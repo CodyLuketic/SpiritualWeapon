@@ -8,6 +8,7 @@ public class Settings : MonoBehaviour
 {
     [Header("Canvases")]
     [SerializeField] private GameObject settings = null;
+    [SerializeField] private GameObject controls = null;
     [SerializeField] private GameObject scores = null;
 
     [Header("Audio")]
@@ -158,5 +159,21 @@ public class Settings : MonoBehaviour
         soundEffectsMixer.GetFloat("volume", out float soundEffectsVolume);
         SetSoundEffectsVolumeHelper(soundEffectsVolume);
         soundEffectsSlider.value = soundEffectsVolume;
+    }
+
+    public void ShowControls() {
+        ShowControlsHelper();
+    }
+    private void ShowControlsHelper() {
+        settings.SetActive(false);
+        controls.SetActive(true);
+    }
+
+    public void HideControls(){
+        HideControlsHelper();
+    }
+    private void HideControlsHelper() {
+        controls.SetActive(false);
+        settings.SetActive(true);
     }
 }
