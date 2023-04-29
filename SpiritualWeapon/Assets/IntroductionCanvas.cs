@@ -13,9 +13,9 @@ public class IntroductionCanvas : MonoBehaviour
 
     [SerializeField] private CanvasGroup title = null;
 
-    [SerializeField] private CanvasGroup demon = null;
+    [SerializeField] private CanvasGroup[] slides = null;
 
-    [SerializeField] private CanvasGroup stDominic = null;
+   /* [SerializeField] private CanvasGroup stDominic = null;
 
     [SerializeField] private CanvasGroup jesusNativity = null;
 
@@ -23,7 +23,7 @@ public class IntroductionCanvas : MonoBehaviour
 
     [SerializeField] private CanvasGroup jesusCrux = null;
 
-    [SerializeField] private CanvasGroup jesusAscend = null;
+    [SerializeField] private CanvasGroup jesusAscend = null;*/
 
     private Coroutine runningCoroutine = null;
 
@@ -31,13 +31,14 @@ public class IntroductionCanvas : MonoBehaviour
     [SerializeField] private float increment = 0.001f;
     private float a = 0, aBackground = 1, r = 1, g = 1, b = 1;
     private bool changed = false, backgroundChanged = false, pass1 = false, pass2 = false, pass3 = false, pass4 = false;
+    private int currentSlide=0;
 
     [Header("Fade Times")]
     [SerializeField] private float titleTime = .01f;
 
-    [SerializeField] private float demonTime = .01f;
+    [SerializeField] private float slideTime = .01f;
 
-    [SerializeField] private float stDominicTime = .01f;
+    /*[SerializeField] private float stDominicTime = .01f;
 
     [SerializeField] private float jesusNativityTime = .01f;
 
@@ -45,12 +46,12 @@ public class IntroductionCanvas : MonoBehaviour
 
     [SerializeField] private float jesusCruxTime = .01f;
 
-    [SerializeField] private float jesusAscendTime = .01f;
+    [SerializeField] private float jesusAscendTime = .01f;*/
 
     private void Start() {
-        runningCoroutine = StartCoroutine(RunTitleAndDemon());
+        runningCoroutine = StartCoroutine(RunTitleAndSlideI());
     }
-    private IEnumerator RunTitleAndDemon() {
+    private IEnumerator RunTitleAndSlideI() {
         a = 0;
 
         while(!changed) {
@@ -71,43 +72,46 @@ public class IntroductionCanvas : MonoBehaviour
         a = 0;
 
         while(!changed) {
-            Fade(demon, true);
-            yield return new WaitForSeconds(demonTime);
+            Fade(slides[currentSlide], true);
+            yield return new WaitForSeconds(slideTime);
         }
         changed = false;
 
         runningCoroutine = null;
     }
 
-    public void RunStDominic() {
+    public void RunNextSlide() {
         if(runningCoroutine == null) {
-            runningCoroutine = StartCoroutine(RunStDominicHelper());
+            runningCoroutine = StartCoroutine(RunNextSlideHelper());
         }
     }
-    private IEnumerator RunStDominicHelper() {
+    private IEnumerator RunNextSlideHelper() {
         a = 1;
 
         while(!changed) {
-            Fade(demon, false);
-            yield return new WaitForSeconds(demonTime);
+            Fade(slides[currentSlide], false);
+            yield return new WaitForSeconds(slideTime);
         }
         changed = false;
 
-        demon.gameObject.SetActive(false);
-        stDominic.gameObject.SetActive(true);
+        slides[currentSlide].gameObject.SetActive(false);
+        currentSlide += 1;
+        slides[currentSlide].gameObject.SetActive(true);
 
         a = 0;
 
-        while(!changed) {
-            Fade(stDominic, true);
-            yield return new WaitForSeconds(stDominicTime);
+        while (!changed)
+        {
+                Fade(slides[currentSlide], true);
+                yield return new WaitForSeconds(slideTime);
         }
+        
         changed = false;
 
         runningCoroutine = null;
     }
 
-    public void RunJesusNativity() {
+   /* public void RunJesusNativity() {
         if(runningCoroutine == null) {
             runningCoroutine = StartCoroutine(RunJesusNativityHelper());
         }
@@ -116,19 +120,19 @@ public class IntroductionCanvas : MonoBehaviour
         a = 1;
 
         while(!changed) {
-            Fade(stDominic, false);
-            yield return new WaitForSeconds(stDominicTime);
+            Fade(slides[1], false);
+            yield return new WaitForSeconds(slideTime);
         }
         changed = false;
 
-        stDominic.gameObject.SetActive(false);
-        jesusNativity.gameObject.SetActive(true);
+        slides[1].gameObject.SetActive(false);
+        slides[2].gameObject.SetActive(true);
 
         a = 0;
 
         while(!changed) {
-            Fade(jesusNativity, true);
-            yield return new WaitForSeconds(jesusNativityTime);
+            Fade(slides[2], true);
+            yield return new WaitForSeconds(slideTime);
         }
         changed = false;
 
@@ -217,7 +221,7 @@ public class IntroductionCanvas : MonoBehaviour
         changed = false;
 
         runningCoroutine = null;
-    }
+    }*/
 
     public void EndIntroduction() {
         if(runningCoroutine == null) {
@@ -228,12 +232,12 @@ public class IntroductionCanvas : MonoBehaviour
         a = 1;
 
         while(!changed) {
-            Fade(jesusAscend, false);
-            yield return new WaitForSeconds(jesusAscendTime);
+            Fade(slides[currentSlide], false);
+            yield return new WaitForSeconds(slideTime);
         }
         changed = false;
 
-        jesusAscend.gameObject.SetActive(false);
+        slides[currentSlide].gameObject.SetActive(false);
 
         gameManager.ToStartRosary();
     }
