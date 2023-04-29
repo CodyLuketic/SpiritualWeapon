@@ -42,8 +42,9 @@ public class PlayerCombat : MonoBehaviour
     [Header("Sound")]
     [SerializeField] private AudioClip[] attackClips = null;
     [SerializeField] private AudioMixer mixer = null;
+    [SerializeField] private AudioSource audioSource = null;
     private float volume = 0, diffOutputRange = 0, diffInputRange = 0, convFactor = 0;
-    private bool volumeReceived = false;
+    private bool volumeReceived = false, chargePlaying = false;
     private int random = 0;
 
     private void Start() {
@@ -73,24 +74,31 @@ public class PlayerCombat : MonoBehaviour
 
         if(shotCharge > 100) {
             animator.SetBool("charging", true);
+
+            if(!chargePlaying) {
+                audioSource.Play();
+                chargePlaying = true;
+            }
         }
 
         if (canAttack & Input.GetMouseButtonUp(0) & shotCharge > 100) {
             StartCoroutine(Attack());
         } else if(canAttack & Input.GetMouseButtonUp(0) & shotCharge < 100) {
             StartCoroutine(QuickAttack());
-            shotCharge = 0;
         }
     }
 
     private IEnumerator Attack() {
+        canAttack = false;
+        shotCharge = 0;
+        chargePlaying = false;
+        audioSource.Stop();
+
+        animator.SetBool("charging", false);
+        animator.SetTrigger("shoot");
+
         random = Random.Range(0, attackClips.Length - 1);
         AudioSource.PlayClipAtPoint(attackClips[random], transform.position, GetMixerLevel());
-
-        canAttack = false;
-        animator.SetBool("charging", false);
-
-        animator.SetTrigger("shoot");
 
         chargeParticles.SetActive(false);
         chargeParticleAmount = amountTemp;
@@ -127,13 +135,14 @@ public class PlayerCombat : MonoBehaviour
     }
 
     private IEnumerator QuickAttack() {
-        random = Random.Range(0, attackClips.Length - 1);
-        AudioSource.PlayClipAtPoint(attackClips[random], transform.position, GetMixerLevel());
-
         canAttack = false;
+        shotCharge = 0;
         animator.SetBool("charging", false);
 
         animator.SetTrigger("shoot");
+
+        random = Random.Range(0, attackClips.Length - 1);
+        AudioSource.PlayClipAtPoint(attackClips[random], transform.position, GetMixerLevel());
 
         chargeParticles.SetActive(false);
         chargeParticleAmount = amountTemp;
