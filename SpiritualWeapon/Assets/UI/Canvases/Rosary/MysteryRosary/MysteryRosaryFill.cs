@@ -35,10 +35,15 @@ public class MysteryRosaryFill : MonoBehaviour
     private float r = 0, g = 0, b = 0, a = 0;
     private bool pass = false, pass1 = false, pass2 = false, pass3 = false, pass4 = false;
 
-    [SerializeField] private TMP_Text title = null;
+
+    [Header("Introduction")]
+    [SerializeField] private CanvasGroup title = null;
+    [SerializeField] private CanvasGroup description = null;
+    private Coroutine runningCoroutine = null;
 
     [Header("Fill Speeds")]
     [SerializeField] private float titleTime = 1f;
+    [SerializeField] private float descriptionTime = 1f;
     [SerializeField] private float announcementTime = 1f;
     [SerializeField] private float lLargeBeadTime = 0.1f;
     [SerializeField] private float smallBeadTime = 0.1f;
@@ -68,34 +73,52 @@ public class MysteryRosaryFill : MonoBehaviour
         StopAllCoroutines();
 
         if(!skipSpeeches) {
-            StartCoroutine(FillHelper());
+            runningCoroutine = StartCoroutine(FillHelperPart1());
         } else {
             StartCoroutine(SkipFill());
         }
     }
 
-    private IEnumerator FillHelper() {
+    private IEnumerator FillHelperPart1() {
         speechManager = GameObject.FindGameObjectWithTag("SpeechManager").GetComponent<SpeechManager>();
         speechManager.StartNextPrayer(0);
 
-        r = 0;
-        g = 0;
-        b = 0;
-        a = title.color.a;
+        a = title.alpha;
 
         while(!changed) {
-            IncrementTitle(title, new Color(0, 0, 0, 1));
+            IncrementAlpha(title, 1);
             yield return new WaitForSeconds(titleTime);
         }
         changed = false;
 
         while(!changed) {
-            IncrementTitle(title, new Color(0, 0, 0, 0));
+            IncrementAlpha(title, 0);
             yield return new WaitForSeconds(titleTime);
         }
         changed = false;
 
-        yield return new WaitForSeconds(announcementTime);
+        a = description.alpha;
+
+        while(!changed) {
+            IncrementAlpha(description, 1);
+            yield return new WaitForSeconds(descriptionTime);
+        }
+        changed = false;
+
+        runningCoroutine = null;
+    }
+
+    public void FillPart2() {
+        if(runningCoroutine == null) {
+            runningCoroutine = StartCoroutine(FillHelperPart2());
+        }
+    }
+    private IEnumerator FillHelperPart2() {
+        while(!changed) {
+            IncrementAlpha(description, 0);
+            yield return new WaitForSeconds(descriptionTime);
+        }
+        changed = false;
         
         gameManager.StartTransition();
 
@@ -397,24 +420,20 @@ public class MysteryRosaryFill : MonoBehaviour
         img.color = new Color(r, g, b, a);
     }
 
-    private void IncrementTitle(TMP_Text text, Color col) {
+    private void IncrementAlpha(CanvasGroup text, float alpha) {
         pass = false;
 
-        if(a < col.a - 0.05) {
+        if(a < alpha - 0.05) {
             a += increment;
-        } else if(a > col.a + 0.05) {
+        } else if(a > alpha + 0.05) {
             a -= increment;
         } else {
-            pass = true;
-        }
-
-        if(pass) {
             changed = true;
 
-            a = col.a;
+            a = alpha;
         }
 
-        text.color = new Color(r, g, b, a);
+        text.alpha = a;
     }
 
     private IEnumerator Scroll(float textSpeed) {

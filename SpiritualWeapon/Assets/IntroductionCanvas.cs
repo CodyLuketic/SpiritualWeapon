@@ -15,47 +15,31 @@ public class IntroductionCanvas : MonoBehaviour
 
     [SerializeField] private CanvasGroup[] slides = null;
 
-   /* [SerializeField] private CanvasGroup stDominic = null;
-
-    [SerializeField] private CanvasGroup jesusNativity = null;
-
-    [SerializeField] private CanvasGroup jesusEuch = null;
-
-    [SerializeField] private CanvasGroup jesusCrux = null;
-
-    [SerializeField] private CanvasGroup jesusAscend = null;*/
-
     private Coroutine runningCoroutine = null;
 
-    [Header("Fade Values")]
-    [SerializeField] private float increment = 0.001f;
+    [Header("Title Values")]
+    [SerializeField] private float titleTime = .01f;
+    [SerializeField] private float titleIncrement = 0.001f;
+    [SerializeField] private float backgroundIncrement = 0.001f;
+
+    [Header("Slide Values")]
+    [SerializeField] private float slideTime = .01f;
+    [SerializeField] private float slideIncrement = 0.001f;
+
+    
     private float a = 0, aBackground = 1, r = 1, g = 1, b = 1;
     private bool changed = false, backgroundChanged = false, pass1 = false, pass2 = false, pass3 = false, pass4 = false;
-    private int currentSlide=0;
-
-    [Header("Fade Times")]
-    [SerializeField] private float titleTime = .01f;
-
-    [SerializeField] private float slideTime = .01f;
-
-    /*[SerializeField] private float stDominicTime = .01f;
-
-    [SerializeField] private float jesusNativityTime = .01f;
-
-    [SerializeField] private float jesusEuchTime = .01f;
-
-    [SerializeField] private float jesusCruxTime = .01f;
-
-    [SerializeField] private float jesusAscendTime = .01f;*/
+    private int currentSlide = 0;
 
     private void Start() {
-        runningCoroutine = StartCoroutine(RunTitleAndSlideI());
+        runningCoroutine = StartCoroutine(RunTitleAndSlide());
     }
-    private IEnumerator RunTitleAndSlideI() {
+
+    private IEnumerator RunTitleAndSlide() {
         a = 0;
 
         while(!changed) {
-            Fade(title, true);
+            Fade(title, true, titleIncrement);
             yield return new WaitForSeconds(titleTime);
         }
         changed = false;
@@ -63,8 +47,8 @@ public class IntroductionCanvas : MonoBehaviour
         a = 1;
 
         while(!changed || !backgroundChanged) {
-            Fade(title, false);
-            IncrementColor(background, backgroundDarkColor);
+            Fade(title, false, titleIncrement);
+            IncrementColor(background, backgroundDarkColor, backgroundIncrement);
             yield return new WaitForSeconds(titleTime);
         }
         changed = false;
@@ -72,7 +56,7 @@ public class IntroductionCanvas : MonoBehaviour
         a = 0;
 
         while(!changed) {
-            Fade(slides[currentSlide], true);
+            Fade(slides[currentSlide], true, slideIncrement);
             yield return new WaitForSeconds(slideTime);
         }
         changed = false;
@@ -89,7 +73,7 @@ public class IntroductionCanvas : MonoBehaviour
         a = 1;
 
         while(!changed) {
-            Fade(slides[currentSlide], false);
+            Fade(slides[currentSlide], false, slideIncrement);
             yield return new WaitForSeconds(slideTime);
         }
         changed = false;
@@ -100,128 +84,15 @@ public class IntroductionCanvas : MonoBehaviour
 
         a = 0;
 
-        while (!changed)
-        {
-                Fade(slides[currentSlide], true);
-                yield return new WaitForSeconds(slideTime);
+        while(!changed) {
+            Fade(slides[currentSlide], true, slideIncrement);
+            yield return new WaitForSeconds(slideTime);
         }
         
         changed = false;
 
         runningCoroutine = null;
     }
-
-   /* public void RunJesusNativity() {
-        if(runningCoroutine == null) {
-            runningCoroutine = StartCoroutine(RunJesusNativityHelper());
-        }
-    }
-    private IEnumerator RunJesusNativityHelper() {
-        a = 1;
-
-        while(!changed) {
-            Fade(slides[1], false);
-            yield return new WaitForSeconds(slideTime);
-        }
-        changed = false;
-
-        slides[1].gameObject.SetActive(false);
-        slides[2].gameObject.SetActive(true);
-
-        a = 0;
-
-        while(!changed) {
-            Fade(slides[2], true);
-            yield return new WaitForSeconds(slideTime);
-        }
-        changed = false;
-
-        runningCoroutine = null;
-    }
-
-    public void RunJesusEuch() {
-        if(runningCoroutine == null) {
-           runningCoroutine = StartCoroutine(RunJesusEuchHelper());
-        }
-    }
-    private IEnumerator RunJesusEuchHelper() {
-        a = 1;
-
-        while(!changed) {
-            Fade(jesusNativity, false);
-            yield return new WaitForSeconds(jesusNativityTime);
-        }
-        changed = false;
-
-        jesusNativity.gameObject.SetActive(false);
-        jesusEuch.gameObject.SetActive(true);
-
-        a = 0;
-
-        while(!changed) {
-            Fade(jesusEuch, true);
-            yield return new WaitForSeconds(jesusEuchTime);
-        }
-        changed = false;
-
-        runningCoroutine = null;
-    }
-
-    public void RunJesusCrux() {
-        if(runningCoroutine == null) {
-            runningCoroutine = StartCoroutine(RunJesusCruxHelper());
-        }
-    }
-    private IEnumerator RunJesusCruxHelper() {
-        a = 1;
-
-        while(!changed) {
-            Fade(jesusEuch, false);
-            yield return new WaitForSeconds(jesusEuchTime);
-        }
-        changed = false;
-
-        jesusEuch.gameObject.SetActive(false);
-        jesusCrux.gameObject.SetActive(true);
-
-        a = 0;
-
-        while(!changed) {
-            Fade(jesusCrux, true);
-            yield return new WaitForSeconds(jesusCruxTime);
-        }
-        changed = false;
-
-        runningCoroutine = null;
-    }
-
-    public void RunJesusAscend() {
-        if(runningCoroutine == null) {
-            runningCoroutine = StartCoroutine(RunJesusAscendHelper());
-        }
-    }
-    private IEnumerator RunJesusAscendHelper() {
-        a = 1;
-
-        while(!changed) {
-            Fade(jesusCrux, false);
-            yield return new WaitForSeconds(jesusCruxTime);
-        }
-        changed = false;
-
-        jesusCrux.gameObject.SetActive(false);
-        jesusAscend.gameObject.SetActive(true);
-
-        a = 0;
-
-        while(!changed) {
-            Fade(jesusAscend, true);
-            yield return new WaitForSeconds(jesusAscendTime);
-        }
-        changed = false;
-
-        runningCoroutine = null;
-    }*/
 
     public void EndIntroduction() {
         if(runningCoroutine == null) {
@@ -232,7 +103,7 @@ public class IntroductionCanvas : MonoBehaviour
         a = 1;
 
         while(!changed) {
-            Fade(slides[currentSlide], false);
+            Fade(slides[currentSlide], false, slideIncrement);
             yield return new WaitForSeconds(slideTime);
         }
         changed = false;
@@ -242,7 +113,7 @@ public class IntroductionCanvas : MonoBehaviour
         gameManager.ToStartRosary();
     }
 
-    private void Fade(CanvasGroup section, bool fadeUp) {
+    private void Fade(CanvasGroup section, bool fadeUp, float increment) {
         if(fadeUp && a < 0.995) {
             a += increment;
         } else if(!fadeUp && a > 0.005) {
@@ -260,7 +131,7 @@ public class IntroductionCanvas : MonoBehaviour
         section.alpha = a;
     }
 
-    private void IncrementColor(RawImage img, Color col) {
+    private void IncrementColor(RawImage img, Color col, float increment) {
         pass1 = false;
         pass2 = false;
         pass3 = false;
