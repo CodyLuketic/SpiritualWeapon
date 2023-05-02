@@ -440,9 +440,21 @@ PrefabInstance:
     - target: {fileID: 5015497252759488425, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
         type: 3}
       propertyPath: m_text
-      value: 'Jesus is lifted up on a cloud and disappears.
+      value: 'Jesus appears to disciples, bidding them peace. Startled and thinking
+        they have seen a ghost, Jesus tells them to examine his hands and feet where
+        he was nailed to the cross. They still were in disbelief and he ate before
+        them. He then instructed them to spread his gospel around the whole world.
+        He blessed them and was lifted up to Heaven. When he was gone, two angels
+        in white robes told them that Jesus would return the same way as he left
+        them. The disciples began to worship and give praise.
 
-        (Acts 1:6-11)'
+        (Luke 24:36-53;
+        Mark 16:14-20; Acts 1:6-11)'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015497252759488425, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 5015497252759488425, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
         type: 3}
@@ -452,7 +464,7 @@ PrefabInstance:
     - target: {fileID: 5015497252759488425, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
         type: 3}
       propertyPath: m_margin.x
-      value: -174.88152
+      value: -192.66606
       objectReference: {fileID: 0}
     - target: {fileID: 5015497252759488425, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
         type: 3}
@@ -464,10 +476,20 @@ PrefabInstance:
       propertyPath: m_margin.z
       value: 16.684357
       objectReference: {fileID: 0}
+    - target: {fileID: 5015497252759488425, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 5015497254005842281, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
         type: 3}
       propertyPath: m_text
       value: The Ascension
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015497254137133493, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_Alpha
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9170785846145028102, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
         type: 3}
@@ -3177,8 +3199,8 @@ Transform:
   - {fileID: 50049006}
   - {fileID: 650244347}
   - {fileID: 1577213077}
-  - {fileID: 1016126331}
   - {fileID: 1092112423}
+  - {fileID: 1016126331}
   - {fileID: 1554102152}
   - {fileID: 810385194}
   m_Father: {fileID: 0}
@@ -4450,7 +4472,7 @@ PrefabInstance:
     - target: {fileID: 1781397505861898681, guid: 666acf19c1140ec4ab91a46e77d436ed,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1781397505861898681, guid: 666acf19c1140ec4ab91a46e77d436ed,
         type: 3}
