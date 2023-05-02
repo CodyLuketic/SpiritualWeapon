@@ -20,6 +20,7 @@ public class CreditText : MonoBehaviour
     [SerializeField] private TMP_Text titleText = null;
     [SerializeField] private TMP_Text mainText = null;
     [SerializeField] private TMP_Text thankYouText = null;
+    [SerializeField] private TMP_Text blessedCarloAcutis = null;
     [SerializeField] private float deincrement = 0.001f;
     [SerializeField] private float fadeTime = 0.1f;
     private bool endRan = false;
@@ -80,6 +81,7 @@ public class CreditText : MonoBehaviour
             highScoreText.alpha -= deincrement;
             mainText.alpha -= deincrement;
             thankYouText.alpha -= deincrement;
+            blessedCarloAcutis.alpha -= deincrement;
             yield return new WaitForSeconds(fadeTime);
         }
 

@@ -366,20 +366,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 387948575}
     m_Modifications:
-    - target: {fileID: 5072926739088368256, guid: 940ba9e0bc8d43b4db3485723cd90d5f,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5072926739088368259, guid: 940ba9e0bc8d43b4db3485723cd90d5f,
         type: 3}
       propertyPath: m_Name
       value: TransitionsCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 5072926739088368259, guid: 940ba9e0bc8d43b4db3485723cd90d5f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5072926739088368383, guid: 940ba9e0bc8d43b4db3485723cd90d5f,
         type: 3}
@@ -673,6 +663,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 973678256}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &968495423 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 2174414115304156990, guid: b31a57a9495be5743994818cbd42217b,
+    type: 3}
+  m_PrefabInstance: {fileID: 436304790}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &973678256
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -897,6 +893,26 @@ PrefabInstance:
     - target: {fileID: 4957357142578339569, guid: b11bd7a10a06bd1449b5eb3b6f9e7d3a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4957357142578339580, guid: b11bd7a10a06bd1449b5eb3b6f9e7d3a,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 968495423}
+    - target: {fileID: 4957357142578339580, guid: b11bd7a10a06bd1449b5eb3b6f9e7d3a,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4957357142578339580, guid: b11bd7a10a06bd1449b5eb3b6f9e7d3a,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 30004
+      objectReference: {fileID: 0}
+    - target: {fileID: 4957357142578339583, guid: b11bd7a10a06bd1449b5eb3b6f9e7d3a,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

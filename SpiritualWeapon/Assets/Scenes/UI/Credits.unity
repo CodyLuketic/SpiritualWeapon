@@ -266,6 +266,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 191606674}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &544548354 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8917323031942317524, guid: 0aa5a69fd27d7864b98803a39c047f7d,
+    type: 3}
+  m_PrefabInstance: {fileID: 5802647390071390232}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &752590791
 GameObject:
   m_ObjectHideFlags: 0
@@ -1032,6 +1044,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1870892407}
     m_Modifications:
+    - target: {fileID: 5802647389602571053, guid: 0aa5a69fd27d7864b98803a39c047f7d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -749
+      objectReference: {fileID: 0}
+    - target: {fileID: 5802647389602571054, guid: 0aa5a69fd27d7864b98803a39c047f7d,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 5802647389602571054, guid: 0aa5a69fd27d7864b98803a39c047f7d,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 48
+      objectReference: {fileID: 0}
     - target: {fileID: 5802647389859988269, guid: 0aa5a69fd27d7864b98803a39c047f7d,
         type: 3}
       propertyPath: fadeTime
@@ -1039,14 +1066,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5802647389859988269, guid: 0aa5a69fd27d7864b98803a39c047f7d,
         type: 3}
+      propertyPath: maxCount
+      value: 15000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5802647389859988269, guid: 0aa5a69fd27d7864b98803a39c047f7d,
+        type: 3}
       propertyPath: slowStart
-      value: 22500
+      value: 12500
       objectReference: {fileID: 0}
     - target: {fileID: 5802647389859988269, guid: 0aa5a69fd27d7864b98803a39c047f7d,
         type: 3}
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 1917701447}
+    - target: {fileID: 5802647389859988269, guid: 0aa5a69fd27d7864b98803a39c047f7d,
+        type: 3}
+      propertyPath: creditIncrement
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5802647389859988269, guid: 0aa5a69fd27d7864b98803a39c047f7d,
+        type: 3}
+      propertyPath: blessedCarloAcutis
+      value: 
+      objectReference: {fileID: 544548354}
     - target: {fileID: 5802647390287574051, guid: 0aa5a69fd27d7864b98803a39c047f7d,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1156,6 +1198,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CreditsCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5802647391032664731, guid: 0aa5a69fd27d7864b98803a39c047f7d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -460
+      objectReference: {fileID: 0}
+    - target: {fileID: 5802647391212686326, guid: 0aa5a69fd27d7864b98803a39c047f7d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -185
+      objectReference: {fileID: 0}
+    - target: {fileID: 5802647391212686327, guid: 0aa5a69fd27d7864b98803a39c047f7d,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 5802647391212686327, guid: 0aa5a69fd27d7864b98803a39c047f7d,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 8917323031942317524, guid: 0aa5a69fd27d7864b98803a39c047f7d,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 8917323031942317524, guid: 0aa5a69fd27d7864b98803a39c047f7d,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 8968605053454751124, guid: 0aa5a69fd27d7864b98803a39c047f7d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -883
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0aa5a69fd27d7864b98803a39c047f7d, type: 3}

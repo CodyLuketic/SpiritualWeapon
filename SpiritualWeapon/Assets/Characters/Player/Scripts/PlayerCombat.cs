@@ -24,6 +24,8 @@ public class PlayerCombat : MonoBehaviour
     [Header("Main Attack Values")]
     [SerializeField] private float cooldown = 1f;
     [SerializeField] private float shotDist = 1f;
+    [SerializeField] private float chargeIncrement = 0.1f;
+    [SerializeField] private float shotIncrement = 1f;
     private bool canAttack = true;
 
 
@@ -64,12 +66,12 @@ public class PlayerCombat : MonoBehaviour
             mainParticles.startSize = chargeParticleSize;
 
             if(chargeParticleAmount < maxAmount) {
-                chargeParticleAmount += 0.1f;
+                chargeParticleAmount += chargeIncrement;
             }
             if(chargeParticleSize < maxSize) {
-                chargeParticleSize += 0.001f;
+                chargeParticleSize += chargeIncrement / 100;
             }
-            shotCharge++;
+            shotCharge += shotIncrement;
         }
 
         if(shotCharge > 100) {
@@ -90,7 +92,6 @@ public class PlayerCombat : MonoBehaviour
 
     private IEnumerator Attack() {
         canAttack = false;
-        shotCharge = 0;
         chargePlaying = false;
         audioSource.Stop();
 
@@ -117,6 +118,7 @@ public class PlayerCombat : MonoBehaviour
         }
 
         mainParticles = particleInstance.GetComponent<ParticleSystem>().main;
+        Debug.Log(speed);
         mainParticles.startSpeed = speed;
         shapeParticles = particleInstance.GetComponent<ParticleSystem>().shape;
         shapeParticles.angle = angle;
