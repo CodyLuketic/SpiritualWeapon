@@ -509,6 +509,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1901459702}
     m_Modifications:
+    - target: {fileID: 1559466276197214780, guid: b188e2512f906dc4e9b9f22abf71adb5,
+        type: 3}
+      propertyPath: pools.Array.data[0].size
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 1559466276197214780, guid: b188e2512f906dc4e9b9f22abf71adb5,
+        type: 3}
+      propertyPath: pools.Array.data[2].size
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 1559466276197214781, guid: b188e2512f906dc4e9b9f22abf71adb5,
+        type: 3}
+      propertyPath: spawnTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7217033396541622998, guid: b188e2512f906dc4e9b9f22abf71adb5,
         type: 3}
       propertyPath: m_Name
@@ -1194,6 +1209,41 @@ PrefabInstance:
       propertyPath: pooler
       value: 
       objectReference: {fileID: 732788165}
+    - target: {fileID: 2312392799537697236, guid: 04816d281f030fb4493a4dc4bde39a47,
+        type: 3}
+      propertyPath: cooldown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312392799537697236, guid: 04816d281f030fb4493a4dc4bde39a47,
+        type: 3}
+      propertyPath: shotDist
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312392799537697236, guid: 04816d281f030fb4493a4dc4bde39a47,
+        type: 3}
+      propertyPath: maxAmount
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312392799537697236, guid: 04816d281f030fb4493a4dc4bde39a47,
+        type: 3}
+      propertyPath: speedDivider
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312392799537697236, guid: 04816d281f030fb4493a4dc4bde39a47,
+        type: 3}
+      propertyPath: shotIncrement
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312392799537697236, guid: 04816d281f030fb4493a4dc4bde39a47,
+        type: 3}
+      propertyPath: chargeIncrement
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312392799537697236, guid: 04816d281f030fb4493a4dc4bde39a47,
+        type: 3}
+      propertyPath: chargeParticleSize
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2312392799541932442, guid: 04816d281f030fb4493a4dc4bde39a47,
         type: 3}
       propertyPath: m_Name
