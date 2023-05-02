@@ -502,6 +502,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 150291112}
     m_Modifications:
+    - target: {fileID: 2503789841588300910, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 82a150453175e674c9d9cadcf18ef06c,
+        type: 3}
     - target: {fileID: 3736566603602090777, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -511,6 +517,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: FillPart2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 124
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5015497252746373139, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
         type: 3}
@@ -640,13 +686,60 @@ PrefabInstance:
     - target: {fileID: 5015497252759488425, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
         type: 3}
       propertyPath: m_text
-      value: Peter, James, and John witness Jesus transfigure. Moses and Elijah appear
-        and talk to Jesus. (Matthew 17:1-9; Mark 9:2-8)
+      value: 'Jesus led Peter, James, John to a mountain. They witnessed his appearance
+        change - his face radiant like the sun, his clothes pure white light. Moses
+        and Elijah appeared and talked with him. Peter, confused, asked if he should
+        build 3 tents for them. Suddenly a cloud came over them and a voice commanded
+        them to listen to his "beloved son." The Apostles fell down in fear. When
+        Jesus touched them, they only saw Jesus. They kept this silent until after
+        the resurrection.
+
+        (Matthew 17:1-9;Mark 9:2-8; Luke 9:28-36)'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015497252759488425, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_margin.w
+      value: 12.994644
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015497252759488425, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_margin.x
+      value: -185.60034
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015497252759488425, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_margin.y
+      value: 7.2286835
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015497252759488425, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_margin.z
+      value: 10.534134
       objectReference: {fileID: 0}
     - target: {fileID: 5015497254005842281, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
         type: 3}
       propertyPath: m_text
       value: Transfiguration
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015497254137133493, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170785846145028102, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170785846145028102, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170785846145028102, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 125
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f8c73305e0b5b5498b0b95a3e4cd083, type: 3}

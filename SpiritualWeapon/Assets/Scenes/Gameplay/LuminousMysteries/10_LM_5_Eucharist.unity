@@ -3763,8 +3763,8 @@ Transform:
   - {fileID: 1648507375}
   - {fileID: 1801751765}
   - {fileID: 1499242443}
-  - {fileID: 1272425201}
   - {fileID: 1772378018}
+  - {fileID: 1272425201}
   - {fileID: 1139526701}
   - {fileID: 1876648291}
   m_Father: {fileID: 0}
@@ -4185,6 +4185,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1349926327}
     m_Modifications:
+    - target: {fileID: 2503789841588300910, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c62191e8eb7386c44823f04aa2545bd9,
+        type: 3}
     - target: {fileID: 3736566603602090777, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4194,6 +4200,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: FillPart2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5015497252746373139, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
         type: 3}
@@ -4323,13 +4369,80 @@ PrefabInstance:
     - target: {fileID: 5015497252759488425, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
         type: 3}
       propertyPath: m_text
-      value: At the Last Supper, Jesus gives his Apostles bread and wine as his Body
-        and Blood. (Matthew 26:20-35; Luke 22:14-20)
+      value: 'As Passover drew near, Jesus shared the Last Supper with his Apostles.
+        He washed their feet, teaching them that a servant is not greater than his
+        master. He revealed that one of them would betray him, sturring panic. During
+        the meal, Jesus blessed and broke bread, giving it to them as his Body. He
+        then blessed wine, giving it to them as his Blood, the blood of the new covenant
+        for the forgiveness of sins. He commands them to do this in his memory. In
+        a prior public teaching, Jesus claimed that consuming his Body and Blood
+        would grant eternal life. When challenged, Jesus doubled down and many left
+        him over this. At supper, he also tells Peter that he would deny him 3 times.
+
+        (Matthew
+        26:20-35; Mark 14:17-31; Luke 22:14-20;
+
+        John 6:35-69; John 13)'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015497252759488425, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015497252759488425, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_margin.w
+      value: 40.7874
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015497252759488425, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_margin.x
+      value: -270.36917
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015497252759488425, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_margin.y
+      value: 13.568909
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015497252759488425, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_margin.z
+      value: 13.588013
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015497252759488425, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 5015497254005842281, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
         type: 3}
       propertyPath: m_text
       value: Institution Of The Eucharist
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015497254137133493, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170785846145028102, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170785846145028102, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170785846145028102, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 124
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170785846145028102, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f8c73305e0b5b5498b0b95a3e4cd083, type: 3}
@@ -4917,7 +5030,7 @@ PrefabInstance:
     - target: {fileID: 1781397505861898681, guid: 666acf19c1140ec4ab91a46e77d436ed,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1781397505861898681, guid: 666acf19c1140ec4ab91a46e77d436ed,
         type: 3}

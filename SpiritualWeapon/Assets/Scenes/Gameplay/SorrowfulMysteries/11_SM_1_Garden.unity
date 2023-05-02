@@ -332,8 +332,8 @@ Transform:
   - {fileID: 250716761}
   - {fileID: 1021802405}
   - {fileID: 669421199}
-  - {fileID: 1318012916}
   - {fileID: 1718040435}
+  - {fileID: 1318012916}
   - {fileID: 1114181845}
   - {fileID: 13555227}
   m_Father: {fileID: 0}
@@ -346,6 +346,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 196560184}
     m_Modifications:
+    - target: {fileID: 2503789841588300910, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ec522bb17722d6a4ebacf1686b3b4899,
+        type: 3}
     - target: {fileID: 3736566603602090777, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -355,6 +361,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: FillPart2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 86
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5015497252746373139, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
         type: 3}
@@ -484,13 +530,73 @@ PrefabInstance:
     - target: {fileID: 5015497252759488425, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
         type: 3}
       propertyPath: m_text
-      value: Jesus prays in Gethsemane. He tells the Apostles to stay awake, but
-        they fall asleep. In distress, he sweats blood. Jesus is arrested.
+      value: 'After the Last Supper, Jesus took his disciples to the Garden of Gethsemane
+        to pray. He went off to pray and told them to keep watch. Jesus is in distress,
+        sweating blood and asking his Father if it is possible to take his fate away
+        from him. An angel comes to comfort him. When he returns to the disciples
+        he finds them asleep and admonishes them to stay up another hour. Jesus returns
+        to prayer and accepts his Father''s will. He returns to the disciples twice
+        more and they are again asleep. Judas Iscariot arrives with Temple gaurds
+        to arrest Jesus and he does not resist. Some disciples try to fight them,
+        but Jesus tells them not to. The disciples then flee. (Matthew 26:36-56;
+
+        Luke
+        22:39-53; John 18:1-11)'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015497252759488425, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015497252759488425, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_margin.w
+      value: 25.917114
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015497252759488425, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_margin.x
+      value: -247.94327
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015497252759488425, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_margin.y
+      value: 17.1185
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015497252759488425, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 5015497254005842281, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
         type: 3}
       propertyPath: m_text
       value: The Agony In The Garden
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015497254137133493, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170785846145028102, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170785846145028102, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170785846145028102, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 122
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170785846145028102, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 33
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f8c73305e0b5b5498b0b95a3e4cd083, type: 3}
@@ -2290,7 +2396,7 @@ PrefabInstance:
     - target: {fileID: 1781397505861898681, guid: 666acf19c1140ec4ab91a46e77d436ed,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1781397505861898681, guid: 666acf19c1140ec4ab91a46e77d436ed,
         type: 3}
