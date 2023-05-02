@@ -779,6 +779,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 965274685}
     m_Modifications:
+    - target: {fileID: 2503789841588300910, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4b1789c688331864abbbb4d95f96e88e,
+        type: 3}
     - target: {fileID: 3736566603602090777, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -788,6 +794,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: FillPart2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5015497252746373139, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
         type: 3}
@@ -917,15 +963,74 @@ PrefabInstance:
     - target: {fileID: 5015497252759488425, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
         type: 3}
       propertyPath: m_text
-      value: Jesus is nailed to the cross. The Romans gamble for his garments. He
-        entrusts his mother to John. When he dies the sky goes black and the earthquakes.
-        To see if he is dead a Roman pieces his side with a spear, and blood and
-        water flow out.
+      value: 'The Romans tear Jesus''s garments and gamble for the pieces. His nailed
+        to the cross and two thieves are crucified with him. John is the only of
+        the Apostles to not desert him, and he is present with Mary and several other
+        women. Jesus entrusts his mother to John and John to his mother. Jesus asks
+        God to forgive humanity and he quotes Psalm 22. With his last breath he commends
+        his spirit to his Father and says, "It is finished." As he dies, the sky
+        goes black and the earthquakes. To see if he is dead a Roman pieces his side
+        with a spear, and blood and water flow out.
+
+        (Matthew 27:35-55;
+
+        Luke
+        23:33-49; John 19:17-37)'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015497252759488425, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015497252759488425, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_margin.w
+      value: 15.875504
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015497252759488425, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_margin.x
+      value: -228.1498
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015497252759488425, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_margin.y
+      value: 13.247269
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015497252759488425, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_margin.z
+      value: 23.867401
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015497252759488425, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 5015497254005842281, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
         type: 3}
       propertyPath: m_text
       value: The Crucifixion
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015497254137133493, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170785846145028102, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170785846145028102, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170785846145028102, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 131
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f8c73305e0b5b5498b0b95a3e4cd083, type: 3}

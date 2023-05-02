@@ -1083,6 +1083,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 274379286}
     m_Modifications:
+    - target: {fileID: 2503789841588300910, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bb35335bad8213541b02b2a8a0aca310,
+        type: 3}
     - target: {fileID: 3736566603602090777, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1092,6 +1098,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: FillPart2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558878941531692117, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5015497252746373139, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
         type: 3}
@@ -1221,13 +1267,53 @@ PrefabInstance:
     - target: {fileID: 5015497252759488425, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
         type: 3}
       propertyPath: m_text
-      value: Jesus carries his cross. He falls three times and a stranger is forced
-        to help him the rest of the way.
+      value: Jesus carries his cross to a hill outside Jerusalum called Golgatha,
+        the "place of the skull." Jesus struggles to carry it, falling under its
+        weight several times. A stranger, Simon of Cyrene, is forced to help him
+        carry it the rest of the way. Mary meets him on the way, witnessing with
+        sorrow as her son marches to his death. There were women weeping for him
+        and Jesus told them to instead weep for their children. (Luke 23:26-32; John
+        19:16-17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015497252759488425, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_margin.w
+      value: 27.851135
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015497252759488425, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_margin.y
+      value: 8.767822
       objectReference: {fileID: 0}
     - target: {fileID: 5015497254005842281, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
         type: 3}
       propertyPath: m_text
       value: Carrying Of The Cross
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015497254137133493, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170785846145028102, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170785846145028102, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170785846145028102, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170785846145028102, guid: 5f8c73305e0b5b5498b0b95a3e4cd083,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 38
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f8c73305e0b5b5498b0b95a3e4cd083, type: 3}
