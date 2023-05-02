@@ -28,6 +28,7 @@ public class Settings : MonoBehaviour
     [SerializeField] private TMP_Dropdown resolutionDropdown = null;
     private Resolution[] resolutions;
     List<string> options = null;
+    string option = null;
     private int currentResolutionIndex;
 
     [Header("Scores")]
@@ -53,12 +54,15 @@ public class Settings : MonoBehaviour
         currentResolutionIndex = 0;
         for (int i = 0; i < resolutions.Length; i++)
         {
-            string option = resolutions[i].width + " x " + resolutions[i].height;
-            options.Add(option);
+            if(resolutions[i].refreshRate == 144)
+            {
+                option = resolutions[i].width + " x " + resolutions[i].height;
+                options.Add(option);
 
-            if(resolutions[i].width == Screen.currentResolution.width
-                && resolutions[i].height == Screen.currentResolution.height) {
-                currentResolutionIndex = i;
+                if(resolutions[i].width == Screen.currentResolution.width
+                    && resolutions[i].height == Screen.currentResolution.height) {
+                    currentResolutionIndex = i;
+                }
             }
         }
 
@@ -66,7 +70,7 @@ public class Settings : MonoBehaviour
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
     }
-    public void SetReolution(int resolutionIndex) {
+    public void SetResolution(int resolutionIndex) {
         currentResolutionIndex = resolutionIndex;
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
@@ -144,19 +148,22 @@ public class Settings : MonoBehaviour
         scoreGlorius.text = " Glorius Mysteries Highest Score: " + PlayerPrefs.GetInt("HighScoreGlorius");
     }
     private void UpdateSettings() {
-        SetReolution(currentResolutionIndex);
+        SetResolution(currentResolutionIndex);
 
         SetQuality(QualitySettings.GetQualityLevel());
 
         musicMixer.GetFloat("volume", out float musicVolume);
+        musicVolume /= 1.5f;
         SetMusicVolumeHelper(musicVolume);
         musicSlider.value = musicVolume;
 
         vocalsMixer.GetFloat("volume", out float vocalsVolume);
+        vocalsVolume *= 1.5f;
         SetVocalsVolumeHelper(vocalsVolume);
         vocalsSlider.value = vocalsVolume;
 
         soundEffectsMixer.GetFloat("volume", out float soundEffectsVolume);
+        soundEffectsVolume /= 1.5f;
         SetSoundEffectsVolumeHelper(soundEffectsVolume);
         soundEffectsSlider.value = soundEffectsVolume;
     }
