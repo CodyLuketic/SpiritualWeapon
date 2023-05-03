@@ -618,7 +618,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &907639389
 Transform:
   m_ObjectHideFlags: 0
@@ -1107,6 +1107,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1312572245}
     m_Modifications:
+    - target: {fileID: 95843484311476234, guid: b98eab91cdcbcdf4a9b28e55cf130e34,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 830428650414467324, guid: b98eab91cdcbcdf4a9b28e55cf130e34,
         type: 3}
       propertyPath: m_IsActive
@@ -1116,6 +1121,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: IntroductionCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313556042598785864, guid: b98eab91cdcbcdf4a9b28e55cf130e34,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2313556042598785867, guid: b98eab91cdcbcdf4a9b28e55cf130e34,
         type: 3}
@@ -1272,6 +1282,23 @@ PrefabInstance:
       propertyPath: slides.Array.data[5]
       value: 
       objectReference: {fileID: 2313556043344603732}
+    - target: {fileID: 2313556043987142589, guid: b98eab91cdcbcdf4a9b28e55cf130e34,
+        type: 3}
+      propertyPath: m_text
+      value: "\n\tAccording to legend, St. Dominic recieved the Rosary in 1214 AD
+        from the Virgin Mary, when she appeared to him in an apparition. While the
+        Rosary likely originated earlier and has evolved greatly over time, St. Dominic
+        is still credited for playing a major role in advocating its use as a contemplative
+        prayer.\n\n\tThe Rosary is a deeply treasured tradition in the Catholic Church.
+        Typically, it is a string of beads, used to keep track of prayers. Its name
+        comes from the Latin \"rosarium,\" meaning rose garden or bouquet of roses.
+        Sometimes referred to as a \"spiritual weapon,\" it is a powerful tool in
+        protection against evil, in building virtue, and for asking Mary to pray
+        for us.\n\n\tWhile praying the Rosary, you reflect on the lives of Jesus
+        and his mother, Mary. These events are broken up into 4 sets of mysteries:
+        the Joyful, Luminous, Sorrowful, and Glorious Mysteries.\n\nLet's take a
+        closer look at the Mysteries!"
+      objectReference: {fileID: 0}
     - target: {fileID: 2313556044013367233, guid: b98eab91cdcbcdf4a9b28e55cf130e34,
         type: 3}
       propertyPath: m_Color.a
@@ -1346,6 +1373,52 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 8198010467739535207, guid: b98eab91cdcbcdf4a9b28e55cf130e34,
+        type: 3}
+      propertyPath: m_text
+      value: '
+
+        As you play, little demons will try to distract you from
+        your meditation. Prayer is nurturing your relationship with God, and they
+        can''t stand it! So, the best way to take them out... is more prayer! Aim
+        with the mouse and click the left mouse buton to shoot a prayer blast! Holding
+        the left mouse button will focus the prayer. The longer you focus the prayer,
+        the narrower and faster the aura will be and the farther it will  travel.
+
+
+        Taking
+        out demons will raise your score. The more demons you take out before getting
+        hit will raise the point multiplier. You can access your highscore record
+        for each set of Mysteries in the settings.
+
+
+        You are St. Dominic.
+        To move him around, use the "WASD" keys. If you need to pause the game to
+        change any settings or return to the menu, you can press TAB.
+
+
+        With
+        the controls out of the way, let us pray...
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8756283778538204495, guid: b98eab91cdcbcdf4a9b28e55cf130e34,
+        type: 3}
+      propertyPath: m_text
+      value: "\nHere is what each set of Mysteries reflects on:\n\tJoyful - Jesus's
+        birth and childhood\n\tLuminous - Jesus's earthly ministry and miracles\n\tSorrowful
+        -Jesus's passion and death\n\tGlorious - Jesus's Resurrection and the events
+        that followed\n\t\nEach set contains 5 individual mysteries, with 1 announced
+        at the start of each decade. In each decade after the mystery is announced,
+        an \"Our Father\" is prayed followed by 10 \"Hail Marys\", a \"Glory Be,\"
+        and a \"Fatima Prayer.\" Then the process repeats until you run out of mysteries
+        to reflect on. There are also special prayers at the very beginning and end
+        of your Rosary journey. Text for the prayers will be displayed in the top
+        right corner. The UI shown below is used to count your progress through a
+        decade.\n\nIt's normal to meditate on only 1 set of mysteries a day (5 mysteries)
+        or some pray all 4 sets (20 individual mysteries) a day. One set can take
+        roughly 20-25 minutes to complete."
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b98eab91cdcbcdf4a9b28e55cf130e34, type: 3}
