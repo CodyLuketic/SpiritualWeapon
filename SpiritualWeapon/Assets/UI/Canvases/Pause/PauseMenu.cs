@@ -37,7 +37,9 @@ public class PauseMenu : MonoBehaviour
     private void ResumeHelper() {
         speechManager = GameObject.FindGameObjectWithTag("SpeechManager").GetComponent<SpeechManager>();
         speechManager.PlayVocals();
-        playerController.SetCanRotate(true);
+        if(playerController != null) {
+            playerController.SetCanRotate(true);
+        }
 
         Move();
     }
@@ -67,7 +69,10 @@ public class PauseMenu : MonoBehaviour
 
         speechManager = GameObject.FindGameObjectWithTag("SpeechManager").GetComponent<SpeechManager>();
         speechManager.PauseVocals();
-        playerController.SetCanRotate(false);
+
+        if(playerController != null) {
+            playerController.SetCanRotate(false);
+        }
     }
 
     private void Move() {
