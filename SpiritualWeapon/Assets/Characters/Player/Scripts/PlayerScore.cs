@@ -31,7 +31,7 @@ public class PlayerScore : MonoBehaviour
 
         switch(scoreDecade) {
             case 0:
-                scoreAll += 1 * multiplier;
+                scoreAll += 70 * multiplier;
 
                 if(scoreAll > PlayerPrefs.GetInt("HighScoreAll", 0)) {
                     PlayerPrefs.SetInt("HighScoreAll", scoreAll);
@@ -40,7 +40,7 @@ public class PlayerScore : MonoBehaviour
 
                 break;
             case 1:
-                scoreJoyful += 1 * multiplier;
+                scoreJoyful += 70 * multiplier;
 
                 if(scoreJoyful > PlayerPrefs.GetInt("HighScoreJoyful", 0)) {
                     PlayerPrefs.SetInt("HighScoreJoyful", scoreJoyful);
@@ -49,7 +49,7 @@ public class PlayerScore : MonoBehaviour
 
                 break;
             case 2:
-                scoreLuminous += 1 * multiplier;
+                scoreLuminous += 70 * multiplier;
 
                 if(scoreLuminous > PlayerPrefs.GetInt("HighScoreLuminous", 0)) {
                     PlayerPrefs.SetInt("HighScoreLuminous", scoreLuminous);
@@ -58,7 +58,7 @@ public class PlayerScore : MonoBehaviour
 
                 break;
             case 3:
-                scoreSorrowful += 1 * multiplier;
+                scoreSorrowful += 70 * multiplier;
 
                 if(scoreSorrowful > PlayerPrefs.GetInt("HighScoreSorrowful", 0)) {
                     PlayerPrefs.SetInt("HighScoreSorrowful", scoreSorrowful);
@@ -67,7 +67,7 @@ public class PlayerScore : MonoBehaviour
 
                 break;
             case 4:
-                scoreGlorius += 1 * multiplier;
+                scoreGlorius += 70 * multiplier;
 
                 if(scoreGlorius > PlayerPrefs.GetInt("HighScoreGlorius", 0)) {
                     PlayerPrefs.SetInt("HighScoreGlorius", scoreGlorius);

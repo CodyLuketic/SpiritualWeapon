@@ -485,7 +485,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &599627339
 Transform:
   m_ObjectHideFlags: 0
@@ -3517,6 +3517,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ScoreCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3025304442524940389, guid: 4a1903f1d9590274094f785e8d971613,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 384.2344
+      objectReference: {fileID: 0}
+    - target: {fileID: 3025304442524940389, guid: 4a1903f1d9590274094f785e8d971613,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 202.11722
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a1903f1d9590274094f785e8d971613, type: 3}

@@ -39,6 +39,6 @@ public class ScoreCanvas : MonoBehaviour
                 break;
         }
         
-        multiplierText.text = "Bonus: x" + PlayerPrefs.GetInt("ScoreMultiplier", 1);
+        multiplierText.text = "Bonus: 70 x " + PlayerPrefs.GetInt("ScoreMultiplier", 1);
     }
 }
