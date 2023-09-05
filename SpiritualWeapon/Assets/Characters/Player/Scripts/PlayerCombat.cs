@@ -82,6 +82,15 @@ public class PlayerCombat : MonoBehaviour
                 chargePlaying = true;
             }
         }
+        else
+        {
+            animator.SetBool("charging", false);
+            if (chargePlaying)
+            {
+                audioSource.Stop();
+                chargePlaying = false;
+            }
+        }
 
         if (canAttack & Input.GetMouseButtonUp(0) & shotCharge > 100) {
             StartCoroutine(Attack());
@@ -92,10 +101,6 @@ public class PlayerCombat : MonoBehaviour
 
     private IEnumerator Attack() {
         canAttack = false;
-        chargePlaying = false;
-        audioSource.Stop();
-
-        animator.SetBool("charging", false);
         animator.SetTrigger("shoot");
 
         random = Random.Range(0, attackClips.Length - 1);
@@ -139,7 +144,6 @@ public class PlayerCombat : MonoBehaviour
     private IEnumerator QuickAttack() {
         canAttack = false;
         shotCharge = 0;
-        animator.SetBool("charging", false);
 
         animator.SetTrigger("shoot");
 
